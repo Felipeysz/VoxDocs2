@@ -44,6 +44,7 @@ namespace VoxDocs.Controllers.Api
         // Login de usuário - PÚBLICO
         [HttpPost]
         [AllowAnonymous]
+        [Consumes("application/json")]  // Garantindo que o tipo de conteúdo seja JSON
         public async Task<IActionResult> Login([FromBody] DTOUserLogin userLoginDto)
         {
             if (string.IsNullOrEmpty(userLoginDto.Usuario)

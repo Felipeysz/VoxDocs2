@@ -45,6 +45,7 @@ namespace VoxDocs.Controllers
             var dto = new DTOUserLogin { Usuario = model.Usuario, Senha = model.Senha };
             var content = new StringContent(JsonSerializer.Serialize(dto), Encoding.UTF8, "application/json");
 
+
             var response = await client.PostAsync("/api/User/Login", content);
             if (!response.IsSuccessStatusCode)
             {
