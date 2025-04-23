@@ -44,37 +44,49 @@ namespace VoxDocs.Controllers.Api
         }
 
 
-        // Login de usuário - PÚBLICO
-        [HttpPost]
+        // POST api/User/Login
+        [HttpPost("Login")]
         [AllowAnonymous]
-        [Consumes("application/json")]  // Garantindo que o tipo de conteúdo seja JSON
+        [Consumes("application/json")]
         public async Task<IActionResult> Login([FromBody] DTOUserLogin userLoginDto)
         {
-            // Validação básica de entrada
-            if (string.IsNullOrEmpty(userLoginDto.Usuario) || string.IsNullOrEmpty(userLoginDto.Senha))
+            // 1) Validação de entrada
+            if (string.IsNullOrWhiteSpace(userLoginDto.Usuario) ||
+                string.IsNullOrWhiteSpace(userLoginDto.Senha))
             {
-                return BadRequest("Usuário e senha são obrigatórios.");
+                return BadRequest(new
+                {
+                    Mensagem = "Usuário e senha são obrigatórios."
+                });
             }
 
-            // Verificar se o usuário já está logado
+            // 2) Verifica se já está logado
             if (TokenService.IsUserLogged(userLoginDto.Usuario))
             {
-                return Conflict("Usuário já está logado. Por favor, tente novamente."); // 409 Conflict
+                return Conflict(new
+                {
+                    Mensagem = "Usuário já está logado. Por favor, tente novamente."
+                });
             }
 
             try
             {
+                // 3) Tenta autenticar
                 var (user, token) = await _userService.LoginUserAsync(userLoginDto);
 
                 if (user == null)
                 {
-                    // Se o usuário não for encontrado, retornar "Conta Inexistente"
-                    return NotFound("Conta Inexistente"); // 404 Not Found
+                    // Usuário não encontrado
+                    return NotFound(new
+                    {
+                        Mensagem = "Conta Inexistente"
+                    });
                 }
 
-                // Se encontrou o usuário e gerou o token
+                // 4) Adiciona token à sessão (ou cache)
                 TokenService.AddToken(user.Usuario, token);
 
+                // 5) Retorna sucesso com token
                 return Ok(new
                 {
                     Token = token,
@@ -84,15 +96,14 @@ namespace VoxDocs.Controllers.Api
             }
             catch (Exception ex)
             {
-                // Se ocorrer um erro inesperado, retorne um erro 500 com a mensagem.
-                return StatusCode(500, new 
-                { 
-                    Mensagem = "Ocorreu um erro interno no servidor.", 
-                    Detalhes = ex.Message 
+                // 6) Erro inesperado
+                return StatusCode(500, new
+                {
+                    Mensagem = "Ocorreu um erro interno no servidor.",
+                    Detalhes = ex.Message
                 });
             }
         }
-
 
 
 
