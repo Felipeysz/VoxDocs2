@@ -15,14 +15,14 @@ namespace VoxDocs.Controllers
 
         public IActionResult Buscar()
         {
-            if (string.IsNullOrEmpty(HttpContext.Session.GetString("JWToken")))
-            {
-                // Se não tiver token, redireciona para o login
-                return RedirectToAction("Login", "LoginMvc");
-            }
+            // if (string.IsNullOrEmpty(HttpContext.Session.GetString("JWToken")))
+            // {
+            //     // Se não tiver token, redireciona para o login
+            //     return RedirectToAction("Login", "LoginMvc");
+            // }
 
-            // Se tiver token, renderiza normalmente a página de busca
-            ViewBag.TokenExpiration = HttpContext.Session.GetString("TokenExpiration");
+            // // Se tiver token, renderiza normalmente a página de busca
+            // ViewBag.TokenExpiration = HttpContext.Session.GetString("TokenExpiration");
             return View();
         }
     }
