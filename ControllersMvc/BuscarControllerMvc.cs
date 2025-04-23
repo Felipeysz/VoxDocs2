@@ -21,8 +21,8 @@ namespace VoxDocs.Controllers
             //     return RedirectToAction("Login", "LoginMvc");
             // }
 
-            // // Se tiver token, renderiza normalmente a página de busca
-            // ViewBag.TokenExpiration = HttpContext.Session.GetString("TokenExpiration");
+            // Se tiver token, renderiza normalmente a página de busca
+            ViewBag.TokenExpiration = HttpContext.Session.GetString("TokenExpiration");
             return View();
         }
     }

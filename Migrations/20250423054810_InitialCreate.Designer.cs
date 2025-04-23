@@ -11,7 +11,7 @@ using VoxDocs.Data;
 namespace VoxDocs.Migrations
 {
     [DbContext(typeof(VoxDocsContext))]
-    [Migration("20250423052921_InitialCreate")]
+    [Migration("20250423054810_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
