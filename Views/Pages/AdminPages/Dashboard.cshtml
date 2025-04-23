@@ -1,0 +1,224 @@
+@{
+    ViewData["Title"] = "Admin Dashboard";
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>@ViewData["Title"] - VoxDocs</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Poppins font + Material Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+  <style>
+      body {
+          font-family: 'Poppins', sans-serif;
+          background-color: #f4f4f4;
+          margin: 0;
+          overflow-x: hidden;
+      }
+
+      /* CONTAINER */
+      .wrapper {
+          display: flex;
+          min-height: 100vh;
+          transition: margin-left 0.3s ease-in-out;
+      }
+      .wrapper.sidebar-open {
+          margin-left: 250px;
+      }
+
+      /* SIDEBAR */
+      #sidebar {
+          width: 250px;
+          background-color: #6257db;
+          padding: 2rem 1rem;
+          position: fixed;
+          top: 0; left: 0; bottom: 0;
+          transform: translateX(-250px);
+          transition: transform 0.3s ease-in-out;
+      }
+      .wrapper.sidebar-open #sidebar {
+          transform: translateX(0);
+      }
+      #sidebar h2 {
+          color: white;
+          font-weight: 900;
+      }
+      .sidebar-link {
+          display: block;
+          color: white;
+          margin: 1rem 0;
+          font-weight: 600;
+          text-decoration: none;
+          padding: 0.5rem 1rem;
+          border-radius: 8px;
+          transition: background-color 0.3s ease;
+      }
+      .sidebar-link:hover {
+          background-color: #5346c9;
+      }
+
+      /* MAIN CONTENT */
+      .content {
+          flex: 1;
+          padding: 2rem;
+          background-color: #fff;
+          border-radius: 16px;
+          margin: 2rem;
+          box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      }
+
+      /* TOGGLE BUTTON */
+      #toggleSidebarBtn {
+          position: fixed;
+          top: 1rem; left: 1rem;
+          background: #6257db;
+          color: white;
+          border: none;
+          border-radius: 50%;
+          width: 50px; height: 50px;
+          font-size: 1.5rem;
+          z-index: 1000;
+          box-shadow: 0 0 10px rgba(0,0,0,0.15);
+          transition: transform 0.3s ease;
+      }
+      #toggleSidebarBtn:hover {
+          background: #5346c9;
+          transform: rotate(90deg);
+      }
+
+      /* CARDS */
+      .card {
+          border: none;
+          border-radius: 16px;
+          box-shadow: 0 0 15px rgba(0,0,0,0.05);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          opacity: 0.95;
+      }
+      .card:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+          opacity: 1;
+      }
+
+      .list-group-item {
+          border: none;
+          border-bottom: 1px solid #eee;
+          font-weight: 500;
+      }
+  </style>
+</head>
+<body>
+
+  <!-- Toggle sidebar button -->
+  <button id="toggleSidebarBtn" class="btn">
+      <span class="material-icons">menu</span>
+  </button>
+
+  <div class="wrapper">
+      <!-- Sidebar -->
+        <nav id="sidebar">
+        <h2 class="text-center mb-4">Painel Admin</h2>
+        <a asp-controller="DashboardMvc" asp-action="Dashboard" class="sidebar-link">Dashboard</a>
+        <a asp-controller="UsersAdminMvc" asp-action="UsersAdmin" class="sidebar-link">Admin Usuários</a>
+        <a asp-controller="TokensMvc" asp-action="Tokens" class="sidebar-link">Tokens</a>
+        <a asp-controller="UploadMvc" asp-action="Upload" class="sidebar-link">Upload de Arquivos</a>
+        </nav>
+
+
+      <!-- Main content -->
+      <main class="content">
+          <div class="mb-4">
+              <h2 class="text-primary">Bem-vindo ao Painel Administrativo</h2>
+              <p class="text-muted">Gerencie facilmente seus dados do sistema abaixo.</p>
+          </div>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <a asp-controller="UsersAdminMvc" asp-action="UsersAdmin" class="text-decoration-none">
+                        <div class="card p-3 text-center">
+                            <h5 class="mb-2">Usuários Cadastrados</h5>
+                            <p class="display-5 fw-bold" id="userCount">0</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a asp-controller="TokensMvc" asp-action="Tokens" class="text-decoration-none">
+                        <div class="card p-3 text-center">
+                            <h5 class="mb-2">Tokens Ativos</h5>
+                            <p class="display-5 fw-bold" id="tokenCount">0</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a asp-controller="UploadMvc" asp-action="Upload" class="text-decoration-none">
+                        <div class="card p-3 text-center">
+                            <h5 class="mb-2">Arquivos Enviados</h5>
+                            <p class="display-5 fw-bold" id="fileCount">0</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+
+          <div class="mt-5">
+              <h3 class="text-muted mb-3">Últimas Ações</h3>
+              <ul class="list-group mb-4">
+                  <li class="list-group-item">Upload realizado por usuário2.pdf</li>
+                  <li class="list-group-item">Token gerado para admin</li>
+                  <li class="list-group-item">Senha alterada para usuário1</li>
+              </ul>
+
+              <!-- Formulário de validação de senha de permissão -->
+              <h4 class="text-primary">Validação de Permission Password</h4>
+              <form id="permissionForm" onsubmit="return validatePermission();">
+                  <div class="mb-3">
+                      <label for="permissionPassword" class="form-label">Digite a Permission Password:</label>
+                      <input type="password" class="form-control" id="permissionPassword" placeholder="Senha de permissão" required />
+                  </div>
+                  <button type="submit" class="btn btn-primary">Validar</button>
+                  <div id="validationMessage" class="mt-3"></div>
+              </form>
+          </div>
+      </main>
+  </div>
+
+  <!-- Bootstrap JS bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+      // Função para alternar sidebar
+      const toggleBtn = document.getElementById('toggleSidebarBtn');
+      const wrapper = document.querySelector('.wrapper');
+
+      toggleBtn.addEventListener('click', () => {
+          wrapper.classList.toggle('sidebar-open');
+      });
+
+      // Sistema de validação de Permission Password
+      function validatePermission() {
+          const password = document.getElementById('permissionPassword').value;
+          const validationMessage = document.getElementById('validationMessage');
+
+          const correctPassword = "12345"; // <-- Aqui você altera para a senha que quiser!
+
+          if (password === correctPassword) {
+              validationMessage.innerHTML = "<div class='alert alert-success'>Senha de permissão correta!</div>";
+              return true;
+          } else {
+              validationMessage.innerHTML = "<div class='alert alert-danger'>Senha de permissão inválida!</div>";
+              return false;
+          }
+      }
+  </script>
+</body>
+</html>

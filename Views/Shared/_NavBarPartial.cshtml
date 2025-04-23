@@ -1,0 +1,84 @@
+@model VoxDocs.DTO.NavBarInfoDTO
+
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center" asp-controller="DashboardMvc" asp-action="Dashboard">
+            <span class="material-icons" style="font-size:36px;">folder_open</span>
+            <span class="ms-2">VoxDocs</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-center" id="navbarItems">
+                <!-- Suporte Voz -->
+                <li class="nav-item me-2">
+                    <form method="get" asp-controller="NavBarMvc" asp-action="PublicSupport" class="m-0">
+                        <button type="submit" class="btn btn-custom d-flex align-items-center">
+                            <span class="material-icons me-1">mic</span>
+                            <span class="d-none d-md-inline">Suporte Voz</span>
+                        </button>
+                    </form>
+                </li>
+
+                <li class="nav-item me-2">
+                    <form asp-controller="DashboardMvc" asp-action="Dashboard" class="m-0">
+                        <button type="submit" class="btn btn-custom d-flex align-items-center">
+                            <span class="material-icons me-1">dashboard</span>
+                            <span class="d-none d-md-inline">Dashboard</span>
+                        </button>
+                    </form>
+                </li>
+
+                <!-- Logout -->
+                <li class="nav-item me-2">
+                    <form method="post" asp-controller="NavBarMvc" asp-action="Logout" class="m-0">
+                        @Html.AntiForgeryToken()
+                        <button type="submit" class="btn btn-custom d-flex align-items-center">
+                            <span class="material-icons me-1">logout</span>
+                            <span class="d-none d-md-inline">Logout</span>
+                        </button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- <script>
+    (function() {
+        var permissionAccount = localStorage.getItem('permissionAccount');
+        if (permissionAccount === "admin") {
+            var navbarItems = document.getElementById('navbarItems');
+            var dashboardItem = document.createElement('li');
+            dashboardItem.classList.add('nav-item', 'me-2');
+            dashboardItem.innerHTML = `
+                <form method="get" asp-controller="NavBarMvc" asp-action="Dashboard" class="m-0">
+                    <button type="submit" class="btn btn-custom d-flex align-items-center">
+                        <span class="material-icons me-1">dashboard</span>
+                        <span class="d-none d-md-inline">Dashboard</span>
+                    </button>
+                </form>
+            `;
+            navbarItems.insertBefore(dashboardItem, navbarItems.firstChild);
+        }
+    })();
+</script> -->
+
+<style>
+    .navbar {
+        background-color: #ffffff;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .btn-custom {
+        background-color: #6257db;
+        color: #fff;
+        font-weight: 500;
+        border-radius: 8px;
+        padding: 0.5rem 1rem;
+    }
+    .btn-custom:hover {
+        background-color: #5346c9;
+        color: #fff;
+    }
+</style>
