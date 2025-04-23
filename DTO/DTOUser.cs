@@ -25,4 +25,11 @@ namespace VoxDocs.DTO
         public required string Token { get; set; }
         public required string TempoRestante { get; set; }
     }
+
+    public class ErrorResponse
+    {
+        public string Mensagem { get; set; }
+        public string Detalhes { get; set; }
+    }
+
 }

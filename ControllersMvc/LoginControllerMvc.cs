@@ -45,40 +45,57 @@ namespace VoxDocs.Controllers
             var dto = new DTOUserLogin { Usuario = model.Usuario, Senha = model.Senha };
             var content = new StringContent(JsonSerializer.Serialize(dto), Encoding.UTF8, "application/json");
 
-
             var response = await client.PostAsync("/api/User/Login", content);
+
             if (!response.IsSuccessStatusCode)
             {
-                TempData["LoginError"] = "Usuário ou senha inválidos."; // Erro de autenticação
+                // Trata erro específico retornado pela API
+                if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+                {
+                    TempData["LoginError"] = "Usuário ou senha inválidos.";
+                }
+                else if (response.StatusCode == System.Net.HttpStatusCode.Conflict)
+                {
+                    TempData["LoginError"] = "Usuário já está logado. Por favor, tente novamente.";
+                }
+                else if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
+                {
+                    TempData["LoginError"] = "Campos obrigatórios não preenchidos corretamente.";
+                }
+                else if (response.StatusCode == System.Net.HttpStatusCode.InternalServerError)
+                {
+                    // Aqui, capturamos o erro 500 e mostramos a mensagem ao usuário
+                    var payload = await response.Content.ReadAsStringAsync();
+                    var error = JsonSerializer.Deserialize<ErrorResponse>(payload);
+                    TempData["LoginError"] = error?.Mensagem ?? "Ocorreu um erro no servidor.";
+                }
+                else
+                {
+                    TempData["LoginError"] = "Erro desconhecido ao tentar fazer login.";
+                }
                 return View(model);
             }
 
-            // lê o payload bruto
-            var payload = await response.Content.ReadAsStringAsync();
-            Console.WriteLine("[Login] payload: " + payload);
+            var payloadResponse = await response.Content.ReadAsStringAsync();
+            Console.WriteLine("[Login] payload: " + payloadResponse);
 
-            using var doc = JsonDocument.Parse(payload);
-            JsonElement tokElem;
-            if (!doc.RootElement.TryGetProperty("Token", out tokElem) &&
-                !doc.RootElement.TryGetProperty("token", out tokElem))
+            using var doc = JsonDocument.Parse(payloadResponse);
+            JsonElement tokenElement;
+            if (!doc.RootElement.TryGetProperty("Token", out tokenElement))
             {
                 TempData["LoginError"] = "Resposta inválida do servidor (token não encontrado)."; // Erro na resposta
                 return View(model);
             }
 
-            var token = tokElem.GetString();
-            // salva JWT
+            var token = tokenElement.GetString();
             HttpContext.Session.SetString("JWToken", token);
 
-            // extrai expiração do próprio JWT
             var jwt = new JwtSecurityTokenHandler().ReadJwtToken(token);
-            var expiresUtc = jwt.ValidTo; // já em UTC
-
-            // salva expiração em ISO (round‑trip)
+            var expiresUtc = jwt.ValidTo;
             HttpContext.Session.SetString("TokenExpiration", expiresUtc.ToString("o"));
 
-            // redireciona para a página de busca
             return RedirectToAction("Buscar", "BuscarMvc");
         }
+
     }
 }

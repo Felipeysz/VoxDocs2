@@ -17,6 +17,22 @@ namespace VoxDocs.Configurations
                     Description = "API para gerenciar usuários no sistema."
                 });
 
+                
+                c.AddSwaggerGen(c =>
+                {
+                    // Configuração do Swagger
+                    c.SwaggerDoc("v1", new OpenApiInfo
+                    {
+                        Title = "API de Usuários",
+                        Version = "v1",
+                        Description = "API para gerenciar usuários no sistema."
+                    });
+
+                    // Definindo um schema de erro 500
+                    c.AddResponseType(500, new OpenApiResponse { Description = "Erro interno no servidor." });
+                });
+
+
                 // Define o esquema de segurança JWT no Swagger
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {

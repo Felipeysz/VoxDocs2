@@ -49,26 +49,41 @@ namespace VoxDocs.Controllers.Api
         {
             if (string.IsNullOrEmpty(userLoginDto.Usuario)
             || string.IsNullOrEmpty(userLoginDto.Senha))
+            {
                 return BadRequest("Usuário e senha são obrigatórios.");
+            }
 
             // Verificar se o usuário já está logado
             if (TokenService.IsUserLogged(userLoginDto.Usuario))
-                return Conflict("Usuário já está logado. Por favor, tente novamente."); // 409 Conflict
-
-            var (user, token) = await _userService.LoginUserAsync(userLoginDto);
-
-            if (user == null)
-                return Unauthorized("Usuário ou senha inválidos.");
-
-            TokenService.AddToken(user.Usuario, token);
-
-            return Ok(new
             {
-                Token = token,
-                Usuario = user.Usuario,
-                Mensagem = "Login realizado com sucesso!"
-            });
+                return Conflict("Usuário já está logado. Por favor, tente novamente."); // 409 Conflict
+            }
+
+            try
+            {
+                var (user, token) = await _userService.LoginUserAsync(userLoginDto);
+
+                if (user == null)
+                {
+                    return Unauthorized("Usuário ou senha inválidos.");
+                }
+
+                TokenService.AddToken(user.Usuario, token);
+
+                return Ok(new
+                {
+                    Token = token,
+                    Usuario = user.Usuario,
+                    Mensagem = "Login realizado com sucesso!"
+                });
+            }
+            catch (Exception ex)
+            {
+                // Se ocorrer um erro inesperado, retorne um erro 500 com a mensagem.
+                return StatusCode(500, new { Mensagem = "Ocorreu um erro interno no servidor.", Detalhes = ex.Message });
+            }
         }
+
 
 
         [HttpPost]
