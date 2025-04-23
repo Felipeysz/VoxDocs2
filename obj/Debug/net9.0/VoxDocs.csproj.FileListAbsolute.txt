@@ -525,12 +525,6 @@ C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\bin\Debug\net9.0\Microsoft.Asp
 C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\bin\Debug\net9.0\Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.dll
 C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\bin\Debug\net9.0\Microsoft.AspNetCore.Razor.Language.dll
 C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\bin\Debug\net9.0\Microsoft.CodeAnalysis.Razor.dll
-C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\bin\Debug\net9.0\publish\web.config
-C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\bin\Debug\net9.0\publish\appsettings.Development.json
-C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\bin\Debug\net9.0\publish\appsettings.json
-C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\bin\Debug\net9.0\publish\VoxDocs.deps.json
-C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\bin\Debug\net9.0\publish\VoxDocs.runtimeconfig.json
-C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\bin\Debug\net9.0\publish\VoxDocs.staticwebassets.endpoints.json
 C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\obj\Debug\net9.0\VoxDocs.sourcelink.json
 C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\obj\Debug\net9.0\compressed\8gxti4ggfv-573ejzo0le.gz
 C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\obj\Debug\net9.0\compressed\9109lnlxib-2u8o5lmyjc.gz

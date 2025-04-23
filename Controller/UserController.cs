@@ -45,7 +45,7 @@ namespace VoxDocs.Controllers.Api
 
 
         // POST api/User/Login
-        [HttpPost("Login")]
+        [HttpPost]
         [AllowAnonymous]
         [Consumes("application/json")]
         public async Task<IActionResult> Login([FromBody] DTOUserLogin userLoginDto)

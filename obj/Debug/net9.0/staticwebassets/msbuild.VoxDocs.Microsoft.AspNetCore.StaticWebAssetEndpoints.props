@@ -100,13 +100,13 @@
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\BuscarDocumentos\ModalDocumentos.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-/Tjwthyi51HDAI2wgOe9A84SF0h8zdesJogLBM9a6c8="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"998"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022/Tjwthyi51HDAI2wgOe9A84SF0h8zdesJogLBM9a6c8=\u0022"},{"Name":"Last-Modified","Value":"Wed, 23 Apr 2025 10:24:41 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"998"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022/Tjwthyi51HDAI2wgOe9A84SF0h8zdesJogLBM9a6c8=\u0022"},{"Name":"Last-Modified","Value":"Wed, 23 Apr 2025 10:25:09 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/VoxDocs/js/BuscarDocumentos/ModalDocumentos.vlbpc93lmj.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\BuscarDocumentos\ModalDocumentos.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"vlbpc93lmj"},{"Name":"integrity","Value":"sha256-/Tjwthyi51HDAI2wgOe9A84SF0h8zdesJogLBM9a6c8="},{"Name":"label","Value":"_content/VoxDocs/js/BuscarDocumentos/ModalDocumentos.js"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"998"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022/Tjwthyi51HDAI2wgOe9A84SF0h8zdesJogLBM9a6c8=\u0022"},{"Name":"Last-Modified","Value":"Wed, 23 Apr 2025 10:24:41 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"998"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022/Tjwthyi51HDAI2wgOe9A84SF0h8zdesJogLBM9a6c8=\u0022"},{"Name":"Last-Modified","Value":"Wed, 23 Apr 2025 10:25:09 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/VoxDocs/js/BuscarDocumentos/TemporizadorDocumentos.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\BuscarDocumentos\TemporizadorDocumentos.js'))</AssetFile>
