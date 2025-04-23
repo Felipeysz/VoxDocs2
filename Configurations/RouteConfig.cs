@@ -30,41 +30,22 @@ namespace VoxDocs.Configurations
             app.UseAuthentication();
             app.UseAuthorization();
 
-            // Redirecionamento da raiz para Swagger ou Login conforme a porta
-            app.Use(async (context, next) =>
+            // Ativa Swagger em qualquer ambiente
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
             {
-                var path = context.Request.Path.Value?.ToLower();
-                if (path == "/" || path == "/index.html")
-                {
-                    var port = context.Request.Host.Port;
-                    if (port == 5151)
-                    {
-                        context.Response.Redirect("/swagger/index.html");
-                    }
-                    else
-                    {
-                        context.Response.Redirect("/Login");
-                    }
-                    return;
-                }
-
-                await next();
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "API de Usuários v1");
+                c.RoutePrefix = "swagger"; // Mantém o Swagger disponível em /swagger
             });
 
-            // Ativa Swagger apenas em desenvolvimento
-            if (app.Environment.IsDevelopment())
-            {
-                app.UseSwagger();
-                app.UseSwaggerUI(c =>
-                {
-                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "API de Usuários v1");
-                    c.RoutePrefix = "swagger";
-                });
-            }
 
             // Mapeamento de rotas
-            app.MapControllers();
 
+            app.MapControllerRoute(
+                name: "api",
+                pattern: "api/{controller}/{action=Index}/{id?}");
+
+            // Depois mapear as rotas específicas das páginas MVC
             app.MapControllerRoute(
                 name: "Login",
                 pattern: "Login",
@@ -80,10 +61,7 @@ namespace VoxDocs.Configurations
                 pattern: "Buscar",
                 defaults: new { controller = "BuscarMvc", action = "Buscar" });
 
-
-
-
-            //Route para o Admin Pages
+            // Rotas Admin Pages
             app.MapControllerRoute(
                 name: "Dashboard",
                 pattern: "Dashboard",
@@ -103,6 +81,7 @@ namespace VoxDocs.Configurations
                 name: "UsersAdmin",
                 pattern: "UsersAdmin",
                 defaults: new { controller = "UsersAdminMvc", action = "UsersAdmin" });
+
         }
     }
 }

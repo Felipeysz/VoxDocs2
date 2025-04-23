@@ -51,6 +51,8 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
+app.UseDeveloperExceptionPage();
+
 // 9) Session
 app.UseCustomSession();
 
