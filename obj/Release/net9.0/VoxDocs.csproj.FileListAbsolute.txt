@@ -528,3 +528,4 @@ C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\obj\Release\net9.0\refint\VoxD
 C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\obj\Release\net9.0\VoxDocs.pdb
 C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\obj\Release\net9.0\VoxDocs.genruntimeconfig.cache
 C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\obj\Release\net9.0\ref\VoxDocs.dll
+C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\obj\Release\net9.0\VoxDocs.sourcelink.json
