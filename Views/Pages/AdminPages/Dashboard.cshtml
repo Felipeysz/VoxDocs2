@@ -1,6 +1,47 @@
 @{
     ViewData["Title"] = "Admin Dashboard";
-    Layout = null;
+    Layout = null;  // sem layout compartilhado
+}
+
+<!-- Valida permissão no client: se não for admin, redireciona para Busca -->
+@section Scripts {
+    <script>
+        (async function () {
+            const token = localStorage.getItem('Bearer_Token');
+
+            if (!token) {
+                console.error('[DEBUG] Nenhum token encontrado.');
+                window.location.href = '@Url.Action("Buscar", "BuscarMvc")';
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/User/GetUserPermission', {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+
+                if (!response.ok) {
+                    console.error('[DEBUG] Token inválido ou erro na requisição.');
+                    window.location.href = '@Url.Action("Buscar", "BuscarMvc")';
+                    return;
+                }
+
+                const data = await response.json();
+                const permission = data.permissionAccount; // Backend precisa devolver algo como { "permissionAccount": "admin" }
+
+                if (permission !== 'admin') {
+                    console.warn('[DEBUG] Permissão insuficiente: ' + permission);
+                    window.location.href = '@Url.Action("Buscar", "BuscarMvc")';
+                }
+            } catch (error) {
+                console.error('[DEBUG] Erro na verificação de permissão:', error);
+                window.location.href = '@Url.Action("Buscar", "BuscarMvc")';
+            }
+        })();
+    </script>
 }
 
 
@@ -17,105 +58,7 @@
   <!-- Poppins font + Material Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-
-  <style>
-      body {
-          font-family: 'Poppins', sans-serif;
-          background-color: #f4f4f4;
-          margin: 0;
-          overflow-x: hidden;
-      }
-
-      /* CONTAINER */
-      .wrapper {
-          display: flex;
-          min-height: 100vh;
-          transition: margin-left 0.3s ease-in-out;
-      }
-      .wrapper.sidebar-open {
-          margin-left: 250px;
-      }
-
-      /* SIDEBAR */
-      #sidebar {
-          width: 250px;
-          background-color: #6257db;
-          padding: 2rem 1rem;
-          position: fixed;
-          top: 0; left: 0; bottom: 0;
-          transform: translateX(-250px);
-          transition: transform 0.3s ease-in-out;
-      }
-      .wrapper.sidebar-open #sidebar {
-          transform: translateX(0);
-      }
-      #sidebar h2 {
-          color: white;
-          font-weight: 900;
-      }
-      .sidebar-link {
-          display: block;
-          color: white;
-          margin: 1rem 0;
-          font-weight: 600;
-          text-decoration: none;
-          padding: 0.5rem 1rem;
-          border-radius: 8px;
-          transition: background-color 0.3s ease;
-      }
-      .sidebar-link:hover {
-          background-color: #5346c9;
-      }
-
-      /* MAIN CONTENT */
-      .content {
-          flex: 1;
-          padding: 2rem;
-          background-color: #fff;
-          border-radius: 16px;
-          margin: 2rem;
-          box-shadow: 0 0 15px rgba(0,0,0,0.1);
-      }
-
-      /* TOGGLE BUTTON */
-      #toggleSidebarBtn {
-          position: fixed;
-          top: 1rem; left: 1rem;
-          background: #6257db;
-          color: white;
-          border: none;
-          border-radius: 50%;
-          width: 50px; height: 50px;
-          font-size: 1.5rem;
-          z-index: 1000;
-          box-shadow: 0 0 10px rgba(0,0,0,0.15);
-          transition: transform 0.3s ease;
-      }
-      #toggleSidebarBtn:hover {
-          background: #5346c9;
-          transform: rotate(90deg);
-      }
-
-      /* CARDS */
-      .card {
-          border: none;
-          border-radius: 16px;
-          box-shadow: 0 0 15px rgba(0,0,0,0.05);
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
-          opacity: 0.95;
-      }
-      .card:hover {
-          transform: translateY(-8px);
-          box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-          opacity: 1;
-      }
-
-      .list-group-item {
-          border: none;
-          border-bottom: 1px solid #eee;
-          font-weight: 500;
-      }
-  </style>
+  <link href="~/css/AdminStyles/Dashboard/Dashboard.css" rel="stylesheet" />
 </head>
 <body>
 
@@ -126,14 +69,13 @@
 
   <div class="wrapper">
       <!-- Sidebar -->
-        <nav id="sidebar">
+      <nav id="sidebar">
         <h2 class="text-center mb-4">Painel Admin</h2>
         <a asp-controller="DashboardMvc" asp-action="Dashboard" class="sidebar-link">Dashboard</a>
         <a asp-controller="UsersAdminMvc" asp-action="UsersAdmin" class="sidebar-link">Admin Usuários</a>
         <a asp-controller="TokensMvc" asp-action="Tokens" class="sidebar-link">Tokens</a>
         <a asp-controller="UploadMvc" asp-action="Upload" class="sidebar-link">Upload de Arquivos</a>
-        </nav>
-
+      </nav>
 
       <!-- Main content -->
       <main class="content">

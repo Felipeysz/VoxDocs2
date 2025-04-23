@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Microsoft.AspNetCore.Http;
 
 namespace VoxDocs.Controllers
 {
@@ -15,14 +14,8 @@ namespace VoxDocs.Controllers
 
         public IActionResult Buscar()
         {
-            if (string.IsNullOrEmpty(HttpContext.Session.GetString("JWToken")))
-            {
-                // Se não tiver token, redireciona para o login
-                return RedirectToAction("Login", "LoginMvc");
-            }
-
-            // Se tiver token, renderiza normalmente a página de busca
-            ViewBag.TokenExpiration = HttpContext.Session.GetString("TokenExpiration");
+            // A verificação de token passa a ser feita no JS da própria View
+            ViewData["Title"] = "Buscar Documentos";
             return View();
         }
     }

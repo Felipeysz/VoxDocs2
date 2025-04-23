@@ -1,20 +1,64 @@
 {
   "Files": [
     {
+      "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\AdminStyles\\Dashboard\\Dashboard.css",
+      "PackagePath": "staticwebassets\\css\\AdminStyles\\Dashboard\\Dashboard.css"
+    },
+    {
+      "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\AdminStyles\\Tokens\\Tokens.css",
+      "PackagePath": "staticwebassets\\css\\AdminStyles\\Tokens\\Tokens.css"
+    },
+    {
+      "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\AdminStyles\\Upload\\Upload.css",
+      "PackagePath": "staticwebassets\\css\\AdminStyles\\Upload\\Upload.css"
+    },
+    {
+      "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\AdminStyles\\UserAdmin\\UserAdmin.css",
+      "PackagePath": "staticwebassets\\css\\AdminStyles\\UserAdmin\\UserAdmin.css"
+    },
+    {
+      "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\Buscar.css",
+      "PackagePath": "staticwebassets\\css\\Buscar.css"
+    },
+    {
+      "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\Login.css",
+      "PackagePath": "staticwebassets\\css\\Login.css"
+    },
+    {
       "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\BuscarDocumentos.js",
-      "PackagePath": "staticwebassets\\js\\BuscarDocumentos.js"
+      "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\BuscarDocumentos\\GerarDocumentos.js",
+      "PackagePath": "staticwebassets\\js\\BuscarDocumentos\\GerarDocumentos.js"
     },
     {
-      "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\Dashboard.js",
-      "PackagePath": "staticwebassets\\js\\Dashboard.js"
+      "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\BuscarDocumentos\\ModalDocumentos.js",
+      "PackagePath": "staticwebassets\\js\\BuscarDocumentos\\ModalDocumentos.js"
     },
     {
-      "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\site.js",
-      "PackagePath": "staticwebassets\\js\\site.js"
+      "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\BuscarDocumentos\\TemporizadorDocumentos.js",
+      "PackagePath": "staticwebassets\\js\\BuscarDocumentos\\TemporizadorDocumentos.js"
+    },
+    {
+      "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\BuscarDocumentos\\ValidationToken.js",
+      "PackagePath": "staticwebassets\\js\\BuscarDocumentos\\ValidationToken.js"
+    },
+    {
+      "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\Dashboard\\Dashboard.js",
+      "PackagePath": "staticwebassets\\js\\Dashboard\\Dashboard.js"
+    },
+    {
+      "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\NavbarScripts\\ClearStorage.js",
+      "PackagePath": "staticwebassets\\js\\NavbarScripts\\ClearStorage.js"
+    },
+    {
+      "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\NavbarScripts\\DashboardVisible.js",
+      "PackagePath": "staticwebassets\\js\\NavbarScripts\\DashboardVisible.js"
+    },
+    {
+      "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\NavbarScripts\\LoggoutScript.js",
+      "PackagePath": "staticwebassets\\js\\NavbarScripts\\LoggoutScript.js"
     },
     {
       "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\lib\\bootstrap\\LICENSE",

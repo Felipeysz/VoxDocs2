@@ -16,7 +16,6 @@ C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\obj\Debug\net9.0\VoxDocs.Razor
 C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\obj\Debug\net9.0\VoxDocs.RazorAssemblyInfo.cs
 C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\obj\Debug\net9.0\scopedcss\bundle\VoxDocs.styles.css
 C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\obj\Debug\net9.0\compressed\is8c6dxajd-61n19gt1b8.gz
-C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\obj\Debug\net9.0\compressed\j0ovg5a0m5-xtxxf3hu2r.gz
 C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\obj\Debug\net9.0\compressed\ua0gj7tcei-bqjiyaj88i.gz
 C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\obj\Debug\net9.0\compressed\rz9nvr4yvk-c2jlpeoesf.gz
 C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\obj\Debug\net9.0\compressed\ia89cl62qx-erw9l3u2r3.gz
@@ -90,7 +89,6 @@ C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\obj\Debug\net9.0\refint\VoxDoc
 C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\obj\Debug\net9.0\VoxDocs.pdb
 C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\obj\Debug\net9.0\VoxDocs.genruntimeconfig.cache
 C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\obj\Debug\net9.0\ref\VoxDocs.dll
-C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\obj\Debug\net9.0\compressed\tvzi5xepbv-573ejzo0le.gz
 C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\obj\Debug\net9.0\VoxDocs.csproj.AssemblyReference.cache
 C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\obj\Debug\net9.0\VoxDocs.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\bin\Debug\net9.0\Microsoft.OpenApi.dll
@@ -527,7 +525,6 @@ C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\bin\Debug\net9.0\Microsoft.Asp
 C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\bin\Debug\net9.0\Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.dll
 C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\bin\Debug\net9.0\Microsoft.AspNetCore.Razor.Language.dll
 C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\bin\Debug\net9.0\Microsoft.CodeAnalysis.Razor.dll
-C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\obj\Debug\net9.0\compressed\6110yimgjm-wl7dw3l2rx.gz
 C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\bin\Debug\net9.0\publish\web.config
 C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\bin\Debug\net9.0\publish\appsettings.Development.json
 C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\bin\Debug\net9.0\publish\appsettings.json
@@ -535,3 +532,17 @@ C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\bin\Debug\net9.0\publish\VoxDo
 C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\bin\Debug\net9.0\publish\VoxDocs.runtimeconfig.json
 C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\bin\Debug\net9.0\publish\VoxDocs.staticwebassets.endpoints.json
 C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\obj\Debug\net9.0\VoxDocs.sourcelink.json
+C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\obj\Debug\net9.0\compressed\8gxti4ggfv-573ejzo0le.gz
+C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\obj\Debug\net9.0\compressed\9109lnlxib-2u8o5lmyjc.gz
+C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\obj\Debug\net9.0\compressed\6ibapyk6xj-0vyaf86ex5.gz
+C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\obj\Debug\net9.0\compressed\n4i0hypjy4-d92by4x7m2.gz
+C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\obj\Debug\net9.0\compressed\clx4jy4zhr-n8xe5fizqh.gz
+C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\obj\Debug\net9.0\compressed\ki9p84efl7-dk69j4qigh.gz
+C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\obj\Debug\net9.0\compressed\9zgsu8glj3-rdkddilu7x.gz
+C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\obj\Debug\net9.0\compressed\1k9rbhvqzn-k8sfrjywjx.gz
+C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\obj\Debug\net9.0\compressed\uo0081m9bh-86pscseke3.gz
+C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\obj\Debug\net9.0\compressed\kckdmy0hwx-wn5di0corn.gz
+C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\obj\Debug\net9.0\compressed\kwwink7mky-5m6rkr0bil.gz
+C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\obj\Debug\net9.0\compressed\6s06nql08i-lax5nrmg3r.gz
+C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\obj\Debug\net9.0\compressed\hm56h4jejg-usf04hfl3i.gz
+C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\obj\Debug\net9.0\compressed\z5y9ogi3u7-vlbpc93lmj.gz

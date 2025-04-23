@@ -28,8 +28,15 @@ namespace VoxDocs.DTO
 
     public class ErrorResponse
     {
-        public string Mensagem { get; set; }
-        public string Detalhes { get; set; }
+        public required string Mensagem { get; set; }
+        public required string Detalhes { get; set; }
+    }
+
+    public class YourCustomDto
+    {
+        public required string Usuario { get; set; }
+        public required string PermissionAccount { get; set; }
+        public required string BearerToken { get; set; }
     }
 
 }

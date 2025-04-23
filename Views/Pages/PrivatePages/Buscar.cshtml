@@ -9,167 +9,58 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-
-    <style>
-        /* estilização da página de busca */
-        .buscar-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 80vh;
-            padding: 1rem;
-        }
-        .buscar-card {
-            background: #fff;
-            border-radius: 12px;
-            padding: 2.5rem;
-            box-shadow: 0 0 20px rgba(0,0,0,0.08);
-            width: 100%;
-            max-width: 600px;
-            position: relative;
-        }
-        .buscar-card h1 {
-            font-size: 2.5rem;
-            color: #2e2e2e;
-            font-weight: 900;
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        .search-bar-wrapper {
-            display: flex;
-            gap: .8rem;
-            margin-bottom: 1.5rem;
-            align-items: center;
-        }
-        .search-input-group {
-            position: relative;
-            flex-grow: 1;
-        }
-        .search-input-group input {
-            width: 100%;
-            padding: .9rem 3rem .9rem 1rem;
-            border-radius: 10px;
-            border: 1px solid #ced4da;
-            font-size: 1rem;
-            transition: border-color .3s;
-        }
-        .search-input-group input:focus {
-            border-color: #6257db;
-            box-shadow: 0 0 0 .2rem rgba(98,87,219,.25);
-            outline: none;
-        }
-        .search-button {
-            position: absolute;
-            top: 50%;
-            right: .5rem;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            color: #6257db;
-            cursor: pointer;
-        }
-        .search-button .material-symbols-outlined {
-            font-size: 28px;
-        }
-        .btn-filter {
-            background-color: #6257db;
-            border: none;
-            border-radius: 10px;
-            padding: .8rem 1.2rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: .5rem;
-            color: #fff;
-            transition: background-color .3s, transform .3s;
-        }
-        .btn-filter:hover {
-            background-color: #5346c9;
-            transform: translateY(-2px);
-        }
-        .documents-list {
-            margin-top: 2rem;
-            max-height: 300px;
-            overflow-y: auto;
-            background: #f8f9fa;
-            padding: 1rem;
-            border-radius: 10px;
-            box-shadow: inset 0 0 5px rgba(0,0,0,.05);
-        }
-        .document-item {
-            background: #fff;
-            border: 1px solid #dee2e6;
-            border-radius: 8px;
-            padding: 1rem;
-            margin-bottom: .8rem;
-            cursor: pointer;
-            transition: transform .3s, box-shadow .3s;
-        }
-        .document-item:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 4px 12px rgba(0,0,0,.1);
-        }
-    </style>
+    <link href="~/css/Buscar.css" rel="stylesheet" />
 }
 
 <div class="buscar-container">
     <div class="buscar-card">
-        <h1>Buscar Documentos</h1>
+        <h1>
+            Buscar Documentos
+            <span id="timer"></span>
+        </h1>
 
         <div class="search-bar-wrapper">
             <div class="search-input-group">
                 <input type="text" class="form-control" id="searchInput" placeholder="Digite o nome do documento" />
-                <button type="button" class="search-button" onclick="generateRandomDocuments()">
+                <button type="button" class="search-button" onclick="searchDocuments()">
                     <span class="material-symbols-outlined">search</span>
                 </button>
             </div>
-            <button class="btn-filter" type="button" onclick="openFilterModal()">
-                <span class="material-symbols-outlined">filter_list</span>
-            </button>
+        <button class="btn-filter" type="button" id="openFilterButton">
+            <span class="material-symbols-outlined">filter_list</span>
+        </button>
         </div>
 
         <div class="documents-list" id="documentsList">
-            <!-- Documentos serão carregados aqui via JS -->
         </div>
+
+        <!-- Modal de Código para Abrir Documento -->
+        <div class="modal fade" id="documentCodeModal" tabindex="-1" aria-labelledby="documentCodeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="documentCodeModalLabel">Digite o Código do Documento</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="documentCodeInput" class="form-control" placeholder="Código do Documento" />
+                <div id="codeError" class="text-danger mt-2" style="display:none;">Por favor, digite o código.</div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" onclick="confirmDocumentCode()">Confirmar</button>
+            </div>
+            </div>
+        </div>
+        </div>
+
+
+
     </div>
 </div>
-
 @section Scripts {
-    <script src="~/js/BuscarDocumentos.js"></script>
-
-    <script>
-        // Timer de expiração de sessão
-        const expString = '@ViewBag.TokenExpiration';
-        const container = document.querySelector('.buscar-card');
-        const timerSpan = document.createElement('span');
-        timerSpan.id = 'timer';
-        timerSpan.className = 'fw-semibold text-danger fs-5 d-block text-center mb-3';
-        container.insertBefore(timerSpan, container.firstChild);
-
-        if (expString && expString.trim()) {
-            const expiration = new Date(expString);
-            if (!isNaN(expiration)) {
-                const tick = () => {
-                    const diff = expiration - new Date();
-                    if (diff <= 0) {
-                        window.location.href = '@Url.Action("Login","Login")';
-                        return;
-                    }
-                    const m = Math.floor(diff / 60000);
-                    const s = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
-                    timerSpan.textContent = `Sessão expira em: ${m}:${s}`;
-                };
-                tick();
-                setInterval(tick, 1000);
-            } else {
-                timerSpan.textContent = 'Erro no temporizador';
-            }
-        } else {
-            timerSpan.textContent = 'Sessão expirada';
-        }
-
-        function openFilterModal() {
-            alert('Aqui abriria um filtro para documentos.');
-        }
-    </script>
+    <script src="@Url.Content("~/js/BuscarDocumentos/ValidationToken.js")"></script>
+    <script src="@Url.Content("~/js/BuscarDocumentos/GerarDocumentos.js")"></script>
+    <script src="@Url.Content("~/js/BuscarDocumentos/TemporizadorDocumentos.js")"></script>
+    <script src="@Url.Content("~/js/BuscarDocumentos/ModalDocumentos.js")"></script>
 }

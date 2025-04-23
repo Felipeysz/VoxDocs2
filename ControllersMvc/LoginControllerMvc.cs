@@ -1,13 +1,13 @@
 using System;
-using System.IdentityModel.Tokens.Jwt;
-using System.Net.Http;
+using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using System.Net;
+using System.Net.Http;
+using System.IdentityModel.Tokens.Jwt;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
 using VoxDocs.DTO;
 using VoxDocs.Models;
 
@@ -16,20 +16,15 @@ namespace VoxDocs.Controllers
     public class LoginMvcController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
-        private readonly IConfiguration _configuration;
 
-        public LoginMvcController(IHttpClientFactory httpClientFactory, IConfiguration configuration)
+        public LoginMvcController(IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;
-            _configuration = configuration;
         }
 
         [HttpGet]
         [AllowAnonymous]
-        public IActionResult Login()
-        {
-            return View();
-        }
+        public IActionResult Login() => View();
 
         [HttpPost]
         [AllowAnonymous]
@@ -37,65 +32,59 @@ namespace VoxDocs.Controllers
         {
             if (!ModelState.IsValid)
             {
-                TempData["LoginError"] = "Por favor, preencha todos os campos corretamente."; // Passa erro de validação
+                TempData["LoginError"] = "Por favor, preencha todos os campos corretamente.";
                 return View(model);
             }
 
+            // Chama a API
             var client = _httpClientFactory.CreateClient("VoxDocsApi");
-            var dto = new DTOUserLogin { Usuario = model.Usuario, Senha = model.Senha };
-            var content = new StringContent(JsonSerializer.Serialize(dto), Encoding.UTF8, "application/json");
+            var dto    = new DTOUserLogin { Usuario = model.Usuario, Senha = model.Senha };
+            var content = new StringContent(
+                JsonSerializer.Serialize(dto),
+                Encoding.UTF8,
+                "application/json"
+            );
 
             var response = await client.PostAsync("/api/User/Login", content);
-
             if (!response.IsSuccessStatusCode)
             {
-                // Trata erro específico retornado pela API
-                if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
-                {
+                if (response.StatusCode == HttpStatusCode.NotFound)
+                    TempData["LoginError"] = "Conta Inexistente.";
+                else if (response.StatusCode == HttpStatusCode.Unauthorized)
                     TempData["LoginError"] = "Usuário ou senha inválidos.";
-                }
-                else if (response.StatusCode == System.Net.HttpStatusCode.Conflict)
-                {
-                    TempData["LoginError"] = "Usuário já está logado. Por favor, tente novamente.";
-                }
-                else if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
-                {
-                    TempData["LoginError"] = "Campos obrigatórios não preenchidos corretamente.";
-                }
-                else if (response.StatusCode == System.Net.HttpStatusCode.InternalServerError)
-                {
-                    // Aqui, capturamos o erro 500 e mostramos a mensagem ao usuário
-                    var payload = await response.Content.ReadAsStringAsync();
-                    var error = JsonSerializer.Deserialize<ErrorResponse>(payload);
-                    TempData["LoginError"] = error?.Mensagem ?? "Ocorreu um erro no servidor.";
-                }
                 else
-                {
-                    TempData["LoginError"] = "Erro desconhecido ao tentar fazer login.";
-                }
+                    TempData["LoginError"] = "Erro ao fazer login.";
                 return View(model);
             }
 
-            var payloadResponse = await response.Content.ReadAsStringAsync();
-            Console.WriteLine("[Login] payload: " + payloadResponse);
-
-            using var doc = JsonDocument.Parse(payloadResponse);
-            JsonElement tokenElement;
-            if (!doc.RootElement.TryGetProperty("Token", out tokenElement))
+            // Lê o JSON de resposta
+            var payload = await response.Content.ReadAsStringAsync();
+            using var doc = JsonDocument.Parse(payload);
+            if (!doc.RootElement.TryGetProperty("Token", out var tokElem)
+             && !doc.RootElement.TryGetProperty("token", out tokElem))
             {
-                TempData["LoginError"] = "Resposta inválida do servidor (token não encontrado)."; // Erro na resposta
+                TempData["LoginError"] = "Resposta inválida do servidor (token não encontrado).";
                 return View(model);
             }
 
-            var token = tokenElement.GetString();
-            HttpContext.Session.SetString("JWToken", token);
+            var bearer = tokElem.GetString()!;
 
-            var jwt = new JwtSecurityTokenHandler().ReadJwtToken(token);
-            var expiresUtc = jwt.ValidTo;
-            HttpContext.Session.SetString("TokenExpiration", expiresUtc.ToString("o"));
+            // Decodifica o JWT apenas para pegar o ValidTo (expiração do token)
+            var jwt = new JwtSecurityTokenHandler().ReadJwtToken(bearer);
 
-            return RedirectToAction("Buscar", "BuscarMvc");
+            // Prepara script que grava o token puro no localStorage + redireciona
+            var jsBearer = JsonSerializer.Serialize(bearer);
+            var jsExp    = JsonSerializer.Serialize(jwt.ValidTo.ToString("o"));
+            var urlBuscar = Url.Action("Buscar", "BuscarMvc")!;
+
+            var script = $@"
+                        <script>
+                        localStorage.setItem('Bearer_Token', {jsBearer});
+                        localStorage.setItem('TokenExpiration', {jsExp});
+                        window.location = '{urlBuscar}';
+                        </script>";
+
+            return Content(script, "text/html");
         }
-
     }
 }

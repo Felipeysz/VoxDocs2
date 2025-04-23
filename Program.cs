@@ -5,8 +5,15 @@ using Microsoft.Extensions.Hosting;
 using VoxDocs.Configurations; // configurações customizadas
 using VoxDocs.Data;
 using VoxDocs.Services;
+using Microsoft.AspNetCore.DataProtection;
+
 
 var builder = WebApplication.CreateBuilder(args);
+
+
+// Registrar Data Protection
+builder.Services.AddDataProtection()
+    .SetApplicationName("VoxDocs"); // mesma string em todos os nodes, se for cluster
 
 builder.Services.AddHttpContextAccessor();
 

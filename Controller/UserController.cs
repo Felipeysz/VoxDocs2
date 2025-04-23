@@ -21,13 +21,15 @@ namespace VoxDocs.Controllers.Api
             _userService = userService;
         }
 
-        // Registro de usuário - agora requer token
+        // Registro de usuário - PÚBLICO, não precisa de token
         [HttpPost]
+        [AllowAnonymous] // Permite acesso sem autenticação
+        [Consumes("application/json")] // (opcional, mas bom para deixar claro que é JSON)
         public async Task<IActionResult> Register([FromBody] DTOUser userDto)
         {
             if (string.IsNullOrEmpty(userDto.Usuario)
-             || string.IsNullOrEmpty(userDto.Senha)
-             || string.IsNullOrEmpty(userDto.PermissionAccount))
+            || string.IsNullOrEmpty(userDto.Senha)
+            || string.IsNullOrEmpty(userDto.PermissionAccount))
                 return BadRequest("Usuário, senha e permissão são obrigatórios.");
 
             var user = await _userService.RegisterUserAsync(userDto);
@@ -41,14 +43,15 @@ namespace VoxDocs.Controllers.Api
             });
         }
 
+
         // Login de usuário - PÚBLICO
         [HttpPost]
         [AllowAnonymous]
         [Consumes("application/json")]  // Garantindo que o tipo de conteúdo seja JSON
         public async Task<IActionResult> Login([FromBody] DTOUserLogin userLoginDto)
         {
-            if (string.IsNullOrEmpty(userLoginDto.Usuario)
-            || string.IsNullOrEmpty(userLoginDto.Senha))
+            // Validação básica de entrada
+            if (string.IsNullOrEmpty(userLoginDto.Usuario) || string.IsNullOrEmpty(userLoginDto.Senha))
             {
                 return BadRequest("Usuário e senha são obrigatórios.");
             }
@@ -65,9 +68,11 @@ namespace VoxDocs.Controllers.Api
 
                 if (user == null)
                 {
-                    return Unauthorized("Usuário ou senha inválidos.");
+                    // Se o usuário não for encontrado, retornar "Conta Inexistente"
+                    return NotFound("Conta Inexistente"); // 404 Not Found
                 }
 
+                // Se encontrou o usuário e gerou o token
                 TokenService.AddToken(user.Usuario, token);
 
                 return Ok(new
@@ -80,9 +85,14 @@ namespace VoxDocs.Controllers.Api
             catch (Exception ex)
             {
                 // Se ocorrer um erro inesperado, retorne um erro 500 com a mensagem.
-                return StatusCode(500, new { Mensagem = "Ocorreu um erro interno no servidor.", Detalhes = ex.Message });
+                return StatusCode(500, new 
+                { 
+                    Mensagem = "Ocorreu um erro interno no servidor.", 
+                    Detalhes = ex.Message 
+                });
             }
         }
+
 
 
 
