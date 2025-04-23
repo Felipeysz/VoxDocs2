@@ -21,7 +21,7 @@ namespace VoxDocs.Controllers
         public LoginMvcController(IHttpClientFactory httpClientFactory, IConfiguration configuration)
         {
             _httpClientFactory = httpClientFactory;
-            _configuration     = configuration;
+            _configuration = configuration;
         }
 
         [HttpGet]
@@ -36,16 +36,19 @@ namespace VoxDocs.Controllers
         public async Task<IActionResult> Login(LoginViewModel model)
         {
             if (!ModelState.IsValid)
+            {
+                TempData["LoginError"] = "Por favor, preencha todos os campos corretamente."; // Passa erro de validação
                 return View(model);
+            }
 
             var client = _httpClientFactory.CreateClient("VoxDocsApi");
-            var dto    = new DTOUserLogin { Usuario = model.Usuario, Senha = model.Senha };
+            var dto = new DTOUserLogin { Usuario = model.Usuario, Senha = model.Senha };
             var content = new StringContent(JsonSerializer.Serialize(dto), Encoding.UTF8, "application/json");
 
             var response = await client.PostAsync("/api/User/Login", content);
             if (!response.IsSuccessStatusCode)
             {
-                ModelState.AddModelError("", "Usuário ou senha inválidos.");
+                TempData["LoginError"] = "Usuário ou senha inválidos."; // Erro de autenticação
                 return View(model);
             }
 
@@ -55,11 +58,10 @@ namespace VoxDocs.Controllers
 
             using var doc = JsonDocument.Parse(payload);
             JsonElement tokElem;
-            // tenta maiúsculo ou minúsculo
             if (!doc.RootElement.TryGetProperty("Token", out tokElem) &&
                 !doc.RootElement.TryGetProperty("token", out tokElem))
             {
-                ModelState.AddModelError("", "Resposta inválida do servidor (token não encontrado).");
+                TempData["LoginError"] = "Resposta inválida do servidor (token não encontrado)."; // Erro na resposta
                 return View(model);
             }
 

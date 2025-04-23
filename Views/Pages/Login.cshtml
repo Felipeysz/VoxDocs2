@@ -102,6 +102,14 @@
 
                 <button type="submit" class="btn login-btn w-100 py-2">Entrar</button>
             </form>
+
+            <!-- Exibe erro de login, caso exista -->
+            @if (TempData["LoginError"] != null)
+            {
+                <div class="alert alert-danger mt-3">
+                    @TempData["LoginError"]
+                </div>
+            }
         </div>
     </div>
 
