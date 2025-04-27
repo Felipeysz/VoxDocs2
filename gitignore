@@ -1,0 +1,33 @@
+# Build folders
+bin/
+obj/
+
+# VS user files
+*.user
+*.suo
+*.userosscache
+
+# Rider project files
+.idea/
+*.sln.iml
+
+# ASP.NET temp files
+appsettings.*.json     # ignora todos appsettings.Development.json, appsettings.Production.json etc
+
+# Logs
+*.log
+
+# Publish output
+publish/
+
+# Secret managers
+secrets.json           # se usar DotNet user-secrets
+
+# VSCode
+.vscode/
+
+# Resposta de EF Migrations
+Migrations/
+
+# Node modules (se tiver front-end)
+node_modules/
