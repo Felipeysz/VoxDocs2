@@ -6,11 +6,11 @@ namespace VoxDocs.Models
     {
         [Required]
         [Display(Name = "Usuário")]
-        public string Usuario { get; set; }
+        public required string Usuario { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
         [Display(Name = "Senha")]
-        public string Senha { get; set; }
+        public required string Senha { get; set; }
     }
 }

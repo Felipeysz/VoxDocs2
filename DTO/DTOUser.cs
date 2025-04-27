@@ -2,6 +2,7 @@ namespace VoxDocs.DTO
 {
     public class DTOUser
     {
+        public required int Id { get; set; }
         public required string Usuario { get; set; }
         public required string Senha { get; set; }
         public required string PermissionAccount { get; set; }

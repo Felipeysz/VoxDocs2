@@ -15,9 +15,7 @@ namespace VoxDocs.Configurations
                     options.ViewLocationFormats.Clear();
                     options.ViewLocationFormats.Add("/Views/Pages/{0}.cshtml"); // Continua suportando /Views/Pages
                     options.ViewLocationFormats.Add("/Views/Pages/PrivatePages/{0}.cshtml"); // Agora também suporta /Views/PrivatePages
-                    options.ViewLocationFormats.Add("/Views/Pages/AdminPages/{0}.cshtml"); // Agora também suporta /Views/PrivatePages
                     options.ViewLocationFormats.Add("/Views/Shared/{0}.cshtml"); // Agora também suporta /Views/Shared
-                    options.ViewLocationFormats.Add("/Views/NavBar/{0}.cshtml"); // Agora também suporta /Views/Shared
                 });
         }
 
@@ -60,27 +58,6 @@ namespace VoxDocs.Configurations
                 name: "Buscar",
                 pattern: "Buscar",
                 defaults: new { controller = "BuscarMvc", action = "Buscar" });
-
-            // Rotas Admin Pages
-            app.MapControllerRoute(
-                name: "Dashboard",
-                pattern: "Dashboard",
-                defaults: new { controller = "DashboardMvc", action = "Dashboard" });
-
-            app.MapControllerRoute(
-                name: "Tokens",
-                pattern: "Tokens",
-                defaults: new { controller = "TokensMvc", action = "Tokens" });
-
-            app.MapControllerRoute(
-                name: "Upload",
-                pattern: "Upload",
-                defaults: new { controller = "UploadMvc", action = "Upload" });
-
-            app.MapControllerRoute(
-                name: "UsersAdmin",
-                pattern: "UsersAdmin",
-                defaults: new { controller = "UsersAdminMvc", action = "UsersAdmin" });
 
         }
     }

@@ -1,69 +1,93 @@
+using Azure.Storage.Blobs;
+using Microsoft.ApplicationInsights.Extensibility;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using VoxDocs.Configurations; // configurações customizadas
+using Microsoft.Extensions.Logging;
+using VoxDocs.Configurations;
 using VoxDocs.Data;
 using VoxDocs.Services;
-using Microsoft.AspNetCore.DataProtection;
-
 
 var builder = WebApplication.CreateBuilder(args);
 
+// --- 1) Configuração de Logging ----------------
+builder.Logging.ClearProviders();                          // Limpa provedores padrão
+builder.Logging.AddConsole();                              // Adiciona console :contentReference[oaicite:5]{index=5}
+builder.Logging.AddDebug();                                // Adiciona debug
 
-// Registrar Data Protection
+// --- 2) Application Insights ---------------------
+builder.Services.AddApplicationInsightsTelemetry(         // Coleta telemetria e exceções :contentReference[oaicite:6]{index=6}
+    builder.Configuration["ApplicationInsights:ConnectionString"]);
+
+// --- 3) Data Protection ---------------------------
+var dpSection = builder.Configuration.GetSection("DataProtection");
+var blobConn  = dpSection["BlobConnectionString"];
+var container = dpSection["BlobContainerName"];
+var blobName  = dpSection["BlobName"];
+
+// Cria container se não existir
+var blobClientContainer = new BlobContainerClient(blobConn, container);
+blobClientContainer.CreateIfNotExists();
+
+// Persiste chaves em Blob Storage :contentReference[oaicite:7]{index=7}
 builder.Services.AddDataProtection()
-    .SetApplicationName("VoxDocs"); // mesma string em todos os nodes, se for cluster
+    .SetApplicationName("VoxDocs")
+    .PersistKeysToAzureBlobStorage(blobClientContainer.GetBlobClient(blobName));
 
-builder.Services.AddHttpContextAccessor();
-
-// 1) EF Core + SQL Server com retry
+// --- 4) EF Core + SQL Server com retry -------------
 builder.Services.AddDbContext<VoxDocsContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionBddVoxDocs"),
         sqlOptions => sqlOptions.EnableRetryOnFailure()));
 
-// 2) JWT Authentication & Authorization
+// --- 5) JWT Authentication & Authorization --------
 builder.Services.AddJwtConfiguration(builder.Configuration);
 
-// 3) Swagger
+// --- 6) Swagger ------------------------------------
 builder.Services.AddSwaggerConfiguration();
 
-// 4) HttpClientFactory para API
+// --- 7) HttpClientFactory para API ----------------
 builder.Services.AddHttpClient("VoxDocsApi", client =>
 {
     client.BaseAddress = new Uri(builder.Configuration["ApiSettings:BaseUrl"]);
 });
 
-// 5) Session
+// --- 8) Session -----------------------------------
 builder.Services.AddCustomSession();
 
-// 6) Injeção de Dependência
+// --- 9) DI dos serviços ---------------------------
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<TokenService>();
 
-
-// 7) Controllers + Views e rotas customizadas
+// --- 10) Controllers, Views e Rotas ---------------
 builder.Services.AddCustomControllersWithViews();
 builder.Services.AddCustomRoutingWithViews();
 
 var app = builder.Build();
 
-// 8) Middlewares de erro e HTTPS
+// --- Pipeline de Middlewares ----------------------
+// Erro/Exceções
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
 }
+else
+{
+    app.UseDeveloperExceptionPage();
+}
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
-app.UseDeveloperExceptionPage();
+// Ordem correta: Routing → Authentication → Authorization :contentReference[oaicite:8]{index=8}
+app.UseRouting();
+app.UseAuthentication();
+app.UseAuthorization();
 
-// 9) Session
+// Session, Swagger e MapRoutes
 app.UseCustomSession();
-
-// 10) Routing, AuthN/Z, Swagger & MapRoutes
 app.UseCustomRouting();
 
 app.Run();

@@ -1,9 +1,11 @@
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using VoxDocs.DTO;
 using VoxDocs.Services;
 
@@ -11,82 +13,92 @@ namespace VoxDocs.Controllers.Api
 {
     [ApiController]
     [Route("api/[controller]/[action]")]
-    [Authorize]  // ← Protege toda a controller
+    [Authorize]
     public class UserController : ControllerBase
     {
+        private readonly ILogger<UserController> _logger;
         private readonly UserService _userService;
 
-        public UserController(UserService userService)
+        public UserController(
+            ILogger<UserController> logger,
+            UserService userService)
         {
+            _logger = logger;
             _userService = userService;
         }
 
-        // Registro de usuário - PÚBLICO, não precisa de token
         [HttpPost]
-        [AllowAnonymous] // Permite acesso sem autenticação
-        [Consumes("application/json")] // (opcional, mas bom para deixar claro que é JSON)
+        [AllowAnonymous]
+        [Consumes("application/json")]
         public async Task<IActionResult> Register([FromBody] DTOUser userDto)
         {
+            _logger.LogInformation("Iniciando registro de usuário {@UserDto}", userDto);
+
             if (string.IsNullOrEmpty(userDto.Usuario)
-            || string.IsNullOrEmpty(userDto.Senha)
-            || string.IsNullOrEmpty(userDto.PermissionAccount))
-                return BadRequest("Usuário, senha e permissão são obrigatórios.");
-
-            var user = await _userService.RegisterUserAsync(userDto);
-
-            return Ok(new
+                || string.IsNullOrEmpty(userDto.Senha)
+                || string.IsNullOrEmpty(userDto.PermissionAccount))
             {
-                user.Id,
-                user.Usuario,
-                user.PermissionAccount,
-                Mensagem = "Usuário criado com sucesso!"
-            });
+                _logger.LogWarning("Dados incompletos no registro: {@UserDto}", userDto);
+                return BadRequest(new { Mensagem = "Usuário, senha e permissão são obrigatórios." });
+            }
+
+            try
+            {
+                var user = await _userService.RegisterUserAsync(userDto);
+                _logger.LogInformation("Usuário criado com sucesso: {UserId}", user.Id);
+
+                return Ok(new
+                {
+                    user.Id,
+                    user.Usuario,
+                    user.PermissionAccount,
+                    Mensagem = "Usuário criado com sucesso!"
+                });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Erro ao registrar usuário {@UserDto}", userDto);
+                return StatusCode(500, new
+                {
+                    Mensagem = "Ocorreu um erro interno ao registrar o usuário.",
+                    Detalhes = ex.Message
+                });
+            }
         }
 
-
-        // POST api/User/Login
         [HttpPost]
         [AllowAnonymous]
         [Consumes("application/json")]
         public async Task<IActionResult> Login([FromBody] DTOUserLogin userLoginDto)
         {
-            // 1) Validação de entrada
-            if (string.IsNullOrWhiteSpace(userLoginDto.Usuario) ||
-                string.IsNullOrWhiteSpace(userLoginDto.Senha))
+            _logger.LogInformation("Tentativa de login para usuário {User}", userLoginDto.Usuario);
+
+            if (string.IsNullOrWhiteSpace(userLoginDto.Usuario)
+                || string.IsNullOrWhiteSpace(userLoginDto.Senha))
             {
-                return BadRequest(new
-                {
-                    Mensagem = "Usuário e senha são obrigatórios."
-                });
+                _logger.LogWarning("Login inválido: parâmetros ausentes");
+                return BadRequest(new { Mensagem = "Usuário e senha são obrigatórios." });
             }
 
-            // 2) Verifica se já está logado
             if (TokenService.IsUserLogged(userLoginDto.Usuario))
             {
-                return Conflict(new
-                {
-                    Mensagem = "Usuário já está logado. Por favor, tente novamente."
-                });
+                _logger.LogWarning("Usuário já logado: {User}", userLoginDto.Usuario);
+                return Conflict(new { Mensagem = "Usuário já está logado. Por favor, faça logout e tente novamente." });
             }
 
             try
             {
-                // 3) Tenta autenticar
                 var (user, token) = await _userService.LoginUserAsync(userLoginDto);
 
                 if (user == null)
                 {
-                    // Usuário não encontrado
-                    return NotFound(new
-                    {
-                        Mensagem = "Conta Inexistente"
-                    });
+                    _logger.LogWarning("Conta inexistente para usuário {User}", userLoginDto.Usuario);
+                    return NotFound(new { Mensagem = "Conta inexistente." });
                 }
 
-                // 4) Adiciona token à sessão (ou cache)
                 TokenService.AddToken(user.Usuario, token);
+                _logger.LogInformation("Login bem-sucedido para usuário {User}", user.Usuario);
 
-                // 5) Retorna sucesso com token
                 return Ok(new
                 {
                     Token = token,
@@ -96,7 +108,7 @@ namespace VoxDocs.Controllers.Api
             }
             catch (Exception ex)
             {
-                // 6) Erro inesperado
+                _logger.LogError(ex, "Erro interno ao tentar login para usuário {User}", userLoginDto.Usuario);
                 return StatusCode(500, new
                 {
                     Mensagem = "Ocorreu um erro interno no servidor.",
@@ -105,31 +117,38 @@ namespace VoxDocs.Controllers.Api
             }
         }
 
-
-
         [HttpPost]
         public IActionResult Logout()
         {
-            // Pega o token enviado no Authorization
+            _logger.LogInformation("Iniciando logout");
+
             var authHeader = HttpContext.Request.Headers["Authorization"].FirstOrDefault();
-            if (authHeader == null || !authHeader.StartsWith("Bearer "))
-                return BadRequest("Token inválido.");
+            if (string.IsNullOrEmpty(authHeader) || !authHeader.StartsWith("Bearer "))
+            {
+                _logger.LogWarning("Logout inválido: token ausente ou malformado");
+                return BadRequest(new { Mensagem = "Token inválido." });
+            }
 
             var token = authHeader.Substring("Bearer ".Length);
-
             var removed = TokenService.RemoveToken(token);
 
             if (removed)
+            {
+                _logger.LogInformation("Logout realizado com sucesso");
                 return Ok(new { Mensagem = "Logout realizado com sucesso." });
+            }
             else
+            {
+                _logger.LogWarning("Logout falhou: token não encontrado ou expirado");
                 return NotFound(new { Mensagem = "Token não encontrado ou já expirado." });
+            }
         }
-
-        // A partir daqui, TODOS exigem um Bearer válido:
 
         [HttpGet]
         public async Task<IActionResult> GetUsers()
         {
+            _logger.LogInformation("Consultando lista de usuários");
+
             var users = await _userService.GetUsersAsync();
             var result = users.Select(u => new { u.Id, u.Usuario, u.PermissionAccount });
             return Ok(result);
@@ -139,57 +158,88 @@ namespace VoxDocs.Controllers.Api
         public async Task<IActionResult> UpdateUser([FromBody] DTOUser userDto)
         {
             var permission = User.Claims.FirstOrDefault(c => c.Type == "PermissionAccount")?.Value;
+            _logger.LogInformation("Solicitação de atualização de usuário {UserId} por {Permission}", userDto.Id, permission);
+
             if (permission != "admin")
-                return Forbid("Somente administradores podem atualizar usuários.");
-
-            var user = await _userService.UpdateUserAsync(userDto);
-            if (user == null)
-                return NotFound("Usuário não encontrado.");
-
-            return Ok(new
             {
-                user.Id,
-                user.Usuario,
-                user.PermissionAccount,
-                Mensagem = "Usuário atualizado com sucesso!"
-            });
+                _logger.LogWarning("Acesso negado para atualizar usuário: {UserId}", userDto.Id);
+                return Forbid("Somente administradores podem atualizar usuários.");
+            }
+
+            try
+            {
+                var user = await _userService.UpdateUserAsync(userDto);
+                if (user == null)
+                {
+                    _logger.LogWarning("Usuário não encontrado para atualização: {UserId}", userDto.Id);
+                    return NotFound(new { Mensagem = "Usuário não encontrado." });
+                }
+
+                _logger.LogInformation("Usuário atualizado com sucesso: {UserId}", userDto.Id);
+                return Ok(new
+                {
+                    user.Id,
+                    user.Usuario,
+                    user.PermissionAccount,
+                    Mensagem = "Usuário atualizado com sucesso!"
+                });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Erro ao atualizar usuário {UserId}", userDto.Id);
+                return StatusCode(500, new
+                {
+                    Mensagem = "Ocorreu um erro interno ao atualizar o usuário.",
+                    Detalhes = ex.Message
+                });
+            }
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUser(int id)
         {
             var permission = User.Claims.FirstOrDefault(c => c.Type == "PermissionAccount")?.Value;
-            if (permission != "admin")
-                return Forbid("Somente administradores podem deletar usuários.");
+            _logger.LogInformation("Solicitação de exclusão de usuário {UserId} por {Permission}", id, permission);
 
-            var users = await _userService.GetUsersAsync();
-            if (!users.Any(u => u.Id == id))
-                return NotFound("Usuário não encontrado.");
+            if (permission != "admin")
+            {
+                _logger.LogWarning("Acesso negado para deletar usuário: {UserId}", id);
+                return Forbid("Somente administradores podem deletar usuários.");
+            }
+
+            var exists = (await _userService.GetUsersAsync()).Any(u => u.Id == id);
+            if (!exists)
+            {
+                _logger.LogWarning("Tentativa de deletar usuário inexistente: {UserId}", id);
+                return NotFound(new { Mensagem = "Usuário não encontrado." });
+            }
 
             await _userService.DeleteUserAsync(id);
+            _logger.LogInformation("Usuário deletado com sucesso: {UserId}", id);
             return Ok(new { Mensagem = $"Usuário com ID {id} deletado com sucesso!" });
         }
 
         [HttpGet]
         public IActionResult ListActiveTokens()
         {
+            _logger.LogInformation("Listando tokens ativos");
+
             var activeTokens = TokenService.GetActiveTokens();
             var jwtHandler = new JwtSecurityTokenHandler();
 
             var tokensList = activeTokens
                 .Select(kvp =>
                 {
-                    var token = kvp.Value; // Agora pegamos só o token (o Value)
+                    var token = kvp.Value;
                     var jwt = jwtHandler.ReadToken(token) as JwtSecurityToken;
                     if (jwt == null) return null;
 
-                    var userName = jwt.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name)?.Value;
                     var remaining = jwt.ValidTo - DateTime.UtcNow;
                     var formatted = $"{remaining.Hours}h {remaining.Minutes}m {remaining.Seconds}s";
 
                     return new DTOActiveToken
                     {
-                        Usuario = kvp.Key,   // Aqui podemos usar o kvp.Key para pegar o nome do usuário
+                        Usuario = kvp.Key,
                         Token = token,
                         TempoRestante = formatted
                     };
@@ -200,32 +250,28 @@ namespace VoxDocs.Controllers.Api
             return Ok(tokensList);
         }
 
-
         [HttpGet]
         public IActionResult GetUserBearerToken()
         {
+            _logger.LogInformation("Obtendo token bearer do usuário");
+
             var activeTokens = TokenService.GetActiveTokens();
             var jwtHandler = new JwtSecurityTokenHandler();
 
             var tokensList = activeTokens
                 .Select(kvp =>
                 {
-                    var token = kvp.Value; // Pegamos o token (o Value)
+                    var token = kvp.Value;
                     var jwt = jwtHandler.ReadToken(token) as JwtSecurityToken;
                     if (jwt == null) return null;
 
-                    var userName = jwt.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name)?.Value;
-                    var permissionAccount = jwt.Claims.FirstOrDefault(c => c.Type == "PermissionAccount")?.Value; // Acesso à claim de permission
-
-                    if (userName == null || permissionAccount == null) return null;
-
-                    var remaining = jwt.ValidTo - DateTime.UtcNow;
-                    var formatted = $"{remaining.Hours}h {remaining.Minutes}m {remaining.Seconds}s";
+                    var permissionAccount = jwt.Claims.FirstOrDefault(c => c.Type == "PermissionAccount")?.Value;
+                    if (permissionAccount == null) return null;
 
                     return new DTOUserPermission
                     {
-                        Usuario = kvp.Key,   // Aqui usamos o kvp.Key para pegar o nome do usuário
-                        PermissionAccount = permissionAccount // Preenchemos a permissão a partir da claim
+                        Usuario = kvp.Key,
+                        PermissionAccount = permissionAccount
                     };
                 })
                 .Where(x => x != null)

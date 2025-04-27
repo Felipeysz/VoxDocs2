@@ -1,53 +1,5 @@
 ﻿<Project>
   <ItemGroup>
-    <StaticWebAssetEndpoint Include="_content/VoxDocs/css/AdminStyles/Dashboard/Dashboard.css">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\AdminStyles\Dashboard\Dashboard.css'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-by0Zifa1g0dtqN/DrH8Ctb57s7fWOzJ96HOjURAKfDg="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1992"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022by0Zifa1g0dtqN/DrH8Ctb57s7fWOzJ96HOjURAKfDg=\u0022"},{"Name":"Last-Modified","Value":"Wed, 23 Apr 2025 10:03:30 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/VoxDocs/css/AdminStyles/Dashboard/Dashboard.rdkddilu7x.css">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\AdminStyles\Dashboard\Dashboard.css'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"rdkddilu7x"},{"Name":"integrity","Value":"sha256-by0Zifa1g0dtqN/DrH8Ctb57s7fWOzJ96HOjURAKfDg="},{"Name":"label","Value":"_content/VoxDocs/css/AdminStyles/Dashboard/Dashboard.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1992"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022by0Zifa1g0dtqN/DrH8Ctb57s7fWOzJ96HOjURAKfDg=\u0022"},{"Name":"Last-Modified","Value":"Wed, 23 Apr 2025 10:03:30 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/VoxDocs/css/AdminStyles/Tokens/Tokens.css">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\AdminStyles\Tokens\Tokens.css'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-tINI1jqNr10bFHmhO7tZq11GT/oqLwz0NYnjlp/76jQ="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1889"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022tINI1jqNr10bFHmhO7tZq11GT/oqLwz0NYnjlp/76jQ=\u0022"},{"Name":"Last-Modified","Value":"Wed, 23 Apr 2025 10:03:06 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/VoxDocs/css/AdminStyles/Tokens/Tokens.k8sfrjywjx.css">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\AdminStyles\Tokens\Tokens.css'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"k8sfrjywjx"},{"Name":"integrity","Value":"sha256-tINI1jqNr10bFHmhO7tZq11GT/oqLwz0NYnjlp/76jQ="},{"Name":"label","Value":"_content/VoxDocs/css/AdminStyles/Tokens/Tokens.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1889"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022tINI1jqNr10bFHmhO7tZq11GT/oqLwz0NYnjlp/76jQ=\u0022"},{"Name":"Last-Modified","Value":"Wed, 23 Apr 2025 10:03:06 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/VoxDocs/css/AdminStyles/Upload/Upload.86pscseke3.css">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\AdminStyles\Upload\Upload.css'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"86pscseke3"},{"Name":"integrity","Value":"sha256-cMoL/SLyXa9uPfoszoDuYmRpkMBUZ2y4LcuraqqaXsc="},{"Name":"label","Value":"_content/VoxDocs/css/AdminStyles/Upload/Upload.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1803"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022cMoL/SLyXa9uPfoszoDuYmRpkMBUZ2y4LcuraqqaXsc=\u0022"},{"Name":"Last-Modified","Value":"Wed, 23 Apr 2025 10:02:24 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/VoxDocs/css/AdminStyles/Upload/Upload.css">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\AdminStyles\Upload\Upload.css'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-cMoL/SLyXa9uPfoszoDuYmRpkMBUZ2y4LcuraqqaXsc="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1803"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022cMoL/SLyXa9uPfoszoDuYmRpkMBUZ2y4LcuraqqaXsc=\u0022"},{"Name":"Last-Modified","Value":"Wed, 23 Apr 2025 10:02:24 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/VoxDocs/css/AdminStyles/UserAdmin/UserAdmin.css">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\AdminStyles\UserAdmin\UserAdmin.css'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-7G\u002BIuRXIioRJBhJcmKqxcJZOrnbIESdc0p5WkntoWlE="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1930"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u00227G\u002BIuRXIioRJBhJcmKqxcJZOrnbIESdc0p5WkntoWlE=\u0022"},{"Name":"Last-Modified","Value":"Wed, 23 Apr 2025 10:01:24 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/VoxDocs/css/AdminStyles/UserAdmin/UserAdmin.wn5di0corn.css">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\AdminStyles\UserAdmin\UserAdmin.css'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"wn5di0corn"},{"Name":"integrity","Value":"sha256-7G\u002BIuRXIioRJBhJcmKqxcJZOrnbIESdc0p5WkntoWlE="},{"Name":"label","Value":"_content/VoxDocs/css/AdminStyles/UserAdmin/UserAdmin.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1930"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u00227G\u002BIuRXIioRJBhJcmKqxcJZOrnbIESdc0p5WkntoWlE=\u0022"},{"Name":"Last-Modified","Value":"Wed, 23 Apr 2025 10:01:24 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/VoxDocs/css/Buscar.5m6rkr0bil.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\Buscar.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
@@ -131,18 +83,6 @@
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-g9OrDbOJeWr7SdXC57QlSJuqxvU9AWc8uuzJtbzmH6Q="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"363"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022g9OrDbOJeWr7SdXC57QlSJuqxvU9AWc8uuzJtbzmH6Q=\u0022"},{"Name":"Last-Modified","Value":"Wed, 23 Apr 2025 09:34:51 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/VoxDocs/js/Dashboard/Dashboard.573ejzo0le.js">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\Dashboard\Dashboard.js'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"573ejzo0le"},{"Name":"integrity","Value":"sha256-seYLefPSaXQNwTpTcPdc/d3OkVwPf\u002BvWHLwahb3\u002B57A="},{"Name":"label","Value":"_content/VoxDocs/js/Dashboard/Dashboard.js"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"459"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022seYLefPSaXQNwTpTcPdc/d3OkVwPf\u002BvWHLwahb3\u002B57A=\u0022"},{"Name":"Last-Modified","Value":"Mon, 14 Apr 2025 12:49:06 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/VoxDocs/js/Dashboard/Dashboard.js">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\Dashboard\Dashboard.js'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-seYLefPSaXQNwTpTcPdc/d3OkVwPf\u002BvWHLwahb3\u002B57A="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"459"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022seYLefPSaXQNwTpTcPdc/d3OkVwPf\u002BvWHLwahb3\u002B57A=\u0022"},{"Name":"Last-Modified","Value":"Mon, 14 Apr 2025 12:49:06 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/VoxDocs/js/NavbarScripts/ClearStorage.2u8o5lmyjc.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\NavbarScripts\ClearStorage.js'))</AssetFile>
