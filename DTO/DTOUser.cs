@@ -14,13 +14,7 @@ namespace VoxDocs.DTO
         public required string Senha { get; set; }
     }
 
-        public class DTOUserPermission
-    {
-        public required string Usuario { get; set; }
-        public required string PermissionAccount { get; set; }
-    }
-
-        public class DTOActiveToken
+    public class DTOActiveToken
     {
         public required string Usuario { get; set; }
         public required string Token { get; set; }
@@ -32,12 +26,4 @@ namespace VoxDocs.DTO
         public required string Mensagem { get; set; }
         public required string Detalhes { get; set; }
     }
-
-    public class YourCustomDto
-    {
-        public required string Usuario { get; set; }
-        public required string PermissionAccount { get; set; }
-        public required string BearerToken { get; set; }
-    }
-
 }

@@ -1,75 +1,103 @@
 using System;
+using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
-using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using System.Collections.Generic;
+using Microsoft.IdentityModel.Tokens;
 
 namespace VoxDocs.Services
 {
     public class TokenService
     {
-        private static readonly Dictionary<string, string> _activeTokens = new();
-        private static readonly string _secretKey = "sua-chave-secreta-aqui"; // Defina sua chave secreta aqui
+        private static readonly ConcurrentDictionary<string, (string token, DateTime expiration)> _activeTokens = new();
+        private static readonly object _lock = new();
+        private static readonly string _secretKey = "sua-chave-secreta-aqui";
+        private static readonly TimeSpan _tokenLifetime = TimeSpan.FromMinutes(60); // Tempo de expiração do token
 
-        // Adiciona ou atualiza o token de um usuário
-        public static void AddToken(string usuario, string token)
-        {
-            _activeTokens[usuario] = token;
-        }
-
-        // Remove token usando o valor do token
-        public static bool RemoveToken(string token)
-        {
-            var item = _activeTokens.FirstOrDefault(x => x.Value == token);
-            if (!string.IsNullOrEmpty(item.Key))
-            {
-                _activeTokens.Remove(item.Key);
-                return true;
-            }
-            return false;
-        }
-
-        // Verifica se o usuário já tem token ativo
         public static bool IsUserLogged(string usuario)
         {
-            return _activeTokens.ContainsKey(usuario);
+            lock (_lock)
+            {
+                RemoveExpiredTokens();
+                return _activeTokens.ContainsKey(usuario);
+            }
         }
 
-        // Retorna todos os tokens ativos (opcional)
+        public static bool AddTokenIfNotExists(string usuario, string token)
+        {
+            lock (_lock)
+            {
+                RemoveExpiredTokens();
+
+                if (_activeTokens.ContainsKey(usuario))
+                    return false;
+
+                _activeTokens[usuario] = (token, DateTime.UtcNow.Add(_tokenLifetime));
+                return true;
+            }
+        }
+
+        public static bool RemoveToken(string token)
+        {
+            lock (_lock)
+            {
+                var item = _activeTokens.FirstOrDefault(x => x.Value.token == token);
+                if (!string.IsNullOrEmpty(item.Key))
+                {
+                    _activeTokens.TryRemove(item.Key, out _);
+                    return true;
+                }
+                return false;
+            }
+        }
+
         public static Dictionary<string, string> GetActiveTokens()
         {
-            return _activeTokens;
+            lock (_lock)
+            {
+                RemoveExpiredTokens();
+                return _activeTokens.ToDictionary(kvp => kvp.Key, kvp => kvp.Value.token);
+            }
         }
 
-        // Valida o token JWT e retorna as claims do usuário
         public static IEnumerable<Claim> ValidateToken(string token)
         {
             try
             {
                 var tokenHandler = new JwtSecurityTokenHandler();
-                var key = Encoding.ASCII.GetBytes(_secretKey); // Sua chave secreta aqui
-
-                // Configura a validação do token
+                var key = Encoding.ASCII.GetBytes(_secretKey);
                 var validationParameters = new TokenValidationParameters
                 {
                     ValidateIssuer = false,
                     ValidateAudience = false,
-                    ValidateLifetime = true, // Verifica se o token não expirou
+                    ValidateLifetime = true,
                     IssuerSigningKey = new SymmetricSecurityKey(key),
-                    ClockSkew = TimeSpan.Zero // Configura a tolerância de tempo para expiração (pode ser ajustado)
+                    ClockSkew = TimeSpan.Zero
                 };
 
-                // Valida o token e retorna as claims
                 var principal = tokenHandler.ValidateToken(token, validationParameters, out _);
-                return principal?.Claims; // Retorna as claims do token
+                return principal?.Claims;
             }
             catch (Exception ex)
             {
-                // Adiciona logging ou debug para entender o motivo da falha
                 Console.WriteLine($"Erro na validação do token: {ex.Message}");
                 return null;
+            }
+        }
+
+        private static void RemoveExpiredTokens()
+        {
+            var now = DateTime.UtcNow;
+            var expired = _activeTokens
+                .Where(kvp => kvp.Value.expiration < now)
+                .Select(kvp => kvp.Key)
+                .ToList();
+
+            foreach (var key in expired)
+            {
+                _activeTokens.TryRemove(key, out _);
             }
         }
     }

@@ -1,25 +1,28 @@
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
-using System;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace VoxDocs.Configurations
 {
     public static class SessionConfig
     {
-        public static void AddCustomSession(this IServiceCollection services)
+        public static IServiceCollection AddCustomSession(this IServiceCollection services)
         {
-            services.AddDistributedMemoryCache();
+            services.AddDistributedMemoryCache(); // Usa memória para armazenar sessões
+
             services.AddSession(options =>
             {
-                options.IdleTimeout = TimeSpan.FromMinutes(30);
+                options.IdleTimeout = TimeSpan.FromHours(2); // Tempo de vida da sessão
                 options.Cookie.HttpOnly = true;
                 options.Cookie.IsEssential = true;
             });
+
+            return services;
         }
 
-        public static void UseCustomSession(this IApplicationBuilder app)
+        public static IApplicationBuilder UseCustomSession(this IApplicationBuilder app)
         {
             app.UseSession();
+            return app;
         }
     }
 }

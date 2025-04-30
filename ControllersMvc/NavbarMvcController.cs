@@ -1,92 +1,52 @@
-using Microsoft.AspNetCore.Mvc;
 using System.Net.Http.Headers;
-using System.Text.Json;
-using VoxDocs.DTO;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
-namespace VoxDocs.Controllers
+public class NavbarControllerMvc : Controller
 {
-    public class NavBarMvcController : Controller
+    private readonly IHttpClientFactory _httpClientFactory;
+    private readonly ILogger<NavbarControllerMvc> _logger;
+
+    public NavbarControllerMvc(IHttpClientFactory httpClientFactory, ILogger<NavbarControllerMvc> logger)
     {
-        private readonly IHttpClientFactory _httpClientFactory;
+        _httpClientFactory = httpClientFactory;
+        _logger = logger;
+    }
 
-        public NavBarMvcController(IHttpClientFactory httpClientFactory)
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Logout()
+    {
+        _logger.LogInformation("Iniciando Logout MVC.");
+
+        // 1. Recupera o token ANTES de limpar tudo
+        var token = HttpContext.Session.GetString("JWTToken");
+
+        // 2. Desloga o cookie
+        await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+
+        // 3. Limpa a sessão
+        HttpContext.Session.Clear();
+
+        // 4. Se havia token, chama a API de logout via Bearer
+        if (!string.IsNullOrEmpty(token))
         {
-            _httpClientFactory = httpClientFactory;
-        }
+            var client = _httpClientFactory.CreateClient("VoxDocsApi");
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            var response = await client.PostAsync("api/User/Logout", null);
 
-        [HttpGet]
-        public async Task<IActionResult> Navbar()
-        {
-            var navBarInfo = new NavBarInfoDTO
+            if (!response.IsSuccessStatusCode)
             {
-                Usuario = "UsuárioTeste",
-                PermissionAccount = "user"
-            };
-
-            try
-            {
-                string? bearerToken = null;
-
-                // Pegando o Bearer Token do Header da requisição
-                if (Request.Headers.TryGetValue("Authorization", out var authHeader))
-                {
-                    bearerToken = authHeader.ToString().Replace("Bearer ", "");
-                    Console.WriteLine($"[DEBUG] Bearer token encontrado: {bearerToken}");
-                }
-                else
-                {
-                    Console.WriteLine("[DEBUG] Authorization header não encontrado.");
-                }
-
-                if (!string.IsNullOrEmpty(bearerToken))
-                {
-                    var client = _httpClientFactory.CreateClient();
-
-                    client.BaseAddress = new Uri("http://localhost:5151/"); // Defina a base aqui
-                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", bearerToken);
-
-                    Console.WriteLine("[DEBUG] Enviando GET para /api/User/GetUserBearerToken...");
-                    var response = await client.GetAsync("api/User/GetUserBearerToken"); // apenas o final da URL
-
-                    if (response.IsSuccessStatusCode)
-                    {
-                        Console.WriteLine("[DEBUG] Requisição com sucesso.");
-                        var responseContent = await response.Content.ReadAsStringAsync();
-                        Console.WriteLine($"[DEBUG] Conteúdo da resposta: {responseContent}");
-
-                        var users = JsonSerializer.Deserialize<List<NavBarInfoDTO>>(responseContent);
-
-                        if (users != null && users.Count > 0)
-                        {
-                            navBarInfo.Usuario = users[0].Usuario;
-                            navBarInfo.PermissionAccount = users[0].PermissionAccount;
-                            Console.WriteLine($"[DEBUG] Usuário: {navBarInfo.Usuario}, Permissão: {navBarInfo.PermissionAccount}");
-                        }
-                        else
-                        {
-                            Console.WriteLine("[DEBUG] Resposta vazia ou formato inválido.");
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine($"[DEBUG] Erro na requisição. Status: {response.StatusCode}, Motivo: {response.ReasonPhrase}");
-                    }
-                }
+                _logger.LogWarning("Falha ao invalidar token na API: {Reason}", response.ReasonPhrase);
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine("[DEBUG] Exceção ao buscar usuário da Navbar: " + ex.Message);
-            }
-
-            return PartialView("_NavBarPartial", navBarInfo);
         }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Logout()
+        else
         {
-            HttpContext.Session.Clear();
-            return RedirectToAction("Login", "LoginMvc");
+            _logger.LogInformation("Nenhum token JWT para invalidar.");
         }
+
+        return RedirectToAction("Login", "LoginMvc");
     }
 }

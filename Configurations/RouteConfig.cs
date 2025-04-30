@@ -1,64 +1,51 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
+using System.Threading.Tasks;
 
 namespace VoxDocs.Configurations
 {
     public static class RouteConfiguration
     {
-        // Método para configurar Controllers e Razor Options
         public static void AddCustomRoutingWithViews(this IServiceCollection services)
         {
             services.AddControllersWithViews()
                 .AddRazorOptions(options =>
                 {
                     options.ViewLocationFormats.Clear();
-                    options.ViewLocationFormats.Add("/Views/Pages/{0}.cshtml"); // Continua suportando /Views/Pages
-                    options.ViewLocationFormats.Add("/Views/Pages/PrivatePages/{0}.cshtml"); // Agora também suporta /Views/PrivatePages
-                    options.ViewLocationFormats.Add("/Views/Shared/{0}.cshtml"); // Agora também suporta /Views/Shared
+                    options.ViewLocationFormats.Add("/Views/Pages/{0}.cshtml");
+                    options.ViewLocationFormats.Add("/Views/Pages/PrivatePages/{0}.cshtml");
+                    options.ViewLocationFormats.Add("/Views/Shared/{0}.cshtml");
                 });
         }
 
-        // Método para configurar o uso das rotas
         public static void UseCustomRouting(this WebApplication app)
         {
             app.UseRouting();
 
-            // Autenticação e Autorização
-            app.UseAuthentication();
-            app.UseAuthorization();
+            // Se suas controllers MVC usam [Authorize], já foi chamado UseAuthentication/UseAuthorization
 
-            // Ativa Swagger em qualquer ambiente
-            app.UseSwagger();
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "API de Usuários v1");
-                c.RoutePrefix = "swagger"; // Mantém o Swagger disponível em /swagger
-            });
-
-
-            // Mapeamento de rotas
-
+            // Mapeia rotas da API
             app.MapControllerRoute(
                 name: "api",
                 pattern: "api/{controller}/{action=Index}/{id?}");
 
-            // Depois mapear as rotas específicas das páginas MVC
+            // Páginas MVC
             app.MapControllerRoute(
                 name: "Login",
                 pattern: "Login",
                 defaults: new { controller = "LoginMvc", action = "Login" });
 
             app.MapControllerRoute(
-                name: "Navbar",
-                pattern: "NavBar",
-                defaults: new { controller = "NavbarMvc", action = "NavBar" });
-
-            app.MapControllerRoute(
                 name: "Buscar",
                 pattern: "Buscar",
                 defaults: new { controller = "BuscarMvc", action = "Buscar" });
 
+            // Raiz redireciona ao login
+            app.MapGet("/", ctx =>
+            {
+                ctx.Response.Redirect("/Login");
+                return Task.CompletedTask;
+            });
         }
     }
 }

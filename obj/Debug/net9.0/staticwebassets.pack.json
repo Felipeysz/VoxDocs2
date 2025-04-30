@@ -25,22 +25,6 @@
       "PackagePath": "staticwebassets\\js\\BuscarDocumentos\\TemporizadorDocumentos.js"
     },
     {
-      "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\BuscarDocumentos\\ValidationToken.js",
-      "PackagePath": "staticwebassets\\js\\BuscarDocumentos\\ValidationToken.js"
-    },
-    {
-      "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\NavbarScripts\\ClearStorage.js",
-      "PackagePath": "staticwebassets\\js\\NavbarScripts\\ClearStorage.js"
-    },
-    {
-      "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\NavbarScripts\\DashboardVisible.js",
-      "PackagePath": "staticwebassets\\js\\NavbarScripts\\DashboardVisible.js"
-    },
-    {
-      "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\NavbarScripts\\LoggoutScript.js",
-      "PackagePath": "staticwebassets\\js\\NavbarScripts\\LoggoutScript.js"
-    },
-    {
       "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },

@@ -12,37 +12,34 @@ namespace VoxDocs.Configurations
             {
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
-                    Title       = "API de Usuários",
-                    Version     = "v1",
+                    Title = "API de Usuários",
+                    Version = "v1",
                     Description = "API para gerenciar usuários no sistema."
                 });
 
-                // Define o esquema de segurança JWT no Swagger
-                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                // Definição do esquema de segurança JWT
+                var jwtSecurityScheme = new OpenApiSecurityScheme
                 {
+                    Scheme = "bearer", // obrigatório em minúsculo para funcionar corretamente com JWT
+                    BearerFormat = "JWT",
+                    Name = "Authorization",
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.Http,
                     Description = "Insira o token JWT no campo abaixo.\n\nExemplo: Bearer {seu_token}",
-                    Name        = "Authorization",
-                    In          = ParameterLocation.Header,
-                    Type        = SecuritySchemeType.Http,    // <- Aqui mudar para Http
-                    Scheme      = "bearer",                    // <- minúsculo 'bearer' obrigatório para JWT
-                    BearerFormat = "JWT"
-                });
+                    Reference = new OpenApiReference
+                    {
+                        Type = ReferenceType.SecurityScheme,
+                        Id = "Bearer"
+                    }
+                };
 
+                // Registra o esquema de segurança
+                c.AddSecurityDefinition("Bearer", jwtSecurityScheme);
 
-                // Aplica o esquema de segurança globalmente
+                // Aplica o esquema globalmente
                 c.AddSecurityRequirement(new OpenApiSecurityRequirement
                 {
-                    {
-                        new OpenApiSecurityScheme
-                        {
-                            Reference = new OpenApiReference 
-                            { 
-                                Type = ReferenceType.SecurityScheme, 
-                                Id   = "Bearer" 
-                            }
-                        },
-                        Array.Empty<string>()
-                    }
+                    { jwtSecurityScheme, Array.Empty<string>() }
                 });
             });
         }

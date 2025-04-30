@@ -1,73 +1,70 @@
 using Azure.Storage.Blobs;
-using Microsoft.ApplicationInsights.Extensibility;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.DataProtection;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using VoxDocs.Configurations;
 using VoxDocs.Data;
 using VoxDocs.Services;
+using VoxDocs.BusinessRules;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using System.Text;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// --- 1) Configuração de Logging ----------------
-builder.Logging.ClearProviders();                          // Limpa provedores padrão
-builder.Logging.AddConsole();                              // Adiciona console :contentReference[oaicite:5]{index=5}
-builder.Logging.AddDebug();                                // Adiciona debug
+// --- Logging, AppInsights & DataProtection
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole().AddDebug();
+builder.Services.AddApplicationInsightsTelemetry(builder.Configuration["ApplicationInsights:ConnectionString"]);
+builder.Services.AddCustomDataProtection(builder.Configuration);
 
-// --- 2) Application Insights ---------------------
-builder.Services.AddApplicationInsightsTelemetry(         // Coleta telemetria e exceções :contentReference[oaicite:6]{index=6}
-    builder.Configuration["ApplicationInsights:ConnectionString"]);
+// --- EF Core
+builder.Services.AddDbContext<VoxDocsContext>(opts =>
+    opts.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionBddVoxDocs"),
+        sql => sql.EnableRetryOnFailure()));
 
-// --- 3) Data Protection ---------------------------
-var dpSection = builder.Configuration.GetSection("DataProtection");
-var blobConn  = dpSection["BlobConnectionString"];
-var container = dpSection["BlobContainerName"];
-var blobName  = dpSection["BlobName"];
+// --- Autenticação (Cookies + JWT) - Configuração Centralizada
+builder.Services.AddAuthenticationConfig(builder.Configuration);
 
-// Cria container se não existir
-var blobClientContainer = new BlobContainerClient(blobConn, container);
-blobClientContainer.CreateIfNotExists();
-
-// Persiste chaves em Blob Storage :contentReference[oaicite:7]{index=7}
-builder.Services.AddDataProtection()
-    .SetApplicationName("VoxDocs")
-    .PersistKeysToAzureBlobStorage(blobClientContainer.GetBlobClient(blobName));
-
-// --- 4) EF Core + SQL Server com retry -------------
-builder.Services.AddDbContext<VoxDocsContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionBddVoxDocs"),
-        sqlOptions => sqlOptions.EnableRetryOnFailure()));
-
-// --- 5) JWT Authentication & Authorization --------
-builder.Services.AddJwtConfiguration(builder.Configuration);
-
-// --- 6) Swagger ------------------------------------
-builder.Services.AddSwaggerConfiguration();
-
-// --- 7) HttpClientFactory para API ----------------
-builder.Services.AddHttpClient("VoxDocsApi", client =>
+// --- Autorização
+builder.Services.AddAuthorization(options =>
 {
-    client.BaseAddress = new Uri(builder.Configuration["ApiSettings:BaseUrl"]);
+    options.AddPolicy("ApiPolicy", policy =>
+        policy.AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme)
+              .RequireAuthenticatedUser());
+
+    options.AddPolicy("PagePolicy", policy =>
+        policy.AddAuthenticationSchemes(CookieAuthenticationDefaults.AuthenticationScheme)
+              .RequireAuthenticatedUser());
+
+    // Política que suporta ambos os esquemas (Cookies e JWT)
+    options.AddPolicy("MultiAuthPolicy", policy =>
+        policy.AddAuthenticationSchemes(
+            CookieAuthenticationDefaults.AuthenticationScheme, 
+            JwtBearerDefaults.AuthenticationScheme)
+              .RequireAuthenticatedUser());
 });
 
-// --- 8) Session -----------------------------------
-builder.Services.AddCustomSession();
+// --- Swagger
+builder.Services.AddSwaggerConfiguration();
 
-// --- 9) DI dos serviços ---------------------------
-builder.Services.AddScoped<UserService>();
+// --- HttpClient
+builder.Services.AddHttpClient("VoxDocsApi", c =>
+    c.BaseAddress = new Uri(builder.Configuration["ApiSettings:BaseUrl"]));
+
+// --- DI de Serviços
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<UserBusinessRules>();
 builder.Services.AddScoped<TokenService>();
 
-// --- 10) Controllers, Views e Rotas ---------------
+// --- MVC + Views + Rotas
 builder.Services.AddCustomControllersWithViews();
 builder.Services.AddCustomRoutingWithViews();
 
+builder.Services.AddCustomSession();
+
 var app = builder.Build();
 
-// --- Pipeline de Middlewares ----------------------
-// Erro/Exceções
+// Pipeline de Middlewares
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
@@ -80,14 +77,23 @@ else
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
-// Ordem correta: Routing → Authentication → Authorization :contentReference[oaicite:8]{index=8}
 app.UseRouting();
+
+app.UseSession();
+
+// --- Middleware de autenticação/autorizações
 app.UseAuthentication();
 app.UseAuthorization();
 
-// Session, Swagger e MapRoutes
-app.UseCustomSession();
+// --- Swagger
+app.UseSwagger();
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "VoxDocs API v1");
+    c.RoutePrefix = "swagger";
+});
+
+// --- Rotas
 app.UseCustomRouting();
 
 app.Run();

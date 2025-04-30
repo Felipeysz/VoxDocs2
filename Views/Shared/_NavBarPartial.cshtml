@@ -1,4 +1,4 @@
-<!-- Exemplo de Navbar no HTML para mostrar dados -->
+<!-- Navbar com Dashboard controlado por Claims no layout -->
 <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand d-flex align-items-center" href="#">
@@ -12,20 +12,23 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto align-items-center" id="navbarItems">
-                <!-- Botão de Dashboard (visível somente para admin) -->
-                <li class="nav-item me-2" id="dashboardButton" style="display:none;">
-                    <form asp-controller="DashboardMvc" asp-action="Dashboard" class="m-0">
-                        <button class="btn btn-custom d-flex align-items-center">
-                            <span class="material-icons me-1">dashboard</span>
-                            <span class="d-none d-md-inline">Dashboard</span>
-                        </button>
-                    </form>
-                </li>
+            <ul class="navbar-nav ms-auto align-items-center">
+                <!-- Exibir o botão do Dashboard diretamente via Layout com Claims -->
+                @if (User.IsInRole("admin") || User.HasClaim("PermissionAccount", "admin"))
+                {
+                    <li class="nav-item me-2">
+                        <form asp-controller="DashboardMvc" asp-action="Dashboard" class="m-0">
+                            <button class="btn btn-custom d-flex align-items-center">
+                                <span class="material-icons me-1">dashboard</span>
+                                <span class="d-none d-md-inline">Dashboard</span>
+                            </button>
+                        </form>
+                    </li>
+                }
 
                 <!-- Logout -->
                 <li class="nav-item me-2">
-                    <form id="logoutForm" method="post" asp-controller="NavBarMvc" asp-action="Logout" class="m-0">
+                    <form id="logoutForm" method="post" asp-controller="NavbarControllerMvc" asp-action="Logout" class="m-0">
                         @Html.AntiForgeryToken()
                         <button type="submit" class="btn btn-custom d-flex align-items-center" onclick="return logoutUser(event)">
                             <span class="material-icons me-1">logout</span>
@@ -37,11 +40,15 @@
         </div>
     </div>
 </nav>
-<script src="@Url.Content("~/js/NavbarScripts/ClearStorage.js")"></script>
-<script src="@Url.Content("~/js/NavbarScripts/DashboardVisible.js")"></script>
-<script src="@Url.Content("~/js/NavbarScripts/LoggoutScript.js")"></script>
 
-
+<script>
+    // Limpa token do localStorage e envia o form de logout
+    function logoutUser(event) {
+        event.preventDefault();
+        document.getElementById('logoutForm').submit();
+        return false;
+    }
+</script>
 
 <style>
     .navbar {
