@@ -1,0 +1,178 @@
+:root {
+  --color-primary: #774C9E;
+  --color-accent: #6CD3DC;
+  --color-bg-light: #f4f6f9;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --text-dark: #333;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--color-bg-light);
+  color: var(--text-dark);
+  margin: 0;
+  padding: 0;
+}
+
+/* Hero com gradiente */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 6rem 1rem;
+  text-align: center;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  color: #fff;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 200%; height: 200%;
+  background: linear-gradient(
+    45deg,
+    rgba(255,255,255,0.15),
+    rgba(255,255,255,0.05) 25%,
+    transparent 50%,
+    rgba(255,255,255,0.05) 75%,
+    rgba(255,255,255,0.15)
+  );
+  background-size: 200% 200%;
+  animation: slideGradient 8s ease infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+@keyframes slideGradient {
+  0%   { transform: translate(-50%, -50%) rotate(0deg); }
+  50%  { transform: translate(-60%, -60%) rotate(10deg); }
+  100% { transform: translate(-50%, -50%) rotate(0deg); }
+}
+.hero .container {
+  position: relative;
+  z-index: 1;
+}
+.hero h1 {
+  font-size: 2.75rem;
+  font-weight: 600;
+}
+.hero p {
+  font-size: 1.1rem;
+  margin: 1rem 0 2rem;
+}
+.btn-primary {
+  background-color: #fff;
+  color: var(--color-primary);
+  border-radius: 2rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  transition: background 0.3s, transform 0.3s;
+}
+.btn-primary:hover {
+  background-color: #f1f1f1;
+  transform: translateY(-2px);
+}
+
+/* Features */
+.features {
+  padding: 4rem 1rem;
+  background: #fff;
+}
+.feature-box {
+  background: var(--color-bg-light);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 12px var(--shadow);
+  text-align: center;
+  transition: transform 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.feature-box::before {
+  content: '';
+  position: absolute;
+  top: -40%; left: -40%;
+  width: 180%; height: 180%;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.1), transparent 70%);
+  animation: slideGradient 10s linear infinite reverse;
+}
+.feature-box > * {
+  position: relative;
+  z-index: 1;
+}
+.feature-box:hover {
+  transform: translateY(-5px);
+}
+.feature-icon {
+  font-size: 2rem;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+#navbar-container,
+#footer-container {
+  position: relative;
+  z-index: 1;
+}
+
+.plans {
+  padding: 4rem 1rem;
+  background: #fff;
+}
+.plans h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 2rem;
+}
+.plan-card {
+  background: var(--color-bg-light);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 12px var(--shadow);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.plan-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px var(--shadow);
+}
+.plan-card .plan-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  margin-bottom: 1rem;
+}
+.plan-card .plan-price {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+.plan-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+  text-align: left;
+}
+.plan-card ul li {
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.plan-card ul li .material-symbols-outlined {
+  font-size: 1.2rem;
+  color: var(--color-accent);
+}
+.plan-card .btn-subscribe {
+  margin-top: 1rem;
+  background-color: var(--color-accent);
+  color: #fff;
+  border-radius: 2rem;
+  padding: 0.5rem 1.5rem;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+.plan-card .btn-subscribe:hover {
+  background-color: var(--color-primary);
+}

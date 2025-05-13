@@ -1,28 +1,52 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\Buscar.css",
-      "PackagePath": "staticwebassets\\css\\Buscar.css"
-    },
-    {
       "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\Login.css",
       "PackagePath": "staticwebassets\\css\\Login.css"
+    },
+    {
+      "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\styleEtapas.css",
+      "PackagePath": "staticwebassets\\css\\styleEtapas.css"
+    },
+    {
+      "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\styleIndex.css",
+      "PackagePath": "staticwebassets\\css\\styleIndex.css"
+    },
+    {
+      "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\styleMeuPerfil.css",
+      "PackagePath": "staticwebassets\\css\\styleMeuPerfil.css"
+    },
+    {
+      "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\styleRecuperarSenha.css",
+      "PackagePath": "staticwebassets\\css\\styleRecuperarSenha.css"
+    },
+    {
+      "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\styleSidebarDashboard.css",
+      "PackagePath": "staticwebassets\\css\\styleSidebarDashboard.css"
+    },
+    {
+      "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\voice-modalstyle.css",
+      "PackagePath": "staticwebassets\\css\\voice-modalstyle.css"
     },
     {
       "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\BuscarDocumentos\\GerarDocumentos.js",
-      "PackagePath": "staticwebassets\\js\\BuscarDocumentos\\GerarDocumentos.js"
+      "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\img\\VoxDox sem fundo.png",
+      "PackagePath": "staticwebassets\\img\\VoxDox sem fundo.png"
     },
     {
-      "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\BuscarDocumentos\\ModalDocumentos.js",
-      "PackagePath": "staticwebassets\\js\\BuscarDocumentos\\ModalDocumentos.js"
+      "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\scriptEtapas.js",
+      "PackagePath": "staticwebassets\\js\\scriptEtapas.js"
     },
     {
-      "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\BuscarDocumentos\\TemporizadorDocumentos.js",
-      "PackagePath": "staticwebassets\\js\\BuscarDocumentos\\TemporizadorDocumentos.js"
+      "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\scriptSideBar.js",
+      "PackagePath": "staticwebassets\\js\\scriptSideBar.js"
+    },
+    {
+      "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\voice-modalScript.js",
+      "PackagePath": "staticwebassets\\js\\voice-modalScript.js"
     },
     {
       "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\lib\\bootstrap\\LICENSE",
@@ -263,6 +287,14 @@
     {
       "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\lib\\jquery\\dist\\jquery.slim.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.min.map"
+    },
+    {
+      "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\uploads\\DOCIMG052025_CONTABEIS.png",
+      "PackagePath": "staticwebassets\\uploads\\DOCIMG052025_CONTABEIS.png"
+    },
+    {
+      "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\uploads\\DOCPDF052025_COMERCIAIS.pdf",
+      "PackagePath": "staticwebassets\\uploads\\DOCPDF052025_COMERCIAIS.pdf"
     },
     {
       "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.VoxDocs.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",

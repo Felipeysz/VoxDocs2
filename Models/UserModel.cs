@@ -5,16 +5,12 @@ namespace VoxDocs.Models
     public class UserModel
     {
         [Key]
-        [Required] // Ensures the field is not nullable
         public int Id { get; set; }
-
-        [Required]
         public required string Usuario { get; set; }
-
-        [Required]
+        public required string Email { get; set; }
         public required string Senha { get; set; }
-
-        [Required]
         public required string PermissionAccount { get; set; }
+        public string? PasswordResetToken { get; set; }
+        public DateTime? PasswordResetTokenExpiration { get; set; }
     }
 }

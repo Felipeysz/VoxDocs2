@@ -1,52 +1,58 @@
-using System.Net.Http.Headers;
+using System.Net.Http;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-public class NavbarControllerMvc : Controller
+public class NavbarMvcController : Controller
 {
+    private readonly ILogger<NavbarMvcController> _logger;
     private readonly IHttpClientFactory _httpClientFactory;
-    private readonly ILogger<NavbarControllerMvc> _logger;
 
-    public NavbarControllerMvc(IHttpClientFactory httpClientFactory, ILogger<NavbarControllerMvc> logger)
+    public NavbarMvcController(ILogger<NavbarMvcController> logger, IHttpClientFactory httpClientFactory)
     {
-        _httpClientFactory = httpClientFactory;
         _logger = logger;
+        _httpClientFactory = httpClientFactory;
     }
 
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Logout()
     {
-        _logger.LogInformation("Iniciando Logout MVC.");
+        _logger.LogInformation("Usuário {User} iniciou logout.", User?.Identity?.Name ?? "desconhecido");
 
-        // 1. Recupera o token ANTES de limpar tudo
-        var token = HttpContext.Session.GetString("JWTToken");
+        var client = _httpClientFactory.CreateClient("VoxDocsApi");
 
-        // 2. Desloga o cookie
-        await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-
-        // 3. Limpa a sessão
-        HttpContext.Session.Clear();
-
-        // 4. Se havia token, chama a API de logout via Bearer
-        if (!string.IsNullOrEmpty(token))
+        try
         {
-            var client = _httpClientFactory.CreateClient("VoxDocsApi");
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            var response = await client.PostAsync("api/User/Logout", null);
-
+            // Chama o logout da API autenticada
+            var response = await client.PostAsync("/api/User/Logout", null);
             if (!response.IsSuccessStatusCode)
             {
-                _logger.LogWarning("Falha ao invalidar token na API: {Reason}", response.ReasonPhrase);
+                TempData["LogoutError"] = "Erro ao sair. Tente novamente.";
+                _logger.LogWarning("Erro ao chamar API de logout: {StatusCode}", response.StatusCode);
             }
         }
-        else
+        catch (Exception ex)
         {
-            _logger.LogInformation("Nenhum token JWT para invalidar.");
+            TempData["LogoutError"] = "Erro ao sair. Tente novamente.";
+            _logger.LogError(ex, "Erro ao chamar a API de logout.");
         }
 
+        // Remove o cookie de autenticação
+        await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+
+        // Apaga todos os cookies da requisição
+        foreach (var cookie in Request.Cookies.Keys)
+        {
+            Response.Cookies.Delete(cookie);
+        }
+
+        // Limpa a sessão
+        HttpContext.Session.Clear();
+
+        // Redireciona para tela de login
         return RedirectToAction("Login", "LoginMvc");
     }
 }

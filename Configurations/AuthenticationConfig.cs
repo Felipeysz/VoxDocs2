@@ -1,7 +1,4 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
 
 namespace VoxDocs.Configurations
 {
@@ -9,80 +6,41 @@ namespace VoxDocs.Configurations
     {
         public static IServiceCollection AddAuthenticationConfig(this IServiceCollection services, IConfiguration configuration)
         {
-            //Configuração de Autenticação
-            services.AddAuthentication(options =>
-{
-    options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options =>
+                {
+                    // Redireciona para nossa action de erro se não autenticado
+                    options.LoginPath = "/LoginNotFound";
+                    options.AccessDeniedPath = "/LoginNotFound";
 
-    // Define que o JWT será usado só quando explicitamente solicitado
-    options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-})
-.AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, options =>
-{
-    options.LoginPath = "/Login";
-    options.AccessDeniedPath = "/Login";
-    options.Cookie.Name = "VoxDocsAuthCookie";
-    options.Cookie.HttpOnly = true;
-    options.ExpireTimeSpan = TimeSpan.FromHours(2);
-    options.SlidingExpiration = true;
+                    options.Cookie.Name = "VoxDocsAuthCookie";
+                    options.Cookie.HttpOnly = true;
+                    options.ExpireTimeSpan = TimeSpan.FromHours(2);
+                    options.SlidingExpiration = true;
 
-    options.Events.OnRedirectToLogin = context =>
-    {
-        if (context.Request.Path.StartsWithSegments("/api"))
-        {
-            context.Response.StatusCode = 401;
-            return context.Response.WriteAsJsonAsync(new { Message = "Não autenticado." });
-        }
+                    // Para chamadas API, retornar JSON em vez de redirecionar
+                    options.Events.OnRedirectToLogin = ctx =>
+                    {
+                        if (ctx.Request.Path.StartsWithSegments("/api"))
+                        {
+                            ctx.Response.StatusCode = StatusCodes.Status401Unauthorized;
+                            return ctx.Response.WriteAsJsonAsync(new { Message = "Não autenticado." });
+                        }
+                        ctx.Response.Redirect(ctx.RedirectUri);
+                        return Task.CompletedTask;
+                    };
 
-        context.Response.Redirect("/Login");
-        return Task.CompletedTask;
-    };
-
-    options.Events.OnRedirectToAccessDenied = context =>
-    {
-        if (context.Request.Path.StartsWithSegments("/api"))
-        {
-            context.Response.StatusCode = 403;
-            return context.Response.WriteAsJsonAsync(new { Message = "Acesso negado." });
-        }
-
-        context.Response.Redirect("/Login");
-        return Task.CompletedTask;
-    };
-})
-.AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options =>
-{
-    var key = Encoding.UTF8.GetBytes(configuration["Jwt:Key"]);
-    options.RequireHttpsMetadata = false;
-    options.SaveToken = true;
-    options.TokenValidationParameters = new TokenValidationParameters
-    {
-        ValidateIssuer = true,
-        ValidIssuer = configuration["Jwt:Issuer"],
-        ValidateAudience = true,
-        ValidAudience = configuration["Jwt:Audience"],
-        ValidateLifetime = true,
-        IssuerSigningKey = new SymmetricSecurityKey(key),
-        ValidateIssuerSigningKey = true,
-        ClockSkew = TimeSpan.Zero
-    };
-
-    options.Events = new JwtBearerEvents
-    {
-        OnChallenge = context =>
-        {
-            context.HandleResponse();
-            context.Response.StatusCode = 401;
-            return context.Response.WriteAsJsonAsync(new { StatusCode = 401, Message = "Token ausente ou inválido." });
-        },
-        OnForbidden = context =>
-        {
-            context.Response.StatusCode = 403;
-            return context.Response.WriteAsJsonAsync(new { StatusCode = 403, Message = "Você não tem permissão para acessar este recurso." });
-        }
-    };
-});
+                    options.Events.OnRedirectToAccessDenied = ctx =>
+                    {
+                        if (ctx.Request.Path.StartsWithSegments("/api"))
+                        {
+                            ctx.Response.StatusCode = StatusCodes.Status403Forbidden;
+                            return ctx.Response.WriteAsJsonAsync(new { Message = "Acesso negado." });
+                        }
+                        ctx.Response.Redirect(ctx.RedirectUri);
+                        return Task.CompletedTask;
+                    };
+                });
 
             return services;
         }

@@ -1,70 +1,83 @@
-using Azure.Storage.Blobs;
 using Microsoft.EntityFrameworkCore;
 using VoxDocs.Configurations;
 using VoxDocs.Data;
 using VoxDocs.Services;
 using VoxDocs.BusinessRules;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using System.Text;
-using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// --- Logging, AppInsights & DataProtection
+// --- Limpa o cookie de autenticação VoxDocsAuthCookie no modo Development ---
+if (builder.Environment.IsDevelopment())
+{
+    // Remove a pasta de chaves de Data Protection para invalidar todos os cookies de autenticação
+    var keysFolder = Path.Combine(AppContext.BaseDirectory, "DataProtection-Keys");
+    if (Directory.Exists(keysFolder))
+    {
+        Directory.Delete(keysFolder, true);
+    }
+}
+
+// --- Logging & Application Insights ---
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole().AddDebug();
-builder.Services.AddApplicationInsightsTelemetry(builder.Configuration["ApplicationInsights:ConnectionString"]);
+builder.Services.AddApplicationInsightsTelemetry(options =>
+{
+    options.ConnectionString = builder.Configuration["ApplicationInsights:ConnectionString"];
+});
+
+// --- DataProtection com fallback ---
 builder.Services.AddCustomDataProtection(builder.Configuration);
 
-// --- EF Core
+// --- EF Core SQL Server ---
 builder.Services.AddDbContext<VoxDocsContext>(opts =>
-    opts.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionBddVoxDocs"),
-        sql => sql.EnableRetryOnFailure()));
+    opts.UseSqlServer(
+        builder.Configuration.GetConnectionString("ConnectionBddVoxDocs"),
+        sql => sql.EnableRetryOnFailure()
+    )
+);
 
-// --- Autenticação (Cookies + JWT) - Configuração Centralizada
+// --- Autenticação via Cookie (usando nossa extensão) ---
 builder.Services.AddAuthenticationConfig(builder.Configuration);
 
-// --- Autorização
+// --- Políticas de autorização ---
 builder.Services.AddAuthorization(options =>
 {
-    options.AddPolicy("ApiPolicy", policy =>
-        policy.AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme)
-              .RequireAuthenticatedUser());
-
     options.AddPolicy("PagePolicy", policy =>
         policy.AddAuthenticationSchemes(CookieAuthenticationDefaults.AuthenticationScheme)
               .RequireAuthenticatedUser());
-
-    // Política que suporta ambos os esquemas (Cookies e JWT)
-    options.AddPolicy("MultiAuthPolicy", policy =>
-        policy.AddAuthenticationSchemes(
-            CookieAuthenticationDefaults.AuthenticationScheme, 
-            JwtBearerDefaults.AuthenticationScheme)
+    options.AddPolicy("ApiPolicy", policy =>
+        policy.AddAuthenticationSchemes(CookieAuthenticationDefaults.AuthenticationScheme)
               .RequireAuthenticatedUser());
 });
 
-// --- Swagger
+// --- Swagger & HttpClient ---
 builder.Services.AddSwaggerConfiguration();
-
-// --- HttpClient
 builder.Services.AddHttpClient("VoxDocsApi", c =>
-    c.BaseAddress = new Uri(builder.Configuration["ApiSettings:BaseUrl"]));
+    c.BaseAddress = new Uri(builder.Configuration["ApiSettings:BaseUrl"] ?? string.Empty)
+);
 
-// --- DI de Serviços
+// --- Serviços ---
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IDocumentoService, DocumentoService>();
+builder.Services.AddScoped<ITipoDocumentoService, TipoDocumentoService>();
+builder.Services.AddScoped<IAreasDocumentoService, AreasDocumentoService>();
+builder.Services.AddScoped<IDocumentoUploadService, DocumentoUploadService>();
+
+// --- Azure Blob Storage Service ---
+builder.Services.AddScoped<AzureBlobService>();
+
+// Regra de Negocios
 builder.Services.AddScoped<UserBusinessRules>();
-builder.Services.AddScoped<TokenService>();
 
-// --- MVC + Views + Rotas
-builder.Services.AddCustomControllersWithViews();
-builder.Services.AddCustomRoutingWithViews();
-
+// --- Controllers + Views + Localizações customizadas + Session ---
+builder.Services.AddCustomControllersWithViews();      // caso contenha outras configs MVC
+builder.Services.AddCustomRoutingWithViews();          // configura localização das Views
 builder.Services.AddCustomSession();
 
 var app = builder.Build();
 
-// Pipeline de Middlewares
+// --- Pipeline padrão ---
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
@@ -78,14 +91,12 @@ else
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
-
 app.UseSession();
 
-// --- Middleware de autenticação/autorizações
 app.UseAuthentication();
 app.UseAuthorization();
 
-// --- Swagger
+// --- Swagger UI ---
 app.UseSwagger();
 app.UseSwaggerUI(c =>
 {
@@ -93,7 +104,7 @@ app.UseSwaggerUI(c =>
     c.RoutePrefix = "swagger";
 });
 
-// --- Rotas
+// --- Rotas customizadas MVC + Erros + API (se tiver) ---
 app.UseCustomRouting();
 
 app.Run();

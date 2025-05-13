@@ -1,6 +1,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using System;
+using System.Collections.Generic;
 
 namespace VoxDocs.Configurations
 {
@@ -41,7 +42,53 @@ namespace VoxDocs.Configurations
                 {
                     { jwtSecurityScheme, Array.Empty<string>() }
                 });
+
+                // Permite upload de arquivos via Swagger (IFormFile + [FromForm])
+                c.OperationFilter<FileUploadOperationFilter>();
             });
+        }
+    }
+
+    // Adicione esta classe para suportar upload de arquivos no Swagger
+    public class FileUploadOperationFilter : Swashbuckle.AspNetCore.SwaggerGen.IOperationFilter
+    {
+        public void Apply(OpenApiOperation operation, Swashbuckle.AspNetCore.SwaggerGen.OperationFilterContext context)
+        {
+            var hasFileUpload = false;
+            foreach (var parameter in context.MethodInfo.GetParameters())
+            {
+                if (parameter.ParameterType == typeof(Microsoft.AspNetCore.Http.IFormFile))
+                {
+                    hasFileUpload = true;
+                    break;
+                }
+            }
+
+            if (hasFileUpload)
+            {
+                operation.RequestBody = new OpenApiRequestBody
+                {
+                    Content =
+                    {
+                        ["multipart/form-data"] = new OpenApiMediaType
+                        {
+                            Schema = new OpenApiSchema
+                            {
+                                Type = "object",
+                                Properties = new Dictionary<string, OpenApiSchema>
+                                {
+                                    ["file"] = new OpenApiSchema { Type = "string", Format = "binary" },
+                                    ["areaId"] = new OpenApiSchema { Type = "integer", Format = "int32" },
+                                    ["tipoId"] = new OpenApiSchema { Type = "integer", Format = "int32" },
+                                    ["usuario"] = new OpenApiSchema { Type = "string" },
+                                    ["descricao"] = new OpenApiSchema { Type = "string" }
+                                },
+                                Required = new HashSet<string> { "file", "areaId", "tipoId", "usuario" }
+                            }
+                        }
+                    }
+                };
+            }
         }
     }
 }

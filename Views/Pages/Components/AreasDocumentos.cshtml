@@ -1,0 +1,23 @@
+@model IEnumerable<VoxDocs.Models.AreasDocumentoModel>
+@{
+    var areas = Model ?? new List<VoxDocs.Models.AreasDocumentoModel>();
+}
+
+<div class="doc-card" id="step1">
+    <div class="doc-header animate__animated animate__fadeInDown">
+        Selecione quais são seus documentos:
+    </div>
+    <ul class="list-group list-group-flush doc-list animate__animated animate__fadeInUp">
+        @foreach (var area in areas)
+        {
+            <li class="list-group-item p-0">
+                <button onclick="selectArea(this, @area.Id)">
+                    <span class="material-symbols-outlined">folder_open</span> @area.Nome
+                </button>
+            </li>
+        }
+    </ul>
+    <button class="access-btn animate__animated animate__fadeInUp" onclick="showTokenModal()">
+        <span class="material-symbols-outlined">vpn_key</span> CÓDIGO DE ACESSO
+    </button>
+</div>

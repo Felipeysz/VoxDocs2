@@ -1,0 +1,188 @@
+:root {
+  --clr-primary:  #5c3c8a;
+  --clr-accent:   #774C9E;
+  --clr-bg-light: #f4f6f9;
+  --clr-error:    #e74c3c;
+  --shadow:       rgba(0,0,0,0.1);
+  --font:         'Poppins', sans-serif;
+}
+
+/* Posicionamento do botão do VLibras */
+[vw-access-button] {
+  position: fixed !important;
+  bottom: 16px !important;
+  right: 16px !important;
+  z-index: 2000 !important;
+}
+
+/* Posicionamento do botão do Assistente de Voz */
+#toggleAssistant {
+  position: fixed;
+  bottom: 16px;
+  right: 80px; /* Ajuste conforme necessário para alinhar com o botão do VLibras */
+  width: 48px;
+  height: 48px;
+  background: var(--clr-primary);
+  border: none;
+  border-radius: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.2s;
+  z-index: 2000;
+  color: #fff;
+  font-size: 24px;
+}
+
+#toggleAssistant:hover {
+  transform: translateY(-2px);
+}
+
+/* Modal do Assistente de Voz */
+#assistantModal .modal-dialog {
+  position: fixed;
+  bottom: 64px;
+  right: 16px;
+  margin: 0;
+  max-width: 280px;
+}
+
+#assistantModal .modal-content {
+  border-radius: 0.25rem;
+  background: var(--clr-bg-light);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+#assistantModal .modal-body {
+  padding: 0;
+}
+
+.modal-header {
+  border: none;
+}
+
+/* Cartão do Assistente */
+.assistant-card {
+  width: 100%;
+  max-width: 250px;
+  text-align: center;
+  position: relative;
+  padding: 1rem;
+  font-family: var(--font);
+}
+
+.libras-icon {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-size: 1.2rem;
+  color: var(--clr-accent);
+  opacity: 0.8;
+}
+
+.assistant-card .logo {
+  max-width: 60px;
+  margin-bottom: 0.5rem;
+}
+
+.assistant-card .title {
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--clr-accent);
+  margin-bottom: 0.2rem;
+}
+
+.assistant-card .subtitle {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+/* Botão de Gravação */
+.microphone-btn {
+  background: var(--clr-primary);
+  color: #fff;
+  width: 110px;
+  height: 34px;
+  border: none;
+  border-radius: 0.25rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  transition: background 0.3s, transform 0.2s;
+  cursor: pointer;
+  margin: 0 auto 1rem;
+}
+
+.microphone-btn.recording {
+  background: var(--clr-error);
+  transform: scale(1.02);
+}
+
+.microphone-btn.sending {
+  background: var(--clr-accent);
+}
+
+.microphone-btn .icon {
+  margin-right: 0.3rem;
+  font-size: 1rem;
+}
+
+/* Spinner de Carregamento */
+.spinner {
+  width: 12px;
+  height: 12px;
+  display: none;
+  border: 2px solid #fff;
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-left: 4px;
+}
+
+.spinner.visible {
+  display: inline-block;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Caixa de Resposta */
+.response-box {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  min-height: 80px;
+  font-size: 0.9rem;
+  color: #333;
+  box-shadow: 0 3px 10px var(--shadow);
+  white-space: pre-wrap;
+  overflow-y: auto;
+  margin-top: 1rem;
+  position: relative;
+}
+
+.response-box.loading::after {
+  content: '⏳ Carregando resposta...';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-style: italic;
+  color: #888;
+}
+
+/* Nota de Rodapé */
+.footer-note {
+  font-size: 0.75rem;
+  color: #777;
+  margin-top: 1rem;
+}

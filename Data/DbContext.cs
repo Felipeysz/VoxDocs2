@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using VoxDocs.Models;
 
 namespace VoxDocs.Data
 {
@@ -10,5 +11,9 @@ namespace VoxDocs.Data
         }
 
         public DbSet<VoxDocs.Models.UserModel> Users { get; set; }
+        public DbSet<DocumentoModel> Documentos { get; set; }
+        public DbSet<DocumentoUploadModel> DocumentosUploads { get; set; }
+        public DbSet<TipoDocumentoModel> TiposDocumento { get; set; }
+        public DbSet<AreasDocumentoModel> AreasDocumento { get; set; }
     }
 }
