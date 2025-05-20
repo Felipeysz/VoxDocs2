@@ -1,0 +1,109 @@
+@model VoxDocs.DTO.DocumentoDto
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload de Documentos</title>
+    <link rel="stylesheet" href="~/css/UploadStyles/UploadPageStyle.css" />
+    <link rel="stylesheet" href="~/css/VoiceAssistantStyles/VoiceAssistant.css" />
+</head>
+<body>
+    <!-- Navbar -->
+    @await Html.PartialAsync("_Navbar")
+
+    <div class="tipo-documentos-root">
+        <div class="tipo-documentos-component">
+            <div class="doc-card">
+                <div class="doc-header">
+                    <span class="material-symbols-outlined">upload</span>
+                    Upload de Documentos
+                </div>
+
+                <form asp-action="UploadDocumentos" method="post" enctype="multipart/form-data" class="mt-4">
+                    <div class="form-group">
+                        <label for="Arquivo">Arquivo:</label>
+                        <input type="file" name="Arquivo" class="form-control" required />
+                        <span asp-validation-for="Arquivo" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="Usuario">Usuário:</label>
+                        <input type="text" name="Usuario" class="form-control" placeholder="Usuário" required />
+                        <span asp-validation-for="Usuario" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="Empresa">Empresa:</label>
+                        <input type="text" name="Empresa" class="form-control" placeholder="Empresa" required />
+                        <span asp-validation-for="Empresa" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="NomePastaPrincipal">Pasta Principal:</label>
+                        <input type="text" name="NomePastaPrincipal" class="form-control" placeholder="Pasta Principal" required />
+                        <span asp-validation-for="NomePastaPrincipal" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="NomeSubPasta">Subpasta:</label>
+                        <input type="text" name="NomeSubPasta" class="form-control" placeholder="Subpasta" required />
+                        <span asp-validation-for="NomeSubPasta" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="NivelSeguranca">Nível de Segurança:</label>
+                        <select name="NivelSeguranca" class="form-control" required>
+                            <option value="Publico">Público</option>
+                            <option value="Restrito">Restrito</option>
+                            <option value="Confidencial">Confidencial</option>
+                        </select>
+                        <span asp-validation-for="NivelSeguranca" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="TokenSeguranca">Token de Segurança (se necessário):</label>
+                        <input type="text" name="TokenSeguranca" class="form-control" placeholder="Token de Segurança" />
+                        <span asp-validation-for="TokenSeguranca" class="text-danger"></span>
+                    </div>
+                    <button type="submit" class="access-btn">
+                        <span class="material-symbols-outlined">upload</span>
+                        Upload
+                    </button>
+                </form>
+
+                <!-- Document List Section -->
+                <div class="document-list mt-4">
+                    <h3>Documentos na Categoria</h3>
+                    @if (ViewBag.Documentos != null && ViewBag.Documentos.Count > 0)
+                    {
+                        <ul>
+                            @foreach (var documento in ViewBag.Documentos)
+                            {
+                                <li>@documento.NomeArquivo</li>
+                            }
+                        </ul>
+                    }
+                    else
+                    {
+                        <p class="text-muted">Sem Documentos nessa Categoria</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    @await Html.PartialAsync("_Footer")
+
+    <!-- Voice Assistant -->
+    @await Html.PartialAsync("_VoiceAssistant")
+
+    <!-- VLibras Script -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+</body>
+</html>

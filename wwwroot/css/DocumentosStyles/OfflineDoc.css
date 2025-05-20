@@ -1,0 +1,71 @@
+:root {
+  --color-primary:   #5c3c8a;
+  --color-accent:    #774C9E;
+  --color-bg-light:  #f4f6f9;
+  --shadow:          rgba(0, 0, 0, 0.1);
+  --text-dark:       #333;
+  --font:            'Poppins', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--color-bg-light);
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.offline-container {
+  background: #fff;
+  border-radius: 0.75rem;
+  padding: 2rem;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 8px 24px var(--shadow);
+}
+
+.offline-container h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  margin-bottom: 1rem;
+}
+
+.offline-container p {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  color: #555;
+}
+
+.offline-container .countdown {
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  color: #666;
+}
+
+.offline-container .btn-redirect {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  text-decoration: none;
+  background-color: var(--color-accent);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 2rem;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.offline-container .btn-redirect:hover {
+  background-color: var(--color-primary);
+}

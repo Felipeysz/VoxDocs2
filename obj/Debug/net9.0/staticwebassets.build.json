@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "1nCUKTJGkApXuq6aLJ5qY/yYjfejUSggoPJGgwZZLJk=",
+  "Hash": "eHvzLuaju/sgGE4clr56oGCNKJv23HQfiwhQKg/81xQ=",
   "Source": "VoxDocs",
   "BasePath": "_content/VoxDocs",
   "Mode": "Default",
@@ -59,25 +59,25 @@
       "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\1i6p5kl0ji-3q14ckl189.gz",
+      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\18xnithwry-qthslv1y0e.gz",
       "SourceId": "VoxDocs",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/VoxDocs",
-      "RelativePath": "css/styleSidebarDashboard#[.{fingerprint=3q14ckl189}]?.css.gz",
+      "RelativePath": "js/DashboardScripts/scriptSideBar#[.{fingerprint=qthslv1y0e}]?.js.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
       "AssetMergeBehavior": "",
       "AssetMergeSource": "",
-      "RelatedAsset": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\styleSidebarDashboard.css",
+      "RelatedAsset": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\DashboardScripts\\scriptSideBar.js",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "7hlmqb2s4u",
-      "Integrity": "xWPXUarBBMGuXUv7iHwKjbFh4A7FHhVPFrE2me+3TpU=",
+      "Fingerprint": "cb2tjxcm2o",
+      "Integrity": "CPiEevhW16ugJTKBikuqXT4sl4BOpbEGbdJ9OZ12iPE=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\styleSidebarDashboard.css"
+      "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\DashboardScripts\\scriptSideBar.js"
     },
     {
       "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\1zbzsi7g6f-8vyfqsqgz1.gz",
@@ -122,25 +122,25 @@
       "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\2yo77jd9il-ap4wu6agpg.gz",
+      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\2a3y31vegs-ap4wu6agpg.gz",
       "SourceId": "VoxDocs",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/VoxDocs",
-      "RelativePath": "js/voice-modalScript#[.{fingerprint=ap4wu6agpg}]?.js.gz",
+      "RelativePath": "js/VoxDocsScripts/voice-modalScript#[.{fingerprint=ap4wu6agpg}]?.js.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
       "AssetMergeBehavior": "",
       "AssetMergeSource": "",
-      "RelatedAsset": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\voice-modalScript.js",
+      "RelatedAsset": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\VoxDocsScripts\\voice-modalScript.js",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
       "Fingerprint": "s8ezzamdpp",
       "Integrity": "3D32DGLeej9MmVTX97whPRiB3oN0hwginlfe1azUjpo=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\voice-modalScript.js"
+      "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\VoxDocsScripts\\voice-modalScript.js"
     },
     {
       "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\3dcq9n46by-hd3gran6i8.gz",
@@ -206,69 +206,6 @@
       "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\styleIndex.css"
     },
     {
-      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\3wtj5ty87f-37bite5iky.gz",
-      "SourceId": "VoxDocs",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\",
-      "BasePath": "_content/VoxDocs",
-      "RelativePath": "css/styleRecuperarSenha#[.{fingerprint=37bite5iky}]?.css.gz",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\styleRecuperarSenha.css",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "Fingerprint": "82mghaiio8",
-      "Integrity": "UHO+iSkPC5KGEdWe8RaT8JWhMpLVI+Pn8YmmrhKJ8Zc=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\styleRecuperarSenha.css"
-    },
-    {
-      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\3zxqazuany-yg9cnv6uhd.gz",
-      "SourceId": "VoxDocs",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\",
-      "BasePath": "_content/VoxDocs",
-      "RelativePath": "css/styleMeuPerfil#[.{fingerprint=yg9cnv6uhd}]?.css.gz",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\styleMeuPerfil.css",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "Fingerprint": "i5t81r9gjh",
-      "Integrity": "aj0uqwIbdsOakqygUFHdJmSmhll5qsQPXpz1bj8/zAM=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\styleMeuPerfil.css"
-    },
-    {
-      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\4ns4gvfd5r-2n4r2lm1aa.gz",
-      "SourceId": "VoxDocs",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\",
-      "BasePath": "_content/VoxDocs",
-      "RelativePath": "css/styleEtapas#[.{fingerprint=2n4r2lm1aa}]?.css.gz",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\styleEtapas.css",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "Fingerprint": "ux5j1kjkpk",
-      "Integrity": "0kXwNujVN8NDej5oRqigmf3ZC1Na9a6t8dSQzx2nx7A=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\styleEtapas.css"
-    },
-    {
       "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\4t51kcg0wy-22vffe00uq.gz",
       "SourceId": "VoxDocs",
       "SourceType": "Discovered",
@@ -311,6 +248,48 @@
       "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
+      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\5cyiprzfcc-o392rt829q.gz",
+      "SourceId": "VoxDocs",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/VoxDocs",
+      "RelativePath": "css/PagamentosStyles/Pagamentos#[.{fingerprint=o392rt829q}]?.css.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\PagamentosStyles\\Pagamentos.css",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "y5lghftl98",
+      "Integrity": "2tOnFUaJKBTl2702V/jbQSxcoYPEymIz5u+2C6AreRY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\PagamentosStyles\\Pagamentos.css"
+    },
+    {
+      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\5gqr30xw4r-jl2lt5655t.gz",
+      "SourceId": "VoxDocs",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/VoxDocs",
+      "RelativePath": "css/ChatVoxStyles/voice-modalstyle#[.{fingerprint=jl2lt5655t}]?.css.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\ChatVoxStyles\\voice-modalstyle.css",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "d06xohrhl6",
+      "Integrity": "U3em9FlvXfTMh2GpictsEK9fCwj3YFBDsevJNRIR+d0=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\ChatVoxStyles\\voice-modalstyle.css"
+    },
+    {
       "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\5odweyc26b-ausgxo2sd3.gz",
       "SourceId": "VoxDocs",
       "SourceType": "Discovered",
@@ -351,27 +330,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
-    },
-    {
-      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\6s06nql08i-6d5ho4vknw.gz",
-      "SourceId": "VoxDocs",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\",
-      "BasePath": "_content/VoxDocs",
-      "RelativePath": "css/Login#[.{fingerprint=6d5ho4vknw}]?.css.gz",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\Login.css",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "Fingerprint": "af7vun9u9r",
-      "Integrity": "qh7MdKPyGW6VMpj4DAenEEDQVTcsuswino2dqKjBywU=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\Login.css"
     },
     {
       "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\6ue8nm1ae7-kbrnm935zg.gz",
@@ -479,27 +437,6 @@
       "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\9pu1puwmp3-h03nccnof6.gz",
-      "SourceId": "VoxDocs",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\",
-      "BasePath": "_content/VoxDocs",
-      "RelativePath": "js/scriptSideBar#[.{fingerprint=h03nccnof6}]?.js.gz",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\scriptSideBar.js",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "Fingerprint": "vgzdjpi5ue",
-      "Integrity": "MbRIbpmsS+CuECy8lUjApdG4kBWZIlnPibJu42B/eiM=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\scriptSideBar.js"
-    },
-    {
       "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\9xf7mlty7a-4d85u1mtcx.gz",
       "SourceId": "VoxDocs",
       "SourceType": "Discovered",
@@ -563,6 +500,27 @@
       "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
+      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\aujzkzgu94-br3g04vl8e.gz",
+      "SourceId": "VoxDocs",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/VoxDocs",
+      "RelativePath": "css/DocumentosStyles/OfflineDoc#[.{fingerprint=br3g04vl8e}]?.css.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\DocumentosStyles\\OfflineDoc.css",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "cthnjzm6i4",
+      "Integrity": "EAcBpd1LhP/FAYM7Cwzws24mln1w6EoS32XAUfbrO4I=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\DocumentosStyles\\OfflineDoc.css"
+    },
+    {
       "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\ayxui7ft2u-fvhpjtyr6v.gz",
       "SourceId": "VoxDocs",
       "SourceType": "Discovered",
@@ -584,25 +542,25 @@
       "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\b5o44yvmwn-jl2lt5655t.gz",
+      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\b4vn3fd9f1-i771pnrbdg.gz",
       "SourceId": "VoxDocs",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/VoxDocs",
-      "RelativePath": "css/voice-modalstyle#[.{fingerprint=jl2lt5655t}]?.css.gz",
+      "RelativePath": "js/PagamentoScript/PagamentoScript#[.{fingerprint=i771pnrbdg}]?.js.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
       "AssetMergeBehavior": "",
       "AssetMergeSource": "",
-      "RelatedAsset": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\voice-modalstyle.css",
+      "RelatedAsset": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\PagamentoScript\\PagamentoScript.js",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "d06xohrhl6",
-      "Integrity": "U3em9FlvXfTMh2GpictsEK9fCwj3YFBDsevJNRIR+d0=",
+      "Fingerprint": "uw93hus1p0",
+      "Integrity": "EsLN+rmpbZ3QcJ+Y82N0BF5/JCRhpWTS5HHAKYYPGV8=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\voice-modalstyle.css"
+      "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\PagamentoScript\\PagamentoScript.js"
     },
     {
       "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\btbwrwplod-03hjc8e09r.gz",
@@ -624,6 +582,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\bvvpbobb1g-h99iv0rdju.gz",
+      "SourceId": "VoxDocs",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/VoxDocs",
+      "RelativePath": "js/DocumentosScripts/EtapasDoc#[.{fingerprint=h99iv0rdju}]?.js.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\DocumentosScripts\\EtapasDoc.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "rbdfec1i0s",
+      "Integrity": "yQCPC+ENRxa2F5zMxDQJQC05CKqJ5S9lPpZp7tvnkPc=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\DocumentosScripts\\EtapasDoc.js"
     },
     {
       "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\c6tb6par1d-ttgo8qnofa.gz",
@@ -666,6 +645,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\dgdeic0766-cd817q0jx4.gz",
+      "SourceId": "VoxDocs",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/VoxDocs",
+      "RelativePath": "css/DocumentosStyles/EtapasDoc#[.{fingerprint=cd817q0jx4}]?.css.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\DocumentosStyles\\EtapasDoc.css",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "2xx083eekn",
+      "Integrity": "SgCoj3Ekx8vIZDBPyEgnjPIuEVZwN9x0EK4UqflvEnI=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\DocumentosStyles\\EtapasDoc.css"
     },
     {
       "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\eqigizjc1k-qesaa3a1fm.gz",
@@ -731,6 +731,27 @@
       "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
+      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\fvq5qxafcq-yg9cnv6uhd.gz",
+      "SourceId": "VoxDocs",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/VoxDocs",
+      "RelativePath": "css/AuthStyles/styleMeuPerfil#[.{fingerprint=yg9cnv6uhd}]?.css.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\AuthStyles\\styleMeuPerfil.css",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "i5t81r9gjh",
+      "Integrity": "aj0uqwIbdsOakqygUFHdJmSmhll5qsQPXpz1bj8/zAM=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\AuthStyles\\styleMeuPerfil.css"
+    },
+    {
       "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\gtef3zb6d6-d4r6k3f320.gz",
       "SourceId": "VoxDocs",
       "SourceType": "Discovered",
@@ -750,6 +771,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\gux60x1ii1-bu8yhdaqhe.gz",
+      "SourceId": "VoxDocs",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/VoxDocs",
+      "RelativePath": "css/OculteCssNativoWeb#[.{fingerprint=bu8yhdaqhe}]?.css.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\OculteCssNativoWeb.css",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "qjz2aszuh8",
+      "Integrity": "ivXnQMiRpySQ214Ze8n/upVdqmC/3chSWJTJXumSQnk=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\OculteCssNativoWeb.css"
     },
     {
       "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\ia89cl62qx-sejl45xvog.gz",
@@ -855,27 +897,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.min.js"
-    },
-    {
-      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\l54rwxwapx-bkc7ckg58r.gz",
-      "SourceId": "VoxDocs",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\",
-      "BasePath": "_content/VoxDocs",
-      "RelativePath": "js/scriptEtapas#[.{fingerprint=bkc7ckg58r}]?.js.gz",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\scriptEtapas.js",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "Fingerprint": "rosynvb34d",
-      "Integrity": "RXcX9Nm9bhPo53eHLtRpWhW65NyMMwfC3XKdOK5Yd9I=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\scriptEtapas.js"
     },
     {
       "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\l6a2bot8i7-m9qm4tazc0.gz",
@@ -1172,6 +1193,27 @@
       "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
+      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\qfawe5dr04-yv83z1z97l.gz",
+      "SourceId": "VoxDocs",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/VoxDocs",
+      "RelativePath": "js/DocumentosScripts/service-worker#[.{fingerprint=yv83z1z97l}]?.js.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\DocumentosScripts\\service-worker.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "vuydasqfd0",
+      "Integrity": "SXRhdNH8SLT9ByOglf/CPecGpJ3rSENeId8GQGJJyYA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\DocumentosScripts\\service-worker.js"
+    },
+    {
       "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\qji7b5ocjw-worgj0nhwm.gz",
       "SourceId": "VoxDocs",
       "SourceType": "Discovered",
@@ -1277,6 +1319,27 @@
       "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
+      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\t739s19ojw-r8rgh0ebdj.gz",
+      "SourceId": "VoxDocs",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/VoxDocs",
+      "RelativePath": "css/UploadStyles/UploadPageStyle#[.{fingerprint=r8rgh0ebdj}]?.css.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\UploadStyles\\UploadPageStyle.css",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "p1s4jtx2i2",
+      "Integrity": "A4J5g1hHfl6ydpKCuc9337C7EvNH0eKl/dwCDRTlmoU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\UploadStyles\\UploadPageStyle.css"
+    },
+    {
       "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\ua0gj7tcei-t1cqhe9u97.gz",
       "SourceId": "VoxDocs",
       "SourceType": "Discovered",
@@ -1340,6 +1403,27 @@
       "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
+      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\vovjsw65g2-37bite5iky.gz",
+      "SourceId": "VoxDocs",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/VoxDocs",
+      "RelativePath": "css/AuthStyles/styleRecuperarSenha#[.{fingerprint=37bite5iky}]?.css.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\AuthStyles\\styleRecuperarSenha.css",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "82mghaiio8",
+      "Integrity": "UHO+iSkPC5KGEdWe8RaT8JWhMpLVI+Pn8YmmrhKJ8Zc=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\AuthStyles\\styleRecuperarSenha.css"
+    },
+    {
       "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\w79vrmnjey-fsbi9cje9m.gz",
       "SourceId": "VoxDocs",
       "SourceType": "Discovered",
@@ -1401,6 +1485,48 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\xmgsyt1jf0-6d5ho4vknw.gz",
+      "SourceId": "VoxDocs",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/VoxDocs",
+      "RelativePath": "css/AuthStyles/Login#[.{fingerprint=6d5ho4vknw}]?.css.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\AuthStyles\\Login.css",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "af7vun9u9r",
+      "Integrity": "qh7MdKPyGW6VMpj4DAenEEDQVTcsuswino2dqKjBywU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\AuthStyles\\Login.css"
+    },
+    {
+      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\xmhluyhe05-3q14ckl189.gz",
+      "SourceId": "VoxDocs",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/VoxDocs",
+      "RelativePath": "css/DashboardAdminStyles/styleSidebarDashboard#[.{fingerprint=3q14ckl189}]?.css.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\DashboardAdminStyles\\styleSidebarDashboard.css",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "7hlmqb2s4u",
+      "Integrity": "xWPXUarBBMGuXUv7iHwKjbFh4A7FHhVPFrE2me+3TpU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\DashboardAdminStyles\\styleSidebarDashboard.css"
     },
     {
       "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\ydlyg43cs2-h1s4sie4z3.gz",
@@ -1487,12 +1613,12 @@
       "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\Login.css",
+      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\AuthStyles\\Login.css",
       "SourceId": "VoxDocs",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\",
       "BasePath": "_content/VoxDocs",
-      "RelativePath": "css/Login#[.{fingerprint}]?.css",
+      "RelativePath": "css/AuthStyles/Login#[.{fingerprint}]?.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1505,15 +1631,15 @@
       "Integrity": "ljL7kf60d3TREs/C40RgLp92/W06cFy3jsUfnzsRgVA=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\Login.css"
+      "OriginalItemSpec": "wwwroot\\css\\AuthStyles\\Login.css"
     },
     {
-      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\styleEtapas.css",
+      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\AuthStyles\\styleMeuPerfil.css",
       "SourceId": "VoxDocs",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\",
       "BasePath": "_content/VoxDocs",
-      "RelativePath": "css/styleEtapas#[.{fingerprint}]?.css",
+      "RelativePath": "css/AuthStyles/styleMeuPerfil#[.{fingerprint}]?.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1522,11 +1648,158 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "2n4r2lm1aa",
-      "Integrity": "wlluYYeR0uP6jBUly5RYr8G2u1XqrHEQFkUMShCesB0=",
+      "Fingerprint": "yg9cnv6uhd",
+      "Integrity": "8u0ary8DfetdOqvpYy2EWBeF6qYkJ8HH7F2F4B3IkAQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\styleEtapas.css"
+      "OriginalItemSpec": "wwwroot\\css\\AuthStyles\\styleMeuPerfil.css"
+    },
+    {
+      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\AuthStyles\\styleRecuperarSenha.css",
+      "SourceId": "VoxDocs",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\",
+      "BasePath": "_content/VoxDocs",
+      "RelativePath": "css/AuthStyles/styleRecuperarSenha#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "37bite5iky",
+      "Integrity": "0fHOVvkig/7cHrGT8hMfdad20jbNn43MNbEOOjUdLSA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\AuthStyles\\styleRecuperarSenha.css"
+    },
+    {
+      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\ChatVoxStyles\\voice-modalstyle.css",
+      "SourceId": "VoxDocs",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\",
+      "BasePath": "_content/VoxDocs",
+      "RelativePath": "css/ChatVoxStyles/voice-modalstyle#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "jl2lt5655t",
+      "Integrity": "ZxHGSWPOxD4HzsS6dOR5+KqXytM6KX9HeJontxbFhIk=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\ChatVoxStyles\\voice-modalstyle.css"
+    },
+    {
+      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\DashboardAdminStyles\\styleSidebarDashboard.css",
+      "SourceId": "VoxDocs",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\",
+      "BasePath": "_content/VoxDocs",
+      "RelativePath": "css/DashboardAdminStyles/styleSidebarDashboard#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "3q14ckl189",
+      "Integrity": "u83B22PomUd+VBbrIKlecAanfgBpx2ubyryYa3kr6yg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\DashboardAdminStyles\\styleSidebarDashboard.css"
+    },
+    {
+      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\DocumentosStyles\\EtapasDoc.css",
+      "SourceId": "VoxDocs",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\",
+      "BasePath": "_content/VoxDocs",
+      "RelativePath": "css/DocumentosStyles/EtapasDoc#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "cd817q0jx4",
+      "Integrity": "oK/IYxfNkT0eVz704FvASySqBX/V3RpZ8kUQRZkcGTE=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\DocumentosStyles\\EtapasDoc.css"
+    },
+    {
+      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\DocumentosStyles\\OfflineDoc.css",
+      "SourceId": "VoxDocs",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\",
+      "BasePath": "_content/VoxDocs",
+      "RelativePath": "css/DocumentosStyles/OfflineDoc#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "br3g04vl8e",
+      "Integrity": "+cjLQNbNROzkhyY+43qnNZEQohPUlsAOCEtOLVOzqTg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\DocumentosStyles\\OfflineDoc.css"
+    },
+    {
+      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\OculteCssNativoWeb.css",
+      "SourceId": "VoxDocs",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\",
+      "BasePath": "_content/VoxDocs",
+      "RelativePath": "css/OculteCssNativoWeb#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "bu8yhdaqhe",
+      "Integrity": "vXnXwk+S8RizCTKDrO+MzT+RWyCjscHQTDO8vaUjEaE=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\OculteCssNativoWeb.css"
+    },
+    {
+      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\PagamentosStyles\\Pagamentos.css",
+      "SourceId": "VoxDocs",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\",
+      "BasePath": "_content/VoxDocs",
+      "RelativePath": "css/PagamentosStyles/Pagamentos#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "o392rt829q",
+      "Integrity": "lCkg9l61W9QO+9qLGMvCCAh7a0qTM4u3qVwa6rxEbn0=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\PagamentosStyles\\Pagamentos.css"
     },
     {
       "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\styleIndex.css",
@@ -1550,12 +1823,12 @@
       "OriginalItemSpec": "wwwroot\\css\\styleIndex.css"
     },
     {
-      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\styleMeuPerfil.css",
+      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\UploadStyles\\UploadPageStyle.css",
       "SourceId": "VoxDocs",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\",
       "BasePath": "_content/VoxDocs",
-      "RelativePath": "css/styleMeuPerfil#[.{fingerprint}]?.css",
+      "RelativePath": "css/UploadStyles/UploadPageStyle#[.{fingerprint}]?.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1564,74 +1837,11 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "yg9cnv6uhd",
-      "Integrity": "8u0ary8DfetdOqvpYy2EWBeF6qYkJ8HH7F2F4B3IkAQ=",
+      "Fingerprint": "r8rgh0ebdj",
+      "Integrity": "FcGHekEttSuu1T+74yNRXgdlLMb7lKgQlF/mzXB9lkU=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\styleMeuPerfil.css"
-    },
-    {
-      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\styleRecuperarSenha.css",
-      "SourceId": "VoxDocs",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\",
-      "BasePath": "_content/VoxDocs",
-      "RelativePath": "css/styleRecuperarSenha#[.{fingerprint}]?.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "37bite5iky",
-      "Integrity": "0fHOVvkig/7cHrGT8hMfdad20jbNn43MNbEOOjUdLSA=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\styleRecuperarSenha.css"
-    },
-    {
-      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\styleSidebarDashboard.css",
-      "SourceId": "VoxDocs",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\",
-      "BasePath": "_content/VoxDocs",
-      "RelativePath": "css/styleSidebarDashboard#[.{fingerprint}]?.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "3q14ckl189",
-      "Integrity": "u83B22PomUd+VBbrIKlecAanfgBpx2ubyryYa3kr6yg=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\styleSidebarDashboard.css"
-    },
-    {
-      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\voice-modalstyle.css",
-      "SourceId": "VoxDocs",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\",
-      "BasePath": "_content/VoxDocs",
-      "RelativePath": "css/voice-modalstyle#[.{fingerprint}]?.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "jl2lt5655t",
-      "Integrity": "ZxHGSWPOxD4HzsS6dOR5+KqXytM6KX9HeJontxbFhIk=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\voice-modalstyle.css"
+      "OriginalItemSpec": "wwwroot\\css\\UploadStyles\\UploadPageStyle.css"
     },
     {
       "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\favicon.ico",
@@ -1676,12 +1886,12 @@
       "OriginalItemSpec": "wwwroot\\img\\VoxDox sem fundo.png"
     },
     {
-      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\scriptEtapas.js",
+      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\DashboardScripts\\scriptSideBar.js",
       "SourceId": "VoxDocs",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\",
       "BasePath": "_content/VoxDocs",
-      "RelativePath": "js/scriptEtapas#[.{fingerprint}]?.js",
+      "RelativePath": "js/DashboardScripts/scriptSideBar#[.{fingerprint}]?.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1690,19 +1900,19 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "bkc7ckg58r",
-      "Integrity": "pSg2QL/wwvqp+ivf7WznzsPzLGCo1NDAf4qlZjmsY9A=",
+      "Fingerprint": "qthslv1y0e",
+      "Integrity": "whVs2Zc1z33k90JKf3QkAokHX58L7kFXbYOcNHaZoBE=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\scriptEtapas.js"
+      "OriginalItemSpec": "wwwroot\\js\\DashboardScripts\\scriptSideBar.js"
     },
     {
-      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\scriptSideBar.js",
+      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\DocumentosScripts\\EtapasDoc.js",
       "SourceId": "VoxDocs",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\",
       "BasePath": "_content/VoxDocs",
-      "RelativePath": "js/scriptSideBar#[.{fingerprint}]?.js",
+      "RelativePath": "js/DocumentosScripts/EtapasDoc#[.{fingerprint}]?.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1711,19 +1921,61 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "h03nccnof6",
-      "Integrity": "/+TU01W+hfb+/GJa8ua7EG02e62t9tzO/DDDO5n+Uug=",
+      "Fingerprint": "h99iv0rdju",
+      "Integrity": "m5H9kdin2KvidsKII6NEPNeI593154Rkv7jwsk0Lu0M=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\scriptSideBar.js"
+      "OriginalItemSpec": "wwwroot\\js\\DocumentosScripts\\EtapasDoc.js"
     },
     {
-      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\voice-modalScript.js",
+      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\DocumentosScripts\\service-worker.js",
       "SourceId": "VoxDocs",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\",
       "BasePath": "_content/VoxDocs",
-      "RelativePath": "js/voice-modalScript#[.{fingerprint}]?.js",
+      "RelativePath": "js/DocumentosScripts/service-worker#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "yv83z1z97l",
+      "Integrity": "Qpk34uFX/HWX2DOnxIeAS+9PogQLg7oBrGXyJcCodPI=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\DocumentosScripts\\service-worker.js"
+    },
+    {
+      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\PagamentoScript\\PagamentoScript.js",
+      "SourceId": "VoxDocs",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\",
+      "BasePath": "_content/VoxDocs",
+      "RelativePath": "js/PagamentoScript/PagamentoScript#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "i771pnrbdg",
+      "Integrity": "QkB5fXxIOuzCybfjWWdMbw3UjkiQdnsVIswD0gtNOb4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\PagamentoScript\\PagamentoScript.js"
+    },
+    {
+      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\VoxDocsScripts\\voice-modalScript.js",
+      "SourceId": "VoxDocs",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\",
+      "BasePath": "_content/VoxDocs",
+      "RelativePath": "js/VoxDocsScripts/voice-modalScript#[.{fingerprint}]?.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1736,7 +1988,7 @@
       "Integrity": "zjU7aDkvtMA/PxQrWDPHn7lHXF0c9+zSHAcyDxbEXBs=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\voice-modalScript.js"
+      "OriginalItemSpec": "wwwroot\\js\\VoxDocsScripts\\voice-modalScript.js"
     },
     {
       "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
@@ -3043,8 +3295,8 @@
   ],
   "Endpoints": [
     {
-      "Route": "css/Login.6d5ho4vknw.css",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\6s06nql08i-6d5ho4vknw.gz",
+      "Route": "css/AuthStyles/Login.6d5ho4vknw.css",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\xmgsyt1jf0-6d5ho4vknw.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -3097,7 +3349,7 @@
         },
         {
           "Name": "label",
-          "Value": "css/Login.css"
+          "Value": "css/AuthStyles/Login.css"
         },
         {
           "Name": "integrity",
@@ -3106,8 +3358,8 @@
       ]
     },
     {
-      "Route": "css/Login.6d5ho4vknw.css",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\Login.css",
+      "Route": "css/AuthStyles/Login.6d5ho4vknw.css",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\AuthStyles\\Login.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3142,7 +3394,7 @@
         },
         {
           "Name": "label",
-          "Value": "css/Login.css"
+          "Value": "css/AuthStyles/Login.css"
         },
         {
           "Name": "integrity",
@@ -3151,8 +3403,8 @@
       ]
     },
     {
-      "Route": "css/Login.6d5ho4vknw.css.gz",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\6s06nql08i-6d5ho4vknw.gz",
+      "Route": "css/AuthStyles/Login.6d5ho4vknw.css.gz",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\xmgsyt1jf0-6d5ho4vknw.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3195,7 +3447,7 @@
         },
         {
           "Name": "label",
-          "Value": "css/Login.css.gz"
+          "Value": "css/AuthStyles/Login.css.gz"
         },
         {
           "Name": "integrity",
@@ -3204,8 +3456,8 @@
       ]
     },
     {
-      "Route": "css/Login.css",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\6s06nql08i-6d5ho4vknw.gz",
+      "Route": "css/AuthStyles/Login.css",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\xmgsyt1jf0-6d5ho4vknw.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -3259,8 +3511,8 @@
       ]
     },
     {
-      "Route": "css/Login.css",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\Login.css",
+      "Route": "css/AuthStyles/Login.css",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\AuthStyles\\Login.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3296,8 +3548,8 @@
       ]
     },
     {
-      "Route": "css/Login.css.gz",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\6s06nql08i-6d5ho4vknw.gz",
+      "Route": "css/AuthStyles/Login.css.gz",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\xmgsyt1jf0-6d5ho4vknw.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3341,13 +3593,13 @@
       ]
     },
     {
-      "Route": "css/styleEtapas.2n4r2lm1aa.css",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\4ns4gvfd5r-2n4r2lm1aa.gz",
+      "Route": "css/AuthStyles/styleMeuPerfil.css",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\fvq5qxafcq-yg9cnv6uhd.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000893655049"
+          "Quality": "0.001355013550"
         }
       ],
       "ResponseHeaders": [
@@ -3357,19 +3609,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1118"
+          "Value": "737"
         },
         {
           "Name": "ETag",
-          "Value": "\"0kXwNujVN8NDej5oRqigmf3ZC1Na9a6t8dSQzx2nx7A=\""
+          "Value": "\"aj0uqwIbdsOakqygUFHdJmSmhll5qsQPXpz1bj8/zAM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 20:34:09 GMT"
+          "Value": "Sat, 10 May 2025 21:37:13 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
+          "Value": "no-cache"
         },
         {
           "Name": "Content-Encoding",
@@ -3385,27 +3637,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"wlluYYeR0uP6jBUly5RYr8G2u1XqrHEQFkUMShCesB0=\""
+          "Value": "W/\"8u0ary8DfetdOqvpYy2EWBeF6qYkJ8HH7F2F4B3IkAQ=\""
         }
       ],
       "EndpointProperties": [
         {
-          "Name": "fingerprint",
-          "Value": "2n4r2lm1aa"
-        },
-        {
-          "Name": "label",
-          "Value": "css/styleEtapas.css"
-        },
-        {
           "Name": "integrity",
-          "Value": "sha256-wlluYYeR0uP6jBUly5RYr8G2u1XqrHEQFkUMShCesB0="
+          "Value": "sha256-8u0ary8DfetdOqvpYy2EWBeF6qYkJ8HH7F2F4B3IkAQ="
         }
       ]
     },
     {
-      "Route": "css/styleEtapas.2n4r2lm1aa.css",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\styleEtapas.css",
+      "Route": "css/AuthStyles/styleMeuPerfil.css",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\AuthStyles\\styleMeuPerfil.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3414,7 +3658,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3487"
+          "Value": "1856"
         },
         {
           "Name": "Content-Type",
@@ -3422,35 +3666,27 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"wlluYYeR0uP6jBUly5RYr8G2u1XqrHEQFkUMShCesB0=\""
+          "Value": "\"8u0ary8DfetdOqvpYy2EWBeF6qYkJ8HH7F2F4B3IkAQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 20:34:09 GMT"
+          "Value": "Sat, 10 May 2025 21:37:13 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
+          "Value": "no-cache"
         }
       ],
       "EndpointProperties": [
         {
-          "Name": "fingerprint",
-          "Value": "2n4r2lm1aa"
-        },
-        {
-          "Name": "label",
-          "Value": "css/styleEtapas.css"
-        },
-        {
           "Name": "integrity",
-          "Value": "sha256-wlluYYeR0uP6jBUly5RYr8G2u1XqrHEQFkUMShCesB0="
+          "Value": "sha256-8u0ary8DfetdOqvpYy2EWBeF6qYkJ8HH7F2F4B3IkAQ="
         }
       ]
     },
     {
-      "Route": "css/styleEtapas.2n4r2lm1aa.css.gz",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\4ns4gvfd5r-2n4r2lm1aa.gz",
+      "Route": "css/AuthStyles/styleMeuPerfil.css.gz",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\fvq5qxafcq-yg9cnv6uhd.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3459,7 +3695,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1118"
+          "Value": "737"
         },
         {
           "Name": "Content-Type",
@@ -3467,15 +3703,15 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"0kXwNujVN8NDej5oRqigmf3ZC1Na9a6t8dSQzx2nx7A=\""
+          "Value": "\"aj0uqwIbdsOakqygUFHdJmSmhll5qsQPXpz1bj8/zAM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 20:34:09 GMT"
+          "Value": "Sat, 10 May 2025 21:37:13 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
+          "Value": "no-cache"
         },
         {
           "Name": "Content-Encoding",
@@ -3488,27 +3724,19 @@
       ],
       "EndpointProperties": [
         {
-          "Name": "fingerprint",
-          "Value": "2n4r2lm1aa"
-        },
-        {
-          "Name": "label",
-          "Value": "css/styleEtapas.css.gz"
-        },
-        {
           "Name": "integrity",
-          "Value": "sha256-0kXwNujVN8NDej5oRqigmf3ZC1Na9a6t8dSQzx2nx7A="
+          "Value": "sha256-aj0uqwIbdsOakqygUFHdJmSmhll5qsQPXpz1bj8/zAM="
         }
       ]
     },
     {
-      "Route": "css/styleEtapas.css",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\4ns4gvfd5r-2n4r2lm1aa.gz",
+      "Route": "css/AuthStyles/styleMeuPerfil.yg9cnv6uhd.css",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\fvq5qxafcq-yg9cnv6uhd.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000893655049"
+          "Quality": "0.001355013550"
         }
       ],
       "ResponseHeaders": [
@@ -3518,15 +3746,337 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1118"
+          "Value": "737"
         },
         {
           "Name": "ETag",
-          "Value": "\"0kXwNujVN8NDej5oRqigmf3ZC1Na9a6t8dSQzx2nx7A=\""
+          "Value": "\"aj0uqwIbdsOakqygUFHdJmSmhll5qsQPXpz1bj8/zAM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 20:34:09 GMT"
+          "Value": "Sat, 10 May 2025 21:37:13 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"8u0ary8DfetdOqvpYy2EWBeF6qYkJ8HH7F2F4B3IkAQ=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "yg9cnv6uhd"
+        },
+        {
+          "Name": "label",
+          "Value": "css/AuthStyles/styleMeuPerfil.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-8u0ary8DfetdOqvpYy2EWBeF6qYkJ8HH7F2F4B3IkAQ="
+        }
+      ]
+    },
+    {
+      "Route": "css/AuthStyles/styleMeuPerfil.yg9cnv6uhd.css",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\AuthStyles\\styleMeuPerfil.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1856"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"8u0ary8DfetdOqvpYy2EWBeF6qYkJ8HH7F2F4B3IkAQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 10 May 2025 21:37:13 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "yg9cnv6uhd"
+        },
+        {
+          "Name": "label",
+          "Value": "css/AuthStyles/styleMeuPerfil.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-8u0ary8DfetdOqvpYy2EWBeF6qYkJ8HH7F2F4B3IkAQ="
+        }
+      ]
+    },
+    {
+      "Route": "css/AuthStyles/styleMeuPerfil.yg9cnv6uhd.css.gz",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\fvq5qxafcq-yg9cnv6uhd.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "737"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"aj0uqwIbdsOakqygUFHdJmSmhll5qsQPXpz1bj8/zAM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 10 May 2025 21:37:13 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "yg9cnv6uhd"
+        },
+        {
+          "Name": "label",
+          "Value": "css/AuthStyles/styleMeuPerfil.css.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-aj0uqwIbdsOakqygUFHdJmSmhll5qsQPXpz1bj8/zAM="
+        }
+      ]
+    },
+    {
+      "Route": "css/AuthStyles/styleRecuperarSenha.37bite5iky.css",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\vovjsw65g2-37bite5iky.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001233045623"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "810"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"UHO+iSkPC5KGEdWe8RaT8JWhMpLVI+Pn8YmmrhKJ8Zc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 06 May 2025 06:03:36 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"0fHOVvkig/7cHrGT8hMfdad20jbNn43MNbEOOjUdLSA=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "37bite5iky"
+        },
+        {
+          "Name": "label",
+          "Value": "css/AuthStyles/styleRecuperarSenha.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-0fHOVvkig/7cHrGT8hMfdad20jbNn43MNbEOOjUdLSA="
+        }
+      ]
+    },
+    {
+      "Route": "css/AuthStyles/styleRecuperarSenha.37bite5iky.css",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\AuthStyles\\styleRecuperarSenha.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2493"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0fHOVvkig/7cHrGT8hMfdad20jbNn43MNbEOOjUdLSA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 06 May 2025 06:03:36 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "37bite5iky"
+        },
+        {
+          "Name": "label",
+          "Value": "css/AuthStyles/styleRecuperarSenha.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-0fHOVvkig/7cHrGT8hMfdad20jbNn43MNbEOOjUdLSA="
+        }
+      ]
+    },
+    {
+      "Route": "css/AuthStyles/styleRecuperarSenha.37bite5iky.css.gz",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\vovjsw65g2-37bite5iky.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "810"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"UHO+iSkPC5KGEdWe8RaT8JWhMpLVI+Pn8YmmrhKJ8Zc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 06 May 2025 06:03:36 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "37bite5iky"
+        },
+        {
+          "Name": "label",
+          "Value": "css/AuthStyles/styleRecuperarSenha.css.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-UHO+iSkPC5KGEdWe8RaT8JWhMpLVI+Pn8YmmrhKJ8Zc="
+        }
+      ]
+    },
+    {
+      "Route": "css/AuthStyles/styleRecuperarSenha.css",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\vovjsw65g2-37bite5iky.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001233045623"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "810"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"UHO+iSkPC5KGEdWe8RaT8JWhMpLVI+Pn8YmmrhKJ8Zc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 06 May 2025 06:03:36 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3546,19 +4096,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"wlluYYeR0uP6jBUly5RYr8G2u1XqrHEQFkUMShCesB0=\""
+          "Value": "W/\"0fHOVvkig/7cHrGT8hMfdad20jbNn43MNbEOOjUdLSA=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-wlluYYeR0uP6jBUly5RYr8G2u1XqrHEQFkUMShCesB0="
+          "Value": "sha256-0fHOVvkig/7cHrGT8hMfdad20jbNn43MNbEOOjUdLSA="
         }
       ]
     },
     {
-      "Route": "css/styleEtapas.css",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\styleEtapas.css",
+      "Route": "css/AuthStyles/styleRecuperarSenha.css",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\AuthStyles\\styleRecuperarSenha.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3567,7 +4117,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3487"
+          "Value": "2493"
         },
         {
           "Name": "Content-Type",
@@ -3575,11 +4125,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"wlluYYeR0uP6jBUly5RYr8G2u1XqrHEQFkUMShCesB0=\""
+          "Value": "\"0fHOVvkig/7cHrGT8hMfdad20jbNn43MNbEOOjUdLSA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 20:34:09 GMT"
+          "Value": "Tue, 06 May 2025 06:03:36 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3589,13 +4139,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-wlluYYeR0uP6jBUly5RYr8G2u1XqrHEQFkUMShCesB0="
+          "Value": "sha256-0fHOVvkig/7cHrGT8hMfdad20jbNn43MNbEOOjUdLSA="
         }
       ]
     },
     {
-      "Route": "css/styleEtapas.css.gz",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\4ns4gvfd5r-2n4r2lm1aa.gz",
+      "Route": "css/AuthStyles/styleRecuperarSenha.css.gz",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\vovjsw65g2-37bite5iky.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3604,7 +4154,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1118"
+          "Value": "810"
         },
         {
           "Name": "Content-Type",
@@ -3612,11 +4162,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"0kXwNujVN8NDej5oRqigmf3ZC1Na9a6t8dSQzx2nx7A=\""
+          "Value": "\"UHO+iSkPC5KGEdWe8RaT8JWhMpLVI+Pn8YmmrhKJ8Zc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 May 2025 20:34:09 GMT"
+          "Value": "Tue, 06 May 2025 06:03:36 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3634,7 +4184,1795 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-0kXwNujVN8NDej5oRqigmf3ZC1Na9a6t8dSQzx2nx7A="
+          "Value": "sha256-UHO+iSkPC5KGEdWe8RaT8JWhMpLVI+Pn8YmmrhKJ8Zc="
+        }
+      ]
+    },
+    {
+      "Route": "css/ChatVoxStyles/voice-modalstyle.css",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\5gqr30xw4r-jl2lt5655t.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000776397516"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1287"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"U3em9FlvXfTMh2GpictsEK9fCwj3YFBDsevJNRIR+d0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 05 May 2025 13:43:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"ZxHGSWPOxD4HzsS6dOR5+KqXytM6KX9HeJontxbFhIk=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ZxHGSWPOxD4HzsS6dOR5+KqXytM6KX9HeJontxbFhIk="
+        }
+      ]
+    },
+    {
+      "Route": "css/ChatVoxStyles/voice-modalstyle.css",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\ChatVoxStyles\\voice-modalstyle.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3636"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ZxHGSWPOxD4HzsS6dOR5+KqXytM6KX9HeJontxbFhIk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 05 May 2025 13:43:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ZxHGSWPOxD4HzsS6dOR5+KqXytM6KX9HeJontxbFhIk="
+        }
+      ]
+    },
+    {
+      "Route": "css/ChatVoxStyles/voice-modalstyle.css.gz",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\5gqr30xw4r-jl2lt5655t.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1287"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"U3em9FlvXfTMh2GpictsEK9fCwj3YFBDsevJNRIR+d0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 05 May 2025 13:43:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-U3em9FlvXfTMh2GpictsEK9fCwj3YFBDsevJNRIR+d0="
+        }
+      ]
+    },
+    {
+      "Route": "css/ChatVoxStyles/voice-modalstyle.jl2lt5655t.css",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\5gqr30xw4r-jl2lt5655t.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000776397516"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1287"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"U3em9FlvXfTMh2GpictsEK9fCwj3YFBDsevJNRIR+d0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 05 May 2025 13:43:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"ZxHGSWPOxD4HzsS6dOR5+KqXytM6KX9HeJontxbFhIk=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "jl2lt5655t"
+        },
+        {
+          "Name": "label",
+          "Value": "css/ChatVoxStyles/voice-modalstyle.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ZxHGSWPOxD4HzsS6dOR5+KqXytM6KX9HeJontxbFhIk="
+        }
+      ]
+    },
+    {
+      "Route": "css/ChatVoxStyles/voice-modalstyle.jl2lt5655t.css",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\ChatVoxStyles\\voice-modalstyle.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3636"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ZxHGSWPOxD4HzsS6dOR5+KqXytM6KX9HeJontxbFhIk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 05 May 2025 13:43:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "jl2lt5655t"
+        },
+        {
+          "Name": "label",
+          "Value": "css/ChatVoxStyles/voice-modalstyle.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ZxHGSWPOxD4HzsS6dOR5+KqXytM6KX9HeJontxbFhIk="
+        }
+      ]
+    },
+    {
+      "Route": "css/ChatVoxStyles/voice-modalstyle.jl2lt5655t.css.gz",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\5gqr30xw4r-jl2lt5655t.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1287"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"U3em9FlvXfTMh2GpictsEK9fCwj3YFBDsevJNRIR+d0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 05 May 2025 13:43:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "jl2lt5655t"
+        },
+        {
+          "Name": "label",
+          "Value": "css/ChatVoxStyles/voice-modalstyle.css.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-U3em9FlvXfTMh2GpictsEK9fCwj3YFBDsevJNRIR+d0="
+        }
+      ]
+    },
+    {
+      "Route": "css/DashboardAdminStyles/styleSidebarDashboard.3q14ckl189.css",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\xmhluyhe05-3q14ckl189.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001173708920"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "851"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"xWPXUarBBMGuXUv7iHwKjbFh4A7FHhVPFrE2me+3TpU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 05 May 2025 13:55:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"u83B22PomUd+VBbrIKlecAanfgBpx2ubyryYa3kr6yg=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "3q14ckl189"
+        },
+        {
+          "Name": "label",
+          "Value": "css/DashboardAdminStyles/styleSidebarDashboard.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-u83B22PomUd+VBbrIKlecAanfgBpx2ubyryYa3kr6yg="
+        }
+      ]
+    },
+    {
+      "Route": "css/DashboardAdminStyles/styleSidebarDashboard.3q14ckl189.css",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\DashboardAdminStyles\\styleSidebarDashboard.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2265"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"u83B22PomUd+VBbrIKlecAanfgBpx2ubyryYa3kr6yg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 05 May 2025 13:55:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "3q14ckl189"
+        },
+        {
+          "Name": "label",
+          "Value": "css/DashboardAdminStyles/styleSidebarDashboard.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-u83B22PomUd+VBbrIKlecAanfgBpx2ubyryYa3kr6yg="
+        }
+      ]
+    },
+    {
+      "Route": "css/DashboardAdminStyles/styleSidebarDashboard.3q14ckl189.css.gz",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\xmhluyhe05-3q14ckl189.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "851"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"xWPXUarBBMGuXUv7iHwKjbFh4A7FHhVPFrE2me+3TpU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 05 May 2025 13:55:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "3q14ckl189"
+        },
+        {
+          "Name": "label",
+          "Value": "css/DashboardAdminStyles/styleSidebarDashboard.css.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-xWPXUarBBMGuXUv7iHwKjbFh4A7FHhVPFrE2me+3TpU="
+        }
+      ]
+    },
+    {
+      "Route": "css/DashboardAdminStyles/styleSidebarDashboard.css",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\xmhluyhe05-3q14ckl189.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001173708920"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "851"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"xWPXUarBBMGuXUv7iHwKjbFh4A7FHhVPFrE2me+3TpU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 05 May 2025 13:55:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"u83B22PomUd+VBbrIKlecAanfgBpx2ubyryYa3kr6yg=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-u83B22PomUd+VBbrIKlecAanfgBpx2ubyryYa3kr6yg="
+        }
+      ]
+    },
+    {
+      "Route": "css/DashboardAdminStyles/styleSidebarDashboard.css",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\DashboardAdminStyles\\styleSidebarDashboard.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2265"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"u83B22PomUd+VBbrIKlecAanfgBpx2ubyryYa3kr6yg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 05 May 2025 13:55:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-u83B22PomUd+VBbrIKlecAanfgBpx2ubyryYa3kr6yg="
+        }
+      ]
+    },
+    {
+      "Route": "css/DashboardAdminStyles/styleSidebarDashboard.css.gz",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\xmhluyhe05-3q14ckl189.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "851"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"xWPXUarBBMGuXUv7iHwKjbFh4A7FHhVPFrE2me+3TpU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 05 May 2025 13:55:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-xWPXUarBBMGuXUv7iHwKjbFh4A7FHhVPFrE2me+3TpU="
+        }
+      ]
+    },
+    {
+      "Route": "css/DocumentosStyles/EtapasDoc.cd817q0jx4.css",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\dgdeic0766-cd817q0jx4.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000814332248"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1227"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SgCoj3Ekx8vIZDBPyEgnjPIuEVZwN9x0EK4UqflvEnI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 20 May 2025 03:47:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"oK/IYxfNkT0eVz704FvASySqBX/V3RpZ8kUQRZkcGTE=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "cd817q0jx4"
+        },
+        {
+          "Name": "label",
+          "Value": "css/DocumentosStyles/EtapasDoc.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-oK/IYxfNkT0eVz704FvASySqBX/V3RpZ8kUQRZkcGTE="
+        }
+      ]
+    },
+    {
+      "Route": "css/DocumentosStyles/EtapasDoc.cd817q0jx4.css",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\DocumentosStyles\\EtapasDoc.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5045"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"oK/IYxfNkT0eVz704FvASySqBX/V3RpZ8kUQRZkcGTE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 20 May 2025 03:47:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "cd817q0jx4"
+        },
+        {
+          "Name": "label",
+          "Value": "css/DocumentosStyles/EtapasDoc.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-oK/IYxfNkT0eVz704FvASySqBX/V3RpZ8kUQRZkcGTE="
+        }
+      ]
+    },
+    {
+      "Route": "css/DocumentosStyles/EtapasDoc.cd817q0jx4.css.gz",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\dgdeic0766-cd817q0jx4.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1227"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SgCoj3Ekx8vIZDBPyEgnjPIuEVZwN9x0EK4UqflvEnI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 20 May 2025 03:47:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "cd817q0jx4"
+        },
+        {
+          "Name": "label",
+          "Value": "css/DocumentosStyles/EtapasDoc.css.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-SgCoj3Ekx8vIZDBPyEgnjPIuEVZwN9x0EK4UqflvEnI="
+        }
+      ]
+    },
+    {
+      "Route": "css/DocumentosStyles/EtapasDoc.css",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\dgdeic0766-cd817q0jx4.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000814332248"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1227"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SgCoj3Ekx8vIZDBPyEgnjPIuEVZwN9x0EK4UqflvEnI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 20 May 2025 03:47:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"oK/IYxfNkT0eVz704FvASySqBX/V3RpZ8kUQRZkcGTE=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-oK/IYxfNkT0eVz704FvASySqBX/V3RpZ8kUQRZkcGTE="
+        }
+      ]
+    },
+    {
+      "Route": "css/DocumentosStyles/EtapasDoc.css",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\DocumentosStyles\\EtapasDoc.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5045"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"oK/IYxfNkT0eVz704FvASySqBX/V3RpZ8kUQRZkcGTE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 20 May 2025 03:47:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-oK/IYxfNkT0eVz704FvASySqBX/V3RpZ8kUQRZkcGTE="
+        }
+      ]
+    },
+    {
+      "Route": "css/DocumentosStyles/EtapasDoc.css.gz",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\dgdeic0766-cd817q0jx4.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1227"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SgCoj3Ekx8vIZDBPyEgnjPIuEVZwN9x0EK4UqflvEnI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 20 May 2025 03:47:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-SgCoj3Ekx8vIZDBPyEgnjPIuEVZwN9x0EK4UqflvEnI="
+        }
+      ]
+    },
+    {
+      "Route": "css/DocumentosStyles/OfflineDoc.br3g04vl8e.css",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\aujzkzgu94-br3g04vl8e.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001831501832"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "545"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"EAcBpd1LhP/FAYM7Cwzws24mln1w6EoS32XAUfbrO4I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 15 May 2025 11:16:58 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"+cjLQNbNROzkhyY+43qnNZEQohPUlsAOCEtOLVOzqTg=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "br3g04vl8e"
+        },
+        {
+          "Name": "label",
+          "Value": "css/DocumentosStyles/OfflineDoc.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-+cjLQNbNROzkhyY+43qnNZEQohPUlsAOCEtOLVOzqTg="
+        }
+      ]
+    },
+    {
+      "Route": "css/DocumentosStyles/OfflineDoc.br3g04vl8e.css",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\DocumentosStyles\\OfflineDoc.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1396"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"+cjLQNbNROzkhyY+43qnNZEQohPUlsAOCEtOLVOzqTg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 15 May 2025 11:16:58 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "br3g04vl8e"
+        },
+        {
+          "Name": "label",
+          "Value": "css/DocumentosStyles/OfflineDoc.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-+cjLQNbNROzkhyY+43qnNZEQohPUlsAOCEtOLVOzqTg="
+        }
+      ]
+    },
+    {
+      "Route": "css/DocumentosStyles/OfflineDoc.br3g04vl8e.css.gz",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\aujzkzgu94-br3g04vl8e.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "545"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"EAcBpd1LhP/FAYM7Cwzws24mln1w6EoS32XAUfbrO4I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 15 May 2025 11:16:58 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "br3g04vl8e"
+        },
+        {
+          "Name": "label",
+          "Value": "css/DocumentosStyles/OfflineDoc.css.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-EAcBpd1LhP/FAYM7Cwzws24mln1w6EoS32XAUfbrO4I="
+        }
+      ]
+    },
+    {
+      "Route": "css/DocumentosStyles/OfflineDoc.css",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\aujzkzgu94-br3g04vl8e.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001831501832"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "545"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"EAcBpd1LhP/FAYM7Cwzws24mln1w6EoS32XAUfbrO4I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 15 May 2025 11:16:58 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"+cjLQNbNROzkhyY+43qnNZEQohPUlsAOCEtOLVOzqTg=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-+cjLQNbNROzkhyY+43qnNZEQohPUlsAOCEtOLVOzqTg="
+        }
+      ]
+    },
+    {
+      "Route": "css/DocumentosStyles/OfflineDoc.css",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\DocumentosStyles\\OfflineDoc.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1396"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"+cjLQNbNROzkhyY+43qnNZEQohPUlsAOCEtOLVOzqTg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 15 May 2025 11:16:58 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-+cjLQNbNROzkhyY+43qnNZEQohPUlsAOCEtOLVOzqTg="
+        }
+      ]
+    },
+    {
+      "Route": "css/DocumentosStyles/OfflineDoc.css.gz",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\aujzkzgu94-br3g04vl8e.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "545"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"EAcBpd1LhP/FAYM7Cwzws24mln1w6EoS32XAUfbrO4I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 15 May 2025 11:16:58 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-EAcBpd1LhP/FAYM7Cwzws24mln1w6EoS32XAUfbrO4I="
+        }
+      ]
+    },
+    {
+      "Route": "css/OculteCssNativoWeb.bu8yhdaqhe.css",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\gux60x1ii1-bu8yhdaqhe.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.004347826087"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "229"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ivXnQMiRpySQ214Ze8n/upVdqmC/3chSWJTJXumSQnk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:48:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"vXnXwk+S8RizCTKDrO+MzT+RWyCjscHQTDO8vaUjEaE=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "bu8yhdaqhe"
+        },
+        {
+          "Name": "label",
+          "Value": "css/OculteCssNativoWeb.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-vXnXwk+S8RizCTKDrO+MzT+RWyCjscHQTDO8vaUjEaE="
+        }
+      ]
+    },
+    {
+      "Route": "css/OculteCssNativoWeb.bu8yhdaqhe.css",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\OculteCssNativoWeb.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "372"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"vXnXwk+S8RizCTKDrO+MzT+RWyCjscHQTDO8vaUjEaE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:48:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "bu8yhdaqhe"
+        },
+        {
+          "Name": "label",
+          "Value": "css/OculteCssNativoWeb.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-vXnXwk+S8RizCTKDrO+MzT+RWyCjscHQTDO8vaUjEaE="
+        }
+      ]
+    },
+    {
+      "Route": "css/OculteCssNativoWeb.bu8yhdaqhe.css.gz",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\gux60x1ii1-bu8yhdaqhe.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "229"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ivXnQMiRpySQ214Ze8n/upVdqmC/3chSWJTJXumSQnk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:48:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "bu8yhdaqhe"
+        },
+        {
+          "Name": "label",
+          "Value": "css/OculteCssNativoWeb.css.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ivXnQMiRpySQ214Ze8n/upVdqmC/3chSWJTJXumSQnk="
+        }
+      ]
+    },
+    {
+      "Route": "css/OculteCssNativoWeb.css",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\gux60x1ii1-bu8yhdaqhe.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.004347826087"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "229"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ivXnQMiRpySQ214Ze8n/upVdqmC/3chSWJTJXumSQnk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:48:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"vXnXwk+S8RizCTKDrO+MzT+RWyCjscHQTDO8vaUjEaE=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-vXnXwk+S8RizCTKDrO+MzT+RWyCjscHQTDO8vaUjEaE="
+        }
+      ]
+    },
+    {
+      "Route": "css/OculteCssNativoWeb.css",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\OculteCssNativoWeb.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "372"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"vXnXwk+S8RizCTKDrO+MzT+RWyCjscHQTDO8vaUjEaE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:48:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-vXnXwk+S8RizCTKDrO+MzT+RWyCjscHQTDO8vaUjEaE="
+        }
+      ]
+    },
+    {
+      "Route": "css/OculteCssNativoWeb.css.gz",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\gux60x1ii1-bu8yhdaqhe.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "229"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ivXnQMiRpySQ214Ze8n/upVdqmC/3chSWJTJXumSQnk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:48:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ivXnQMiRpySQ214Ze8n/upVdqmC/3chSWJTJXumSQnk="
+        }
+      ]
+    },
+    {
+      "Route": "css/PagamentosStyles/Pagamentos.css",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\5cyiprzfcc-o392rt829q.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000995024876"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1004"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2tOnFUaJKBTl2702V/jbQSxcoYPEymIz5u+2C6AreRY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 04:24:36 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"lCkg9l61W9QO+9qLGMvCCAh7a0qTM4u3qVwa6rxEbn0=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-lCkg9l61W9QO+9qLGMvCCAh7a0qTM4u3qVwa6rxEbn0="
+        }
+      ]
+    },
+    {
+      "Route": "css/PagamentosStyles/Pagamentos.css",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\PagamentosStyles\\Pagamentos.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2852"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"lCkg9l61W9QO+9qLGMvCCAh7a0qTM4u3qVwa6rxEbn0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 04:24:36 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-lCkg9l61W9QO+9qLGMvCCAh7a0qTM4u3qVwa6rxEbn0="
+        }
+      ]
+    },
+    {
+      "Route": "css/PagamentosStyles/Pagamentos.css.gz",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\5cyiprzfcc-o392rt829q.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1004"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2tOnFUaJKBTl2702V/jbQSxcoYPEymIz5u+2C6AreRY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 04:24:36 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-2tOnFUaJKBTl2702V/jbQSxcoYPEymIz5u+2C6AreRY="
+        }
+      ]
+    },
+    {
+      "Route": "css/PagamentosStyles/Pagamentos.o392rt829q.css",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\5cyiprzfcc-o392rt829q.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000995024876"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1004"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2tOnFUaJKBTl2702V/jbQSxcoYPEymIz5u+2C6AreRY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 04:24:36 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"lCkg9l61W9QO+9qLGMvCCAh7a0qTM4u3qVwa6rxEbn0=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "o392rt829q"
+        },
+        {
+          "Name": "label",
+          "Value": "css/PagamentosStyles/Pagamentos.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-lCkg9l61W9QO+9qLGMvCCAh7a0qTM4u3qVwa6rxEbn0="
+        }
+      ]
+    },
+    {
+      "Route": "css/PagamentosStyles/Pagamentos.o392rt829q.css",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\PagamentosStyles\\Pagamentos.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2852"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"lCkg9l61W9QO+9qLGMvCCAh7a0qTM4u3qVwa6rxEbn0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 04:24:36 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "o392rt829q"
+        },
+        {
+          "Name": "label",
+          "Value": "css/PagamentosStyles/Pagamentos.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-lCkg9l61W9QO+9qLGMvCCAh7a0qTM4u3qVwa6rxEbn0="
+        }
+      ]
+    },
+    {
+      "Route": "css/PagamentosStyles/Pagamentos.o392rt829q.css.gz",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\5cyiprzfcc-o392rt829q.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1004"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2tOnFUaJKBTl2702V/jbQSxcoYPEymIz5u+2C6AreRY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 04:24:36 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "o392rt829q"
+        },
+        {
+          "Name": "label",
+          "Value": "css/PagamentosStyles/Pagamentos.css.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-2tOnFUaJKBTl2702V/jbQSxcoYPEymIz5u+2C6AreRY="
         }
       ]
     },
@@ -3937,13 +6275,13 @@
       ]
     },
     {
-      "Route": "css/styleMeuPerfil.css",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\3zxqazuany-yg9cnv6uhd.gz",
+      "Route": "css/UploadStyles/UploadPageStyle.css",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\t739s19ojw-r8rgh0ebdj.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001355013550"
+          "Quality": "0.001605136437"
         }
       ],
       "ResponseHeaders": [
@@ -3953,15 +6291,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "737"
+          "Value": "622"
         },
         {
           "Name": "ETag",
-          "Value": "\"aj0uqwIbdsOakqygUFHdJmSmhll5qsQPXpz1bj8/zAM=\""
+          "Value": "\"A4J5g1hHfl6ydpKCuc9337C7EvNH0eKl/dwCDRTlmoU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 10 May 2025 21:37:13 GMT"
+          "Value": "Tue, 20 May 2025 21:08:20 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3981,19 +6319,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"8u0ary8DfetdOqvpYy2EWBeF6qYkJ8HH7F2F4B3IkAQ=\""
+          "Value": "W/\"FcGHekEttSuu1T+74yNRXgdlLMb7lKgQlF/mzXB9lkU=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-8u0ary8DfetdOqvpYy2EWBeF6qYkJ8HH7F2F4B3IkAQ="
+          "Value": "sha256-FcGHekEttSuu1T+74yNRXgdlLMb7lKgQlF/mzXB9lkU="
         }
       ]
     },
     {
-      "Route": "css/styleMeuPerfil.css",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\styleMeuPerfil.css",
+      "Route": "css/UploadStyles/UploadPageStyle.css",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\UploadStyles\\UploadPageStyle.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4002,7 +6340,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1856"
+          "Value": "1953"
         },
         {
           "Name": "Content-Type",
@@ -4010,11 +6348,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"8u0ary8DfetdOqvpYy2EWBeF6qYkJ8HH7F2F4B3IkAQ=\""
+          "Value": "\"FcGHekEttSuu1T+74yNRXgdlLMb7lKgQlF/mzXB9lkU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 10 May 2025 21:37:13 GMT"
+          "Value": "Tue, 20 May 2025 21:08:20 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4024,13 +6362,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-8u0ary8DfetdOqvpYy2EWBeF6qYkJ8HH7F2F4B3IkAQ="
+          "Value": "sha256-FcGHekEttSuu1T+74yNRXgdlLMb7lKgQlF/mzXB9lkU="
         }
       ]
     },
     {
-      "Route": "css/styleMeuPerfil.css.gz",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\3zxqazuany-yg9cnv6uhd.gz",
+      "Route": "css/UploadStyles/UploadPageStyle.css.gz",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\t739s19ojw-r8rgh0ebdj.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4039,7 +6377,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "737"
+          "Value": "622"
         },
         {
           "Name": "Content-Type",
@@ -4047,11 +6385,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"aj0uqwIbdsOakqygUFHdJmSmhll5qsQPXpz1bj8/zAM=\""
+          "Value": "\"A4J5g1hHfl6ydpKCuc9337C7EvNH0eKl/dwCDRTlmoU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 10 May 2025 21:37:13 GMT"
+          "Value": "Tue, 20 May 2025 21:08:20 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4069,18 +6407,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-aj0uqwIbdsOakqygUFHdJmSmhll5qsQPXpz1bj8/zAM="
+          "Value": "sha256-A4J5g1hHfl6ydpKCuc9337C7EvNH0eKl/dwCDRTlmoU="
         }
       ]
     },
     {
-      "Route": "css/styleMeuPerfil.yg9cnv6uhd.css",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\3zxqazuany-yg9cnv6uhd.gz",
+      "Route": "css/UploadStyles/UploadPageStyle.r8rgh0ebdj.css",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\t739s19ojw-r8rgh0ebdj.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001355013550"
+          "Quality": "0.001605136437"
         }
       ],
       "ResponseHeaders": [
@@ -4090,15 +6428,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "737"
+          "Value": "622"
         },
         {
           "Name": "ETag",
-          "Value": "\"aj0uqwIbdsOakqygUFHdJmSmhll5qsQPXpz1bj8/zAM=\""
+          "Value": "\"A4J5g1hHfl6ydpKCuc9337C7EvNH0eKl/dwCDRTlmoU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 10 May 2025 21:37:13 GMT"
+          "Value": "Tue, 20 May 2025 21:08:20 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4118,27 +6456,27 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"8u0ary8DfetdOqvpYy2EWBeF6qYkJ8HH7F2F4B3IkAQ=\""
+          "Value": "W/\"FcGHekEttSuu1T+74yNRXgdlLMb7lKgQlF/mzXB9lkU=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "yg9cnv6uhd"
+          "Value": "r8rgh0ebdj"
         },
         {
           "Name": "label",
-          "Value": "css/styleMeuPerfil.css"
+          "Value": "css/UploadStyles/UploadPageStyle.css"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-8u0ary8DfetdOqvpYy2EWBeF6qYkJ8HH7F2F4B3IkAQ="
+          "Value": "sha256-FcGHekEttSuu1T+74yNRXgdlLMb7lKgQlF/mzXB9lkU="
         }
       ]
     },
     {
-      "Route": "css/styleMeuPerfil.yg9cnv6uhd.css",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\styleMeuPerfil.css",
+      "Route": "css/UploadStyles/UploadPageStyle.r8rgh0ebdj.css",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\UploadStyles\\UploadPageStyle.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4147,7 +6485,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1856"
+          "Value": "1953"
         },
         {
           "Name": "Content-Type",
@@ -4155,11 +6493,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"8u0ary8DfetdOqvpYy2EWBeF6qYkJ8HH7F2F4B3IkAQ=\""
+          "Value": "\"FcGHekEttSuu1T+74yNRXgdlLMb7lKgQlF/mzXB9lkU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 10 May 2025 21:37:13 GMT"
+          "Value": "Tue, 20 May 2025 21:08:20 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4169,21 +6507,21 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "yg9cnv6uhd"
+          "Value": "r8rgh0ebdj"
         },
         {
           "Name": "label",
-          "Value": "css/styleMeuPerfil.css"
+          "Value": "css/UploadStyles/UploadPageStyle.css"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-8u0ary8DfetdOqvpYy2EWBeF6qYkJ8HH7F2F4B3IkAQ="
+          "Value": "sha256-FcGHekEttSuu1T+74yNRXgdlLMb7lKgQlF/mzXB9lkU="
         }
       ]
     },
     {
-      "Route": "css/styleMeuPerfil.yg9cnv6uhd.css.gz",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\3zxqazuany-yg9cnv6uhd.gz",
+      "Route": "css/UploadStyles/UploadPageStyle.r8rgh0ebdj.css.gz",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\t739s19ojw-r8rgh0ebdj.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4192,7 +6530,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "737"
+          "Value": "622"
         },
         {
           "Name": "Content-Type",
@@ -4200,172 +6538,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"aj0uqwIbdsOakqygUFHdJmSmhll5qsQPXpz1bj8/zAM=\""
+          "Value": "\"A4J5g1hHfl6ydpKCuc9337C7EvNH0eKl/dwCDRTlmoU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 10 May 2025 21:37:13 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "yg9cnv6uhd"
-        },
-        {
-          "Name": "label",
-          "Value": "css/styleMeuPerfil.css.gz"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-aj0uqwIbdsOakqygUFHdJmSmhll5qsQPXpz1bj8/zAM="
-        }
-      ]
-    },
-    {
-      "Route": "css/styleRecuperarSenha.37bite5iky.css",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\3wtj5ty87f-37bite5iky.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.001233045623"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "810"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"UHO+iSkPC5KGEdWe8RaT8JWhMpLVI+Pn8YmmrhKJ8Zc=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 06 May 2025 06:03:36 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"0fHOVvkig/7cHrGT8hMfdad20jbNn43MNbEOOjUdLSA=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "37bite5iky"
-        },
-        {
-          "Name": "label",
-          "Value": "css/styleRecuperarSenha.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-0fHOVvkig/7cHrGT8hMfdad20jbNn43MNbEOOjUdLSA="
-        }
-      ]
-    },
-    {
-      "Route": "css/styleRecuperarSenha.37bite5iky.css",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\styleRecuperarSenha.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "2493"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"0fHOVvkig/7cHrGT8hMfdad20jbNn43MNbEOOjUdLSA=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 06 May 2025 06:03:36 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "37bite5iky"
-        },
-        {
-          "Name": "label",
-          "Value": "css/styleRecuperarSenha.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-0fHOVvkig/7cHrGT8hMfdad20jbNn43MNbEOOjUdLSA="
-        }
-      ]
-    },
-    {
-      "Route": "css/styleRecuperarSenha.37bite5iky.css.gz",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\3wtj5ty87f-37bite5iky.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "810"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"UHO+iSkPC5KGEdWe8RaT8JWhMpLVI+Pn8YmmrhKJ8Zc=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 06 May 2025 06:03:36 GMT"
+          "Value": "Tue, 20 May 2025 21:08:20 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4383,748 +6560,15 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "37bite5iky"
+          "Value": "r8rgh0ebdj"
         },
         {
           "Name": "label",
-          "Value": "css/styleRecuperarSenha.css.gz"
+          "Value": "css/UploadStyles/UploadPageStyle.css.gz"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-UHO+iSkPC5KGEdWe8RaT8JWhMpLVI+Pn8YmmrhKJ8Zc="
-        }
-      ]
-    },
-    {
-      "Route": "css/styleRecuperarSenha.css",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\3wtj5ty87f-37bite5iky.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.001233045623"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "810"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"UHO+iSkPC5KGEdWe8RaT8JWhMpLVI+Pn8YmmrhKJ8Zc=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 06 May 2025 06:03:36 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"0fHOVvkig/7cHrGT8hMfdad20jbNn43MNbEOOjUdLSA=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-0fHOVvkig/7cHrGT8hMfdad20jbNn43MNbEOOjUdLSA="
-        }
-      ]
-    },
-    {
-      "Route": "css/styleRecuperarSenha.css",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\styleRecuperarSenha.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "2493"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"0fHOVvkig/7cHrGT8hMfdad20jbNn43MNbEOOjUdLSA=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 06 May 2025 06:03:36 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-0fHOVvkig/7cHrGT8hMfdad20jbNn43MNbEOOjUdLSA="
-        }
-      ]
-    },
-    {
-      "Route": "css/styleRecuperarSenha.css.gz",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\3wtj5ty87f-37bite5iky.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "810"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"UHO+iSkPC5KGEdWe8RaT8JWhMpLVI+Pn8YmmrhKJ8Zc=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 06 May 2025 06:03:36 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-UHO+iSkPC5KGEdWe8RaT8JWhMpLVI+Pn8YmmrhKJ8Zc="
-        }
-      ]
-    },
-    {
-      "Route": "css/styleSidebarDashboard.3q14ckl189.css",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\1i6p5kl0ji-3q14ckl189.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.001173708920"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "851"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"xWPXUarBBMGuXUv7iHwKjbFh4A7FHhVPFrE2me+3TpU=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 05 May 2025 13:55:09 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"u83B22PomUd+VBbrIKlecAanfgBpx2ubyryYa3kr6yg=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "3q14ckl189"
-        },
-        {
-          "Name": "label",
-          "Value": "css/styleSidebarDashboard.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-u83B22PomUd+VBbrIKlecAanfgBpx2ubyryYa3kr6yg="
-        }
-      ]
-    },
-    {
-      "Route": "css/styleSidebarDashboard.3q14ckl189.css",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\styleSidebarDashboard.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "2265"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"u83B22PomUd+VBbrIKlecAanfgBpx2ubyryYa3kr6yg=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 05 May 2025 13:55:09 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "3q14ckl189"
-        },
-        {
-          "Name": "label",
-          "Value": "css/styleSidebarDashboard.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-u83B22PomUd+VBbrIKlecAanfgBpx2ubyryYa3kr6yg="
-        }
-      ]
-    },
-    {
-      "Route": "css/styleSidebarDashboard.3q14ckl189.css.gz",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\1i6p5kl0ji-3q14ckl189.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "851"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"xWPXUarBBMGuXUv7iHwKjbFh4A7FHhVPFrE2me+3TpU=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 05 May 2025 13:55:09 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "3q14ckl189"
-        },
-        {
-          "Name": "label",
-          "Value": "css/styleSidebarDashboard.css.gz"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-xWPXUarBBMGuXUv7iHwKjbFh4A7FHhVPFrE2me+3TpU="
-        }
-      ]
-    },
-    {
-      "Route": "css/styleSidebarDashboard.css",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\1i6p5kl0ji-3q14ckl189.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.001173708920"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "851"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"xWPXUarBBMGuXUv7iHwKjbFh4A7FHhVPFrE2me+3TpU=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 05 May 2025 13:55:09 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"u83B22PomUd+VBbrIKlecAanfgBpx2ubyryYa3kr6yg=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-u83B22PomUd+VBbrIKlecAanfgBpx2ubyryYa3kr6yg="
-        }
-      ]
-    },
-    {
-      "Route": "css/styleSidebarDashboard.css",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\styleSidebarDashboard.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "2265"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"u83B22PomUd+VBbrIKlecAanfgBpx2ubyryYa3kr6yg=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 05 May 2025 13:55:09 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-u83B22PomUd+VBbrIKlecAanfgBpx2ubyryYa3kr6yg="
-        }
-      ]
-    },
-    {
-      "Route": "css/styleSidebarDashboard.css.gz",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\1i6p5kl0ji-3q14ckl189.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "851"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"xWPXUarBBMGuXUv7iHwKjbFh4A7FHhVPFrE2me+3TpU=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 05 May 2025 13:55:09 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-xWPXUarBBMGuXUv7iHwKjbFh4A7FHhVPFrE2me+3TpU="
-        }
-      ]
-    },
-    {
-      "Route": "css/voice-modalstyle.css",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\b5o44yvmwn-jl2lt5655t.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000776397516"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1287"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"U3em9FlvXfTMh2GpictsEK9fCwj3YFBDsevJNRIR+d0=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 05 May 2025 13:43:45 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"ZxHGSWPOxD4HzsS6dOR5+KqXytM6KX9HeJontxbFhIk=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-ZxHGSWPOxD4HzsS6dOR5+KqXytM6KX9HeJontxbFhIk="
-        }
-      ]
-    },
-    {
-      "Route": "css/voice-modalstyle.css",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\voice-modalstyle.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "3636"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"ZxHGSWPOxD4HzsS6dOR5+KqXytM6KX9HeJontxbFhIk=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 05 May 2025 13:43:45 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-ZxHGSWPOxD4HzsS6dOR5+KqXytM6KX9HeJontxbFhIk="
-        }
-      ]
-    },
-    {
-      "Route": "css/voice-modalstyle.css.gz",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\b5o44yvmwn-jl2lt5655t.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1287"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"U3em9FlvXfTMh2GpictsEK9fCwj3YFBDsevJNRIR+d0=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 05 May 2025 13:43:45 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-U3em9FlvXfTMh2GpictsEK9fCwj3YFBDsevJNRIR+d0="
-        }
-      ]
-    },
-    {
-      "Route": "css/voice-modalstyle.jl2lt5655t.css",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\b5o44yvmwn-jl2lt5655t.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000776397516"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1287"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"U3em9FlvXfTMh2GpictsEK9fCwj3YFBDsevJNRIR+d0=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 05 May 2025 13:43:45 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"ZxHGSWPOxD4HzsS6dOR5+KqXytM6KX9HeJontxbFhIk=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "jl2lt5655t"
-        },
-        {
-          "Name": "label",
-          "Value": "css/voice-modalstyle.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-ZxHGSWPOxD4HzsS6dOR5+KqXytM6KX9HeJontxbFhIk="
-        }
-      ]
-    },
-    {
-      "Route": "css/voice-modalstyle.jl2lt5655t.css",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\voice-modalstyle.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "3636"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"ZxHGSWPOxD4HzsS6dOR5+KqXytM6KX9HeJontxbFhIk=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 05 May 2025 13:43:45 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "jl2lt5655t"
-        },
-        {
-          "Name": "label",
-          "Value": "css/voice-modalstyle.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-ZxHGSWPOxD4HzsS6dOR5+KqXytM6KX9HeJontxbFhIk="
-        }
-      ]
-    },
-    {
-      "Route": "css/voice-modalstyle.jl2lt5655t.css.gz",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\b5o44yvmwn-jl2lt5655t.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1287"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"U3em9FlvXfTMh2GpictsEK9fCwj3YFBDsevJNRIR+d0=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 05 May 2025 13:43:45 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "jl2lt5655t"
-        },
-        {
-          "Name": "label",
-          "Value": "css/voice-modalstyle.css.gz"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-U3em9FlvXfTMh2GpictsEK9fCwj3YFBDsevJNRIR+d0="
+          "Value": "sha256-A4J5g1hHfl6ydpKCuc9337C7EvNH0eKl/dwCDRTlmoU="
         }
       ]
     },
@@ -5509,13 +6953,13 @@
       ]
     },
     {
-      "Route": "js/scriptEtapas.bkc7ckg58r.js",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\l54rwxwapx-bkc7ckg58r.gz",
+      "Route": "js/DashboardScripts/scriptSideBar.js",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\18xnithwry-qthslv1y0e.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001317523057"
+          "Quality": "0.003816793893"
         }
       ],
       "ResponseHeaders": [
@@ -5525,19 +6969,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "758"
+          "Value": "261"
         },
         {
           "Name": "ETag",
-          "Value": "\"RXcX9Nm9bhPo53eHLtRpWhW65NyMMwfC3XKdOK5Yd9I=\""
+          "Value": "\"CPiEevhW16ugJTKBikuqXT4sl4BOpbEGbdJ9OZ12iPE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 13 May 2025 02:35:48 GMT"
+          "Value": "Mon, 19 May 2025 06:12:38 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
+          "Value": "no-cache"
         },
         {
           "Name": "Content-Encoding",
@@ -5553,27 +6997,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"pSg2QL/wwvqp+ivf7WznzsPzLGCo1NDAf4qlZjmsY9A=\""
+          "Value": "W/\"whVs2Zc1z33k90JKf3QkAokHX58L7kFXbYOcNHaZoBE=\""
         }
       ],
       "EndpointProperties": [
         {
-          "Name": "fingerprint",
-          "Value": "bkc7ckg58r"
-        },
-        {
-          "Name": "label",
-          "Value": "js/scriptEtapas.js"
-        },
-        {
           "Name": "integrity",
-          "Value": "sha256-pSg2QL/wwvqp+ivf7WznzsPzLGCo1NDAf4qlZjmsY9A="
+          "Value": "sha256-whVs2Zc1z33k90JKf3QkAokHX58L7kFXbYOcNHaZoBE="
         }
       ]
     },
     {
-      "Route": "js/scriptEtapas.bkc7ckg58r.js",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\scriptEtapas.js",
+      "Route": "js/DashboardScripts/scriptSideBar.js",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\DashboardScripts\\scriptSideBar.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5582,7 +7018,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2682"
+          "Value": "482"
         },
         {
           "Name": "Content-Type",
@@ -5590,35 +7026,27 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"pSg2QL/wwvqp+ivf7WznzsPzLGCo1NDAf4qlZjmsY9A=\""
+          "Value": "\"whVs2Zc1z33k90JKf3QkAokHX58L7kFXbYOcNHaZoBE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 13 May 2025 02:35:48 GMT"
+          "Value": "Mon, 19 May 2025 06:12:38 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
+          "Value": "no-cache"
         }
       ],
       "EndpointProperties": [
         {
-          "Name": "fingerprint",
-          "Value": "bkc7ckg58r"
-        },
-        {
-          "Name": "label",
-          "Value": "js/scriptEtapas.js"
-        },
-        {
           "Name": "integrity",
-          "Value": "sha256-pSg2QL/wwvqp+ivf7WznzsPzLGCo1NDAf4qlZjmsY9A="
+          "Value": "sha256-whVs2Zc1z33k90JKf3QkAokHX58L7kFXbYOcNHaZoBE="
         }
       ]
     },
     {
-      "Route": "js/scriptEtapas.bkc7ckg58r.js.gz",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\l54rwxwapx-bkc7ckg58r.gz",
+      "Route": "js/DashboardScripts/scriptSideBar.js.gz",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\18xnithwry-qthslv1y0e.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5627,7 +7055,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "758"
+          "Value": "261"
         },
         {
           "Name": "Content-Type",
@@ -5635,15 +7063,15 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"RXcX9Nm9bhPo53eHLtRpWhW65NyMMwfC3XKdOK5Yd9I=\""
+          "Value": "\"CPiEevhW16ugJTKBikuqXT4sl4BOpbEGbdJ9OZ12iPE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 13 May 2025 02:35:48 GMT"
+          "Value": "Mon, 19 May 2025 06:12:38 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
+          "Value": "no-cache"
         },
         {
           "Name": "Content-Encoding",
@@ -5656,27 +7084,19 @@
       ],
       "EndpointProperties": [
         {
-          "Name": "fingerprint",
-          "Value": "bkc7ckg58r"
-        },
-        {
-          "Name": "label",
-          "Value": "js/scriptEtapas.js.gz"
-        },
-        {
           "Name": "integrity",
-          "Value": "sha256-RXcX9Nm9bhPo53eHLtRpWhW65NyMMwfC3XKdOK5Yd9I="
+          "Value": "sha256-CPiEevhW16ugJTKBikuqXT4sl4BOpbEGbdJ9OZ12iPE="
         }
       ]
     },
     {
-      "Route": "js/scriptEtapas.js",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\l54rwxwapx-bkc7ckg58r.gz",
+      "Route": "js/DashboardScripts/scriptSideBar.qthslv1y0e.js",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\18xnithwry-qthslv1y0e.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001317523057"
+          "Quality": "0.003816793893"
         }
       ],
       "ResponseHeaders": [
@@ -5686,19 +7106,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "758"
+          "Value": "261"
         },
         {
           "Name": "ETag",
-          "Value": "\"RXcX9Nm9bhPo53eHLtRpWhW65NyMMwfC3XKdOK5Yd9I=\""
+          "Value": "\"CPiEevhW16ugJTKBikuqXT4sl4BOpbEGbdJ9OZ12iPE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 13 May 2025 02:35:48 GMT"
+          "Value": "Mon, 19 May 2025 06:12:38 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "no-cache"
+          "Value": "max-age=31536000, immutable"
         },
         {
           "Name": "Content-Encoding",
@@ -5714,19 +7134,27 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"pSg2QL/wwvqp+ivf7WznzsPzLGCo1NDAf4qlZjmsY9A=\""
+          "Value": "W/\"whVs2Zc1z33k90JKf3QkAokHX58L7kFXbYOcNHaZoBE=\""
         }
       ],
       "EndpointProperties": [
         {
+          "Name": "fingerprint",
+          "Value": "qthslv1y0e"
+        },
+        {
+          "Name": "label",
+          "Value": "js/DashboardScripts/scriptSideBar.js"
+        },
+        {
           "Name": "integrity",
-          "Value": "sha256-pSg2QL/wwvqp+ivf7WznzsPzLGCo1NDAf4qlZjmsY9A="
+          "Value": "sha256-whVs2Zc1z33k90JKf3QkAokHX58L7kFXbYOcNHaZoBE="
         }
       ]
     },
     {
-      "Route": "js/scriptEtapas.js",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\scriptEtapas.js",
+      "Route": "js/DashboardScripts/scriptSideBar.qthslv1y0e.js",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\DashboardScripts\\scriptSideBar.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5735,7 +7163,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2682"
+          "Value": "482"
         },
         {
           "Name": "Content-Type",
@@ -5743,27 +7171,35 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"pSg2QL/wwvqp+ivf7WznzsPzLGCo1NDAf4qlZjmsY9A=\""
+          "Value": "\"whVs2Zc1z33k90JKf3QkAokHX58L7kFXbYOcNHaZoBE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 13 May 2025 02:35:48 GMT"
+          "Value": "Mon, 19 May 2025 06:12:38 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "no-cache"
+          "Value": "max-age=31536000, immutable"
         }
       ],
       "EndpointProperties": [
         {
+          "Name": "fingerprint",
+          "Value": "qthslv1y0e"
+        },
+        {
+          "Name": "label",
+          "Value": "js/DashboardScripts/scriptSideBar.js"
+        },
+        {
           "Name": "integrity",
-          "Value": "sha256-pSg2QL/wwvqp+ivf7WznzsPzLGCo1NDAf4qlZjmsY9A="
+          "Value": "sha256-whVs2Zc1z33k90JKf3QkAokHX58L7kFXbYOcNHaZoBE="
         }
       ]
     },
     {
-      "Route": "js/scriptEtapas.js.gz",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\l54rwxwapx-bkc7ckg58r.gz",
+      "Route": "js/DashboardScripts/scriptSideBar.qthslv1y0e.js.gz",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\18xnithwry-qthslv1y0e.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5772,7 +7208,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "758"
+          "Value": "261"
         },
         {
           "Name": "Content-Type",
@@ -5780,15 +7216,15 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"RXcX9Nm9bhPo53eHLtRpWhW65NyMMwfC3XKdOK5Yd9I=\""
+          "Value": "\"CPiEevhW16ugJTKBikuqXT4sl4BOpbEGbdJ9OZ12iPE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 13 May 2025 02:35:48 GMT"
+          "Value": "Mon, 19 May 2025 06:12:38 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "no-cache"
+          "Value": "max-age=31536000, immutable"
         },
         {
           "Name": "Content-Encoding",
@@ -5801,19 +7237,27 @@
       ],
       "EndpointProperties": [
         {
+          "Name": "fingerprint",
+          "Value": "qthslv1y0e"
+        },
+        {
+          "Name": "label",
+          "Value": "js/DashboardScripts/scriptSideBar.js.gz"
+        },
+        {
           "Name": "integrity",
-          "Value": "sha256-RXcX9Nm9bhPo53eHLtRpWhW65NyMMwfC3XKdOK5Yd9I="
+          "Value": "sha256-CPiEevhW16ugJTKBikuqXT4sl4BOpbEGbdJ9OZ12iPE="
         }
       ]
     },
     {
-      "Route": "js/scriptSideBar.h03nccnof6.js",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\9pu1puwmp3-h03nccnof6.gz",
+      "Route": "js/DocumentosScripts/EtapasDoc.h99iv0rdju.js",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\bvvpbobb1g-h99iv0rdju.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.003058103976"
+          "Quality": "0.001661129568"
         }
       ],
       "ResponseHeaders": [
@@ -5823,15 +7267,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "326"
+          "Value": "601"
         },
         {
           "Name": "ETag",
-          "Value": "\"MbRIbpmsS+CuECy8lUjApdG4kBWZIlnPibJu42B/eiM=\""
+          "Value": "\"yQCPC+ENRxa2F5zMxDQJQC05CKqJ5S9lPpZp7tvnkPc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 02 May 2025 10:01:44 GMT"
+          "Value": "Tue, 20 May 2025 04:10:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5851,27 +7295,27 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"/+TU01W+hfb+/GJa8ua7EG02e62t9tzO/DDDO5n+Uug=\""
+          "Value": "W/\"m5H9kdin2KvidsKII6NEPNeI593154Rkv7jwsk0Lu0M=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "h03nccnof6"
+          "Value": "h99iv0rdju"
         },
         {
           "Name": "label",
-          "Value": "js/scriptSideBar.js"
+          "Value": "js/DocumentosScripts/EtapasDoc.js"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-/+TU01W+hfb+/GJa8ua7EG02e62t9tzO/DDDO5n+Uug="
+          "Value": "sha256-m5H9kdin2KvidsKII6NEPNeI593154Rkv7jwsk0Lu0M="
         }
       ]
     },
     {
-      "Route": "js/scriptSideBar.h03nccnof6.js",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\scriptSideBar.js",
+      "Route": "js/DocumentosScripts/EtapasDoc.h99iv0rdju.js",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\DocumentosScripts\\EtapasDoc.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5880,7 +7324,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "664"
+          "Value": "2100"
         },
         {
           "Name": "Content-Type",
@@ -5888,11 +7332,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"/+TU01W+hfb+/GJa8ua7EG02e62t9tzO/DDDO5n+Uug=\""
+          "Value": "\"m5H9kdin2KvidsKII6NEPNeI593154Rkv7jwsk0Lu0M=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 02 May 2025 10:01:44 GMT"
+          "Value": "Tue, 20 May 2025 04:10:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5902,21 +7346,21 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "h03nccnof6"
+          "Value": "h99iv0rdju"
         },
         {
           "Name": "label",
-          "Value": "js/scriptSideBar.js"
+          "Value": "js/DocumentosScripts/EtapasDoc.js"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-/+TU01W+hfb+/GJa8ua7EG02e62t9tzO/DDDO5n+Uug="
+          "Value": "sha256-m5H9kdin2KvidsKII6NEPNeI593154Rkv7jwsk0Lu0M="
         }
       ]
     },
     {
-      "Route": "js/scriptSideBar.h03nccnof6.js.gz",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\9pu1puwmp3-h03nccnof6.gz",
+      "Route": "js/DocumentosScripts/EtapasDoc.h99iv0rdju.js.gz",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\bvvpbobb1g-h99iv0rdju.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5925,7 +7369,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "326"
+          "Value": "601"
         },
         {
           "Name": "Content-Type",
@@ -5933,11 +7377,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"MbRIbpmsS+CuECy8lUjApdG4kBWZIlnPibJu42B/eiM=\""
+          "Value": "\"yQCPC+ENRxa2F5zMxDQJQC05CKqJ5S9lPpZp7tvnkPc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 02 May 2025 10:01:44 GMT"
+          "Value": "Tue, 20 May 2025 04:10:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5955,26 +7399,26 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "h03nccnof6"
+          "Value": "h99iv0rdju"
         },
         {
           "Name": "label",
-          "Value": "js/scriptSideBar.js.gz"
+          "Value": "js/DocumentosScripts/EtapasDoc.js.gz"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-MbRIbpmsS+CuECy8lUjApdG4kBWZIlnPibJu42B/eiM="
+          "Value": "sha256-yQCPC+ENRxa2F5zMxDQJQC05CKqJ5S9lPpZp7tvnkPc="
         }
       ]
     },
     {
-      "Route": "js/scriptSideBar.js",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\9pu1puwmp3-h03nccnof6.gz",
+      "Route": "js/DocumentosScripts/EtapasDoc.js",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\bvvpbobb1g-h99iv0rdju.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.003058103976"
+          "Quality": "0.001661129568"
         }
       ],
       "ResponseHeaders": [
@@ -5984,15 +7428,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "326"
+          "Value": "601"
         },
         {
           "Name": "ETag",
-          "Value": "\"MbRIbpmsS+CuECy8lUjApdG4kBWZIlnPibJu42B/eiM=\""
+          "Value": "\"yQCPC+ENRxa2F5zMxDQJQC05CKqJ5S9lPpZp7tvnkPc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 02 May 2025 10:01:44 GMT"
+          "Value": "Tue, 20 May 2025 04:10:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6012,19 +7456,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"/+TU01W+hfb+/GJa8ua7EG02e62t9tzO/DDDO5n+Uug=\""
+          "Value": "W/\"m5H9kdin2KvidsKII6NEPNeI593154Rkv7jwsk0Lu0M=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-/+TU01W+hfb+/GJa8ua7EG02e62t9tzO/DDDO5n+Uug="
+          "Value": "sha256-m5H9kdin2KvidsKII6NEPNeI593154Rkv7jwsk0Lu0M="
         }
       ]
     },
     {
-      "Route": "js/scriptSideBar.js",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\scriptSideBar.js",
+      "Route": "js/DocumentosScripts/EtapasDoc.js",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\DocumentosScripts\\EtapasDoc.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6033,7 +7477,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "664"
+          "Value": "2100"
         },
         {
           "Name": "Content-Type",
@@ -6041,11 +7485,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"/+TU01W+hfb+/GJa8ua7EG02e62t9tzO/DDDO5n+Uug=\""
+          "Value": "\"m5H9kdin2KvidsKII6NEPNeI593154Rkv7jwsk0Lu0M=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 02 May 2025 10:01:44 GMT"
+          "Value": "Tue, 20 May 2025 04:10:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6055,13 +7499,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-/+TU01W+hfb+/GJa8ua7EG02e62t9tzO/DDDO5n+Uug="
+          "Value": "sha256-m5H9kdin2KvidsKII6NEPNeI593154Rkv7jwsk0Lu0M="
         }
       ]
     },
     {
-      "Route": "js/scriptSideBar.js.gz",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\9pu1puwmp3-h03nccnof6.gz",
+      "Route": "js/DocumentosScripts/EtapasDoc.js.gz",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\bvvpbobb1g-h99iv0rdju.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6070,7 +7514,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "326"
+          "Value": "601"
         },
         {
           "Name": "Content-Type",
@@ -6078,11 +7522,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"MbRIbpmsS+CuECy8lUjApdG4kBWZIlnPibJu42B/eiM=\""
+          "Value": "\"yQCPC+ENRxa2F5zMxDQJQC05CKqJ5S9lPpZp7tvnkPc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 02 May 2025 10:01:44 GMT"
+          "Value": "Tue, 20 May 2025 04:10:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6100,13 +7544,609 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-MbRIbpmsS+CuECy8lUjApdG4kBWZIlnPibJu42B/eiM="
+          "Value": "sha256-yQCPC+ENRxa2F5zMxDQJQC05CKqJ5S9lPpZp7tvnkPc="
         }
       ]
     },
     {
-      "Route": "js/voice-modalScript.ap4wu6agpg.js",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\2yo77jd9il-ap4wu6agpg.gz",
+      "Route": "js/DocumentosScripts/service-worker.js",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\qfawe5dr04-yv83z1z97l.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.002732240437"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "365"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SXRhdNH8SLT9ByOglf/CPecGpJ3rSENeId8GQGJJyYA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 14 May 2025 14:02:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"Qpk34uFX/HWX2DOnxIeAS+9PogQLg7oBrGXyJcCodPI=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Qpk34uFX/HWX2DOnxIeAS+9PogQLg7oBrGXyJcCodPI="
+        }
+      ]
+    },
+    {
+      "Route": "js/DocumentosScripts/service-worker.js",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\DocumentosScripts\\service-worker.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "627"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Qpk34uFX/HWX2DOnxIeAS+9PogQLg7oBrGXyJcCodPI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 14 May 2025 14:02:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Qpk34uFX/HWX2DOnxIeAS+9PogQLg7oBrGXyJcCodPI="
+        }
+      ]
+    },
+    {
+      "Route": "js/DocumentosScripts/service-worker.js.gz",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\qfawe5dr04-yv83z1z97l.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "365"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SXRhdNH8SLT9ByOglf/CPecGpJ3rSENeId8GQGJJyYA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 14 May 2025 14:02:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-SXRhdNH8SLT9ByOglf/CPecGpJ3rSENeId8GQGJJyYA="
+        }
+      ]
+    },
+    {
+      "Route": "js/DocumentosScripts/service-worker.yv83z1z97l.js",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\qfawe5dr04-yv83z1z97l.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.002732240437"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "365"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SXRhdNH8SLT9ByOglf/CPecGpJ3rSENeId8GQGJJyYA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 14 May 2025 14:02:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"Qpk34uFX/HWX2DOnxIeAS+9PogQLg7oBrGXyJcCodPI=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "yv83z1z97l"
+        },
+        {
+          "Name": "label",
+          "Value": "js/DocumentosScripts/service-worker.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Qpk34uFX/HWX2DOnxIeAS+9PogQLg7oBrGXyJcCodPI="
+        }
+      ]
+    },
+    {
+      "Route": "js/DocumentosScripts/service-worker.yv83z1z97l.js",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\DocumentosScripts\\service-worker.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "627"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Qpk34uFX/HWX2DOnxIeAS+9PogQLg7oBrGXyJcCodPI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 14 May 2025 14:02:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "yv83z1z97l"
+        },
+        {
+          "Name": "label",
+          "Value": "js/DocumentosScripts/service-worker.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Qpk34uFX/HWX2DOnxIeAS+9PogQLg7oBrGXyJcCodPI="
+        }
+      ]
+    },
+    {
+      "Route": "js/DocumentosScripts/service-worker.yv83z1z97l.js.gz",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\qfawe5dr04-yv83z1z97l.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "365"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SXRhdNH8SLT9ByOglf/CPecGpJ3rSENeId8GQGJJyYA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 14 May 2025 14:02:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "yv83z1z97l"
+        },
+        {
+          "Name": "label",
+          "Value": "js/DocumentosScripts/service-worker.js.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-SXRhdNH8SLT9ByOglf/CPecGpJ3rSENeId8GQGJJyYA="
+        }
+      ]
+    },
+    {
+      "Route": "js/PagamentoScript/PagamentoScript.i771pnrbdg.js",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\b4vn3fd9f1-i771pnrbdg.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000661813369"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1510"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"EsLN+rmpbZ3QcJ+Y82N0BF5/JCRhpWTS5HHAKYYPGV8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 04:33:21 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"QkB5fXxIOuzCybfjWWdMbw3UjkiQdnsVIswD0gtNOb4=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "i771pnrbdg"
+        },
+        {
+          "Name": "label",
+          "Value": "js/PagamentoScript/PagamentoScript.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-QkB5fXxIOuzCybfjWWdMbw3UjkiQdnsVIswD0gtNOb4="
+        }
+      ]
+    },
+    {
+      "Route": "js/PagamentoScript/PagamentoScript.i771pnrbdg.js",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\PagamentoScript\\PagamentoScript.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4641"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"QkB5fXxIOuzCybfjWWdMbw3UjkiQdnsVIswD0gtNOb4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 04:33:21 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "i771pnrbdg"
+        },
+        {
+          "Name": "label",
+          "Value": "js/PagamentoScript/PagamentoScript.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-QkB5fXxIOuzCybfjWWdMbw3UjkiQdnsVIswD0gtNOb4="
+        }
+      ]
+    },
+    {
+      "Route": "js/PagamentoScript/PagamentoScript.i771pnrbdg.js.gz",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\b4vn3fd9f1-i771pnrbdg.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1510"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"EsLN+rmpbZ3QcJ+Y82N0BF5/JCRhpWTS5HHAKYYPGV8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 04:33:21 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "i771pnrbdg"
+        },
+        {
+          "Name": "label",
+          "Value": "js/PagamentoScript/PagamentoScript.js.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-EsLN+rmpbZ3QcJ+Y82N0BF5/JCRhpWTS5HHAKYYPGV8="
+        }
+      ]
+    },
+    {
+      "Route": "js/PagamentoScript/PagamentoScript.js",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\b4vn3fd9f1-i771pnrbdg.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000661813369"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1510"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"EsLN+rmpbZ3QcJ+Y82N0BF5/JCRhpWTS5HHAKYYPGV8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 04:33:21 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"QkB5fXxIOuzCybfjWWdMbw3UjkiQdnsVIswD0gtNOb4=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-QkB5fXxIOuzCybfjWWdMbw3UjkiQdnsVIswD0gtNOb4="
+        }
+      ]
+    },
+    {
+      "Route": "js/PagamentoScript/PagamentoScript.js",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\PagamentoScript\\PagamentoScript.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4641"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"QkB5fXxIOuzCybfjWWdMbw3UjkiQdnsVIswD0gtNOb4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 04:33:21 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-QkB5fXxIOuzCybfjWWdMbw3UjkiQdnsVIswD0gtNOb4="
+        }
+      ]
+    },
+    {
+      "Route": "js/PagamentoScript/PagamentoScript.js.gz",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\b4vn3fd9f1-i771pnrbdg.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1510"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"EsLN+rmpbZ3QcJ+Y82N0BF5/JCRhpWTS5HHAKYYPGV8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 04:33:21 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-EsLN+rmpbZ3QcJ+Y82N0BF5/JCRhpWTS5HHAKYYPGV8="
+        }
+      ]
+    },
+    {
+      "Route": "js/VoxDocsScripts/voice-modalScript.ap4wu6agpg.js",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\2a3y31vegs-ap4wu6agpg.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -6159,7 +8199,7 @@
         },
         {
           "Name": "label",
-          "Value": "js/voice-modalScript.js"
+          "Value": "js/VoxDocsScripts/voice-modalScript.js"
         },
         {
           "Name": "integrity",
@@ -6168,8 +8208,8 @@
       ]
     },
     {
-      "Route": "js/voice-modalScript.ap4wu6agpg.js",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\voice-modalScript.js",
+      "Route": "js/VoxDocsScripts/voice-modalScript.ap4wu6agpg.js",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\VoxDocsScripts\\voice-modalScript.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6204,7 +8244,7 @@
         },
         {
           "Name": "label",
-          "Value": "js/voice-modalScript.js"
+          "Value": "js/VoxDocsScripts/voice-modalScript.js"
         },
         {
           "Name": "integrity",
@@ -6213,8 +8253,8 @@
       ]
     },
     {
-      "Route": "js/voice-modalScript.ap4wu6agpg.js.gz",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\2yo77jd9il-ap4wu6agpg.gz",
+      "Route": "js/VoxDocsScripts/voice-modalScript.ap4wu6agpg.js.gz",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\2a3y31vegs-ap4wu6agpg.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6257,7 +8297,7 @@
         },
         {
           "Name": "label",
-          "Value": "js/voice-modalScript.js.gz"
+          "Value": "js/VoxDocsScripts/voice-modalScript.js.gz"
         },
         {
           "Name": "integrity",
@@ -6266,8 +8306,8 @@
       ]
     },
     {
-      "Route": "js/voice-modalScript.js",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\2yo77jd9il-ap4wu6agpg.gz",
+      "Route": "js/VoxDocsScripts/voice-modalScript.js",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\2a3y31vegs-ap4wu6agpg.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -6321,8 +8361,8 @@
       ]
     },
     {
-      "Route": "js/voice-modalScript.js",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\voice-modalScript.js",
+      "Route": "js/VoxDocsScripts/voice-modalScript.js",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\VoxDocsScripts\\voice-modalScript.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6358,8 +8398,8 @@
       ]
     },
     {
-      "Route": "js/voice-modalScript.js.gz",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\2yo77jd9il-ap4wu6agpg.gz",
+      "Route": "js/VoxDocsScripts/voice-modalScript.js.gz",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\2a3y31vegs-ap4wu6agpg.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {

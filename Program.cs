@@ -4,6 +4,7 @@ using VoxDocs.Data;
 using VoxDocs.Services;
 using VoxDocs.BusinessRules;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Azure.Storage.Blobs;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +19,12 @@ if (builder.Environment.IsDevelopment())
     }
 }
 
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("AdminOnly", policy =>
+        policy.RequireClaim("PermissionAccount", "admin"));
+});
+
 // --- Logging & Application Insights ---
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole().AddDebug();
@@ -28,6 +35,17 @@ builder.Services.AddApplicationInsightsTelemetry(options =>
 
 // --- DataProtection com fallback ---
 builder.Services.AddCustomDataProtection(builder.Configuration);
+
+// Injeção do BlobService Client
+builder.Services.AddSingleton(sp =>
+{
+    var config = sp.GetRequiredService<IConfiguration>();
+    var conn   = config["AzureBlobStorage:ConnectionString"];
+    if (string.IsNullOrEmpty(conn))
+        throw new InvalidOperationException("AzureBlobStorage:ConnectionString faltando!");
+    return new BlobServiceClient(conn);
+});
+
 
 // --- EF Core SQL Server ---
 builder.Services.AddDbContext<VoxDocsContext>(opts =>
@@ -58,17 +76,28 @@ builder.Services.AddHttpClient("VoxDocsApi", c =>
 );
 
 // --- Serviços ---
-builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IPastaPrincipalService, PastaPrincipalService>();
+builder.Services.AddScoped<ISubPastaService, SubPastaService>();
 builder.Services.AddScoped<IDocumentoService, DocumentoService>();
-builder.Services.AddScoped<ITipoDocumentoService, TipoDocumentoService>();
-builder.Services.AddScoped<IAreasDocumentoService, AreasDocumentoService>();
-builder.Services.AddScoped<IDocumentoUploadService, DocumentoUploadService>();
+
+
+
+
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IPlanosVoxDocsService, PlanosVoxDocsService>();
+builder.Services.AddScoped<IEmpresasContratanteService, EmpresasContratanteService>();
+builder.Services.AddScoped<IPagamentoFalsoService, PagamentoFalsoService>();
 
 // --- Azure Blob Storage Service ---
 builder.Services.AddScoped<AzureBlobService>();
 
 // Regra de Negocios
+builder.Services.AddScoped<PastaPrincipalBusinessRules>();
+builder.Services.AddScoped<SubPastaBusinessRules>();
 builder.Services.AddScoped<UserBusinessRules>();
+builder.Services.AddScoped<EmpresasContratanteRules>();
+builder.Services.AddScoped<PlanosVoxDocsRules>();
+builder.Services.AddScoped<DocumentoBusinessRules>();
 
 // --- Controllers + Views + Localizações customizadas + Session ---
 builder.Services.AddCustomControllersWithViews();      // caso contenha outras configs MVC

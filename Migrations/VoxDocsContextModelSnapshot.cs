@@ -22,23 +22,6 @@ namespace VoxDocs.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("VoxDocs.Models.AreasDocumentoModel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("AreasDocumento");
-                });
-
             modelBuilder.Entity("VoxDocs.Models.DocumentoModel", b =>
                 {
                     b.Property<int>("Id")
@@ -47,55 +30,8 @@ namespace VoxDocs.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("AreaDocumentoId")
+                    b.Property<int>("ContadorAcessos")
                         .HasColumnType("int");
-
-                    b.Property<DateTime>("DataAtualizacao")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DataCriacao")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Descricao")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("DocumentoUploadId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("TipoDocumentoId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UsuarioCriador")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UsuarioUltimaAlteracao")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AreaDocumentoId");
-
-                    b.HasIndex("DocumentoUploadId");
-
-                    b.HasIndex("TipoDocumentoId");
-
-                    b.ToTable("Documentos");
-                });
-
-            modelBuilder.Entity("VoxDocs.Models.DocumentoUploadModel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("DataCriacao")
                         .HasColumnType("datetime2");
@@ -103,8 +39,37 @@ namespace VoxDocs.Migrations
                     b.Property<DateTime>("DataUltimaAlteracao")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Descrição")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Empresa")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NivelSeguranca")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("NomeArquivo")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NomePastaPrincipal")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NomeSubPasta")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("SubPastaModelId")
+                        .HasColumnType("int");
+
+                    b.Property<long>("TamanhoArquivo")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("TokenSeguranca")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UrlArquivo")
@@ -121,10 +86,12 @@ namespace VoxDocs.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("DocumentosUploads");
+                    b.HasIndex("SubPastaModelId");
+
+                    b.ToTable("Documentos");
                 });
 
-            modelBuilder.Entity("VoxDocs.Models.TipoDocumentoModel", b =>
+            modelBuilder.Entity("VoxDocs.Models.EmpresasContratanteModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -132,13 +99,335 @@ namespace VoxDocs.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Nome")
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EmpresaContratante")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("TiposDocumento");
+                    b.ToTable("EmpresasContratantes");
+                });
+
+            modelBuilder.Entity("VoxDocs.Models.PagamentoCartaoFalsoModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CartaoNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CvvCartao")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DataExpiracao")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DataPagamento")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("TipoCartao")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TipoPlano")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ValidadeCartao")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("ValorPlano")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PagamentosCartao");
+                });
+
+            modelBuilder.Entity("VoxDocs.Models.PagamentoPixModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("Confirmado")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DataExpiracao")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DataPagamento")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("QRCodePix")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TipoPlano")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("ValorPlano")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PagamentosPix");
+                });
+
+            modelBuilder.Entity("VoxDocs.Models.PastaPrincipalModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("EmpresaContratante")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NomePastaPrincipal")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PastaPrincipal");
+                });
+
+            modelBuilder.Entity("VoxDocs.Models.PlanosVoxDocsModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ArmazenamentoDisponivel")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Duration")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("LimiteAdmin")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("LimiteUsuario")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MaxStorageGb")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Periodicidade")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int?>("TokenLimit")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TokensDisponiveis")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserLimit")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PlanosVoxDocs");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ArmazenamentoDisponivel = 50,
+                            Description = "Arquivamento de Dados Com Segurança",
+                            Duration = 1,
+                            LimiteAdmin = 1,
+                            LimiteUsuario = 5,
+                            MaxStorageGb = 0,
+                            Name = "Plano Básico Mensal",
+                            Periodicidade = "Mensal",
+                            Price = 9.99m,
+                            TokensDisponiveis = "Infinito",
+                            UserLimit = 0
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ArmazenamentoDisponivel = 50,
+                            Description = "Sistema de Criptografia de Ponta e Comando de Voz",
+                            Duration = 1,
+                            LimiteAdmin = 2,
+                            LimiteUsuario = 10,
+                            MaxStorageGb = 0,
+                            Name = "Plano Intermediário Mensal",
+                            Periodicidade = "Mensal",
+                            Price = 19.99m,
+                            TokensDisponiveis = "Infinito",
+                            UserLimit = 0
+                        },
+                        new
+                        {
+                            Id = 3,
+                            ArmazenamentoDisponivel = 50,
+                            Description = "Todas Funcionalidades",
+                            Duration = 1,
+                            LimiteAdmin = 5,
+                            LimiteUsuario = 20,
+                            MaxStorageGb = 0,
+                            Name = "Plano Avançado Mensal",
+                            Periodicidade = "Mensal",
+                            Price = 29.99m,
+                            TokensDisponiveis = "Infinito",
+                            UserLimit = 0
+                        },
+                        new
+                        {
+                            Id = 4,
+                            ArmazenamentoDisponivel = 100,
+                            Description = "Arquivamento de Dados Com Segurança",
+                            Duration = 3,
+                            LimiteAdmin = 1,
+                            LimiteUsuario = 5,
+                            MaxStorageGb = 0,
+                            Name = "Plano Básico Trimestral",
+                            Periodicidade = "Trimestral",
+                            Price = 27.99m,
+                            TokensDisponiveis = "Infinito",
+                            UserLimit = 0
+                        },
+                        new
+                        {
+                            Id = 5,
+                            ArmazenamentoDisponivel = 100,
+                            Description = "Sistema de Criptografia de Ponta e Comando de Voz",
+                            Duration = 3,
+                            LimiteAdmin = 2,
+                            LimiteUsuario = 10,
+                            MaxStorageGb = 0,
+                            Name = "Plano Intermediário Trimestral",
+                            Periodicidade = "Trimestral",
+                            Price = 54.99m,
+                            TokensDisponiveis = "Infinito",
+                            UserLimit = 0
+                        },
+                        new
+                        {
+                            Id = 6,
+                            ArmazenamentoDisponivel = 100,
+                            Description = "Todas Funcionalidades",
+                            Duration = 3,
+                            LimiteAdmin = 5,
+                            LimiteUsuario = 20,
+                            MaxStorageGb = 0,
+                            Name = "Plano Avançado Trimestral",
+                            Periodicidade = "Trimestral",
+                            Price = 79.99m,
+                            TokensDisponiveis = "Infinito",
+                            UserLimit = 0
+                        },
+                        new
+                        {
+                            Id = 7,
+                            ArmazenamentoDisponivel = 150,
+                            Description = "Arquivamento de Dados Com Segurança",
+                            Duration = 6,
+                            LimiteAdmin = 1,
+                            LimiteUsuario = 5,
+                            MaxStorageGb = 0,
+                            Name = "Plano Básico Semestral",
+                            Periodicidade = "Semestral",
+                            Price = 49.99m,
+                            TokensDisponiveis = "Infinito",
+                            UserLimit = 0
+                        },
+                        new
+                        {
+                            Id = 8,
+                            ArmazenamentoDisponivel = 150,
+                            Description = "Sistema de Criptografia de Ponta e Comando de Voz",
+                            Duration = 6,
+                            LimiteAdmin = 2,
+                            LimiteUsuario = 10,
+                            MaxStorageGb = 0,
+                            Name = "Plano Intermediário Semestral",
+                            Periodicidade = "Semestral",
+                            Price = 99.99m,
+                            TokensDisponiveis = "Infinito",
+                            UserLimit = 0
+                        },
+                        new
+                        {
+                            Id = 9,
+                            ArmazenamentoDisponivel = 150,
+                            Description = "Todas Funcionalidades",
+                            Duration = 6,
+                            LimiteAdmin = 5,
+                            LimiteUsuario = 20,
+                            MaxStorageGb = 0,
+                            Name = "Plano Avançado Semestral",
+                            Periodicidade = "Semestral",
+                            Price = 149.99m,
+                            TokensDisponiveis = "Infinito",
+                            UserLimit = 0
+                        });
+                });
+
+            modelBuilder.Entity("VoxDocs.Models.SubPastaModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("EmpresaContratante")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NomePastaPrincipal")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NomeSubPasta")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("PastaPrincipalModelId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PastaPrincipalModelId");
+
+                    b.ToTable("SubPastas");
                 });
 
             modelBuilder.Entity("VoxDocs.Models.UserModel", b =>
@@ -153,6 +442,15 @@ namespace VoxDocs.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("EmpresaContratante")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LimiteAdmin")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LimiteUsuario")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("PasswordResetToken")
                         .HasColumnType("nvarchar(max)");
 
@@ -161,6 +459,9 @@ namespace VoxDocs.Migrations
 
                     b.Property<string>("PermissionAccount")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PlanoPago")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Senha")
@@ -178,37 +479,24 @@ namespace VoxDocs.Migrations
 
             modelBuilder.Entity("VoxDocs.Models.DocumentoModel", b =>
                 {
-                    b.HasOne("VoxDocs.Models.AreasDocumentoModel", "AreaDocumento")
+                    b.HasOne("VoxDocs.Models.SubPastaModel", null)
                         .WithMany("Documentos")
-                        .HasForeignKey("AreaDocumentoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("VoxDocs.Models.DocumentoUploadModel", "DocumentoUpload")
-                        .WithMany()
-                        .HasForeignKey("DocumentoUploadId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("VoxDocs.Models.TipoDocumentoModel", "TipoDocumento")
-                        .WithMany("Documentos")
-                        .HasForeignKey("TipoDocumentoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("AreaDocumento");
-
-                    b.Navigation("DocumentoUpload");
-
-                    b.Navigation("TipoDocumento");
+                        .HasForeignKey("SubPastaModelId");
                 });
 
-            modelBuilder.Entity("VoxDocs.Models.AreasDocumentoModel", b =>
+            modelBuilder.Entity("VoxDocs.Models.SubPastaModel", b =>
                 {
-                    b.Navigation("Documentos");
+                    b.HasOne("VoxDocs.Models.PastaPrincipalModel", null)
+                        .WithMany("SubPastas")
+                        .HasForeignKey("PastaPrincipalModelId");
                 });
 
-            modelBuilder.Entity("VoxDocs.Models.TipoDocumentoModel", b =>
+            modelBuilder.Entity("VoxDocs.Models.PastaPrincipalModel", b =>
+                {
+                    b.Navigation("SubPastas");
+                });
+
+            modelBuilder.Entity("VoxDocs.Models.SubPastaModel", b =>
                 {
                     b.Navigation("Documentos");
                 });

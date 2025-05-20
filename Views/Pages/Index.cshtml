@@ -1,3 +1,4 @@
+@model VoxDocs.ViewModels.PlanosIndexViewModel
 @{
     Layout = null;
 }
@@ -11,16 +12,17 @@
 
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <!-- Material Symbols Outlined -->
+    
+    <!-- Google Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-    <!-- Google Fonts - Poppins -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+    
     <!-- AOS Animate -->
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="~/css/styleIndex.css" />
-    <link rel="stylesheet" href="~/css/voice-modalstyle.css" />
+    <link rel="stylesheet" href="~/css/ChatVoxStyles/voice-modalstyle.css" />
 </head>
 <body>
 
@@ -34,7 +36,7 @@
     <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
     <script> new window.VLibras.Widget('https://vlibras.gov.br/app'); </script>
 
-    <!-- Assistente de voz Toggle -->
+    <!-- Assistente de voz -->
     <button id="toggleAssistant"
             class="btn btn-accent position-fixed"
             style="bottom:16px; right:80px; z-index:2000;"
@@ -44,31 +46,27 @@
         <span class="material-symbols-outlined">support_agent</span>
     </button>
 
-    <!-- Modal do Assistente de Voz -->
+    <!-- Modal Assistente -->
     @await Html.PartialAsync("_VoiceAssistantModal")
 
     <!-- Navbar -->
     @await Html.PartialAsync("_NavbarPartial")
 
     <!-- Hero -->
-    <section class="hero text-white" data-aos="fade-down">
-        <div class="container-fluid text-center">
+    <section class="hero text-white text-center py-5" data-aos="fade-down">
+        <div class="container">
             <h1>Sua Solução de Gestão de Documentos</h1>
-            <p>VoxDocs organiza, armazena e protege seus arquivos de forma simples e eficiente.</p>
-            <a asp-controller="LoginMvc"
-               asp-action="Login"
-               class="btn btn-primary"
-               data-aos="zoom-in"
-               data-aos-delay="200">
+            <p class="lead">VoxDocs organiza, armazena e protege seus arquivos de forma simples e eficiente.</p>
+            <a asp-controller="LoginMvc" asp-action="Login" class="btn btn-primary mt-3" data-aos="zoom-in" data-aos-delay="200">
                 Começar Agora
             </a>
         </div>
     </section>
 
     <!-- Features -->
-    <section class="features" data-aos="fade-up">
+    <section class="features py-5 bg-light" data-aos="fade-up">
         <div class="container">
-            <div class="row gy-4">
+            <div class="row gy-4 text-center">
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="feature-box">
                         <div class="feature-icon">📂</div>
@@ -94,68 +92,72 @@
         </div>
     </section>
 
-    <!-- Plans Section -->
-    <section class="plans" data-aos="fade-up">
-        <div class="container">
-            <h2 class="text-center mb-5">Escolha seu Plano</h2>
-            <div class="row gy-4">
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="plan-card">
-                        <div class="plan-name">Plano Básico</div>
-                        <div class="plan-price">Grátis</div>
-                        <ul>
-                            <li><span class="material-symbols-outlined">storage</span> 5 GB Armazenamento</li>
-                            <li><span class="material-symbols-outlined">people</span> 1 Usuário</li>
-                            <li><span class="material-symbols-outlined">key</span> 10 Tokens/mês</li>
-                        </ul>
-                        <a asp-controller="PlanosPage"
-                           asp-action="Pagamento"
-                           asp-route-plan="Plano Básico"
-                           asp-route-price="0,00"
-                           class="btn btn-subscribe">
-                            Selecionar
-                        </a>
-                    </div>
+    <!-- Planos -->
+   <section class="plans py-5" data-aos="fade-up">
+    <div class="container">
+        <h2 class="text-center mb-5">Escolha seu Plano</h2>
+
+        <div class="row gy-4 mb-5">
+            <!-- Plano Básico -->
+            <div class="col-md-4" data-aos="fade-up">
+                <div class="plan-card h-100 p-4 border rounded shadow-sm text-center">
+                    <div class="plan-name fw-bold">Planos Básicos</div>
+                    <div class="plan-price display-6 mb-3">A partir de R$ @Model.MenorPrecoBasico.ToString("F2")</div>
+                    <ul class="list-unstyled mb-4">
+                        <li><span class="material-symbols-outlined">storage</span> Armazenamento conforme plano</li>
+                        <li><span class="material-symbols-outlined">people</span> Usuários conforme plano</li>
+                        <li><span class="material-symbols-outlined">key</span> Tokens ilimitados</li>
+                    </ul>
+                    <a asp-controller="PagamentosMvc"
+                       asp-action="Pagamentos"
+                       asp-route-categoria="Básico"
+                       class="btn btn-subscribe">
+                        Selecionar
+                    </a>
                 </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="plan-card">
-                        <div class="plan-name">Plano Pro</div>
-                        <div class="plan-price">R$ 49/mês</div>
-                        <ul>
-                            <li><span class="material-symbols-outlined">storage</span> 100 GB Armazenamento</li>
-                            <li><span class="material-symbols-outlined">people</span> Até 5 Usuários</li>
-                            <li><span class="material-symbols-outlined">key</span> 100 Tokens/mês</li>
-                        </ul>
-                        <a asp-controller="PlanosPage"
-                           asp-action="Pagamento"
-                           asp-route-plan="Plano Pro"
-                           asp-route-price="49,00"
-                           class="btn btn-subscribe">
-                            Selecionar
-                        </a>
-                    </div>
+            </div>
+
+            <!-- Plano Intermediário -->
+            <div class="col-md-4" data-aos="fade-up">
+                <div class="plan-card h-100 p-4 border rounded shadow-sm text-center">
+                    <div class="plan-name fw-bold">Planos Intermediários</div>
+                    <div class="plan-price display-6 mb-3">A partir de R$ @Model.MenorPrecoIntermediario.ToString("F2")</div>
+                    <ul class="list-unstyled mb-4">
+                        <li><span class="material-symbols-outlined">storage</span> Armazenamento conforme plano</li>
+                        <li><span class="material-symbols-outlined">people</span> Usuários conforme plano</li>
+                        <li><span class="material-symbols-outlined">key</span> Tokens ilimitados</li>
+                    </ul>
+                    <a asp-controller="PagamentosMvc"
+                       asp-action="Pagamentos"
+                       asp-route-categoria="Intermediário"
+                       class="btn btn-subscribe">
+                        Selecionar
+                    </a>
                 </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="plan-card">
-                        <div class="plan-name">Plano Enterprise</div>
-                        <div class="plan-price">Sob Consulta</div>
-                        <ul>
-                            <li><span class="material-symbols-outlined">storage</span> 1 TB+ Armazenamento</li>
-                            <li><span class="material-symbols-outlined">people</span> Usuários Ilimitados</li>
-                            <li><span class="material-symbols-outlined">key</span> Tokens Ilimitados</li>
-                        </ul>
-                        <a asp-controller="PlanosPage"
-                           asp-action="Pagamento"
-                           asp-route-plan="Enterprise"
-                           asp-route-price="–"
-                           class="btn btn-subscribe">
-                            Selecionar
-                        </a>
-                    </div>
+            </div>
+
+            <!-- Plano Avançado -->
+            <div class="col-md-4" data-aos="fade-up">
+                <div class="plan-card h-100 p-4 border rounded shadow-sm text-center">
+                    <div class="plan-name fw-bold">Planos Avançados</div>
+                    <div class="plan-price display-6 mb-3">A partir de R$ @Model.MenorPrecoAvancado.ToString("F2")</div>
+                    <ul class="list-unstyled mb-4">
+                        <li><span class="material-symbols-outlined">storage</span> Armazenamento conforme plano</li>
+                        <li><span class="material-symbols-outlined">people</span> Usuários conforme plano</li>
+                        <li><span class="material-symbols-outlined">key</span> Tokens ilimitados</li>
+                    </ul>
+                    <a asp-controller="PagamentosMvc"
+                       asp-action="Pagamentos"
+                       asp-route-categoria="Avançado"
+                       class="btn btn-subscribe">
+                        Selecionar
+                    </a>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
 
     <!-- Footer -->
     @await Html.PartialAsync("_FooterPartial")
@@ -163,7 +165,7 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    <script src="~/js/voice-modalScript.js"></script>
+    <script src="~/js/VoxDocsScripts/voice-modalScript.js"></script>
     <script>
         AOS.init({ once: true });
     </script>

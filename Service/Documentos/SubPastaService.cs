@@ -1,0 +1,96 @@
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using VoxDocs.Data;
+using VoxDocs.Models;
+using VoxDocs.Models.Dto;
+
+namespace VoxDocs.Services
+{
+    public class SubPastaService : ISubPastaService
+    {
+        private readonly VoxDocsContext _context;
+
+        public SubPastaService(VoxDocsContext context)
+        {
+            _context = context;
+        }
+
+        public async Task<IEnumerable<DTOSubPasta>> GetAllAsync()
+        {
+            var subPastas = await _context.SubPastas
+                .Include(sp => sp.Documentos) // Include Documentos to count documents
+                .ToListAsync();
+
+            return subPastas.Select(sp => new DTOSubPasta
+            {
+                Id = sp.Id,
+                NomeSubPasta = sp.NomeSubPasta,
+                NomePastaPrincipal = sp.NomePastaPrincipal,
+                EmpresaContratante = sp.EmpresaContratante,
+                Quantidade = sp.Documentos?.Count ?? 0 // Set Quantidade
+            });
+        }
+
+        public async Task<DTOSubPasta?> GetByIdAsync(int id)
+        {
+            var subPasta = await _context.SubPastas.FindAsync(id);
+            if (subPasta == null) return null;
+
+            return new DTOSubPasta
+            {
+                Id = subPasta.Id,
+                NomeSubPasta = subPasta.NomeSubPasta,
+                NomePastaPrincipal = subPasta.NomePastaPrincipal,
+                EmpresaContratante = subPasta.EmpresaContratante
+            };
+        }
+
+        public async Task<DTOSubPasta> CreateAsync(DTOSubPastaCreate dto)
+        {
+            var subPasta = new SubPastaModel
+            {
+                NomeSubPasta = dto.NomeSubPasta,
+                NomePastaPrincipal = dto.NomePastaPrincipal,
+                EmpresaContratante = dto.EmpresaContratante
+            };
+
+            _context.SubPastas.Add(subPasta);
+            await _context.SaveChangesAsync();
+
+            return new DTOSubPasta
+            {
+                Id = subPasta.Id,
+                NomeSubPasta = subPasta.NomeSubPasta,
+                NomePastaPrincipal = subPasta.NomePastaPrincipal,
+                EmpresaContratante = subPasta.EmpresaContratante
+            };
+        }
+
+        public async Task<bool> DeleteAsync(int id)
+        {
+            var subPasta = await _context.SubPastas.FindAsync(id);
+            if (subPasta == null) return false;
+
+            _context.SubPastas.Remove(subPasta);
+            await _context.SaveChangesAsync();
+            return true;
+        }
+
+        public async Task<IEnumerable<DTOSubPasta>> GetSubChildrenAsync(string nomePastaPrincipal)
+            {
+                var subPastas = await _context.SubPastas
+                    .Where(sp => sp.NomePastaPrincipal == nomePastaPrincipal)
+                    .ToListAsync();
+
+                return subPastas.Select(sp => new DTOSubPasta
+                {
+                    Id = sp.Id,
+                    NomeSubPasta = sp.NomeSubPasta,
+                    NomePastaPrincipal = sp.NomePastaPrincipal,
+                    EmpresaContratante = sp.EmpresaContratante
+                });
+            }
+    }
+}

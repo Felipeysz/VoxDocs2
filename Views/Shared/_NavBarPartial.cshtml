@@ -35,12 +35,12 @@
         @if (isAuthenticated)
         {
           <li class="nav-item">
-            <a class="nav-link @(currentController == "DocumentosMvc" && currentAction == "Documentos" ? "active" : "")"
-               asp-controller="DocumentosMvc" asp-action="Documentos">Documentos</a>
+            <a class="nav-link @(currentController == "DocumentosPaginaMvc" && currentAction == "DocumentosPagina" ? "active" : "")"
+               asp-controller="DocumentosPaginaMvc" asp-action="DocumentosPagina">Documentos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link @(currentController == "UploadDocumentoMvc" && currentAction == "Upload" ? "active" : "")"
-               asp-controller="UploadDocumentoMvc" asp-action="Upload">Upload</a>
+            <a class="nav-link @(currentController == "DocumentosMvc" && currentAction == "Upload" ? "active" : "")"
+               asp-controller="DocumentosMvc" asp-action="UploadDocumentos">Upload</a>
           </li>
         }
 
@@ -65,8 +65,8 @@
             @if (isAuthenticated && isAdmin)
             {
               <li>
-                <a class="dropdown-item @(currentController == "DashboardMvc" ? "active" : "")"
-                   asp-controller="DashboardMvc" asp-action="Dashboard">
+                <a class="dropdown-item @(currentController == "AdminMvc" ? "active" : "")"
+                   asp-controller="AdminMvc" asp-action="Dashboard">
                   Dashboard
                 </a>
               </li>
@@ -126,12 +126,12 @@
       @if (isAuthenticated)
       {
         <li class="nav-item">
-          <a class="nav-link @(currentController == "DocumentosMvc" && currentAction == "Documentos" ? "active" : "")"
-             asp-controller="DocumentosMvc" asp-action="Documentos">Documentos</a>
+          <a class="nav-link @(currentController == "DocumentosPaginaMvc" && currentAction == "DocumentosPagina" ? "active" : "")"
+             asp-controller="DocumentosPaginaMvc" asp-action="DocumentosPagina">Documentos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link @(currentController == "UploadDocumentoMvc" && currentAction == "Upload" ? "active" : "")"
-             asp-controller="UploadDocumentoMvc" asp-action="Upload">Upload</a>
+          <a class="nav-link @(currentController == "DocumentosMvc" && currentAction == "Upload" ? "active" : "")"
+             asp-controller="DocumentosMvc" asp-action="UploadDocumentos">Upload</a>
         </li>
       }
       <li><hr class="dropdown-divider" /></li>
@@ -145,8 +145,8 @@
       @if (isAuthenticated && isAdmin)
       {
         <li class="nav-item">
-          <a class="nav-link @(currentController == "DashboardMvc" ? "active" : "")"
-             asp-controller="DashboardMvc" asp-action="Dashboard">Dashboard</a>
+          <a class="nav-link @(currentController == "AdminMvc" ? "active" : "")"
+             asp-controller="AdminMvc" asp-action="Dashboard">Dashboard</a>
         </li>
       }
       <li class="nav-item">

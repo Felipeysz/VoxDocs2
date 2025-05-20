@@ -1,0 +1,74 @@
+using Microsoft.EntityFrameworkCore;
+using VoxDocs.Data;
+using VoxDocs.Models;
+using VoxDocs.Models.Dto;
+
+namespace VoxDocs.Services
+{
+    public class PastaPrincipalService : IPastaPrincipalService
+    {
+        private readonly VoxDocsContext _context;
+
+        public PastaPrincipalService(VoxDocsContext context)
+        {
+            _context = context;
+        }
+
+        public async Task<IEnumerable<DTOPastaPrincipal>> GetAllAsync()
+        {
+            var pastas = await _context.PastaPrincipal
+                .Include(p => p.SubPastas) // Include SubPastas to count documents
+                .ToListAsync();
+
+            return pastas.Select(p => new DTOPastaPrincipal
+            {
+                Id = p.Id,
+                NomePastaPrincipal = p.NomePastaPrincipal,
+                EmpresaContratante = p.EmpresaContratante,
+                Quantidade = p.SubPastas?.Count ?? 0 // Set Quantidade
+            });
+        }
+
+        public async Task<DTOPastaPrincipal?> GetByIdAsync(int id)
+        {
+            var pasta = await _context.PastaPrincipal.FindAsync(id);
+            if (pasta == null) return null;
+
+            return new DTOPastaPrincipal
+            {
+                Id = pasta.Id,
+                NomePastaPrincipal = pasta.NomePastaPrincipal,
+                EmpresaContratante = pasta.EmpresaContratante
+            };
+        }
+
+        public async Task<DTOPastaPrincipal> CreateAsync(DTOPastaPrincipalCreate dto)
+        {
+            var pasta = new PastaPrincipalModel
+            {
+                NomePastaPrincipal = dto.NomePastaPrincipal,
+                EmpresaContratante = dto.EmpresaContratante
+            };
+
+            _context.PastaPrincipal.Add(pasta);
+            await _context.SaveChangesAsync();
+
+            return new DTOPastaPrincipal
+            {
+                Id = pasta.Id,
+                NomePastaPrincipal = pasta.NomePastaPrincipal,
+                EmpresaContratante = pasta.EmpresaContratante
+            };
+        }
+
+        public async Task<bool> DeleteAsync(int id)
+        {
+            var pasta = await _context.PastaPrincipal.FindAsync(id);
+            if (pasta == null) return false;
+
+            _context.PastaPrincipal.Remove(pasta);
+            await _context.SaveChangesAsync();
+            return true;
+        }
+    }
+}

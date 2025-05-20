@@ -36,7 +36,7 @@
 </footer>
 
 <style>
-  :root {
+:root {
     --footer-bg: #f9f9f9;
     --footer-color: #666;
     --footer-accent: #774C9E;
@@ -44,14 +44,25 @@
     --footer-link-hover: #6CD3DC;
 }
 
+/* Footer fixo só em telas grandes */
 .footer {
     background: var(--footer-bg);
     color: var(--footer-color);
     position: fixed;
+    left: 0;
     bottom: 0;
     width: 100%;
     z-index: 5;
     font-size: 1rem;
+    box-shadow: 0 -2px 12px #0001;
+}
+
+/* Footer estático em telas pequenas */
+@@media (max-width: 576px) {
+    .footer {
+        position: static !important;
+        box-shadow: none;
+    }
 }
 
 .footer-title {
@@ -74,12 +85,13 @@
     color: var(--footer-link-hover);
 }
 
+/* Espaço para o footer fixo só em telas grandes */
 body {
     padding-bottom: 4rem;
 }
-
 @@media (max-width: 576px) {
-    .footer { position: static; }
-    body { padding-bottom: 0; }
+    body {
+        padding-bottom: 0 !important;
+    }
 }
 </style>
