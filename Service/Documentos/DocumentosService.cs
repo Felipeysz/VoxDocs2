@@ -20,8 +20,8 @@ namespace VoxDocs.Services
         public DocumentoService(VoxDocsContext context, IConfiguration configuration)
         {
             _context = context;
-            var connectionString = configuration.GetConnectionString("AzureBlobStorage");
-            _blobServiceClient = new BlobServiceClient(connectionString);
+            var ConnectionString = configuration["AzureBlobStorage:ConnectionString"];
+            _blobServiceClient = new BlobServiceClient(ConnectionString);
             _containerName = configuration["AzureBlobStorage:ContainerName"];
         }
 

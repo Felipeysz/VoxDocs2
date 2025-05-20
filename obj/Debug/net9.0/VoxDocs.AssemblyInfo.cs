@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VoxDocs")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+56e53512d0a9dfc12c84725590e2ddd556ee14d8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c6b1b21e711990295f9d471ac885d2f0dfb6159b")]
 [assembly: System.Reflection.AssemblyProductAttribute("VoxDocs")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VoxDocs")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
