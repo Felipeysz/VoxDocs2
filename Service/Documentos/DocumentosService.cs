@@ -58,37 +58,66 @@ namespace VoxDocs.Services
 
         public async Task<DTODocumentoCreate> CreateAsync(DocumentoDto dto)
         {
-            var fileName = $"{Guid.NewGuid()}_{dto.Arquivo.FileName}";
-            string url;
-            using (var stream = dto.Arquivo.OpenReadStream())
+            try
             {
-                url = await UploadFileAsync(fileName, stream);
+                // Extrair extensão do arquivo
+                var ext = Path.GetExtension(dto.Arquivo.FileName);
+
+                // Nome base do arquivo (sem extensão)
+                var nomeBase = Path.GetFileNameWithoutExtension(dto.Arquivo.FileName);
+
+                // Novo nome do arquivo (sem o ":")
+                var fileName = $"{nomeBase}{ext}";
+
+                // Verificar se o arquivo já existe e adicionar sufixo numérico se necessário
+                int contador = 1;
+                while (await _context.Documentos.AnyAsync(d => d.NomeArquivo == fileName))
+                {
+                    fileName = $"{nomeBase}_{contador}{ext}";
+                    contador++;
+                }
+
+                // Upload do arquivo
+                string url;
+                using (var stream = dto.Arquivo.OpenReadStream())
+                {
+                    url = await UploadFileAsync(fileName, stream);
+                }
+
+                // Criar o documento
+                var doc = new DocumentoModel
+                {
+                    NomeArquivo = fileName,
+                    UrlArquivo = url,
+                    UsuarioCriador = dto.Usuario,
+                    DataCriacao = DateTime.UtcNow,
+                    UsuarioUltimaAlteracao = dto.Usuario,
+                    DataUltimaAlteracao = DateTime.UtcNow,
+                    Empresa = dto.Empresa,
+                    NomePastaPrincipal = dto.NomePastaPrincipal,
+                    NomeSubPasta = dto.NomeSubPasta,
+                    TamanhoArquivo = dto.Arquivo.Length,
+                    NivelSeguranca = dto.NivelSeguranca,
+                    TokenSeguranca = dto.TokenSeguranca,
+                    Descrição = dto.Descrição // Garantir que a descrição seja preenchida
+                };
+
+                _context.Documentos.Add(doc);
+                await _context.SaveChangesAsync();
+
+                return MapToDTO(doc);
             }
-
-            var doc = new DocumentoModel
+            catch (Exception ex)
             {
-                NomeArquivo = fileName,
-                UrlArquivo = url,
-                UsuarioCriador = dto.Usuario,
-                DataCriacao = DateTime.UtcNow,
-                UsuarioUltimaAlteracao = dto.Usuario,
-                DataUltimaAlteracao = DateTime.UtcNow,
-                Empresa = dto.Empresa,
-                NomePastaPrincipal = dto.NomePastaPrincipal,
-                NomeSubPasta = dto.NomeSubPasta,
-                TamanhoArquivo = dto.Arquivo.Length,
-                NivelSeguranca = dto.NivelSeguranca,
-                TokenSeguranca = dto.TokenSeguranca,
-                Descrição = dto.Descrição
-            };
-
-            doc.GerarTokenSeguranca();
-            _context.Documentos.Add(doc);
-            await _context.SaveChangesAsync();
-
-            return MapToDTO(doc);
+                // Log do erro para depuração
+                Console.WriteLine($"Erro ao salvar o documento: {ex.Message}");
+                if (ex.InnerException != null)
+                {
+                    Console.WriteLine($"Inner Exception: {ex.InnerException.Message}");
+                }
+                throw; // Re-lança a exceção para ser tratada no controller
+            }
         }
-
         public async Task<DTODocumentoCreate> UpdateAsync(DTODocumentoCreate dto)
         {
             var doc = await _context.Documentos.FindAsync(dto.Id);
@@ -162,15 +191,21 @@ namespace VoxDocs.Services
             }
         }
 
-        private async Task<string> UploadFileAsync(string fileName, Stream fileStream)
+       private async Task<string> UploadFileAsync(string fileName, Stream fileStream)
         {
             var containerClient = _blobServiceClient.GetBlobContainerClient(_containerName);
-            await containerClient.CreateIfNotExistsAsync(PublicAccessType.Blob);
+            // Cria o container se não existir, mantendo a política padrão (sem acesso público)
+            await containerClient.CreateIfNotExistsAsync();
 
             var blobClient = containerClient.GetBlobClient(fileName);
             await blobClient.UploadAsync(fileStream, overwrite: true);
 
             return blobClient.Uri.ToString();
+        }
+
+        public async Task<bool> ArquivoExisteAsync(string nomeArquivo)
+        {
+            return await _context.Documentos.AnyAsync(d => d.NomeArquivo == nomeArquivo);
         }
 
         private DTODocumentoCreate MapToDTO(DocumentoModel doc)

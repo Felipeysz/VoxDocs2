@@ -120,17 +120,17 @@
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"guagfdcvvh"},{"Name":"integrity","Value":"sha256-GCL47eWfPDCwZ0rx/jlIaxucofHGT20HE3t9LlNcehU="},{"Name":"label","Value":"_content/VoxDocs/css/styleIndex.css"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"3864"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022GCL47eWfPDCwZ0rx/jlIaxucofHGT20HE3t9LlNcehU=\u0022"},{"Name":"Last-Modified","Value":"Wed, 07 May 2025 21:12:42 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/VoxDocs/css/UploadStyles/UploadPageStyle.7fne2e6zlv.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\UploadStyles\UploadPageStyle.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"7fne2e6zlv"},{"Name":"integrity","Value":"sha256-E8jwtjy2A8A/3WWsGo5SczBq1mW0SM\u002B1/aduEX0VG7E="},{"Name":"label","Value":"_content/VoxDocs/css/UploadStyles/UploadPageStyle.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1705"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022E8jwtjy2A8A/3WWsGo5SczBq1mW0SM\u002B1/aduEX0VG7E=\u0022"},{"Name":"Last-Modified","Value":"Wed, 21 May 2025 00:33:34 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/VoxDocs/css/UploadStyles/UploadPageStyle.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\UploadStyles\UploadPageStyle.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-FcGHekEttSuu1T\u002B74yNRXgdlLMb7lKgQlF/mzXB9lkU="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1953"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022FcGHekEttSuu1T\u002B74yNRXgdlLMb7lKgQlF/mzXB9lkU=\u0022"},{"Name":"Last-Modified","Value":"Tue, 20 May 2025 21:08:20 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/VoxDocs/css/UploadStyles/UploadPageStyle.r8rgh0ebdj.css">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\UploadStyles\UploadPageStyle.css'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"r8rgh0ebdj"},{"Name":"integrity","Value":"sha256-FcGHekEttSuu1T\u002B74yNRXgdlLMb7lKgQlF/mzXB9lkU="},{"Name":"label","Value":"_content/VoxDocs/css/UploadStyles/UploadPageStyle.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1953"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022FcGHekEttSuu1T\u002B74yNRXgdlLMb7lKgQlF/mzXB9lkU=\u0022"},{"Name":"Last-Modified","Value":"Tue, 20 May 2025 21:08:20 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-E8jwtjy2A8A/3WWsGo5SczBq1mW0SM\u002B1/aduEX0VG7E="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1705"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022E8jwtjy2A8A/3WWsGo5SczBq1mW0SM\u002B1/aduEX0VG7E=\u0022"},{"Name":"Last-Modified","Value":"Wed, 21 May 2025 00:33:34 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/VoxDocs/favicon.61n19gt1b8.ico">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\favicon.ico'))</AssetFile>

@@ -54,62 +54,62 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --- PIX (QR + Polling) ---
-  const btnGerarPix = document.getElementById('btnGerarPix');
-  if (btnGerarPix) {
+const btnGerarPix = document.getElementById('btnGerarPix');
+if (btnGerarPix) {
     btnGerarPix.addEventListener('click', async () => {
-      const tipoPlano = document.getElementById('tipoPlanoPix').value;
-      const payload   = { tipoPlano };
-      console.log('Enviando para a API:', payload);
+        const tipoPlano = document.getElementById('tipoPlanoPix').value;
+        const payload   = { tipoPlano };
+        console.log('Enviando para a API:', payload);
 
-      // exibe placeholder
-      document.getElementById('qrPlaceholder').style.display = 'flex';
-      document.getElementById('qrCodeContainer').innerHTML = '';
-      document.getElementById('resPix').classList.add('d-none');
+        // exibe placeholder
+        document.getElementById('qrPlaceholder').style.display = 'flex';
+        document.getElementById('qrCodeContainer').innerHTML = '';
+        document.getElementById('resPix').classList.add('d-none');
 
-      try {
-        const res = await fetch('/api/PagamentoFalso/pix/gerar', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        });
-        if (!res.ok) {
-          const err = await res.json();
-          throw err;
-        }
-        const data = await res.json();
-        console.log('Resposta da API:', data);
-
-        // remove placeholder e gera QR
-        document.getElementById('qrPlaceholder').style.display = 'none';
-        const urlPix = `${window.location.origin}${data.qrCode}`;
-        new QRCode(document.getElementById("qrCodeContainer"), {
-          text: urlPix,
-          width: 200,
-          height: 200,
-        });
-
-        // polling a cada 5s via status/{id}
-        const intervalo = setInterval(async () => {
-          try {
-            const poll = await fetch(`/api/PagamentoFalso/pix/status/${data.pagamentoPixId}`);
-            if (!poll.ok) return;
-            const { confirmado } = await poll.json();
-            if (confirmado) {
-              clearInterval(intervalo);
-              alert('Pagamento Pix confirmado!');
-              window.location.href = '/';
+        try {
+            const res = await fetch('/api/PagamentoFalso/pix/gerar', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            if (!res.ok) {
+                const err = await res.json();
+                throw err;
             }
-          } catch (e) {
-            console.error('Erro no polling:', e);
-          }
-        }, 5000);
+            const data = await res.json();
+            console.log('Resposta da API:', data);
 
-      } catch (error) {
-        console.error('Erro ao chamar a API:', error);
-        alert('Erro: ' + (error.Erro || error.message || 'Falha na requisição'));
-      }
+            // remove placeholder e gera QR
+            document.getElementById('qrPlaceholder').style.display = 'none';
+            const urlPix = `${window.location.origin}${data.qrCode}`;
+            new QRCode(document.getElementById("qrCodeContainer"), {
+                text: urlPix,
+                width: 200,
+                height: 200,
+            });
+
+            // polling a cada 5s via status/{id}
+            const intervalo = setInterval(async () => {
+                try {
+                    const poll = await fetch(`/api/PagamentoFalso/pix/status/${data.pagamentoPixId}`);
+                    if (!poll.ok) return;
+                    const { confirmado } = await poll.json();
+                    if (confirmado) {
+                        clearInterval(intervalo);
+                        alert('Pagamento Pix confirmado!');
+                        window.location.href = '/';
+                    }
+                } catch (e) {
+                    console.error('Erro no polling:', e);
+                }
+            }, 5000);
+
+        } catch (error) {
+            console.error('Erro ao chamar a API:', error);
+            alert('Erro: ' + (error.Erro || error.message || 'Falha na requisição'));
+        }
     });
-  }
+}
 
   // --- FORMATAÇÃO VALIDADE ---
   const validadeInput = document.getElementById('validadeCartao');

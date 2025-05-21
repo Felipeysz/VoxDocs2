@@ -17,117 +17,117 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = VoxDocs
 build_property.RootNamespace = VoxDocs
-build_property.ProjectDir = C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\
+build_property.ProjectDir = c:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = true
-build_property.MSBuildProjectDirectory = C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs
+build_property.MSBuildProjectDirectory = c:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/Error/ErrorOfflinePage.cshtml]
+[c:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/Error/ErrorOfflinePage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXJyb3JcRXJyb3JPZmZsaW5lUGFnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/Error/ErrorTokenInvalido.cshtml]
+[c:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/Error/ErrorTokenInvalido.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXJyb3JcRXJyb3JUb2tlbkludmFsaWRvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/Error/LoginNotFound.cshtml]
+[c:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/Error/LoginNotFound.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXJyb3JcTG9naW5Ob3RGb3VuZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/Error/NotFoundPage.cshtml]
+[c:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/Error/NotFoundPage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXJyb3JcTm90Rm91bmRQYWdlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/Error/SemTokenConfirmandoPagamentoPix.cshtml]
+[c:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/Error/SemTokenConfirmandoPagamentoPix.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXJyb3JcU2VtVG9rZW5Db25maXJtYW5kb1BhZ2FtZW50b1BpeC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/Pages/AccountPage/MeuPerfil.cshtml]
+[c:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/Pages/AccountPage/MeuPerfil.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFnZXNcQWNjb3VudFBhZ2VcTWV1UGVyZmlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/Pages/AdminPages/Dashboard.cshtml]
+[c:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/Pages/AdminPages/Dashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFnZXNcQWRtaW5QYWdlc1xEYXNoYm9hcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/Pages/AuthPage/LinkRedefinirSenha.cshtml]
+[c:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/Pages/AuthPage/LinkRedefinirSenha.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFnZXNcQXV0aFBhZ2VcTGlua1JlZGVmaW5pclNlbmhhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/Pages/AuthPage/Login.cshtml]
+[c:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/Pages/AuthPage/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFnZXNcQXV0aFBhZ2VcTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/Pages/AuthPage/RecuperarSenha.cshtml]
+[c:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/Pages/AuthPage/RecuperarSenha.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFnZXNcQXV0aFBhZ2VcUmVjdXBlcmFyU2VuaGEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/Pages/Components/Documentos/DocumentosExibirOffline.cshtml]
+[c:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/Pages/Components/Documentos/DocumentosExibirOffline.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFnZXNcQ29tcG9uZW50c1xEb2N1bWVudG9zXERvY3VtZW50b3NFeGliaXJPZmZsaW5lLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/Pages/Components/modalManualUser.cshtml]
+[c:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/Pages/Components/modalManualUser.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFnZXNcQ29tcG9uZW50c1xtb2RhbE1hbnVhbFVzZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/Pages/Components/modalToken.cshtml]
+[c:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/Pages/Components/modalToken.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFnZXNcQ29tcG9uZW50c1xtb2RhbFRva2VuLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/Pages/DocumentosPage/DocumentosPagina.cshtml]
+[c:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/Pages/DocumentosPage/DocumentosPagina.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFnZXNcRG9jdW1lbnRvc1BhZ2VcRG9jdW1lbnRvc1BhZ2luYS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/Pages/DocumentosPage/UploadDocumentos.cshtml]
+[c:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/Pages/DocumentosPage/UploadDocumentos.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFnZXNcRG9jdW1lbnRvc1BhZ2VcVXBsb2FkRG9jdW1lbnRvcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/Pages/Index.cshtml]
+[c:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/Pages/PagamentosPages/ConfirmandoPagamentoPix.cshtml]
+[c:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/Pages/PagamentosPages/ConfirmandoPagamentoPix.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFnZXNcUGFnYW1lbnRvc1BhZ2VzXENvbmZpcm1hbmRvUGFnYW1lbnRvUGl4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/Pages/PagamentosPages/Pagamentos.cshtml]
+[c:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/Pages/PagamentosPages/Pagamentos.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFnZXNcUGFnYW1lbnRvc1BhZ2VzXFBhZ2FtZW50b3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/Shared/_FooterPartial.cshtml]
+[c:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/Shared/_FooterPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Gb290ZXJQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/Shared/_Layout.cshtml]
+[c:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/Shared/_NavbarPartial.cshtml]
+[c:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/Shared/_NavbarPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9OYXZiYXJQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/Shared/_sidebarAdmin.cshtml]
+[c:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/Shared/_sidebarAdmin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9zaWRlYmFyQWRtaW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/Shared/_ValidationScriptsPartial.cshtml]
+[c:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/Shared/_VoiceAssistantModal.cshtml]
+[c:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/Shared/_VoiceAssistantModal.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Wb2ljZUFzc2lzdGFudE1vZGFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/_ViewImports.cshtml]
+[c:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/_ViewStart.cshtml]
+[c:/Users/Felip/OneDrive/Área de Trabalho/VoxDocs/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

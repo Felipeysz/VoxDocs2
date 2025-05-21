@@ -34,29 +34,7 @@ namespace VoxDocs.Controllers
             {
                 await _rules.ValidateDocumentoUploadAsync(dto);
 
-                var fileName = $"{Guid.NewGuid()}_{dto.Arquivo.FileName}";
-                string url;
-                using (var stream = dto.Arquivo.OpenReadStream())
-                {
-                    url = await _blobService.UploadAsync(fileName, stream);
-                }
-
-                var doc = new DocumentoModel
-                {
-                    NomeArquivo = fileName,
-                    UrlArquivo = url,
-                    UsuarioCriador = dto.Usuario,
-                    DataCriacao = DateTime.UtcNow,
-                    UsuarioUltimaAlteracao = dto.Usuario,
-                    DataUltimaAlteracao = DateTime.UtcNow,
-                    Empresa = dto.Empresa,
-                    NomePastaPrincipal = dto.NomePastaPrincipal,
-                    NomeSubPasta = dto.NomeSubPasta,
-                    TamanhoArquivo = dto.Arquivo.Length,
-                    NivelSeguranca = dto.NivelSeguranca,
-                    TokenSeguranca = dto.TokenSeguranca
-                };
-
+                // Chama a Service para criar o documento
                 var createdDoc = await _service.CreateAsync(dto);
                 return Ok(createdDoc);
             }
@@ -66,7 +44,13 @@ namespace VoxDocs.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { message = "Erro interno no servidor", detalhes = ex.Message });
+                // Log do erro para depuração
+                Console.WriteLine($"Erro ao realizar o upload: {ex.Message}");
+                if (ex.InnerException != null)
+                {
+                    Console.WriteLine($"Inner Exception: {ex.InnerException.Message}");
+                }
+                return StatusCode(500, new { message = "Erro ao realizar o upload", detalhes = ex.Message });
             }
         }
 

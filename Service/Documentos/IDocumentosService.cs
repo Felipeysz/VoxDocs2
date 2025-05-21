@@ -16,5 +16,6 @@ namespace VoxDocs.Services
         Task<DTOQuantidadeDocumentoEmpresa> GetEstatisticasEmpresaAsync(string empresa);
         Task<DTOAcessosDocumento> GetAcessosDocumentoAsync(int id, int dias);
         Task IncrementarAcessoAsync(int id);
+        Task<bool> ArquivoExisteAsync(string nomeArquivo);
     }
 }

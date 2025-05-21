@@ -19,15 +19,5 @@ namespace VoxDocs.Models
         public int ContadorAcessos { get; set; } = 0;
         public string? TokenSeguranca { get; set; } // Nullable for public documents
         public string Descrição { get; set; }
-
-        public void GerarTokenSeguranca()
-        {
-            if (NivelSeguranca == "Publico") return;
-
-            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-            var random = new Random();
-            TokenSeguranca = new string(Enumerable.Repeat(chars, 6)
-                .Select(s => s[random.Next(s.Length)]).ToArray());
-        }
     }
 }

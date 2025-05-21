@@ -2,13 +2,13 @@
 @model VoxDocs.Models.ViewModels.DashboardViewModel
 @{
     Layout = null;
-    var user = HttpContextAccessor.HttpContext.User;
+    @* var user = HttpContextAccessor.HttpContext.User;
     var isAdmin = user.Identity.IsAuthenticated && user.HasClaim("PermissionAccount", "admin");
 
     if (!isAdmin)
     {
         Context.Response.Redirect("/");
-    }
+    } *@
 }
 
 <!DOCTYPE html>

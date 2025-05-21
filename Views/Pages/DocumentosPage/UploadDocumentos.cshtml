@@ -1,109 +1,255 @@
+@using System.Security.Claims
 @model VoxDocs.DTO.DocumentoDto
+@{
+    Layout = null;
+}
 
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Upload de Documentos</title>
-    <link rel="stylesheet" href="~/css/UploadStyles/UploadPageStyle.css" />
-    <link rel="stylesheet" href="~/css/VoiceAssistantStyles/VoiceAssistant.css" />
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;6 00&display=swap" rel="stylesheet" />
+
+    <!-- AOS Animate -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="@Url.Content("~/css/UploadStyles/UploadPageStyle.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/css/ChatVoxStyles/voice-modalstyle.css")" />
 </head>
 <body>
     <!-- Navbar -->
-    @await Html.PartialAsync("_Navbar")
+    @await Html.PartialAsync("_NavbarPartial")
 
-    <div class="tipo-documentos-root">
-        <div class="tipo-documentos-component">
-            <div class="doc-card">
-                <div class="doc-header">
-                    <span class="material-symbols-outlined">upload</span>
-                    Upload de Documentos
-                </div>
+    <!-- Voice Assistant Toggle -->
+    <button id="toggleAssistant"
+            class="btn btn-accent position-fixed"
+            style="bottom:16px; right:80px; z-index:2000;"
+            data-bs-toggle="modal"
+            data-bs-target="#assistantModal"
+            title="Assistente de Voz">
+        <span class="material-symbols-outlined">support_agent</span>
+    </button>
 
-                <form asp-action="UploadDocumentos" method="post" enctype="multipart/form-data" class="mt-4">
-                    <div class="form-group">
-                        <label for="Arquivo">Arquivo:</label>
-                        <input type="file" name="Arquivo" class="form-control" required />
-                        <span asp-validation-for="Arquivo" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label for="Usuario">Usuário:</label>
-                        <input type="text" name="Usuario" class="form-control" placeholder="Usuário" required />
-                        <span asp-validation-for="Usuario" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label for="Empresa">Empresa:</label>
-                        <input type="text" name="Empresa" class="form-control" placeholder="Empresa" required />
-                        <span asp-validation-for="Empresa" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label for="NomePastaPrincipal">Pasta Principal:</label>
-                        <input type="text" name="NomePastaPrincipal" class="form-control" placeholder="Pasta Principal" required />
-                        <span asp-validation-for="NomePastaPrincipal" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label for="NomeSubPasta">Subpasta:</label>
-                        <input type="text" name="NomeSubPasta" class="form-control" placeholder="Subpasta" required />
-                        <span asp-validation-for="NomeSubPasta" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label for="NivelSeguranca">Nível de Segurança:</label>
-                        <select name="NivelSeguranca" class="form-control" required>
-                            <option value="Publico">Público</option>
-                            <option value="Restrito">Restrito</option>
-                            <option value="Confidencial">Confidencial</option>
-                        </select>
-                        <span asp-validation-for="NivelSeguranca" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label for="TokenSeguranca">Token de Segurança (se necessário):</label>
-                        <input type="text" name="TokenSeguranca" class="form-control" placeholder="Token de Segurança" />
-                        <span asp-validation-for="TokenSeguranca" class="text-danger"></span>
-                    </div>
-                    <button type="submit" class="access-btn">
-                        <span class="material-symbols-outlined">upload</span>
-                        Upload
-                    </button>
-                </form>
+    <!-- Upload Card -->
+    <div class="upload-card mt-5" data-aos="fade-up">
+        <h2><span class="material-symbols-outlined">upload</span> Upload de Documentos</h2>
 
-                <!-- Document List Section -->
-                <div class="document-list mt-4">
-                    <h3>Documentos na Categoria</h3>
-                    @if (ViewBag.Documentos != null && ViewBag.Documentos.Count > 0)
-                    {
-                        <ul>
-                            @foreach (var documento in ViewBag.Documentos)
-                            {
-                                <li>@documento.NomeArquivo</li>
-                            }
-                        </ul>
-                    }
-                    else
-                    {
-                        <p class="text-muted">Sem Documentos nessa Categoria</p>
-                    }
-                </div>
+        <form id="uploadForm" method="post" enctype="multipart/form-data" class="mt-4">
+            <!-- Campos ocultos para Usuário e Empresa -->
+            <input type="hidden" name="Usuario" value="@ViewBag.Usuario" />
+            <input type="hidden" name="Empresa" value="@ViewBag.Empresa" />
+
+            <div class="form-group">
+                <label for="Arquivo">Arquivo:</label>
+                <input type="file" name="Arquivo" class="form-control" required />
+                <span asp-validation-for="Arquivo" class="text-danger"></span>
             </div>
+
+            <div class="form-group">
+                <label for="NomePastaPrincipal">Pasta Principal:</label>
+                <select id="NomePastaPrincipal" name="NomePastaPrincipal" class="form-control" required>
+                    <option value="">Selecione uma pasta principal</option>
+                    @if (ViewBag.PastasPrincipais != null)
+                    {
+                        foreach (var pasta in ViewBag.PastasPrincipais)
+                        {
+                            <option value="@pasta.NomePastaPrincipal">@pasta.NomePastaPrincipal</option>
+                        }
+                    }
+                </select>
+                <span asp-validation-for="NomePastaPrincipal" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="NomeSubPasta">Subpasta:</label>
+                <select id="NomeSubPasta" name="NomeSubPasta" class="form-control" required>
+                    <option value="">Selecione uma subpasta</option>
+                    @if (ViewBag.SubPastas != null)
+                    {
+                        foreach (var subpasta in ViewBag.SubPastas)
+                        {
+                            <option value="@subpasta.NomeSubPasta">@subpasta.NomeSubPasta</option>
+                        }
+                    }
+                </select>
+                <span asp-validation-for="NomeSubPasta" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="NivelSeguranca">Nível de Segurança:</label>
+                <select id="NivelSeguranca" name="NivelSeguranca" class="form-control" required>
+                    <option value="Publico">Público</option>
+                    <option value="Restrito">Restrito</option>
+                    @if (ViewBag.IsAdmin)
+                    {
+                        <option value="Confidencial">Confidencial</option>
+                    }
+                </select>
+                <span asp-validation-for="NivelSeguranca" class="text-danger"></span>
+            </div>
+
+            <div class="form-group" id="token-group" style="display: none;">
+                <label for="TokenSeguranca">Token de Segurança (se necessário):</label>
+                <input type="text" name="TokenSeguranca" class="form-control" placeholder="Token de Segurança" />
+                <span asp-validation-for="TokenSeguranca" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="Descrição">Descrição:</label>
+                <input type="text" name="Descrição" class="form-control" placeholder="Descrição do documento" required />
+                <span asp-validation-for="Descrição" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="access-btn mt-3">
+                <span class="material-symbols-outlined">upload</span>
+                Upload
+            </button>
+        </form>
+
+        <!-- Mensagens de Sucesso/Erro -->
+        <div id="messageContainer" class="mt-3" style="display: none;">
+            <div class="alert" role="alert" id="messageAlert"></div>
         </div>
     </div>
 
     <!-- Footer -->
-    @await Html.PartialAsync("_Footer")
+    @await Html.PartialAsync("_FooterPartial")
 
-    <!-- Voice Assistant -->
-    @await Html.PartialAsync("_VoiceAssistant")
+    <!-- Voice Assistant Modal -->
+    @await Html.PartialAsync("_VoiceAssistantModal")
 
-    <!-- VLibras Script -->
+    <!-- VLibras -->
     <div vw class="enabled">
         <div vw-access-button class="active"></div>
         <div vw-plugin-wrapper>
             <div class="vw-plugin-top-wrapper"></div>
         </div>
     </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <script>
+        AOS.init({ once: true });
+
+        // Exibe/oculta o campo Token conforme o nível selecionado
+        document.addEventListener("DOMContentLoaded", function () {
+            const selectNivel = document.getElementById("NivelSeguranca");
+            const tokenGroup = document.getElementById("token-group");
+
+            function toggleTokenField() {
+                if (selectNivel.value !== "Publico") {
+                    tokenGroup.style.display = "block";
+                } else {
+                    tokenGroup.style.display = "none";
+                    tokenGroup.querySelector("input").value = "";
+                }
+            }
+
+            // Inicial
+            toggleTokenField();
+            // On change
+            selectNivel.addEventListener("change", toggleTokenField);
+        });
+
+        // Envio do formulário via AJAX
+        $(document).ready(function () {
+            $('#uploadForm').on('submit', function (e) {
+                e.preventDefault();
+
+                var formData = new FormData(this);
+
+                // --- Começo do ajuste para renomear o arquivo ---
+                // 1) Pegar valores
+                var pasta = $('#NomePastaPrincipal').val() || '';
+                var subpasta = $('#NomeSubPasta').val() || '';
+                // 2) Data atual
+                var hoje = new Date();
+                var dia = String(hoje.getDate()).padStart(2, '0');
+                var mes = String(hoje.getMonth() + 1).padStart(2, '0');
+                var ano = hoje.getFullYear();
+                // 3) Montar código: :XXXDDMMAAAAYYY
+                var code = ':' +
+                    pasta.substring(0, 3).toUpperCase() +
+                    dia + mes + ano +
+                    subpasta.substring(0, 3).toUpperCase();
+
+                // 4) Renomear o File dentro do FormData
+                var fileInput = this.querySelector('input[name="Arquivo"]');
+                if (fileInput.files.length > 0) {
+                    var originalFile = fileInput.files[0];
+                    // extrair extensão, se houver
+                    var parts = originalFile.name.split('.');
+                    var ext = parts.length > 1 ? '.' + parts.pop() : '';
+                    var newName = code + ext;
+
+                    // criar novo File com o nome personalizado
+                    var renamedFile = new File([originalFile], newName, {
+                        type: originalFile.type
+                    });
+                    formData.set('Arquivo', renamedFile);
+                }
+                // --- Fim do ajuste ---
+
+                // (Opcional) para debug:
+                console.log('Nome gerado:', code);
+                console.log('Arquivo renomeado:', formData.get('Arquivo').name);
+
+                $.ajax({
+                    url: '@Url.Action("UploadDocumentos", "DocumentosMvc")',
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function (response) {
+                        if (response.success) {
+                            showMessage(response.message, 'success');
+                        } else {
+                            if (response.errors) {
+                                var errorMessage = response.message + "\n" + response.errors.join("\n");
+                                showMessage(errorMessage, 'danger');
+                            } else {
+                                showMessage(response.message, 'danger');
+                            }
+                        }
+                    },
+                    error: function (xhr) {
+                        var errorMessage = 'Erro ao enviar o formulário. Tente novamente.';
+                        if (xhr.responseJSON && xhr.responseJSON.message) {
+                            errorMessage = xhr.responseJSON.message;
+                        }
+                        showMessage(errorMessage, 'danger');
+                    }
+                });
+            });
+        });
+
+        // Exibe mensagens de sucesso/erro
+        function showMessage(message, type) {
+            const messageContainer = $('#messageContainer');
+            const messageAlert = $('#messageAlert');
+
+            messageAlert.removeClass('alert-success alert-danger').addClass(`alert-${type}`).html(message.replace(/\n/g, '<br>'));
+            messageContainer.show();
+
+            setTimeout(() => {
+                messageContainer.hide();
+            }, 5000);
+        }
+
         new window.VLibras.Widget('https://vlibras.gov.br/app');
     </script>
 </body>
-</html>
+</html> 

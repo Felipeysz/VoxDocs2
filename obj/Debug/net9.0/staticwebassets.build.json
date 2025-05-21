@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "eHvzLuaju/sgGE4clr56oGCNKJv23HQfiwhQKg/81xQ=",
+  "Hash": "RVAXC3cNofyzTIudSuDVzAHc35pNa1+QS80wxj5oVPU=",
   "Source": "VoxDocs",
   "BasePath": "_content/VoxDocs",
   "Mode": "Default",
@@ -1319,12 +1319,12 @@
       "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\t739s19ojw-r8rgh0ebdj.gz",
+      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\t739s19ojw-7fne2e6zlv.gz",
       "SourceId": "VoxDocs",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/VoxDocs",
-      "RelativePath": "css/UploadStyles/UploadPageStyle#[.{fingerprint=r8rgh0ebdj}]?.css.gz",
+      "RelativePath": "css/UploadStyles/UploadPageStyle#[.{fingerprint=7fne2e6zlv}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -1333,8 +1333,8 @@
       "RelatedAsset": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\UploadStyles\\UploadPageStyle.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "p1s4jtx2i2",
-      "Integrity": "A4J5g1hHfl6ydpKCuc9337C7EvNH0eKl/dwCDRTlmoU=",
+      "Fingerprint": "cvg73tj84a",
+      "Integrity": "KPiCX1lCKVYDnkS3NQ8gLConBqKZ3XtJABpD5QCQeQ8=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\UploadStyles\\UploadPageStyle.css"
@@ -1837,8 +1837,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "r8rgh0ebdj",
-      "Integrity": "FcGHekEttSuu1T+74yNRXgdlLMb7lKgQlF/mzXB9lkU=",
+      "Fingerprint": "7fne2e6zlv",
+      "Integrity": "E8jwtjy2A8A/3WWsGo5SczBq1mW0SM+1/aduEX0VG7E=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\UploadStyles\\UploadPageStyle.css"
@@ -6275,13 +6275,13 @@
       ]
     },
     {
-      "Route": "css/UploadStyles/UploadPageStyle.css",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\t739s19ojw-r8rgh0ebdj.gz",
+      "Route": "css/UploadStyles/UploadPageStyle.7fne2e6zlv.css",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\t739s19ojw-7fne2e6zlv.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001605136437"
+          "Quality": "0.001763668430"
         }
       ],
       "ResponseHeaders": [
@@ -6291,19 +6291,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "622"
+          "Value": "566"
         },
         {
           "Name": "ETag",
-          "Value": "\"A4J5g1hHfl6ydpKCuc9337C7EvNH0eKl/dwCDRTlmoU=\""
+          "Value": "\"KPiCX1lCKVYDnkS3NQ8gLConBqKZ3XtJABpD5QCQeQ8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 20 May 2025 21:08:20 GMT"
+          "Value": "Wed, 21 May 2025 00:33:34 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "no-cache"
+          "Value": "max-age=31536000, immutable"
         },
         {
           "Name": "Content-Encoding",
@@ -6319,18 +6319,26 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"FcGHekEttSuu1T+74yNRXgdlLMb7lKgQlF/mzXB9lkU=\""
+          "Value": "W/\"E8jwtjy2A8A/3WWsGo5SczBq1mW0SM+1/aduEX0VG7E=\""
         }
       ],
       "EndpointProperties": [
         {
+          "Name": "fingerprint",
+          "Value": "7fne2e6zlv"
+        },
+        {
+          "Name": "label",
+          "Value": "css/UploadStyles/UploadPageStyle.css"
+        },
+        {
           "Name": "integrity",
-          "Value": "sha256-FcGHekEttSuu1T+74yNRXgdlLMb7lKgQlF/mzXB9lkU="
+          "Value": "sha256-E8jwtjy2A8A/3WWsGo5SczBq1mW0SM+1/aduEX0VG7E="
         }
       ]
     },
     {
-      "Route": "css/UploadStyles/UploadPageStyle.css",
+      "Route": "css/UploadStyles/UploadPageStyle.7fne2e6zlv.css",
       "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\UploadStyles\\UploadPageStyle.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -6340,7 +6348,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1953"
+          "Value": "1705"
         },
         {
           "Name": "Content-Type",
@@ -6348,121 +6356,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"FcGHekEttSuu1T+74yNRXgdlLMb7lKgQlF/mzXB9lkU=\""
+          "Value": "\"E8jwtjy2A8A/3WWsGo5SczBq1mW0SM+1/aduEX0VG7E=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 20 May 2025 21:08:20 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-FcGHekEttSuu1T+74yNRXgdlLMb7lKgQlF/mzXB9lkU="
-        }
-      ]
-    },
-    {
-      "Route": "css/UploadStyles/UploadPageStyle.css.gz",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\t739s19ojw-r8rgh0ebdj.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "622"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"A4J5g1hHfl6ydpKCuc9337C7EvNH0eKl/dwCDRTlmoU=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 20 May 2025 21:08:20 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-A4J5g1hHfl6ydpKCuc9337C7EvNH0eKl/dwCDRTlmoU="
-        }
-      ]
-    },
-    {
-      "Route": "css/UploadStyles/UploadPageStyle.r8rgh0ebdj.css",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\t739s19ojw-r8rgh0ebdj.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.001605136437"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "622"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"A4J5g1hHfl6ydpKCuc9337C7EvNH0eKl/dwCDRTlmoU=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 20 May 2025 21:08:20 GMT"
+          "Value": "Wed, 21 May 2025 00:33:34 GMT"
         },
         {
           "Name": "Cache-Control",
           "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"FcGHekEttSuu1T+74yNRXgdlLMb7lKgQlF/mzXB9lkU=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "r8rgh0ebdj"
+          "Value": "7fne2e6zlv"
         },
         {
           "Name": "label",
@@ -6470,13 +6378,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-FcGHekEttSuu1T+74yNRXgdlLMb7lKgQlF/mzXB9lkU="
+          "Value": "sha256-E8jwtjy2A8A/3WWsGo5SczBq1mW0SM+1/aduEX0VG7E="
         }
       ]
     },
     {
-      "Route": "css/UploadStyles/UploadPageStyle.r8rgh0ebdj.css",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\UploadStyles\\UploadPageStyle.css",
+      "Route": "css/UploadStyles/UploadPageStyle.7fne2e6zlv.css.gz",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\t739s19ojw-7fne2e6zlv.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6485,7 +6393,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1953"
+          "Value": "566"
         },
         {
           "Name": "Content-Type",
@@ -6493,56 +6401,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"FcGHekEttSuu1T+74yNRXgdlLMb7lKgQlF/mzXB9lkU=\""
+          "Value": "\"KPiCX1lCKVYDnkS3NQ8gLConBqKZ3XtJABpD5QCQeQ8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 20 May 2025 21:08:20 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "r8rgh0ebdj"
-        },
-        {
-          "Name": "label",
-          "Value": "css/UploadStyles/UploadPageStyle.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-FcGHekEttSuu1T+74yNRXgdlLMb7lKgQlF/mzXB9lkU="
-        }
-      ]
-    },
-    {
-      "Route": "css/UploadStyles/UploadPageStyle.r8rgh0ebdj.css.gz",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\t739s19ojw-r8rgh0ebdj.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "622"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"A4J5g1hHfl6ydpKCuc9337C7EvNH0eKl/dwCDRTlmoU=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 20 May 2025 21:08:20 GMT"
+          "Value": "Wed, 21 May 2025 00:33:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6560,7 +6423,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "r8rgh0ebdj"
+          "Value": "7fne2e6zlv"
         },
         {
           "Name": "label",
@@ -6568,7 +6431,144 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-A4J5g1hHfl6ydpKCuc9337C7EvNH0eKl/dwCDRTlmoU="
+          "Value": "sha256-KPiCX1lCKVYDnkS3NQ8gLConBqKZ3XtJABpD5QCQeQ8="
+        }
+      ]
+    },
+    {
+      "Route": "css/UploadStyles/UploadPageStyle.css",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\t739s19ojw-7fne2e6zlv.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001763668430"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "566"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"KPiCX1lCKVYDnkS3NQ8gLConBqKZ3XtJABpD5QCQeQ8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 21 May 2025 00:33:34 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"E8jwtjy2A8A/3WWsGo5SczBq1mW0SM+1/aduEX0VG7E=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-E8jwtjy2A8A/3WWsGo5SczBq1mW0SM+1/aduEX0VG7E="
+        }
+      ]
+    },
+    {
+      "Route": "css/UploadStyles/UploadPageStyle.css",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\UploadStyles\\UploadPageStyle.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1705"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"E8jwtjy2A8A/3WWsGo5SczBq1mW0SM+1/aduEX0VG7E=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 21 May 2025 00:33:34 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-E8jwtjy2A8A/3WWsGo5SczBq1mW0SM+1/aduEX0VG7E="
+        }
+      ]
+    },
+    {
+      "Route": "css/UploadStyles/UploadPageStyle.css.gz",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\Debug\\net9.0\\compressed\\t739s19ojw-7fne2e6zlv.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "566"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"KPiCX1lCKVYDnkS3NQ8gLConBqKZ3XtJABpD5QCQeQ8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 21 May 2025 00:33:34 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-KPiCX1lCKVYDnkS3NQ8gLConBqKZ3XtJABpD5QCQeQ8="
         }
       ]
     },

@@ -5,7 +5,7 @@ using VoxDocs.Services;
 
 namespace VoxDocs.ControllerMvc
 {
-    [Authorize(Roles = "admin")]
+    // [Authorize(Roles = "admin")]
     public class AdminMvcController : Controller
     {
         private readonly IUserService _userService;

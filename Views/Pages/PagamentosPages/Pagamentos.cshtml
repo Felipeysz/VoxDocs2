@@ -63,81 +63,81 @@
         <div class="tab-content">
 
           <!-- Cartão -->
-          <div class="tab-pane fade show active" id="cartao" role="tabpanel">
-            <div class="card custom-card mb-4">
-              <div class="card-header card-header-primary">
-                <span class="material-symbols-outlined">credit_card</span>
-                Pagamento com Cartão
-              </div>
-              <div class="card-body">
-                <form id="formCartao" class="form-custom">
-                  <input type="hidden" id="tipoPlanoCartao"
-                         value="Plano @Model.Categoria @planoSelecionado?.Periodicidade" />
+<div class="tab-pane fade show active" id="cartao" role="tabpanel">
+    <div class="card custom-card mb-4">
+        <div class="card-header card-header-primary">
+            <span class="material-symbols-outlined">credit_card</span>
+            Pagamento com Cartão
+        </div>
+        <div class="card-body">
+            <form id="formCartao" class="form-custom">
+                <input type="hidden" id="tipoPlanoCartao"
+                       value="@planoSelecionado?.Name" /> <!-- Ajuste aqui -->
 
-                  <div class="form-group">
+                <div class="form-group">
                     <input type="text" id="cartaoNumber" class="form-control-custom"
                            placeholder=" " maxlength="16" autocomplete="cc-number" required />
                     <label for="cartaoNumber" class="form-label-custom">Número do Cartão</label>
                     <span class="material-symbols-outlined icon-input">credit_card</span>
-                  </div>
-                  <div class="row gx-3">
+                </div>
+                <div class="row gx-3">
                     <div class="col">
-                      <div class="form-group">
-                        <input type="text" id="validadeCartao" class="form-control-custom"
-                               placeholder=" " maxlength="5" autocomplete="cc-exp" required />
-                        <label for="validadeCartao" class="form-label-custom">Validade (MM/AA)</label>
-                        <span class="material-symbols-outlined icon-input">event</span>
-                      </div>
+                        <div class="form-group">
+                            <input type="text" id="validadeCartao" class="form-control-custom"
+                                   placeholder=" " maxlength="5" autocomplete="cc-exp" required />
+                            <label for="validadeCartao" class="form-label-custom">Validade (MM/AA)</label>
+                            <span class="material-symbols-outlined icon-input">event</span>
+                        </div>
                     </div>
                     <div class="col">
-                      <div class="form-group">
-                        <input type="text" id="cvvCartao" class="form-control-custom"
-                               placeholder=" " maxlength="3" autocomplete="cc-csc" required />
-                        <label for="cvvCartao" class="form-label-custom">CVV</label>
-                        <span class="material-symbols-outlined icon-input">lock</span>
-                      </div>
+                        <div class="form-group">
+                            <input type="text" id="cvvCartao" class="form-control-custom"
+                                   placeholder=" " maxlength="3" autocomplete="cc-csc" required />
+                            <label for="cvvCartao" class="form-label-custom">CVV</label>
+                            <span class="material-symbols-outlined icon-input">lock</span>
+                        </div>
                     </div>
-                  </div>
-
-                  <button type="submit" class="btn btn-primary w-100">
-                    Pagar R$<span id="precoSelecionado">@planoSelecionado?.Price.ToString("F2")</span>
-                  </button>
-                  <div id="resCartao" class="alert d-none mt-3"></div>
-                </form>
-              </div>
-            </div>
-          </div>
-
-          <!-- Pix -->
-          <div class="tab-pane fade" id="pix" role="tabpanel">
-            <div class="card custom-card">
-              <div class="card-header card-header-success">
-                <span class="material-symbols-outlined">qr_code</span>
-                Pagamento com Pix
-              </div>
-              <div class="card-body text-center">
-                <input type="hidden" id="tipoPlanoPix"
-                       value="Plano @Model.Categoria @planoSelecionado?.Periodicidade" />
-
-                <button id="btnGerarPix" class="btn btn-success mb-3">
-                  Gerar QR Code Pix
-                </button>
-                <p class="text-muted small">
-                  Valor: R$ @planoSelecionado?.Price.ToString("F2")<br/>
-                  Plano: @Model.Categoria — @planoSelecionado?.Periodicidade
-                </p>
-
-                <!-- placeholder antes do QR -->
-                <div id="qrPlaceholder" class="qr-placeholder">
-                  <span class="material-symbols-outlined">sync</span>
                 </div>
 
-                <!-- container do QR -->
-                <div id="qrCodeContainer" class="mt-4"></div>
-                <div id="resPix" class="alert d-none mt-3"></div>
-              </div>
+                <button type="submit" class="btn btn-primary w-100">
+                    Pagar R$<span id="precoSelecionado">@planoSelecionado?.Price.ToString("F2")</span>
+                </button>
+                <div id="resCartao" class="alert d-none mt-3"></div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Pix -->
+<div class="tab-pane fade" id="pix" role="tabpanel">
+    <div class="card custom-card">
+        <div class="card-header card-header-success">
+            <span class="material-symbols-outlined">qr_code</span>
+            Pagamento com Pix
+        </div>
+        <div class="card-body text-center">
+            <input type="hidden" id="tipoPlanoPix"
+                   value="@planoSelecionado?.Name" /> <!-- Ajuste aqui -->
+
+            <button id="btnGerarPix" class="btn btn-success mb-3">
+                Gerar QR Code Pix
+            </button>
+            <p class="text-muted small">
+                Valor: R$ @planoSelecionado?.Price.ToString("F2")<br/>
+                Plano: @Model.Categoria — @planoSelecionado?.Periodicidade
+            </p>
+
+            <!-- placeholder antes do QR -->
+            <div id="qrPlaceholder" class="qr-placeholder">
+                <span class="material-symbols-outlined">sync</span>
             </div>
-          </div>
+
+            <!-- container do QR -->
+            <div id="qrCodeContainer" class="mt-4"></div>
+            <div id="resPix" class="alert d-none mt-3"></div>
+        </div>
+    </div>
+</div>
 
         </div>
       </main>
