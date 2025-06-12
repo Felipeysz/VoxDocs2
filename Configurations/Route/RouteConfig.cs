@@ -14,10 +14,7 @@ namespace VoxDocs.Configurations
                     options.ViewLocationFormats.Add("/Views/Pages/AuthPage/RecuperarContas/{0}.cshtml");
                     options.ViewLocationFormats.Add("/Views/Pages/Documentos/{0}.cshtml");
                     options.ViewLocationFormats.Add("/Views/Pages/PagamentosPages/{0}.cshtml");
-
-                    //Documentos
-                    options.ViewLocationFormats.Add("/Views/Pages/Documentos/{0}.cshtml");
-                    options.ViewLocationFormats.Add("/Views/Pages/Documentos/DocumentosPage/{0}.cshtml");
+                    options.ViewLocationFormats.Add("/Views/Pages/Upload/{0}.cshtml");
 
 
                     //Shared
@@ -25,11 +22,12 @@ namespace VoxDocs.Configurations
                     options.ViewLocationFormats.Add("/Views/Shared/ErrosPage/{0}.cshtml");
                     options.ViewLocationFormats.Add("/Views/Shared/Components/{0}.cshtml");
                     options.ViewLocationFormats.Add("/Views/Shared/Components/Documentos/{0}.cshtml");
-                    options.ViewLocationFormats.Add("/Views/Shared/Components/actionsPage/{0}.cshtml");
-                    options.ViewLocationFormats.Add("/Views/Shared/Components/modalPage/{0}.cshtml");
+                    options.ViewLocationFormats.Add("/Views/Shared/Components/Documentos/actionsPage/{0}.cshtml");
+                    options.ViewLocationFormats.Add("/Views/Shared/Components/Documentos/modalPage/{0}.cshtml");
                     options.ViewLocationFormats.Add("/Views/Shared/Components/Navbar/{0}.cshtml");
                     options.ViewLocationFormats.Add("/Views/Shared/Components/Pagamentos/{0}.cshtml");
                     options.ViewLocationFormats.Add("/Views/Shared/Components/SuporteIA/{0}.cshtml");
+                    options.ViewLocationFormats.Add("/Views/Shared/ErrosPage/{0}.cshtml");
                     
 
                 });
@@ -120,9 +118,9 @@ namespace VoxDocs.Configurations
                 defaults: new { controller = "DocumentosMvc", action = "Documentos" });
             
             app.MapControllerRoute(
-                name: "UploadDocumentos",
-                pattern: "UploadDocumentos",
-                defaults: new { controller = "DocumentosMvc", action = "UploadDocumentos" });
+                name: "Upload",
+                pattern: "Upload",
+                defaults: new { controller = "UploadMvc", action = "Upload" });
 
 
 

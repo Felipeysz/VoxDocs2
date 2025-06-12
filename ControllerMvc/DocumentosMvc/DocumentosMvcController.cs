@@ -5,6 +5,7 @@ using VoxDocs.Models.ViewModels;
 using VoxDocs.DTO;
 using VoxDocs.Services;
 using Azure.Storage.Blobs;
+using System.Linq;
 
 namespace VoxDocs.Controllers
 {
@@ -53,7 +54,7 @@ namespace VoxDocs.Controllers
                 .ToList();
 
             var subPastas = Enumerable.Empty<DTOSubPasta>();
-            var documentos = Enumerable.Empty<DTODocumentoCreate>();
+            var documentos = Enumerable.Empty<DocumentoDto>();
 
             if (!string.IsNullOrEmpty(pastaPrincipalNome))
             {
@@ -86,12 +87,12 @@ namespace VoxDocs.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Delete(int id, string? token)
-                {
-                    try
-                    {
-                        Console.WriteLine($"[Delete] Iniciando exclusão para ID: {id}");
-                        Console.WriteLine($"[Delete] Token recebido: {token ?? "null"}");
+        public async Task<IActionResult> Delete(Guid id, string? token)
+        {
+            try
+            {
+                Console.WriteLine($"[Delete] Iniciando exclusão para ID: {id}");
+                Console.WriteLine($"[Delete] Token recebido: {token ?? "null"}");
 
                 // Valida token e obtém documento
                 var documento = await _documentoService.GetByIdAsync(id, token ?? string.Empty);
@@ -129,8 +130,8 @@ namespace VoxDocs.Controllers
         {
             try
             {
-            // Validação direta via serviço
-            bool isValid = await _documentoService.ValidateTokenDocumentoAsync(nomeArquivo, token ?? string.Empty);
+                // Validação direta via serviço
+                bool isValid = await _documentoService.ValidateTokenDocumentoAsync(nomeArquivo, token ?? string.Empty);
                 return Ok(new { sucesso = isValid });
             }
             catch (UnauthorizedAccessException ex)
@@ -153,7 +154,7 @@ namespace VoxDocs.Controllers
             try
             {
                 // Download via serviço (já inclui validação)
-                var result = await _documentoService.DownloadDocumentoProtegidoAsync(nomeArquivo, token = "");
+                var result = await _documentoService.DownloadDocumentoProtegidoAsync(nomeArquivo, token ?? string.Empty);
                 return File(result.stream, result.contentType, nomeArquivo);
             }
             catch (UnauthorizedAccessException ex)
@@ -171,14 +172,12 @@ namespace VoxDocs.Controllers
         }
 
         [HttpPost]
-        public async Task<JsonResult> Edit([FromForm] DocumentoUpdateDto dto, [FromForm] string? tokenSeguranca)
+        public async Task<JsonResult> Edit([FromForm] DocumentoAtualizacaoDto dto)
         {
             // Preenche o campo obrigatório com o usuário logado ANTES da validação
             Console.WriteLine($"[Edit] Iniciando edição do documento ID: {dto?.Id}");
-            Console.WriteLine($"[Edit] Token recebido: {tokenSeguranca ?? "null"}");
+            Console.WriteLine($"[Edit] Token recebido: {dto?.TokenSeguranca ?? "null"}");
             Console.WriteLine($"[Edit] Novo arquivo: {(dto?.NovoArquivo != null ? "Presente" : "Ausente")}");
-            Console.WriteLine($"[Edit] Descrição: {dto?.Descrição}");
-            Console.WriteLine($"[Edit] UsuárioUltimaAlteracao: {dto?.UsuarioUltimaAlteracao}");
 
             if (!ModelState.IsValid)
             {
@@ -191,14 +190,14 @@ namespace VoxDocs.Controllers
             {
                 var userName = User.FindFirstValue(ClaimTypes.Name);
                 Console.WriteLine($"[Edit] Usuário autenticado: {userName}");
-                
+
                 // Validar token e permissões
                 Console.WriteLine($"[Edit] Obtendo documento original ID: {dto?.Id}");
-                var documentoOriginal = await _documentoService.GetByIdAsync(dto.Id, tokenSeguranca);
+                var documentoOriginal = await _documentoService.GetByIdAsync(dto.Id, dto.TokenSeguranca);
                 Console.WriteLine($"[Edit] Documento obtido: {documentoOriginal.NomeArquivo}");
-                
+
                 // Verificar permissão para documentos confidenciais
-                if (documentoOriginal.NivelSeguranca == "Confidencial" && !User.HasClaim("PermissionAccount", "admin"))
+                if (documentoOriginal.NivelSeguranca == NivelSeguranca.Confidencial && !User.HasClaim("PermissionAccount", "admin"))
                 {
                     Console.WriteLine($"[Edit] Acesso negado: usuário não é admin para documento confidencial");
                     return Json(new { success = false, message = "Apenas administradores podem editar documentos confidenciais." });
@@ -211,7 +210,7 @@ namespace VoxDocs.Controllers
                 // Atualizar documento via serviço
                 Console.WriteLine($"[Edit] Chamando serviço de atualização");
                 await _documentoService.UpdateAsync(dto);
-                
+
                 Console.WriteLine($"[Edit] Documento atualizado com sucesso");
                 return Json(new { success = true, message = "Documento atualizado com sucesso." });
             }
@@ -230,26 +229,6 @@ namespace VoxDocs.Controllers
                 Console.WriteLine($"[Edit] ERRO INESPERADO: {ex}");
                 return Json(new { success = false, message = "Erro ao atualizar documento: " + ex.Message });
             }
-        }
-        private DTODocumentoCreate MapToUpdateDto(DTODocumentoCreate original, DocumentoDto dto)
-        {
-            return new DTODocumentoCreate
-            {
-                Id = original.Id,
-                NomeArquivo = dto.NomeArquivo,
-                NivelSeguranca = dto.NivelSeguranca,
-                TokenSeguranca = dto.TokenSeguranca,
-                Descrição = dto.Descrição,
-                DataCriacao = original.DataCriacao,
-                UsuarioCriador = original.UsuarioCriador,
-                UsuarioUltimaAlteracao = User.FindFirst(ClaimTypes.Name)?.Value,
-                DataUltimaAlteracao = DateTime.UtcNow,
-                EmpresaContratante = original.EmpresaContratante,
-                NomePastaPrincipal = original.NomePastaPrincipal,
-                NomeSubPasta = original.NomeSubPasta,
-                TamanhoArquivo = original.TamanhoArquivo,
-                UrlArquivo = original.UrlArquivo
-            };
         }
     }
 }

@@ -1,3 +1,4 @@
+// wwwroot/js/PagamentoScript/step5.js
 import {
   processPayment,
   detectBrand,
@@ -7,156 +8,157 @@ import {
 } from './paymentUltils.js';
 import { removeStep5EventListeners } from './ultilities.js';
 
-// Exportar funções de evento para remoção
-export function handlePagarCartaoClick() {
-  document.getElementById('nextBtn')?.click();
-}
+const step5 = {
+  // --- Public API ---
+  handlePagarCartaoClick() {
+    document.getElementById('nextBtn')?.click();
+  },
 
-export function initStep5(data) {
-  removeStep5EventListeners();
+  init(data) {
+    removeStep5EventListeners();
 
-  const planoEl = document.getElementById('PlanoPago');
-  if (planoEl) planoEl.value = data.NomePlano || '';
+    const planoEl = document.getElementById('PlanoPago');
+    if (planoEl) planoEl.value = data.NomePlano || '';
 
-  setupTabs();
-  setupCardListeners();
-  setupFinalizeListener();
+    this._setupTabs();
+    this._setupCardListeners();
+    this._setupFinalizeListener();
 
-  const savedMethod = getStep5Data().MetodoPagamento;
-  if (savedMethod) {
-    const tab = document.querySelector(`.tab[data-target="${savedMethod}"]`);
-    if (tab) tab.click();
-  }
-}
+    const savedMethod = this.getData().MetodoPagamento;
+    if (savedMethod) {
+      const tab = document.querySelector(`.tab[data-target="${savedMethod}"]`);
+      if (tab) tab.click();
+    }
+  },
 
-export function validateStep5() {
-  clearStep5Messages();
-  const activeTab = document.querySelector('.tab.active');
-  if (!activeTab) {
-    showStep5Error('Selecione um método de pagamento.');
-    return false;
-  }
-  return true;
-}
+  validate() {
+    this._clearMessages();
+    const activeTab = document.querySelector('.tab.active');
+    if (!activeTab) {
+      this._showError('Selecione um método de pagamento.');
+      return false;
+    }
+    return true;
+  },
 
-export function getStep5Data() {
-  const active = document.querySelector('.tab.active')?.dataset.target;
-  return { MetodoPagamento: active };
-}
+  getData() {
+    const active = document.querySelector('.tab.active')?.dataset.target;
+    return { MetodoPagamento: active };
+  },
 
-// ─── Helpers de UI ───
-function setupTabs() {
-  document.querySelectorAll('.tab').forEach(tab => {
-    tab.addEventListener('click', () => {
-      document.querySelectorAll('.tab-content').forEach(content => {
-        content.classList.remove('active');
-        content.classList.add('d-none');
-      });
-      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      const content = document.getElementById(tab.dataset.target);
-      if (content) {
-        content.classList.remove('d-none');
-        content.classList.add('active');
+  async handleFinalizeStep() {
+    const currentStep = document.querySelector('.step.bg-primary')?.textContent.trim();
+    if (currentStep !== '5') return;
+    if (!this.validate()) return;
+
+    this._clearMessages();
+
+    const formData = JSON.parse(sessionStorage.getItem('formData')) || {};
+    const { MetodoPagamento } = this.getData();
+    formData.metodoPagamento = MetodoPagamento;
+    formData.tipoPlano = formData.NomePlano;
+
+    if (MetodoPagamento === 'cartao') {
+      const numero = document.getElementById('cartaoNumber').value.replace(/\s/g, '');
+      const validade = document.getElementById('validadeCartao').value;
+      const cvv = document.getElementById('cvvCartao').value;
+      const brand = detectBrand(numero);
+
+      if (!validCardNumber(numero)) return this._showError('Número do cartão inválido.');
+      if (!validExpiry(validade)) return this._showError('Validade do cartão inválida.');
+      if (!validCvv(cvv, brand)) return this._showError('CVV inválido.');
+
+      formData.cartao = { numero, validade, cvv };
+    }
+
+    try {
+      const result = await processPayment(formData);
+      const pagamentoId = result.cartao?.pagamentoConcluidoId;
+
+      if (MetodoPagamento === 'cartao' && pagamentoId) {
+        window.location.href =
+          `/ConfirmarPagamentoCartao?token=${encodeURIComponent(pagamentoId)}&plano=${encodeURIComponent(formData.tipoPlano)}`;
       }
-      if (tab.dataset.target === 'card') setupCardListeners();
-      clearStep5Messages();
+    } catch (err) {
+      this._showError(err.message);
+    }
+  },
+
+  // --- Private Methods ---
+  _setupTabs() {
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab-content').forEach(content => {
+          content.classList.remove('active');
+          content.classList.add('d-none');
+        });
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const content = document.getElementById(tab.dataset.target);
+        if (content) {
+          content.classList.remove('d-none');
+          content.classList.add('active');
+        }
+        if (tab.dataset.target === 'card') this._setupCardListeners();
+        this._clearMessages();
+      });
     });
-  });
-}
+  },
 
-function clearStep5Messages() {
-  ['resCartao'].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.classList.add('d-none');
-  });
-}
+  _setupCardListeners() {
+    const numEl = document.getElementById('cartaoNumber');
+    numEl?.removeEventListener('input', this._cardInputHandler.bind(this));
+    numEl?.addEventListener('input', this._cardInputHandler.bind(this));
 
-function showStep5Error(msg) {
-  ['resCartao'].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.classList.remove('d-none');
-      el.classList.replace('alert-success', 'alert-danger');
-      el.classList.add('alert');
-      el.textContent = msg;
-    }
-  });
-}
+    const validadeEl = document.getElementById('validadeCartao');
+    validadeEl?.removeEventListener('input', this._validadeInputHandler.bind(this));
+    validadeEl?.addEventListener('input', this._validadeInputHandler.bind(this));
 
-// ─── Listener de Conclusão ───
+    const pagarBtn = document.getElementById('pagarCartao');
+    pagarBtn?.removeEventListener('click', this.handlePagarCartaoClick.bind(this));
+    pagarBtn?.addEventListener('click', this.handlePagarCartaoClick.bind(this));
+  },
 
-function setupFinalizeListener() {
-  const btnNext = document.getElementById('nextBtn');
-  if (!btnNext) return;
+  _setupFinalizeListener() {
+    const btnNext = document.getElementById('nextBtn');
+    if (!btnNext) return;
 
-  btnNext.removeEventListener('click', handleFinalizeStep);
-  btnNext.addEventListener('click', handleFinalizeStep);
-}
+    btnNext.removeEventListener('click', this.handleFinalizeStep.bind(this));
+    btnNext.addEventListener('click', this.handleFinalizeStep.bind(this));
+  },
 
-export async function handleFinalizeStep() {
-  const currentStep = document.querySelector('.step.bg-primary')?.textContent.trim();
-  if (currentStep !== '5') return;
-  if (!validateStep5()) return;
+  _cardInputHandler(e) {
+    let v = e.target.value.replace(/\D/g, '').slice(0, 16);
+    e.target.value = v.match(/.{1,4}/g)?.join(' ') || '';
+    const brand = detectBrand(v);
+    document.getElementById('cc-flag').style.backgroundImage = brand
+      ? `url(https://cdn.jsdelivr.net/gh/lipis/flag-icons/flags/4x3/${brand}.svg)`
+      : '';
+  },
 
-  clearStep5Messages();
+  _validadeInputHandler(e) {
+    let v = e.target.value.replace(/\D/g, '').slice(0, 4);
+    e.target.value = v.length > 2 ? `${v.slice(0, 2)}/${v.slice(2)}` : v;
+  },
 
-  const formData = JSON.parse(sessionStorage.getItem('formData')) || {};
-  const { MetodoPagamento } = getStep5Data();
-  formData.metodoPagamento = MetodoPagamento;
-  formData.tipoPlano = formData.NomePlano;
+  _clearMessages() {
+    ['resCartao'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.classList.add('d-none');
+    });
+  },
 
-  if (MetodoPagamento === 'cartao') {
-    const numero = document.getElementById('cartaoNumber').value.replace(/\s/g, '');
-    const validade = document.getElementById('validadeCartao').value;
-    const cvv = document.getElementById('cvvCartao').value;
-    const brand = detectBrand(numero);
-
-    // Validações manuais antes de enviar
-    if (!validCardNumber(numero)) return showStep5Error('Número do cartão inválido.');
-    if (!validExpiry(validade)) return showStep5Error('Validade do cartão inválida.');
-    if (!validCvv(cvv, brand)) return showStep5Error('CVV inválido.');
-
-    formData.cartao = { numero, validade, cvv };
+  _showError(msg) {
+    ['resCartao'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.classList.remove('d-none');
+        el.classList.replace('alert-success', 'alert-danger');
+        el.classList.add('alert');
+        el.textContent = msg;
+      }
+    });
   }
+};
 
-  try {
-    const result = await processPayment(formData);
-    const pagamentoId = result.cartao?.pagamentoConcluidoId;
-
-    if (MetodoPagamento === 'cartao' && pagamentoId) {
-      window.location.href =
-        `/ConfirmarPagamentoCartao?token=${encodeURIComponent(pagamentoId)}&plano=${encodeURIComponent(formData.tipoPlano)}`;
-    }
-  } catch (err) {
-    showStep5Error(err.message);
-  }
-}
-
-
-// ─── Lógica de Cartão ───
-function setupCardListeners() {
-  const numEl = document.getElementById('cartaoNumber');
-  numEl?.removeEventListener('input', cardInputHandler);
-  numEl?.addEventListener('input', cardInputHandler);
-
-  const validadeEl = document.getElementById('validadeCartao');
-  validadeEl?.removeEventListener('input', validadeInputHandler);
-  validadeEl?.addEventListener('input', validadeInputHandler);
-
-  const pagarBtn = document.getElementById('pagarCartao');
-  pagarBtn?.removeEventListener('click', handlePagarCartaoClick);
-  pagarBtn?.addEventListener('click', handlePagarCartaoClick);
-}
-function cardInputHandler(e) {
-  let v = e.target.value.replace(/\D/g, '').slice(0, 16);
-  e.target.value = v.match(/.{1,4}/g)?.join(' ') || '';
-  const brand = detectBrand(v);
-  document.getElementById('cc-flag').style.backgroundImage = brand
-    ? `url(https://cdn.jsdelivr.net/gh/lipis/flag-icons/flags/4x3/${brand}.svg)`
-    : '';
-}
-function validadeInputHandler(e) {
-  let v = e.target.value.replace(/\D/g, '').slice(0, 4);
-  e.target.value = v.length > 2 ? `${v.slice(0, 2)}/${v.slice(2)}` : v;
-}
+export default step5;

@@ -2,8 +2,11 @@ using Azure.Storage.Blobs;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.EntityFrameworkCore;
+using VoxDocs.BusinessRules;
 using VoxDocs.Configurations;
 using VoxDocs.Data;
+using VoxDocs.Data.Repositories;
+using VoxDocs.Repository;
 using VoxDocs.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -73,9 +76,16 @@ builder.Services.AddScoped<IPagamentoService, PagamentoService>();
 
 // --- Repositorios ---
 builder.Services.AddScoped<IPagamentoRepository, PagamentoRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IDocumentoRepository, DocumentoRepository>();
+builder.Services.AddScoped<IPastaPrincipalRepository, PastaPrincipalRepository>();
 
 // --- BusinessRules ---
 builder.Services.AddScoped<IPagamentoBusinessRules, PagamentoBusinessRules>();
+builder.Services.AddScoped<IUserBusinessRules, UserBusinessRules>();
+builder.Services.AddScoped<IDocumentoBusinessRules, DocumentoBusinessRules>();
+
+
 
 // --- MVC, Views e Session customizados ---
 builder.Services.AddControllersWithViews();

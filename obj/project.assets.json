@@ -6522,11 +6522,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\VoxDocs.csproj",
+      "projectUniqueName": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\VoxDocs.csproj",
       "projectName": "VoxDocs",
-      "projectPath": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\VoxDocs.csproj",
+      "projectPath": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\VoxDocs.csproj",
       "packagesPath": "C:\\Users\\Felip\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\obj\\",
+      "outputPath": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

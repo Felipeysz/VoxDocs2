@@ -36,17 +36,17 @@
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-0fHOVvkig/7cHrGT8hMfdad20jbNn43MNbEOOjUdLSA="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"2493"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u00220fHOVvkig/7cHrGT8hMfdad20jbNn43MNbEOOjUdLSA=\u0022"},{"Name":"Last-Modified","Value":"Tue, 06 May 2025 06:03:36 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/VoxDocs/css/ChatVoxStyles/voice-modalstyle.bw6ocgzrzg.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\ChatVoxStyles\voice-modalstyle.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"bw6ocgzrzg"},{"Name":"integrity","Value":"sha256-FQt\u002BrJJeRpyOd5KlBs4gQxAVZKChzZbrhvJMVjZqeCY="},{"Name":"label","Value":"_content/VoxDocs/css/ChatVoxStyles/voice-modalstyle.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"4886"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022FQt\u002BrJJeRpyOd5KlBs4gQxAVZKChzZbrhvJMVjZqeCY=\u0022"},{"Name":"Last-Modified","Value":"Thu, 12 Jun 2025 11:14:56 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/VoxDocs/css/ChatVoxStyles/voice-modalstyle.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\ChatVoxStyles\voice-modalstyle.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-ZxHGSWPOxD4HzsS6dOR5\u002BKqXytM6KX9HeJontxbFhIk="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"3636"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022ZxHGSWPOxD4HzsS6dOR5\u002BKqXytM6KX9HeJontxbFhIk=\u0022"},{"Name":"Last-Modified","Value":"Mon, 05 May 2025 13:43:45 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/VoxDocs/css/ChatVoxStyles/voice-modalstyle.jl2lt5655t.css">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\ChatVoxStyles\voice-modalstyle.css'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"jl2lt5655t"},{"Name":"integrity","Value":"sha256-ZxHGSWPOxD4HzsS6dOR5\u002BKqXytM6KX9HeJontxbFhIk="},{"Name":"label","Value":"_content/VoxDocs/css/ChatVoxStyles/voice-modalstyle.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"3636"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022ZxHGSWPOxD4HzsS6dOR5\u002BKqXytM6KX9HeJontxbFhIk=\u0022"},{"Name":"Last-Modified","Value":"Mon, 05 May 2025 13:43:45 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-FQt\u002BrJJeRpyOd5KlBs4gQxAVZKChzZbrhvJMVjZqeCY="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"4886"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022FQt\u002BrJJeRpyOd5KlBs4gQxAVZKChzZbrhvJMVjZqeCY=\u0022"},{"Name":"Last-Modified","Value":"Thu, 12 Jun 2025 11:14:56 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/VoxDocs/css/DocumentosStyles/EtapasDoc.0v9dpf6js7.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\DocumentosStyles\EtapasDoc.css'))</AssetFile>
@@ -156,101 +156,101 @@
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"yv83z1z97l"},{"Name":"integrity","Value":"sha256-Qpk34uFX/HWX2DOnxIeAS\u002B9PogQLg7oBrGXyJcCodPI="},{"Name":"label","Value":"_content/VoxDocs/js/DocumentosScripts/service-worker.js"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"627"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022Qpk34uFX/HWX2DOnxIeAS\u002B9PogQLg7oBrGXyJcCodPI=\u0022"},{"Name":"Last-Modified","Value":"Wed, 14 May 2025 14:02:35 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/VoxDocs/js/PagamentoScript/main.4mrgzrr8ao.js">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\PagamentoScript\main.js'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"4mrgzrr8ao"},{"Name":"integrity","Value":"sha256-NBExpQiWf1bJILpNwhtmUJVCOp2MxjATdhrrHPhaK5k="},{"Name":"label","Value":"_content/VoxDocs/js/PagamentoScript/main.js"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"4201"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022NBExpQiWf1bJILpNwhtmUJVCOp2MxjATdhrrHPhaK5k=\u0022"},{"Name":"Last-Modified","Value":"Wed, 11 Jun 2025 19:03:01 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/VoxDocs/js/PagamentoScript/main.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\PagamentoScript\main.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-NBExpQiWf1bJILpNwhtmUJVCOp2MxjATdhrrHPhaK5k="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"4201"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022NBExpQiWf1bJILpNwhtmUJVCOp2MxjATdhrrHPhaK5k=\u0022"},{"Name":"Last-Modified","Value":"Wed, 11 Jun 2025 19:03:01 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-bQRRz2W9C\u002BGC2ZQAszRTPzhmOM6mAtaSxLgQY2J3RX8="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"4363"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022bQRRz2W9C\u002BGC2ZQAszRTPzhmOM6mAtaSxLgQY2J3RX8=\u0022"},{"Name":"Last-Modified","Value":"Thu, 12 Jun 2025 10:29:19 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/VoxDocs/js/PagamentoScript/main.r2vxcxr6sr.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\PagamentoScript\main.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"r2vxcxr6sr"},{"Name":"integrity","Value":"sha256-bQRRz2W9C\u002BGC2ZQAszRTPzhmOM6mAtaSxLgQY2J3RX8="},{"Name":"label","Value":"_content/VoxDocs/js/PagamentoScript/main.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"4363"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022bQRRz2W9C\u002BGC2ZQAszRTPzhmOM6mAtaSxLgQY2J3RX8=\u0022"},{"Name":"Last-Modified","Value":"Thu, 12 Jun 2025 10:29:19 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/VoxDocs/js/PagamentoScript/paymentUltils.1a582rbdno.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\PagamentoScript\paymentUltils.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"1a582rbdno"},{"Name":"integrity","Value":"sha256-R7UherBITUHiTM4b/JmycsOyPDxid8hWBC1n50OJLOw="},{"Name":"label","Value":"_content/VoxDocs/js/PagamentoScript/paymentUltils.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"4988"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022R7UherBITUHiTM4b/JmycsOyPDxid8hWBC1n50OJLOw=\u0022"},{"Name":"Last-Modified","Value":"Thu, 12 Jun 2025 10:29:26 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/VoxDocs/js/PagamentoScript/paymentUltils.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\PagamentoScript\paymentUltils.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-ET\u002BMsmRz34jvP1hHWyVKWrezV8VTymuHJgvGQtaywf0="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"4356"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022ET\u002BMsmRz34jvP1hHWyVKWrezV8VTymuHJgvGQtaywf0=\u0022"},{"Name":"Last-Modified","Value":"Wed, 11 Jun 2025 22:18:09 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-R7UherBITUHiTM4b/JmycsOyPDxid8hWBC1n50OJLOw="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"4988"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022R7UherBITUHiTM4b/JmycsOyPDxid8hWBC1n50OJLOw=\u0022"},{"Name":"Last-Modified","Value":"Thu, 12 Jun 2025 10:29:26 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/VoxDocs/js/PagamentoScript/paymentUltils.nu65b96042.js">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\PagamentoScript\paymentUltils.js'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"nu65b96042"},{"Name":"integrity","Value":"sha256-ET\u002BMsmRz34jvP1hHWyVKWrezV8VTymuHJgvGQtaywf0="},{"Name":"label","Value":"_content/VoxDocs/js/PagamentoScript/paymentUltils.js"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"4356"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022ET\u002BMsmRz34jvP1hHWyVKWrezV8VTymuHJgvGQtaywf0=\u0022"},{"Name":"Last-Modified","Value":"Wed, 11 Jun 2025 22:18:09 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/VoxDocs/js/PagamentoScript/step1.87ls746w0l.js">
+    <StaticWebAssetEndpoint Include="_content/VoxDocs/js/PagamentoScript/step1.gwsts4bcp3.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\PagamentoScript\step1.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"87ls746w0l"},{"Name":"integrity","Value":"sha256-VLH4sqYHGpVNdMakwMXfuXRW5B8fhs2nX98EAX02h4E="},{"Name":"label","Value":"_content/VoxDocs/js/PagamentoScript/step1.js"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1884"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022VLH4sqYHGpVNdMakwMXfuXRW5B8fhs2nX98EAX02h4E=\u0022"},{"Name":"Last-Modified","Value":"Wed, 11 Jun 2025 00:06:44 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"gwsts4bcp3"},{"Name":"integrity","Value":"sha256-cOyMtcHoUKL4yKUHqHcPMf/lIZWCETb0GpaH6xCSr9U="},{"Name":"label","Value":"_content/VoxDocs/js/PagamentoScript/step1.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1874"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022cOyMtcHoUKL4yKUHqHcPMf/lIZWCETb0GpaH6xCSr9U=\u0022"},{"Name":"Last-Modified","Value":"Thu, 12 Jun 2025 10:29:52 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/VoxDocs/js/PagamentoScript/step1.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\PagamentoScript\step1.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-VLH4sqYHGpVNdMakwMXfuXRW5B8fhs2nX98EAX02h4E="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1884"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022VLH4sqYHGpVNdMakwMXfuXRW5B8fhs2nX98EAX02h4E=\u0022"},{"Name":"Last-Modified","Value":"Wed, 11 Jun 2025 00:06:44 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-cOyMtcHoUKL4yKUHqHcPMf/lIZWCETb0GpaH6xCSr9U="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1874"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022cOyMtcHoUKL4yKUHqHcPMf/lIZWCETb0GpaH6xCSr9U=\u0022"},{"Name":"Last-Modified","Value":"Thu, 12 Jun 2025 10:29:52 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/VoxDocs/js/PagamentoScript/step2.e10erwkjt3.js">
+    <StaticWebAssetEndpoint Include="_content/VoxDocs/js/PagamentoScript/step2.epzl8zi5gw.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\PagamentoScript\step2.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"e10erwkjt3"},{"Name":"integrity","Value":"sha256-To14f\u002B1yUC/G76\u002B2N4apaVA2bS47VFBzTVGGE5YErQo="},{"Name":"label","Value":"_content/VoxDocs/js/PagamentoScript/step2.js"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"6536"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022To14f\u002B1yUC/G76\u002B2N4apaVA2bS47VFBzTVGGE5YErQo=\u0022"},{"Name":"Last-Modified","Value":"Wed, 11 Jun 2025 18:40:54 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"epzl8zi5gw"},{"Name":"integrity","Value":"sha256-/oPYvkMDrmmVRr6o5N6\u002B\u002BLjskRQsCh3HdpXw58GyUNc="},{"Name":"label","Value":"_content/VoxDocs/js/PagamentoScript/step2.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"4673"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022/oPYvkMDrmmVRr6o5N6\u002B\u002BLjskRQsCh3HdpXw58GyUNc=\u0022"},{"Name":"Last-Modified","Value":"Thu, 12 Jun 2025 10:29:50 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/VoxDocs/js/PagamentoScript/step2.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\PagamentoScript\step2.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-To14f\u002B1yUC/G76\u002B2N4apaVA2bS47VFBzTVGGE5YErQo="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"6536"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022To14f\u002B1yUC/G76\u002B2N4apaVA2bS47VFBzTVGGE5YErQo=\u0022"},{"Name":"Last-Modified","Value":"Wed, 11 Jun 2025 18:40:54 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-/oPYvkMDrmmVRr6o5N6\u002B\u002BLjskRQsCh3HdpXw58GyUNc="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"4673"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022/oPYvkMDrmmVRr6o5N6\u002B\u002BLjskRQsCh3HdpXw58GyUNc=\u0022"},{"Name":"Last-Modified","Value":"Thu, 12 Jun 2025 10:29:50 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/VoxDocs/js/PagamentoScript/step3.c9cj7dcql7.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\PagamentoScript\step3.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"c9cj7dcql7"},{"Name":"integrity","Value":"sha256-MEAcXXJch63HNSMxRt61KcY1EDRJfrWodUMd8y3cQg0="},{"Name":"label","Value":"_content/VoxDocs/js/PagamentoScript/step3.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"5664"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022MEAcXXJch63HNSMxRt61KcY1EDRJfrWodUMd8y3cQg0=\u0022"},{"Name":"Last-Modified","Value":"Thu, 12 Jun 2025 10:37:37 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/VoxDocs/js/PagamentoScript/step3.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\PagamentoScript\step3.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-1VVef5hPGS5q9oNpNpO2CVYvPwpQTsCKeZ/JUvGjgwQ="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"5723"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00221VVef5hPGS5q9oNpNpO2CVYvPwpQTsCKeZ/JUvGjgwQ=\u0022"},{"Name":"Last-Modified","Value":"Wed, 11 Jun 2025 18:54:48 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-MEAcXXJch63HNSMxRt61KcY1EDRJfrWodUMd8y3cQg0="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"5664"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022MEAcXXJch63HNSMxRt61KcY1EDRJfrWodUMd8y3cQg0=\u0022"},{"Name":"Last-Modified","Value":"Thu, 12 Jun 2025 10:37:37 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/VoxDocs/js/PagamentoScript/step3.lw4ovqomju.js">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\PagamentoScript\step3.js'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"lw4ovqomju"},{"Name":"integrity","Value":"sha256-1VVef5hPGS5q9oNpNpO2CVYvPwpQTsCKeZ/JUvGjgwQ="},{"Name":"label","Value":"_content/VoxDocs/js/PagamentoScript/step3.js"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"5723"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00221VVef5hPGS5q9oNpNpO2CVYvPwpQTsCKeZ/JUvGjgwQ=\u0022"},{"Name":"Last-Modified","Value":"Wed, 11 Jun 2025 18:54:48 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/VoxDocs/js/PagamentoScript/step4.6syvu3p9bi.js">
+    <StaticWebAssetEndpoint Include="_content/VoxDocs/js/PagamentoScript/step4.jjwb4v1bfp.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\PagamentoScript\step4.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"6syvu3p9bi"},{"Name":"integrity","Value":"sha256-KqTMyO0PthSVbJGQfQZVLWbEi\u002BQT7Np0txCWvKMV6V0="},{"Name":"label","Value":"_content/VoxDocs/js/PagamentoScript/step4.js"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"6781"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022KqTMyO0PthSVbJGQfQZVLWbEi\u002BQT7Np0txCWvKMV6V0=\u0022"},{"Name":"Last-Modified","Value":"Wed, 11 Jun 2025 18:58:10 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"jjwb4v1bfp"},{"Name":"integrity","Value":"sha256-f6m33xGSgZRuBVFFgFksiqikPZnWubh53dA0vyJSWXY="},{"Name":"label","Value":"_content/VoxDocs/js/PagamentoScript/step4.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"7032"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022f6m33xGSgZRuBVFFgFksiqikPZnWubh53dA0vyJSWXY=\u0022"},{"Name":"Last-Modified","Value":"Thu, 12 Jun 2025 10:37:43 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/VoxDocs/js/PagamentoScript/step4.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\PagamentoScript\step4.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-KqTMyO0PthSVbJGQfQZVLWbEi\u002BQT7Np0txCWvKMV6V0="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"6781"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022KqTMyO0PthSVbJGQfQZVLWbEi\u002BQT7Np0txCWvKMV6V0=\u0022"},{"Name":"Last-Modified","Value":"Wed, 11 Jun 2025 18:58:10 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-f6m33xGSgZRuBVFFgFksiqikPZnWubh53dA0vyJSWXY="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"7032"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022f6m33xGSgZRuBVFFgFksiqikPZnWubh53dA0vyJSWXY=\u0022"},{"Name":"Last-Modified","Value":"Thu, 12 Jun 2025 10:37:43 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/VoxDocs/js/PagamentoScript/step5.dh7q2cznak.js">
+    <StaticWebAssetEndpoint Include="_content/VoxDocs/js/PagamentoScript/step5.e304hv6r5k.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\PagamentoScript\step5.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"dh7q2cznak"},{"Name":"integrity","Value":"sha256-YYr2aFdA4F0TPMFPRqUoik5wJYjE53TVgUBE1KNTYVk="},{"Name":"label","Value":"_content/VoxDocs/js/PagamentoScript/step5.js"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"5350"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022YYr2aFdA4F0TPMFPRqUoik5wJYjE53TVgUBE1KNTYVk=\u0022"},{"Name":"Last-Modified","Value":"Wed, 11 Jun 2025 22:28:59 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"e304hv6r5k"},{"Name":"integrity","Value":"sha256-eoYAk/YihHF8N5v88ld1aHrOhDVodYie\u002BqsavRf6MZY="},{"Name":"label","Value":"_content/VoxDocs/js/PagamentoScript/step5.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"5532"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022eoYAk/YihHF8N5v88ld1aHrOhDVodYie\u002BqsavRf6MZY=\u0022"},{"Name":"Last-Modified","Value":"Thu, 12 Jun 2025 10:37:53 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/VoxDocs/js/PagamentoScript/step5.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\PagamentoScript\step5.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-YYr2aFdA4F0TPMFPRqUoik5wJYjE53TVgUBE1KNTYVk="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"5350"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022YYr2aFdA4F0TPMFPRqUoik5wJYjE53TVgUBE1KNTYVk=\u0022"},{"Name":"Last-Modified","Value":"Wed, 11 Jun 2025 22:28:59 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/VoxDocs/js/PagamentoScript/ultilities.8g61in69d5.js">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\PagamentoScript\ultilities.js'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"8g61in69d5"},{"Name":"integrity","Value":"sha256-6IROGICBrQhVbYj8GJB1E3A5hebKvtLqHfiQ\u002B08ga4c="},{"Name":"label","Value":"_content/VoxDocs/js/PagamentoScript/ultilities.js"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"3391"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00226IROGICBrQhVbYj8GJB1E3A5hebKvtLqHfiQ\u002B08ga4c=\u0022"},{"Name":"Last-Modified","Value":"Wed, 11 Jun 2025 21:38:29 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-eoYAk/YihHF8N5v88ld1aHrOhDVodYie\u002BqsavRf6MZY="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"5532"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022eoYAk/YihHF8N5v88ld1aHrOhDVodYie\u002BqsavRf6MZY=\u0022"},{"Name":"Last-Modified","Value":"Thu, 12 Jun 2025 10:37:53 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/VoxDocs/js/PagamentoScript/ultilities.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\PagamentoScript\ultilities.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-6IROGICBrQhVbYj8GJB1E3A5hebKvtLqHfiQ\u002B08ga4c="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"3391"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00226IROGICBrQhVbYj8GJB1E3A5hebKvtLqHfiQ\u002B08ga4c=\u0022"},{"Name":"Last-Modified","Value":"Wed, 11 Jun 2025 21:38:29 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-yIyOfm3DCxVMobEdnMTCAXh/n81UVB0J7Nsxd6ubypE="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"2035"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022yIyOfm3DCxVMobEdnMTCAXh/n81UVB0J7Nsxd6ubypE=\u0022"},{"Name":"Last-Modified","Value":"Thu, 12 Jun 2025 10:29:32 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/VoxDocs/js/PagamentoScript/ultilities.ocgkt4zwfe.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\PagamentoScript\ultilities.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"ocgkt4zwfe"},{"Name":"integrity","Value":"sha256-yIyOfm3DCxVMobEdnMTCAXh/n81UVB0J7Nsxd6ubypE="},{"Name":"label","Value":"_content/VoxDocs/js/PagamentoScript/ultilities.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"2035"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022yIyOfm3DCxVMobEdnMTCAXh/n81UVB0J7Nsxd6ubypE=\u0022"},{"Name":"Last-Modified","Value":"Thu, 12 Jun 2025 10:29:32 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/VoxDocs/js/VoxDocsScripts/voice-modalScript.ap4wu6agpg.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\VoxDocsScripts\voice-modalScript.js'))</AssetFile>

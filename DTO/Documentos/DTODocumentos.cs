@@ -3,72 +3,79 @@ using System;
 
 namespace VoxDocs.DTO
 {
-    public class DTODocumentoCreate
+    public enum NivelSeguranca
     {
-        public Guid Id { get; set; }
-        public required string NomeArquivo { get; set; }
-        public required string UrlArquivo { get; set; }
-        public required string UsuarioCriador { get; set; }
-        public required DateTime DataCriacao { get; set; }
-        public required string UsuarioUltimaAlteracao { get; set; }
-        public required DateTime DataUltimaAlteracao { get; set; }
-        public required string EmpresaContratante { get; set; }
-        public required string NomePastaPrincipal { get; set; }
-        public required string NomeSubPasta { get; set; }
-        public required long TamanhoArquivo { get; set; }
-        public required string NivelSeguranca { get; set; }
-        public string? TokenSeguranca { get; set; } // Oculto na resposta
-        public required string Descrição { get; set; }
+        Publico,
+        Restrito,
+        Confidencial
     }
-    
+
+    // DTO base para Documento (para operações de leitura)
     public class DocumentoDto
     {
-        public int Id { get; set; }
-        public string? NomeArquivo { get; set; }
-        public required IFormFile Arquivo { get; set; }
-        public required string Usuario { get; set; }
-        public required string EmpresaContratante { get; set; }
-        public required string NomePastaPrincipal { get; set; }
-        public required string NomeSubPasta { get; set; }
-        public required string NivelSeguranca { get; set; }
+        public Guid Id { get; set; }
+        public string NomeArquivo { get; set; }
+        public string UrlArquivo { get; set; }
+        public string UsuarioCriador { get; set; }
+        public DateTime DataCriacao { get; set; }
+        public string UsuarioUltimaAlteracao { get; set; }
+        public DateTime DataUltimaAlteracao { get; set; }
+        public string EmpresaContratante { get; set; }
+        public string NomePastaPrincipal { get; set; }
+        public string NomeSubPasta { get; set; }
+        public long TamanhoArquivo { get; set; }
+        public NivelSeguranca NivelSeguranca { get; set; }
+        public string Descricao { get; set; }
+    }
+
+    // DTO para criação de documento
+    public class DocumentoCriacaoDto
+    {
+        public IFormFile Arquivo { get; set; }
+        public string NomePastaPrincipal { get; set; }
+        public string NomeSubPasta { get; set; }
+        public NivelSeguranca NivelSeguranca { get; set; } = NivelSeguranca.Publico;
+        public string TokenSeguranca { get; set; }
+        public string Descricao { get; set; }
+        
+        // Esses campos podem ser preenchidos automaticamente pelo serviço
+        public string Usuario { get; set; }
+        public string EmpresaContratante { get; set; }
+    }
+
+    // DTO para atualização de documento
+    public class DocumentoAtualizacaoDto
+    {
+        public Guid Id { get; set; }
+
+        public IFormFile? NovoArquivo { get; set; }
+        public string UsuarioUltimaAlteracao { get; set; }
+        public string? Descricao { get; set; }
+        public NivelSeguranca? NivelSeguranca { get; set; }
         public string? TokenSeguranca { get; set; }
-        public required string Descrição { get; set; }
-        public string? UsuarioUltimaAlteracao { get; set; }
-        public DateTime DataUltimaAlteracao { get; set; }
     }
-    
-    // NOVO DTO PARA ATUALIZAÇÃO
-    public class DocumentoUpdateDto
+
+    // DTO para resposta detalhada (incluindo dados sensíveis para admin)
+    public class DocumentoDetalhesDto : DocumentoDto
     {
-        public int Id { get; set; }
-        public required IFormFile NovoArquivo { get; set; }
-        public required string UsuarioUltimaAlteracao { get; set; }
-        public DateTime DataUltimaAlteracao { get; set; }
-        public required string Descrição { get; set; }
+        public string TokenSeguranca { get; set; } // Apenas para usuários autorizados
     }
-    
-    public class DTOQuantidadeDocumentoEmpresa
+
+    // DTO para estatísticas
+    public class DocumentoEstatisticasDto
     {
-        public required string EmpresaContratante { get; set; }
-        public int Quantidade { get; set; }
+        public string EmpresaContratante { get; set; }
+        public int QuantidadeDocumentos { get; set; }
         public double TamanhoTotalGb { get; set; }
+        public int Publicos { get; set; }
+        public int Restritos { get; set; }
+        public int Confidenciais { get; set; }
     }
-    
-    public class DTOAcessosDocumento
+
+    public class ResultadoOperacaoDto
     {
-        public required string NomeArquivo { get; set; }
-        public required string NomeSubPasta { get; set; }
-        public required string NomePastaPrincipal { get; set; }
-        public int QuantidadeAcessos { get; set; }
-    }
-    
-    public class ValidationResult
-    {
-        public bool sucesso { get; set; }
-    }
-    
-    public class ErrorResult
-    {
-        public required string mensagem { get; set; }
+        public bool Sucesso { get; set; }
+        public string Mensagem { get; set; }
+        public object? Dados { get; set; }
     }
 }

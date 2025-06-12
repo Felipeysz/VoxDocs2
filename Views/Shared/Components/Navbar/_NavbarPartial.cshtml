@@ -39,8 +39,8 @@
                asp-controller="DocumentosMvc" asp-action="Documentos">Documentos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link @(currentController == "DocumentosMvc" && currentAction == "Upload" ? "active" : "")"
-               asp-controller="DocumentosMvc" asp-action="UploadDocumentos">Upload</a>
+            <a class="nav-link @(currentController == "UploadMvc" && currentAction == "Upload" ? "active" : "")"
+               asp-controller="UploadMvc" asp-action="Upload">Upload</a>
           </li>
         }
 
@@ -130,8 +130,8 @@
              asp-controller="DocumentosMvc" asp-action="Documentos">Documentos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link @(currentController == "DocumentosMvc" && currentAction == "Upload" ? "active" : "")"
-             asp-controller="DocumentosMvc" asp-action="UploadDocumentos">Upload</a>
+          <a class="nav-link @(currentController == "UploadMvc" && currentAction == "Upload" ? "active" : "")"
+             asp-controller="UploadMvc" asp-action="Upload">Upload</a>
         </li>
       }
       <li><hr class="dropdown-divider" /></li>

@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Configuration;
 using VoxDocs.DTO;
 using VoxDocs.Services;
 using Microsoft.AspNetCore.Authentication;
@@ -15,32 +14,21 @@ namespace VoxDocs.Controllers.Api
     {
         private readonly ILogger<UserController> _logger;
         private readonly IUserService _userService;
-        private readonly IConfiguration _configuration;
-        private readonly IPlanosVoxDocsService _planosService;
-        private readonly IEmpresasContratanteService _empresasService;
 
         public UserController(
             ILogger<UserController> logger,
-            IUserService userService,
-            IConfiguration configuration,
-            IPlanosVoxDocsService planosService,
-            IEmpresasContratanteService empresasService)
+            IUserService userService)
         {
             _logger = logger;
             _userService = userService;
-            _configuration = configuration;
-            _planosService = planosService;
-            _empresasService = empresasService;
         }
 
         [HttpPost, AllowAnonymous]
         public async Task<IActionResult> Register([FromBody] DTORegisterUser dto)
         {
-            _logger.LogInformation("Register attempt for {@User}", dto);
-
             try
             {
-                var (user, limiteAdmin, limiteUsuario) = await _userService.RegisterAsync(dto);
+                var (user, adminLimit, userLimit) = await _userService.RegisterUserAsync(dto);
 
                 return Ok(new
                 {
@@ -48,43 +36,38 @@ namespace VoxDocs.Controllers.Api
                     user.Usuario,
                     user.Email,
                     user.PermissionAccount,
-                    LimiteUsuario = limiteUsuario,
-                    LimiteAdmin = limiteAdmin,
+                    LimiteAdmin = adminLimit,
+                    LimiteUsuario = userLimit,
                     mensagem = "Usuário criado com sucesso!"
                 });
             }
-            catch (ArgumentException ex)
+            catch (InvalidOperationException ex)
             {
-                _logger.LogWarning(ex, ex.Message);
                 return BadRequest(new { mensagem = ex.Message });
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, ex.Message);
-                return StatusCode(500, new { mensagem = "Erro interno.", detalhes = ex.Message });
+                _logger.LogError(ex, "Erro ao registrar usuário");
+                return StatusCode(500, new { mensagem = "Erro interno ao registrar usuário." });
             }
         }
 
         [HttpPost, AllowAnonymous]
         public async Task<IActionResult> Login([FromBody] DTOLoginUser dto)
         {
-            _logger.LogInformation("Tentativa de login para {Usuário}", dto.Usuario);
             try
             {
-                var principal = await _userService.AuthenticateAsync(dto);
-
-                var authProps = new AuthenticationProperties
-                {
-                    IsPersistent = false,
-                    ExpiresUtc = DateTimeOffset.UtcNow.AddHours(2),
-                    AllowRefresh = true
-                };
+                var principal = await _userService.AuthenticateUserAsync(dto);
 
                 await HttpContext.SignInAsync(
                     CookieAuthenticationDefaults.AuthenticationScheme,
                     principal,
-                    authProps
-                );
+                    new AuthenticationProperties
+                    {
+                        IsPersistent = false,
+                        ExpiresUtc = DateTimeOffset.UtcNow.AddHours(2),
+                        AllowRefresh = true
+                    });
 
                 return Ok(new
                 {
@@ -94,23 +77,16 @@ namespace VoxDocs.Controllers.Api
             }
             catch (KeyNotFoundException ex)
             {
-                _logger.LogWarning(ex, ex.Message);
                 return NotFound(new { mensagem = ex.Message });
             }
             catch (UnauthorizedAccessException ex)
             {
-                _logger.LogWarning(ex, ex.Message);
                 return Unauthorized(new { mensagem = ex.Message });
-            }
-            catch (ArgumentException ex)
-            {
-                _logger.LogWarning(ex, ex.Message);
-                return BadRequest(new { mensagem = ex.Message });
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, ex.Message);
-                return StatusCode(500, new { mensagem = "Erro interno.", detalhes = ex.Message });
+                _logger.LogError(ex, "Erro ao realizar login");
+                return StatusCode(500, new { mensagem = "Erro interno ao realizar login." });
             }
         }
 
@@ -122,83 +98,154 @@ namespace VoxDocs.Controllers.Api
         }
 
         [HttpGet, Authorize]
-        public async Task<IActionResult> GetUsers()
+        public async Task<IActionResult> GetAllUsers()
         {
-            var list = await _userService.GetUsersAsync();
-            return Ok(list.Select(u => new { u.Id, u.Usuario, u.PermissionAccount }));
-        }
-
-        [HttpPut("{id}"), Authorize]
-        public async Task<IActionResult> UpdateUser(int id, [FromBody] DTOUpdateUser dto)
-        {
-            _logger.LogInformation("Update attempt for {UserId}", id);
             try
             {
-                var loggedUser = User.Identity?.Name;
-                var isAdmin = User.IsInRole("admin");
+                var users = await _userService.GetAllUsersAsync();
+                return Ok(users.Select(u => new { u.Id, u.Usuario, u.PermissionAccount }));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Erro ao obter usuários");
+                return StatusCode(500, new { mensagem = "Erro interno ao obter usuários." });
+            }
+        }
 
-                if (!isAdmin && dto.Usuario != loggedUser)
-                    return Forbid("Você não tem permissão para editar este usuário.");
-
-                dto.Usuario = dto.Usuario.Trim();
-
-                await _userService.UpdateAsync(dto);
-
-                return Ok(new
-                {
-                    mensagem = "Usuário atualizado com sucesso!"
-                });
+        [HttpPut, Authorize]
+        public async Task<IActionResult> UpdateUser([FromBody] DTOUpdateUser dto)
+        {
+            try
+            {
+                await _userService.UpdateUserAsync(dto);
+                return Ok(new { mensagem = "Usuário atualizado com sucesso!" });
             }
             catch (KeyNotFoundException ex)
             {
-                _logger.LogWarning(ex, ex.Message);
                 return NotFound(new { mensagem = ex.Message });
             }
-            catch (ArgumentException ex)
+            catch (InvalidOperationException ex)
             {
-                _logger.LogWarning(ex, ex.Message);
                 return BadRequest(new { mensagem = ex.Message });
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, ex.Message);
-                return StatusCode(500, new { mensagem = "Erro interno.", detalhes = ex.Message });
+                _logger.LogError(ex, "Erro ao atualizar usuário");
+                return StatusCode(500, new { mensagem = "Erro interno ao atualizar usuário." });
             }
         }
 
-        [HttpDelete("{id}"), Authorize]
-        public async Task<IActionResult> DeleteUser(int id)
+        [HttpDelete("{userId}"), Authorize]
+        public async Task<IActionResult> DeleteUser(Guid userId)
         {
             try
             {
-                var loggedUser = User.Identity?.Name;
-                var isAdmin = User.IsInRole("admin");
-
-                if (!isAdmin)
-                {
-                    var user = await _userService.GetUserByIdAsync(id);
-                    if (user == null || user.Usuario != loggedUser)
-                        return Forbid("Você não tem permissão para excluir este usuário.");
-                }
-
-                await _userService.DeleteUserAsync(id);
-
-                return Ok(new { mensagem = $"Usuário com ID {id} deletado com sucesso!" });
+                await _userService.DeleteUserAsync(userId);
+                return Ok(new { mensagem = "Usuário deletado com sucesso!" });
             }
             catch (KeyNotFoundException ex)
             {
-                _logger.LogWarning(ex, ex.Message);
                 return NotFound(new { mensagem = ex.Message });
-            }
-            catch (ArgumentException ex)
-            {
-                _logger.LogWarning(ex, ex.Message);
-                return BadRequest(new { mensagem = ex.Message });
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, ex.Message);
-                return StatusCode(500, new { mensagem = "Erro interno.", detalhes = ex.Message });
+                _logger.LogError(ex, "Erro ao deletar usuário");
+                return StatusCode(500, new { mensagem = "Erro interno ao deletar usuário." });
+            }
+        }
+
+        [HttpPost, AllowAnonymous]
+        public async Task<IActionResult> RequestPasswordReset([FromBody] DTOResetPassword resetRequestDto)
+        {
+            try
+            {
+                await _userService.RequestPasswordResetAsync(resetRequestDto);
+                return Ok(new { mensagem = "Se o email existir em nosso sistema, um link de redefinição será enviado." });
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(new { mensagem = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Erro ao solicitar redefinição de senha");
+                return StatusCode(500, new { mensagem = "Erro interno ao solicitar redefinição de senha." });
+            }
+        }
+
+        [HttpPost, AllowAnonymous]
+        public async Task<IActionResult> ResetPasswordWithToken([FromBody] DTOResetPasswordWithToken resetDto)
+        {
+            try
+            {
+                await _userService.ResetPasswordWithTokenAsync(resetDto);
+                return Ok(new { mensagem = "Senha redefinida com sucesso!" });
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(new { mensagem = ex.Message });
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                return Unauthorized(new { mensagem = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Erro ao redefinir senha");
+                return StatusCode(500, new { mensagem = "Erro interno ao redefinir senha." });
+            }
+        }
+
+        [HttpPost, Authorize]
+        public async Task<IActionResult> ChangePassword([FromBody] DTOUserLoginPasswordChange changeDto)
+        {
+            try
+            {
+                await _userService.ChangePasswordAsync(changeDto);
+                return Ok(new { mensagem = "Senha alterada com sucesso!" });
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(new { mensagem = ex.Message });
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                return Unauthorized(new { mensagem = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Erro ao alterar senha");
+                return StatusCode(500, new { mensagem = "Erro interno ao alterar senha." });
+            }
+        }
+
+        [HttpGet, AllowAnonymous]
+        public async Task<IActionResult> IsEmailAvailable(string email)
+        {
+            try
+            {
+                var isAvailable = await _userService.IsEmailAvailableAsync(email);
+                return Ok(new { disponivel = isAvailable });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Erro ao verificar disponibilidade de email");
+                return StatusCode(500, new { mensagem = "Erro interno ao verificar email." });
+            }
+        }
+
+        [HttpGet, AllowAnonymous]
+        public async Task<IActionResult> IsUsernameAvailable(string username)
+        {
+            try
+            {
+                var isAvailable = await _userService.IsUsernameAvailableAsync(username);
+                return Ok(new { disponivel = isAvailable });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Erro ao verificar disponibilidade de usuário");
+                return StatusCode(500, new { mensagem = "Erro interno ao verificar usuário." });
             }
         }
     }

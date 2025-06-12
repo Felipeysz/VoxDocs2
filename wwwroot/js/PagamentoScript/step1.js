@@ -1,15 +1,12 @@
-import { isValidEmail } from './ultilities.js';
+// step1.js - Step 1: Informações da Empresa
+import { FormUtils } from './utilities.js';
 
 export function initStep1(data) {
   if (!data) return;
 
   const empresaEl = document.getElementById('EmpresaContratante_EmpresaContratante');
   const emailEl = document.getElementById('EmpresaContratante_Email');
-  const id = sessionStorage.getItem('Pagamento_Id');
-  const nomePlano = sessionStorage.getItem('Pagamento_NomePlano');
-  const periodicidade = sessionStorage.getItem('Pagamento_Periodicidade');
 
-  // Preenche campos visíveis (se existirem)
   if (empresaEl && data.EmpresaContratante) {
     empresaEl.value = data.EmpresaContratante;
   }
@@ -17,38 +14,42 @@ export function initStep1(data) {
     emailEl.value = data.EmailEmpresa;
   }
 
-  // Atualiza o objeto `data` com os dados do SessionStorage
-  if (id && nomePlano && periodicidade) {
-    data.Id = id;
-    data.NomePlano = nomePlano;
-    data.Periodicidade = periodicidade;
-  }
+  // Configura validação em tempo real
+  emailEl?.addEventListener('input', () => {
+    if (!FormUtils.isValidEmail(emailEl.value.trim())) {
+      document.getElementById('emailError').classList.remove('d-none');
+    } else {
+      document.getElementById('emailError').classList.add('d-none');
+    }
+  });
 }
 
-
 export function validateStep1() {
-  const empresaEl = document.getElementById('EmpresaContratante_EmpresaContratante');
-  const emailEl = document.getElementById('EmpresaContratante_Email');
+  const empresa = document.getElementById('EmpresaContratante_EmpresaContratante')?.value.trim() || '';
+  const email = document.getElementById('EmpresaContratante_Email')?.value.trim() || '';
   const emailError = document.getElementById('emailError');
-  const empresa = empresaEl?.value.trim() || '';
-  const email = emailEl?.value.trim() || '';
+
+  FormUtils.clearAlerts('step1Error', 'step1Success');
 
   if (!empresa || !email) {
-    alert('Preencha todos os campos obrigatórios.');
+    FormUtils.showAlert('step1Error', 'Preencha todos os campos obrigatórios.');
     return false;
   }
-  if (!isValidEmail(email)) {
-    emailError.textContent = 'Formato de e-mail inválido.';
+
+  if (!FormUtils.isValidEmail(email)) {
     emailError.classList.remove('d-none');
+    FormUtils.showAlert('step1Error', 'Formato de e-mail inválido.');
     return false;
   }
+
   emailError.classList.add('d-none');
+  FormUtils.showAlert('step1Success', 'Informações válidas!', 'success');
   return true;
 }
 
-
 export function getStep1Data() {
-    const empresa = document.getElementById('EmpresaContratante_EmpresaContratante').value.trim();
-    const email = document.getElementById('EmpresaContratante_Email').value.trim();
-    return { EmpresaContratante: empresa, EmailEmpresa: email };
+  return {
+    EmpresaContratante: document.getElementById('EmpresaContratante_EmpresaContratante').value.trim(),
+    EmailEmpresa: document.getElementById('EmpresaContratante_Email').value.trim()
+  };
 }

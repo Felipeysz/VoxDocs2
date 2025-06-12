@@ -1,7 +1,10 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Security.Claims;
-using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using VoxDocs.Data;
+using VoxDocs.Data.Repositories;
 using VoxDocs.DTO;
 using VoxDocs.Helpers;
 using VoxDocs.Models;
@@ -10,83 +13,74 @@ namespace VoxDocs.Services
 {
     public class UserService : IUserService
     {
-        private readonly VoxDocsContext _context;
+        private readonly IUserRepository _userRepository;
+        private readonly IUserBusinessRules _businessRules;
         private readonly IPlanosVoxDocsService _planosService;
 
         public UserService(
-            VoxDocsContext context,
+            IUserRepository userRepository,
+            IUserBusinessRules businessRules,
             IPlanosVoxDocsService planosService)
         {
-            _context = context;
+            _userRepository = userRepository;
+            _businessRules = businessRules;
             _planosService = planosService;
         }
 
-        public async Task<(UserModel user, string? limiteAdmin, string? limiteUsuario)> RegisterAsync(DTORegisterUser dto)
+        public async Task<(UserModel user, string? adminLimit, string? userLimit)> RegisterUserAsync(DTORegisterUser registerDto)
         {
+            await _businessRules.ValidateUniqueUserAsync(registerDto);
+            var (admins, users) = await _businessRules.ValidatePlanLimitAsync(registerDto);
 
             var plano = (await _planosService.GetAllPlansAsync())
-                .FirstOrDefault(p => p.Nome.Equals(dto.PlanoPago, StringComparison.OrdinalIgnoreCase));
+                .FirstOrDefault(p => p.Nome.Equals(registerDto.PlanoPago, StringComparison.OrdinalIgnoreCase));
 
-            var existing = await _context.Users
-                .Where(u => u.PlanoPago == dto.PlanoPago)
-                .ToListAsync();
+            string? adminLimit = null;
+            string? userLimit = null;
 
-            var admins = existing.Count(u => u.PermissionAccount == "admin");
-            var users = existing.Count(u => u.PermissionAccount == "user");
-
-            string? limAdmin = plano is null ? null :
-                dto.PermissionAccount == "admin"
-                    ? $"{admins + 1}/{plano.LimiteAdmin}" : null;
-
-            string? limUsuario = plano is null ? null :
-                dto.PermissionAccount == "user"
-                    ? $"{users + 1}/{plano.LimiteUsuario}" : null;
+            if (plano != null)
+            {
+                if (registerDto.PermissionAccount == "admin") adminLimit = $"{admins + 1}/{plano.LimiteAdmin}";
+                if (registerDto.PermissionAccount == "user") userLimit = $"{users + 1}/{plano.LimiteUsuario}";
+            }
 
             var user = new UserModel
             {
                 Id = Guid.NewGuid(),
-                Usuario = dto.Usuario,
-                Email = dto.Email,
-                Senha = PasswordHelper.HashPassword(dto.Senha),
-                PermissionAccount = dto.PermissionAccount,
-                EmpresaContratante = dto.EmpresaContratante,
-                PlanoPago = dto.PlanoPago,
-                LimiteAdmin = limAdmin,
-                LimiteUsuario = limUsuario
+                Usuario = registerDto.Usuario,
+                Email = registerDto.Email,
+                Senha = PasswordHelper.HashPassword(registerDto.Senha),
+                PermissionAccount = registerDto.PermissionAccount,
+                EmpresaContratante = registerDto.EmpresaContratante,
+                PlanoPago = registerDto.PlanoPago,
+                LimiteAdmin = adminLimit,
+                LimiteUsuario = userLimit
             };
 
-            _context.Users.Add(user);
-            await _context.SaveChangesAsync();
+            await _userRepository.AddUserAsync(user);
+            await _userRepository.SaveChangesAsync();
 
-            return (user, limAdmin, limUsuario);
+            return (user, adminLimit, userLimit);
         }
 
-        public async Task<UserModel> GetUserByEmailOrUsername(string email, string usuario)
+        public async Task<UserModel> GetUserByEmailOrUsernameAsync(string email, string username)
         {
-            var user = await _context.Users
-                .FirstOrDefaultAsync(u => u.Email == email || u.Usuario == usuario)
-                ?? throw new KeyNotFoundException("Usuário não encontrado.");
-
-            return user;
+            var user = await _userRepository.GetUserByEmailOrUsernameAsync(email, username);
+            return user ?? throw new KeyNotFoundException("Usuário não encontrado.");
         }
 
-        public async Task<UserModel> GetUserByNameAsync(string usuario)
+        public async Task<UserModel> GetUserByUsernameAsync(string username)
         {
-            var user = await _context.Users
-                .FirstOrDefaultAsync(u => u.Usuario == usuario)
-                ?? throw new KeyNotFoundException("Usuário não encontrado.");
-
-            return user;
+            var user = await _userRepository.GetUserByUsernameAsync(username);
+            return user ?? throw new KeyNotFoundException("Usuário não encontrado.");
         }
 
-        public async Task<ClaimsPrincipal> AuthenticateAsync(DTOLoginUser dto)
+        public async Task<ClaimsPrincipal> AuthenticateUserAsync(DTOLoginUser loginDto)
         {
-
-            var user = await _context.Users
-                .FirstOrDefaultAsync(u => u.Usuario == dto.Usuario)
+            var user = await _userRepository.GetUserByUsernameAsync(loginDto.Usuario)
                 ?? throw new KeyNotFoundException("Conta inexistente.");
 
-            if (user.Senha != PasswordHelper.HashPassword(dto.Senha))
+            if (user.Senha != PasswordHelper.HashPassword(loginDto.Senha))
                 throw new UnauthorizedAccessException("Senha incorreta.");
 
             var claims = new[]
@@ -99,72 +93,103 @@ namespace VoxDocs.Services
             return new ClaimsPrincipal(id);
         }
 
-        public async Task<string> GenerateResetTokenAsync(int userId)
+        public async Task<string> GeneratePasswordResetTokenAsync(Guid userId)
         {
-            var user = await _context.Users.FindAsync(userId)
-                ?? throw new KeyNotFoundException("Usuário não encontrado.");
+            await _businessRules.ValidateUserExistsAsync(userId);
+            var user = await _userRepository.GetUserByIdAsync(userId);
 
             var token = Guid.NewGuid().ToString("N");
             user.PasswordResetToken = token;
             user.PasswordResetTokenExpiration = DateTime.UtcNow.AddHours(1);
 
-            await _context.SaveChangesAsync();
+            await _userRepository.UpdateUserAsync(user);
+            await _userRepository.SaveChangesAsync();
+
             return token;
         }
 
-        public async Task ResetPasswordAsync(DTOResetPasswordWithToken dto)
+        public async Task RequestPasswordResetAsync(DTOResetPassword resetRequestDto)
         {
+            var user = await _userRepository.GetUserByEmailAsync(resetRequestDto.Email)
+                ?? throw new KeyNotFoundException("Email não cadastrado.");
+            
+            // This would typically send the reset email with the generated token
+            await GeneratePasswordResetTokenAsync(user.Id);
+        }
 
-            var user = await _context.Users
-                .FirstOrDefaultAsync(u =>
-                    u.PasswordResetToken == dto.Token &&
-                    u.PasswordResetTokenExpiration > DateTime.UtcNow)
+        public async Task ResetPasswordWithTokenAsync(DTOResetPasswordWithToken resetDto)
+        {
+            var user = await _userRepository.GetUserByResetTokenAsync(resetDto.Token)
                 ?? throw new KeyNotFoundException("Token inválido ou expirado.");
 
-            if (dto.NovaSenha == null)
-                return;
+            if (user.PasswordResetTokenExpiration < DateTime.UtcNow)
+                throw new UnauthorizedAccessException("Token expirado.");
 
-            user.Senha = PasswordHelper.HashPassword(dto.NovaSenha);
+            user.Senha = PasswordHelper.HashPassword(resetDto.NovaSenha);
             user.PasswordResetToken = null;
             user.PasswordResetTokenExpiration = null;
 
-            await _context.SaveChangesAsync();
+            await _userRepository.UpdateUserAsync(user);
+            await _userRepository.SaveChangesAsync();
         }
 
-        public async Task UpdateAsync(DTOUpdateUser dto)
+        public async Task ChangePasswordAsync(DTOUserLoginPasswordChange changeDto)
         {
-
-            var user = await _context.Users
-                .FirstOrDefaultAsync(u => u.Usuario == dto.Usuario)
+            var user = await _userRepository.GetUserByUsernameAsync(changeDto.Usuario)
                 ?? throw new KeyNotFoundException("Usuário não encontrado.");
 
-            user.Email = dto.Email;
-            user.PermissionAccount = dto.PermissionAccount;
-            user.EmpresaContratante = dto.EmpresaContratante;
-            user.PlanoPago = dto.PlanoPago;
+            if (user.Senha != PasswordHelper.HashPassword(changeDto.SenhaAntiga))
+                throw new UnauthorizedAccessException("Senha atual incorreta.");
 
-            await _context.SaveChangesAsync();
+            user.Senha = PasswordHelper.HashPassword(changeDto.NovaSenha);
+            await _userRepository.UpdateUserAsync(user);
+            await _userRepository.SaveChangesAsync();
         }
 
-        public async Task<List<UserModel>> GetUsersAsync()
+        public async Task UpdateUserAsync(DTOUpdateUser updateDto)
         {
-            return await _context.Users.ToListAsync();
-        }
-
-        public async Task<UserModel> GetUserByIdAsync(int id)
-        {
-            return await _context.Users.FindAsync(id)
-                ?? throw new KeyNotFoundException("Usuário não encontrado.");
-        }
-
-        public async Task DeleteUserAsync(int id)
-        {
-            var user = await _context.Users.FindAsync(id)
+            var user = await _userRepository.GetUserByUsernameAsync(updateDto.Usuario)
                 ?? throw new KeyNotFoundException("Usuário não encontrado.");
 
-            _context.Users.Remove(user);
-            await _context.SaveChangesAsync();
+            await _businessRules.ValidatePlanLimitForUpdateAsync(updateDto);
+
+            user.Email = updateDto.Email;
+            user.PermissionAccount = updateDto.PermissionAccount;
+            user.EmpresaContratante = updateDto.EmpresaContratante;
+            user.PlanoPago = updateDto.PlanoPago;
+
+            await _userRepository.UpdateUserAsync(user);
+            await _userRepository.SaveChangesAsync();
         }
 
+        public async Task<IEnumerable<UserModel>> GetAllUsersAsync() => 
+            await _userRepository.GetAllUsersAsync();
+
+        public async Task<UserModel> GetUserByIdAsync(Guid userId)
+        {
+            await _businessRules.ValidateUserExistsAsync(userId);
+            return await _userRepository.GetUserByIdAsync(userId);
+        }
+
+        public async Task DeleteUserAsync(Guid userId)
+        {
+            await _businessRules.ValidateUserExistsAsync(userId);
+            var user = await _userRepository.GetUserByIdAsync(userId);
+            
+            await _userRepository.DeleteUserAsync(user);
+            await _userRepository.SaveChangesAsync();
+        }
+
+        public async Task<bool> IsEmailAvailableAsync(string email)
+        {
+            var user = await _userRepository.GetUserByEmailAsync(email);
+            return user == null;
+        }
+
+        public async Task<bool> IsUsernameAvailableAsync(string username)
+        {
+            var user = await _userRepository.GetUserByUsernameAsync(username);
+            return user == null;
+        }
     }
 }

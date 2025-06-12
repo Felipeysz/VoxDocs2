@@ -1,4 +1,5 @@
 using VoxDocs.DTO;
+using System.Threading.Tasks;
 
 namespace VoxDocs.Services
 {
@@ -7,6 +8,6 @@ namespace VoxDocs.Services
         Task<string> CriarPlanoNome(string nomePlanoPlain, string periodicidade);
         Task<bool> FinalizarPagamentoAsync(FinalizarPagamentoDto dto);
         Task<TokenResponseDto> TokenPagoValidoAsync(TokenRequestDto dto);
-        Task<PlanoInfoDto> ObterDadosPlanoAsync(string token);
+        Task<ValidationResult<PlanoInfoDto>> ObterDadosPlanoAsync(string token);
     }
 }

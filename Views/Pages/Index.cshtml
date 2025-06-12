@@ -5,13 +5,99 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>VoxDocs • Bem-vindo</title>
+    <title>VoxDocs • Planos e Preços</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/css/styleIndex.css" />
     <link rel="stylesheet" href="~/css/ChatVoxStyles/voice-modalstyle.css" />
+    <style>
+        /* Estilos mantidos iguais */
+        .plan-card {
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+            background-color: #fff;
+        }
+        
+        .plan-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .plan-name {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #f1f1f1;
+        }
+        
+        .plan-price {
+            font-weight: 700;
+            color: #6a3093; /* Roxo */
+        }
+        
+        .plan-features li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .material-symbols-outlined {
+            color: #6a3093; /* Roxo */
+        }
+        
+        .btn-subscribe {
+            background-color: #6a3093; /* Roxo */
+            color: white;
+            font-weight: 600;
+            padding: 0.5rem 1.5rem;
+        }
+        
+        .btn-subscribe:hover {
+            background-color: #4a1d66; /* Roxo mais escuro */
+        }
+        
+        .highlight-card {
+            border: 2px solid #6a3093; /* Roxo */
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .highlight-badge {
+            position: absolute;
+            top: 10px;
+            right: -30px;
+            background: #6a3093; /* Roxo */
+            color: white;
+            padding: 0.25rem 2rem;
+            transform: rotate(45deg);
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+        
+        .comparison-table {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .comparison-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+        }
+        
+        .feature-check {
+            color: #2ecc71;
+        }
+        
+        .feature-x {
+            color: #e74c3c;
+        }
+    </style>
 </head>
 <body>
 
@@ -50,61 +136,273 @@
     <!-- Navbar -->
     @await Html.PartialAsync("_NavbarPartial")
 
-        <!-- Hero -->
-    <section class="hero text-white text-center py-5" data-aos="fade-down">
+    <!-- Hero -->
+    <section class="hero text-white text-center py-5" data-aos="fade-down" style="background: linear-gradient(135deg, #6a3093, #2c3e50);">
         <div class="container">
-            <h1>Sua Solução de Gestão de Documentos</h1>
-            <p class="lead">VoxDocs organiza, armazena e protege seus arquivos de forma simples e eficiente.</p>
-            <a asp-controller="LoginMvc" asp-action="Login" class="btn btn-primary mt-3" data-aos="zoom-in" data-aos-delay="200">
-                Começar Agora
-            </a>
+            <h1 class="display-4 fw-bold mb-4">Encontre o Plano Perfeito para Você</h1>
+            <p class="lead fs-4">Escolha a solução que melhor atende às necessidades da sua empresa</p>
+            <div class="d-flex justify-content-center gap-3 mt-4">
+                <a asp-controller="LoginMvc" asp-action="Login" class="btn btn-light btn-lg px-4" data-aos="zoom-in" data-aos-delay="200">
+                    Já sou cliente
+                </a>
+                <a href="#planos" class="btn btn-outline-light btn-lg px-4" data-aos="zoom-in" data-aos-delay="300">
+                    Ver Planos
+                </a>
+            </div>
         </div>
     </section>
 
-    <!-- Hero -->
-<section class="plans py-5" data-aos="fade-up">
-    <div class="container">
-        <h2 class="text-center mb-5">Escolha seu Plano</h2>
-        <div class="row gy-4 mb-5">
-
-            @foreach (var plano in Model.Planos)
-            {
-                <div class="col-md-3" data-aos="fade-up">
-                    <div class="plan-card h-100 p-4 border rounded shadow-sm text-center">
-                        <div class="plan-name fw-bold">@plano.Nome @(!string.IsNullOrEmpty(plano.Periodicidade) ? $"({plano.Periodicidade})" : "")</div>
-
-                        <div class="plan-price display-6 mb-3">
-                            @(plano.Preco == 0 ? "Gratuito" : $"R$ {plano.Preco:F2}")
-                        </div>
-
-                        <ul class="list-unstyled mb-4">
-                            <li>
-                                <span class="material-symbols-outlined">storage</span>
-                                @(plano.ArmazenamentoDisponivel.HasValue ? $"{plano.ArmazenamentoDisponivel} GB Armazenamento" : "Não disponível")
-                            </li>
-                            <li>
-                                <span class="material-symbols-outlined">people</span>
-                                @Html.Raw(plano.LimiteUsuario.HasValue
-                                    ? (plano.LimiteUsuario.Value == -1 ? "Ilimitado" : $"{plano.LimiteUsuario} Usuários")
-                                    : "Não disponível")
-                            </li>
-                        </ul>
-
-                        <form asp-controller="PagamentoMvc"
-                            asp-action="CriarPlano"
-                            method="post"
-                            class="d-grid gap-2">
-                            <input type="hidden" name="nomePlano" value="@plano.Nome" />
-                            <input type="hidden" name="periodicidade" value="@plano.Periodicidade" />
-                            <button type="submit" class="btn btn-subscribe">Selecionar</button>
-                        </form>
+    <!-- Destaques -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="text-center p-4 h-100 bg-white rounded shadow-sm">
+                        <span class="material-symbols-outlined display-4 mb-3" style="color: #6a3093;">security</span>
+                        <h3>Segurança</h3>
+                        <p class="mb-0">Todos os seus documentos protegidos com criptografia de ponta a ponta.</p>
                     </div>
                 </div>
-            }
-
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-center p-4 h-100 bg-white rounded shadow-sm">
+                        <span class="material-symbols-outlined display-4 mb-3" style="color: #6a3093;">sync</span>
+                        <h3>Sincronização</h3>
+                        <p class="mb-0">Acesse seus arquivos de qualquer dispositivo, a qualquer momento.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-center p-4 h-100 bg-white rounded shadow-sm">
+                        <span class="material-symbols-outlined display-4 mb-3" style="color: #6a3093;">support_agent</span>
+                        <h3>Suporte</h3>
+                        <p class="mb-0">Nossa equipe está disponível 24/7 para ajudar com qualquer dúvida.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+
+    <!-- Planos -->
+    <section id="planos" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5 display-5 fw-bold">Nossos Planos</h2>
+            <p class="text-center mb-5 lead">Escolha o plano que melhor se adapta às necessidades da sua empresa</p>
+            
+            <div class="row gy-4 mb-5">
+                @foreach (var plano in Model.Planos)
+                {
+                    <div class="col-md-3" data-aos="fade-up">
+                        <div class="plan-card h-100 p-4 rounded-3 @(plano.Nome.Contains("Premium") ? "highlight-card" : "")">
+                            @if (plano.Nome.Contains("Premium"))
+                            {
+                                <div class="highlight-badge">RECOMENDADO</div>
+                            }
+                            
+                            <div class="plan-name">@plano.Nome @(!string.IsNullOrEmpty(plano.Periodicidade) ? $"({plano.Periodicidade})" : "")</div>
+
+                            <div class="plan-price mb-4">
+                                @(plano.Preco == 0 ? "Grátis" : $"R$ {plano.Preco:F2}")
+                                <small class="text-muted d-block">@(plano.Preco > 0 ? "por mês" : "para sempre")</small>
+                            </div>
+
+                            <ul class="plan-features list-unstyled mb-4">
+                                <li>
+                                    <span class="material-symbols-outlined">storage</span>
+                                    @(plano.ArmazenamentoDisponivel.HasValue ? 
+                                        (plano.ArmazenamentoDisponivel.Value == -1 ? "Armazenamento Ilimitado" : $"{plano.ArmazenamentoDisponivel} GB de Armazenamento") : 
+                                        "Sem armazenamento")
+                                </li>
+                                <li>
+                                    <span class="material-symbols-outlined">people</span>
+                                    @(plano.LimiteUsuario.HasValue ?
+                                        (plano.LimiteUsuario.Value == -1 ? "Usuários Ilimitados" : $"Até {plano.LimiteUsuario} usuários") :
+                                        "Sem limite de usuários")
+                                </li>
+                                <li>
+                                    <span class="material-symbols-outlined">admin_panel_settings</span>
+                                    @(plano.LimiteAdmin.HasValue ?
+                                        (plano.LimiteAdmin.Value == -1 ? "Administradores Ilimitados" : $"Até {plano.LimiteAdmin} administradores") :
+                                        "Sem limite de administradores")
+                                </li>
+                                <li>
+                                    <span class="material-symbols-outlined">description</span>
+                                    Documentos Ilimitados
+                                </li>
+                            </ul>
+
+                            <form asp-controller="PagamentoMvc"
+                                asp-action="CriarPlano"
+                                method="post"
+                                class="d-grid gap-2 mt-auto">
+                                <input type="hidden" name="nomePlano" value="@plano.Nome" />
+                                <input type="hidden" name="periodicidade" value="@plano.Periodicidade" />
+                                <button type="submit" class="btn btn-subscribe">
+                                    @(plano.Preco == 0 ? "Começar Grátis" : "Assinar Agora")
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparação -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5 display-5 fw-bold">Compare os Planos</h2>
+            
+            <div class="comparison-table" data-aos="fade-up">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th style="width: 25%;">Recurso</th>
+                            @foreach (var plano in Model.Planos)
+                            {
+                                <th class="text-center" style="width: 18.75%;">@plano.Nome</th>
+                            }
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Armazenamento</td>
+                            @foreach (var plano in Model.Planos)
+                            {
+                                <td class="text-center">@(plano.ArmazenamentoDisponivel.HasValue ? 
+                                    (plano.ArmazenamentoDisponivel.Value == -1 ? "Ilimitado" : $"{plano.ArmazenamentoDisponivel} GB") : 
+                                    "-")</td>
+                            }
+                        </tr>
+                        <tr>
+                            <td>Usuários</td>
+                            @foreach (var plano in Model.Planos)
+                            {
+                                <td class="text-center">@(plano.LimiteUsuario.HasValue ? 
+                                    (plano.LimiteUsuario.Value == -1 ? "Ilimitado" : $"{plano.LimiteUsuario}") : 
+                                    "Ilimitado")</td>
+                            }
+                        </tr>
+                        <tr>
+                            <td>Administradores</td>
+                            @foreach (var plano in Model.Planos)
+                            {
+                                <td class="text-center">@(plano.LimiteAdmin.HasValue ? 
+                                    (plano.LimiteAdmin.Value == -1 ? "Ilimitado" : $"{plano.LimiteAdmin}") : 
+                                    "Ilimitado")</td>
+                            }
+                        </tr>
+                        <tr>
+                            <td>Documentos</td>
+                            @foreach (var plano in Model.Planos)
+                            {
+                                <td class="text-center">Ilimitado</td>
+                            }
+                        </tr>
+                        <tr>
+                            <td>Suporte Prioritário</td>
+                            @foreach (var plano in Model.Planos)
+                            {
+                                <td class="text-center">
+                                    <span class="@(plano.Nome.Contains("Premium") ? "feature-check" : "feature-x")">
+                                        @if (plano.Nome.Contains("Premium"))
+                                        {
+                                            <span class="material-symbols-outlined">check_circle</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="material-symbols-outlined">cancel</span>
+                                        }
+                                    </span>
+                                </td>
+                            }
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Perguntas Frequentes -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5 display-5 fw-bold">Perguntas Frequentes</h2>
+            
+            <div class="accordion" id="faqAccordion" data-aos="fade-up">
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                            Posso mudar de plano depois?
+                        </button>
+                    </h3>
+                    <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Sim, você pode mudar de plano a qualquer momento. O valor será ajustado proporcionalmente e a diferença será creditada ou cobrada na próxima fatura.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                            Há cobrança por cancelamento?
+                        </button>
+                    </h3>
+                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Não há cobrança por cancelamento. Você pode cancelar seu plano a qualquer momento sem taxas adicionais.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                            Quais formas de pagamento são aceitas?
+                        </button>
+                    </h3>
+                    <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Aceitamos todas as principais bandeiras de cartão de crédito (Visa, Mastercard, American Express, Elo), além de boleto bancário e PIX.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                            Como funciona o armazenamento nos planos?
+                        </button>
+                    </h3>
+                    <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            O armazenamento varia conforme o plano escolhido. Planos básicos oferecem capacidade limitada, enquanto planos superiores oferecem mais espaço ou até armazenamento ilimitado para seus documentos.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                            Posso adicionar mais usuários depois?
+                        </button>
+                    </h3>
+                    <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Sim, você pode adicionar mais usuários a qualquer momento. Caso ultrapasse o limite do seu plano atual, será sugerida a migração para um plano superior.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="py-5" style="background: #6a3093; color: white;">
+        <div class="container text-center">
+            <h2 class="display-5 fw-bold mb-4">Pronto para transformar a gestão de documentos da sua empresa?</h2>
+            <p class="lead mb-5">Comece agora mesmo e experimente gratuitamente por 14 dias.</p>
+            <a href="#planos" class="btn btn-light btn-lg px-5 py-3">Escolher Plano</a>
+        </div>
+    </section>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -112,6 +410,25 @@
     <script src="~/js/VoxDocsScripts/voice-modalScript.js"></script>
     <script>
         AOS.init({ once: true });
+        
+        // Destaque automático para cards ao rolar
+        document.addEventListener('DOMContentLoaded', function() {
+            const planCards = document.querySelectorAll('.plan-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('shadow-lg');
+                    } else {
+                        entry.target.classList.remove('shadow-lg');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            planCards.forEach(card => {
+                observer.observe(card);
+            });
+        });
     </script>
 </body>
 </html>

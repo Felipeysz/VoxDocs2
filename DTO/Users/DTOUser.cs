@@ -1,5 +1,16 @@
 namespace VoxDocs.DTO
 {
+    public class DTOUserInfo
+    {
+        public required string Usuario { get; set; }
+        public required string Email { get; set; }
+        public required string PermissionAccount { get; set; } // "admin" ou "user"
+        public required string EmpresaContratante { get; set; }
+        public required string Plano { get; set; }
+        public DateTime? DataCriacao { get; set; }
+        public DateTime? UltimoLogin { get; set; }
+        public bool? Ativo { get; set; }
+    }
     public class DTORegisterUser
     {
         public required string Usuario { get; set; }
@@ -9,7 +20,6 @@ namespace VoxDocs.DTO
         public required string EmpresaContratante { get; set; }
         public string? PlanoPago { get; set; }
     }
-
     public class DTOLoginUser
     {
         public required string Usuario { get; set; }
@@ -54,5 +64,18 @@ namespace VoxDocs.DTO
     {
         public required string Mensagem { get; set; }
         public required string Detalhes { get; set; }
+    }
+
+    public class AdminStatsDTO
+    {
+        public int TotalUsers { get; set; }
+        public int ActiveUsers { get; set; }
+        public List<DTOUserInfo> RecentUsers { get; set; }
+    }
+
+    public class UserStorageDTO
+    {
+        public int StorageUsage { get; set; }
+        public int StorageLimit { get; set; }
     }
 }
