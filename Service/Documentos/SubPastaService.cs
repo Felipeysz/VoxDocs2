@@ -1,7 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using VoxDocs.Data;
 using VoxDocs.DTO;
 using VoxDocs.Models;
@@ -80,6 +77,7 @@ namespace VoxDocs.Services
         {
             var subPasta = new SubPastaModel
             {
+                Id = Guid.NewGuid(), // Adicione isso
                 NomeSubPasta = dto.NomeSubPasta,
                 NomePastaPrincipal = dto.NomePastaPrincipal,
                 EmpresaContratante = dto.EmpresaContratante

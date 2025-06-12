@@ -1,5 +1,3 @@
-
-
 using VoxDocs.DTO;
 
 namespace VoxDocs.Services

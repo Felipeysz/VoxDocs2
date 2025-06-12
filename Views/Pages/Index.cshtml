@@ -1,7 +1,4 @@
 @model VoxDocs.ViewModels.PlanosIndexViewModel
-@{
-    Layout = null;
-}
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -9,18 +6,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>VoxDocs • Bem-vindo</title>
-
-    <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-    
-    <!-- Google Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-    
-    <!-- AOS Animate -->
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="~/css/styleIndex.css" />
     <link rel="stylesheet" href="~/css/ChatVoxStyles/voice-modalstyle.css" />
 </head>
@@ -61,7 +50,7 @@
     <!-- Navbar -->
     @await Html.PartialAsync("_NavbarPartial")
 
-    <!-- Hero -->
+        <!-- Hero -->
     <section class="hero text-white text-center py-5" data-aos="fade-down">
         <div class="container">
             <h1>Sua Solução de Gestão de Documentos</h1>
@@ -72,74 +61,50 @@
         </div>
     </section>
 
-    <!-- Planos -->
-    <section class="plans py-5" data-aos="fade-up">
-        <div class="container">
-            <h2 class="text-center mb-5">Escolha seu Plano</h2>
+    <!-- Hero -->
+<section class="plans py-5" data-aos="fade-up">
+    <div class="container">
+        <h2 class="text-center mb-5">Escolha seu Plano</h2>
+        <div class="row gy-4 mb-5">
 
-            <div class="row gy-4 mb-5">
-                <!-- Plano Básico -->
-                <div class="col-md-4" data-aos="fade-up">
+            @foreach (var plano in Model.Planos)
+            {
+                <div class="col-md-3" data-aos="fade-up">
                     <div class="plan-card h-100 p-4 border rounded shadow-sm text-center">
-                        <div class="plan-name fw-bold">Planos Básicos</div>
-                        <div class="plan-price display-6 mb-3">A partir de R$ @Model.MenorPrecoBasico.ToString("F2")</div>
+                        <div class="plan-name fw-bold">@plano.Nome @(!string.IsNullOrEmpty(plano.Periodicidade) ? $"({plano.Periodicidade})" : "")</div>
+
+                        <div class="plan-price display-6 mb-3">
+                            @(plano.Preco == 0 ? "Gratuito" : $"R$ {plano.Preco:F2}")
+                        </div>
+
                         <ul class="list-unstyled mb-4">
-                            <li><span class="material-symbols-outlined">storage</span> Armazenamento conforme plano</li>
-                            <li><span class="material-symbols-outlined">people</span> Usuários conforme plano</li>
-                            <li><span class="material-symbols-outlined">key</span> Tokens ilimitados</li>
+                            <li>
+                                <span class="material-symbols-outlined">storage</span>
+                                @(plano.ArmazenamentoDisponivel.HasValue ? $"{plano.ArmazenamentoDisponivel} GB Armazenamento" : "Não disponível")
+                            </li>
+                            <li>
+                                <span class="material-symbols-outlined">people</span>
+                                @Html.Raw(plano.LimiteUsuario.HasValue
+                                    ? (plano.LimiteUsuario.Value == -1 ? "Ilimitado" : $"{plano.LimiteUsuario} Usuários")
+                                    : "Não disponível")
+                            </li>
                         </ul>
-                        <a asp-controller="PagamentosMvc"
-                        asp-action="SelecionarPlano"
-                        asp-route-planoNome="Plano Básico Mensal"
-                        class="btn btn-subscribe">
-                            Selecionar
-                        </a>
+
+                        <form asp-controller="PagamentoMvc"
+                            asp-action="CriarPlano"
+                            method="post"
+                            class="d-grid gap-2">
+                            <input type="hidden" name="nomePlano" value="@plano.Nome" />
+                            <input type="hidden" name="periodicidade" value="@plano.Periodicidade" />
+                            <button type="submit" class="btn btn-subscribe">Selecionar</button>
+                        </form>
                     </div>
                 </div>
+            }
 
-                <!-- Plano Intermediário -->
-                <div class="col-md-4" data-aos="fade-up">
-                    <div class="plan-card h-100 p-4 border rounded shadow-sm text-center">
-                        <div class="plan-name fw-bold">Planos Intermediários</div>
-                        <div class="plan-price display-6 mb-3">A partir de R$ @Model.MenorPrecoIntermediario.ToString("F2")</div>
-                        <ul class="list-unstyled mb-4">
-                            <li><span class="material-symbols-outlined">storage</span> Armazenamento conforme plano</li>
-                            <li><span class="material-symbols-outlined">people</span> Usuários conforme plano</li>
-                            <li><span class="material-symbols-outlined">key</span> Tokens ilimitados</li>
-                        </ul>
-                        <a asp-controller="PagamentosMvc"
-                        asp-action="SelecionarPlano"
-                        asp-route-planoNome="Plano Intermediário Mensal"
-                        class="btn btn-subscribe">
-                            Selecionar
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Plano Avançado -->
-                <div class="col-md-4" data-aos="fade-up">
-                    <div class="plan-card h-100 p-4 border rounded shadow-sm text-center">
-                        <div class="plan-name fw-bold">Planos Avançados</div>
-                        <div class="plan-price display-6 mb-3">A partir de R$ @Model.MenorPrecoAvancado.ToString("F2")</div>
-                        <ul class="list-unstyled mb-4">
-                            <li><span class="material-symbols-outlined">storage</span> Armazenamento conforme plano</li>
-                            <li><span class="material-symbols-outlined">people</span> Usuários conforme plano</li>
-                            <li><span class="material-symbols-outlined">key</span> Tokens ilimitados</li>
-                        </ul>
-                        <a asp-controller="PagamentosMvc"
-                        asp-action="SelecionarPlano"
-                        asp-route-planoNome="Plano Avançado Mensal"
-                        class="btn btn-subscribe">
-                            Selecionar
-                        </a>
-                    </div>
-                </div>
-            </div>
         </div>
-    </section>
-
-    <!-- Footer -->
-    @await Html.PartialAsync("_FooterPartial")
+    </div>
+</section>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

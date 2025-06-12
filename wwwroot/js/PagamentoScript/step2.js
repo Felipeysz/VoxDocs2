@@ -1,208 +1,191 @@
-function initStep2() {
-  const pastasContainer = document.getElementById('pastasPrincipaisContainer');
-  const btnAddPasta = document.getElementById('btnAdicionarPastaPrincipal');
-  const templatePasta = document.getElementById('templatePastaPrincipal');
-  const templateSubpasta = document.getElementById('templateSubpasta');
+import { removeStep2EventListeners } from './ultilities.js';
 
-  if (!btnAddPasta || !pastasContainer) {
-    console.warn('Elementos de Step 2 não encontrados');
+// Exportar funções de evento para remoção
+export function addPastaHandler() {
+  clearStep2Messages();
+  const el = createPastaElement({ Nome: '', Subpastas: [] }, document.getElementById('templatePastaPrincipal'), document.getElementById('templateSubpasta'));
+  document.getElementById('pastasPrincipaisContainer').appendChild(el);
+  configurarEventosPasta(el, document.getElementById('templateSubpasta'));
+}
+
+export function addSubpastaHandler(pastaEl) {
+  clearStep2Messages();
+  pastaEl.querySelector('.subpastas-container').appendChild(createSubpastaElement('', document.getElementById('templateSubpasta')));
+}
+
+export function removePastaHandler() {
+  const pastaEl = this.closest('.pasta-principal');
+  if (document.querySelectorAll('#pastasPrincipaisContainer .pasta-principal').length <= 1) {
+    showStep2Error('Deve existir pelo menos uma pasta principal.');
+  } else {
+    clearStep2Messages();
+    pastaEl.remove();
+  }
+}
+
+export function removeSubpastaHandler() {
+  const subpastaEl = this.closest('.subpasta-item');
+  subpastaEl.remove();
+}
+
+export function initStep2(data) {
+  const container = document.getElementById('pastasPrincipaisContainer');
+  const btnAddPasta = document.getElementById('btnAdicionarPastaPrincipal');
+  const tplPasta = document.getElementById('templatePastaPrincipal');
+  const tplSubpasta = document.getElementById('templateSubpasta');
+
+  if (!container || !btnAddPasta || !tplPasta || !tplSubpasta) {
+    console.warn('Step 2: Elementos essenciais da UI não foram encontrados.');
     return;
   }
 
-  // Remover listeners antigos para evitar duplicação
-  removeOldEventListeners();
-
-  // Recarregar dados salvos
-  const salvo = formData.PastasPrincipais || [];
-  salvo.forEach(objPasta => {
-    const pastaElement = createPastaElement(objPasta, templatePasta, templateSubpasta);
-    pastasContainer.appendChild(pastaElement);
-    configurarEventosPasta(pastaElement);
-  });
-
-  // Criar pasta inicial se não houver dados salvos
-  if (salvo.length === 0) {
-    const pastaElement = createPastaElement({ Nome: '', Subpastas: [] }, templatePasta, templateSubpasta);
-    pastasContainer.appendChild(pastaElement);
-    configurarEventosPasta(pastaElement);
-  }
-
-  // Configurar evento para adicionar nova pasta
-  btnAddPasta.addEventListener('click', () => {
-    clearStep2Messages();
-    const pastaElement = createPastaElement({ Nome: '', Subpastas: [] }, templatePasta, templateSubpasta);
-    pastasContainer.appendChild(pastaElement);
-    configurarEventosPasta(pastaElement);
-  });
-}
-
-function createPastaElement(objPasta, templatePasta, templateSubpasta) {
-  const clone = templatePasta.content.cloneNode(true);
-  const pastaElement = clone.querySelector('.pasta-principal');
-
-  // Configurar nome da pasta
-  const inputPasta = pastaElement.querySelector('.pasta-nome');
-  inputPasta.value = objPasta.Nome || '';
-
-  // Configurar subpastas
-  const subContainer = pastaElement.querySelector('.subpastas-container');
-  (objPasta.Subpastas || []).forEach(nomeSub => {
-    const subpastaElement = createSubpastaElement(nomeSub, templateSubpasta);
-    subContainer.appendChild(subpastaElement);
-  });
-
-  return pastaElement;
-}
-
-function createSubpastaElement(nomeSub, templateSubpasta) {
-  const cloneSub = templateSubpasta.content.cloneNode(true);
-  const subpastaElement = cloneSub.querySelector('.subpasta-item');
-  const inputSub = subpastaElement.querySelector('.subpasta-nome');
-  inputSub.value = nomeSub || '';
-
-  // Configurar evento de remoção
-  const btnRemSub = subpastaElement.querySelector('.btn-remover-subpasta');
-  btnRemSub.addEventListener('click', () => subpastaElement.remove());
-
-  // Configurar validação
-  inputSub.addEventListener('blur', () => {
-    const inputPasta = subpastaElement.closest('.pasta-principal').querySelector('.pasta-nome');
-    validarSubpastasUnicas(inputPasta.value, inputSub);
-  });
-
-  return subpastaElement;
-}
-
-function configurarEventosPasta(pastaElement) {
-  const btnAddSubpasta = pastaElement.querySelector('.btn-adicionar-subpasta');
-  const btnRemoverPasta = pastaElement.querySelector('.btn-remover-pasta');
-  const inputPasta = pastaElement.querySelector('.pasta-nome');
-
-  // Adicionar subpasta
-  btnAddSubpasta.addEventListener('click', () => {
-    clearStep2Messages();
-    const subpastaElement = createSubpastaElement('', document.getElementById('templateSubpasta'));
-    pastaElement.querySelector('.subpastas-container').appendChild(subpastaElement);
-  });
-
-  // Remover pasta principal
-  btnRemoverPasta.addEventListener('click', () => {
-    const todasPastas = document.querySelectorAll('#pastasPrincipaisContainer .pasta-principal');
-    if (todasPastas.length === 1) {
-      showStep2Error('Deve existir ao menos uma pasta principal.');
-      return;
-    }
-    clearStep2Messages();
-    pastaElement.remove();
-  });
-
-  // Validar subpastas ao alterar nome da pasta
-  inputPasta.addEventListener('blur', () => {
-    validarTodasSubpastas(pastaElement);
-  });
-}
-
-function validarSubpastasUnicas(nomePasta, inputSubpasta) {
-  if (!nomePasta || !inputSubpasta.value) return;
-
-  const pastaElement = inputSubpasta.closest('.pasta-principal');
-  const subpastas = pastaElement.querySelectorAll('.subpasta-nome');
-  let duplicado = false;
-
-  subpastas.forEach(input => {
-    if (input === inputSubpasta) return;
-    if (input.value === inputSubpasta.value) duplicado = true;
-  });
-
-  if (duplicado) {
-    showInvalidFeedback(inputSubpasta, 'Já existe uma subpasta com este nome nesta pasta.');
-    showStep2Error('Existem subpastas duplicadas.');
-  } else {
-    clearInvalidFeedback(inputSubpasta);
-    clearStep2Messages();
-  }
-}
-
-function validarTodasSubpastas(pastaElement) {
-  const subpastas = pastaElement.querySelectorAll('.subpasta-nome');
-  subpastas.forEach(input => input.dispatchEvent(new Event('blur')));
-}
-
-function showInvalidFeedback(input, message) {
-  input.classList.add('is-invalid');
-  const errorDiv = document.createElement('div');
-  errorDiv.className = 'invalid-feedback';
-  errorDiv.textContent = message;
-  input.parentNode.appendChild(errorDiv);
-}
-
-function clearInvalidFeedback(input) {
-  input.classList.remove('is-invalid');
-  input.nextElementSibling?.remove();
-}
-
-function showStep2Error(mensagem) {
-  const errorDiv = document.getElementById('step2Error');
-  const successDiv = document.getElementById('step2Success');
-  if (!errorDiv || !successDiv) return;
-  errorDiv.textContent = mensagem;
-  errorDiv.classList.remove('d-none');
-  successDiv.textContent = '';
-  successDiv.classList.add('d-none');
-}
-
-function showStep2Success(mensagem) {
-  const errorDiv = document.getElementById('step2Error');
-  const successDiv = document.getElementById('step2Success');
-  if (!errorDiv || !successDiv) return;
-  successDiv.textContent = mensagem;
-  successDiv.classList.remove('d-none');
-  errorDiv.textContent = '';
-  errorDiv.classList.add('d-none');
-}
-
-function clearStep2Messages() {
-  const errorDiv = document.getElementById('step2Error');
-  const successDiv = document.getElementById('step2Success');
-  if (!errorDiv || !successDiv) return;
-  errorDiv.textContent = '';
-  errorDiv.classList.add('d-none');
-  successDiv.textContent = '';
-  successDiv.classList.add('d-none');
-}
-
-function validateStep2() {
+  // Limpa listeners antigos e o container
+  removeStep2EventListeners();
   clearStep2Messages();
+  container.innerHTML = '';
 
-  const pastaCards = document.querySelectorAll('#pastasPrincipaisContainer .pasta-principal');
-  if (pastaCards.length === 0) {
-    showStep2Error('É obrigatório criar ao menos uma pasta principal.');
+  // Garante que o listener seja adicionado apenas uma vez
+  const newBtn = btnAddPasta.cloneNode(true);
+  btnAddPasta.parentNode.replaceChild(newBtn, btnAddPasta);
+  newBtn.addEventListener('click', addPastaHandler);
+
+  // Carrega do formData ou cria uma pasta inicial
+  const pastasSalvas = data.PastasPrincipais || [];
+  if (pastasSalvas.length > 0) {
+    pastasSalvas.forEach(pastaObj => {
+      const el = createPastaElement(pastaObj, tplPasta, tplSubpasta);
+      container.appendChild(el);
+      configurarEventosPasta(el, tplSubpasta);
+    });
+  } else {
+    // Inicia com uma pasta principal vazia
+    addPastaHandler();
+  }
+}
+
+
+export function validateStep2() {
+  clearStep2Messages();
+  const cards = document.querySelectorAll('#pastasPrincipaisContainer .pasta-principal');
+  const nomesPastasPrincipais = new Set();
+
+  if (cards.length === 0) {
+    showStep2Error('É obrigatório criar pelo menos uma pasta principal.');
     return false;
   }
 
-  for (let card of pastaCards) {
-    const nomePasta = card.querySelector('.pasta-nome')?.value.trim() || '';
-    if (!nomePasta) {
-      showStep2Error('Cada pasta principal deve ter um nome preenchido.');
+  for (const card of cards) {
+    const nomeInput = card.querySelector('.pasta-nome');
+    const nome = nomeInput.value.trim();
+
+    if (!nome) {
+      showStep2Error('Todas as pastas principais devem ter um nome.');
+      nomeInput.focus();
       return false;
     }
 
-    const subEls = card.querySelectorAll('.subpasta-nome');
-    const existentes = Array.from(subEls).filter(inp => inp.value.trim() !== '');
-    if (existentes.length === 0) {
-      showStep2Error(`A pasta "${nomePasta}" deve ter ao menos uma subpasta.`);
+    if (nomesPastasPrincipais.has(nome.toLowerCase())) {
+      showStep2Error(`O nome da pasta principal "${nome}" está duplicado.`);
+      nomeInput.focus();
       return false;
+    }
+    nomesPastasPrincipais.add(nome.toLowerCase());
+
+    const subpastaInputs = card.querySelectorAll('.subpasta-nome');
+    const nomesSubpastas = new Set();
+
+    if (subpastaInputs.length === 0) {
+      showStep2Error(`A pasta "${nome}" deve ter pelo menos uma subpasta.`);
+      return false;
+    }
+
+    for (const subInput of subpastaInputs) {
+      const subNome = subInput.value.trim();
+      if (!subNome) {
+        showStep2Error(`A pasta "${nome}" tem uma subpasta sem nome.`);
+        subInput.focus();
+        return false;
+      }
+      if (nomesSubpastas.has(subNome.toLowerCase())) {
+        showStep2Error(`A subpasta "${subNome}" está duplicada dentro de "${nome}".`);
+        subInput.focus();
+        return false;
+      }
+      nomesSubpastas.add(subNome.toLowerCase());
     }
   }
 
-  showStep2Success('Tudo certo em Gerenciamento de Pastas.');
+  showStep2Success('Estrutura de pastas validada com sucesso!');
   return true;
 }
 
-function removeOldEventListeners() {
-  $(document).off('click', '#btnAdicionarPastaPrincipal');
-  $(document).off('click', '.btn-remover-pasta');
-  $(document).off('click', '.btn-remover-subpasta');
-  $(document).off('click', '.btn-adicionar-subpasta');
-  $(document).off('blur', '.subpasta-nome');
+
+export function getStep2Data() {
+  const pastasData = [];
+  const cards = document.querySelectorAll('#pastasPrincipaisContainer .pasta-principal');
+
+  cards.forEach(card => {
+    const nomePasta = card.querySelector('.pasta-nome').value.trim();
+    const subpastas = [];
+    card.querySelectorAll('.subpasta-nome').forEach(subInput => {
+      const nomeSub = subInput.value.trim();
+      if (nomeSub) {
+        subpastas.push(nomeSub);
+      }
+    });
+
+    if (nomePasta) {
+      pastasData.push({
+        Nome: nomePasta,
+        Subpastas: subpastas
+      });
+    }
+  });
+
+  return pastasData;
+}
+
+// --- Funções Auxiliares ---
+
+function createPastaElement(obj, tplPasta, tplSub) {
+  const clone = tplPasta.content.cloneNode(true);
+  const el = clone.querySelector('.pasta-principal');
+  el.querySelector('.pasta-nome').value = obj.Nome || '';
+  const subContainer = el.querySelector('.subpastas-container');
+  (obj.Subpastas || []).forEach(nomeSub => {
+    subContainer.appendChild(createSubpastaElement(nomeSub, tplSub));
+  });
+  return el;
+}
+
+function createSubpastaElement(nome, tplSubpasta) {
+  const clone = tplSubpasta.content.cloneNode(true);
+  const item = clone.querySelector('.subpasta-item');
+  item.querySelector('.subpasta-nome').value = nome || '';
+  item.querySelector('.btn-remover-subpasta').addEventListener('click', removeSubpastaHandler);
+  return item;
+}
+
+function configurarEventosPasta(pastaEl, tplSubpasta) {
+  pastaEl.querySelector('.btn-adicionar-subpasta').addEventListener('click', () => addSubpastaHandler(pastaEl));
+  pastaEl.querySelector('.btn-remover-pasta').addEventListener('click', removePastaHandler);
+}
+
+function showStep2Error(msg) {
+  const e = document.getElementById('step2Error'), s = document.getElementById('step2Success');
+  if (e) { e.textContent = msg; e.classList.remove('d-none'); }
+  if (s) { s.classList.add('d-none'); }
+}
+
+function showStep2Success(msg) {
+  const s = document.getElementById('step2Success'), e = document.getElementById('step2Error');
+  if (s) { s.textContent = msg; s.classList.remove('d-none'); }
+  if (e) { e.classList.add('d-none'); }
+}
+
+function clearStep2Messages() {
+  ['step2Error', 'step2Success'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) { el.textContent = ''; el.classList.add('d-none'); }
+  });
 }

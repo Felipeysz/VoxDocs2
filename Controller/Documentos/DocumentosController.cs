@@ -2,10 +2,6 @@ using Microsoft.AspNetCore.Mvc;
 using VoxDocs.Models;
 using VoxDocs.Services;
 using VoxDocs.DTO;
-using VoxDocs.BusinessRules;
-using System.Threading.Tasks;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace VoxDocs.Controllers
 {
@@ -15,16 +11,13 @@ namespace VoxDocs.Controllers
     {
         private readonly IDocumentoService _service;
         private readonly AzureBlobService _blobService;
-        private readonly DocumentoBusinessRules _rules;
 
         public DocumentosController(
             IDocumentoService service,
-            AzureBlobService blobService,
-            DocumentoBusinessRules rules)
+            AzureBlobService blobService)
         {
             _service = service;
             _blobService = blobService;
-            _rules = rules;
         }
 
         [HttpPost("upload")]
@@ -32,8 +25,6 @@ namespace VoxDocs.Controllers
         {
             try
             {
-                await _rules.ValidateDocumentoUploadAsync(dto);
-
                 // Chama a Service para criar o documento
                 var createdDoc = await _service.CreateAsync(dto);
                 return Ok(createdDoc);
@@ -134,9 +125,6 @@ namespace VoxDocs.Controllers
             try
             {
                 updateDto.Id = id;
-                // Validação com token separado
-                await _rules.ValidateDocumentoUpdateAsync(updateDto, tokenSeguranca);
-                
                 var updatedDoc = await _service.UpdateAsync(updateDto);
                 return Ok(updatedDoc);
             }

@@ -1,44 +1,47 @@
 namespace VoxDocs.DTO
 {
-    public class DTOUser
+    public class DTORegisterUser
     {
         public required string Usuario { get; set; }
         public required string Email { get; set; }
         public required string Senha { get; set; }
         public required string PermissionAccount { get; set; }
-        public string? EmpresaContratante { get; set; }
+        public required string EmpresaContratante { get; set; }
         public string? PlanoPago { get; set; }
-        public string? LimiteUsuario { get; internal set; }
-        public string? LimiteAdmin { get; internal set; }
     }
 
-    public class UsuarioTotalEmpresa
-    {
-        public string? NomeEmpresa { get; set; }
-        public int TotalUsuarios { get; set; }
-
-    }
-
-    public class DTOUserLogin
+    public class DTOLoginUser
     {
         public required string Usuario { get; set; }
         public required string Senha { get; set; }
     }
 
-    public class ErrorResponse
+    // DTO para atualização de usuário
+    public class DTOUpdateUser
     {
-        public required string Mensagem { get; set; }
-        public required string Detalhes { get; set; }
+        public required string Usuario { get; set; }
+        public required string Email { get; set; }
+        public string? EmpresaContratante { get; set; }
+        public string? PlanoPago { get; set; }
+        public string? LimiteUsuario { get; set; }
+        public string? LimiteAdmin { get; set; }
+        public required string PermissionAccount { get; set; }
     }
 
-    public class UserInfoDTO
+    // DTO para reset de senha
+    public class DTOResetPassword
     {
-        public required string Usuario { get; init; }
-        public required string Email { get; init; }
-        public required string PermissionAccount { get; init; }
-        public string? EmpresaContratante { get; init; }
+        public required string Email { get; set; }
     }
 
+    // DTO para redefinir senha com token (pós-reset)
+    public class DTOResetPasswordWithToken
+    {
+        public required string Token { get; set; }
+        public required string NovaSenha { get; set; }
+    }
+
+    // DTO para alteração de senha com senha atual
     public class DTOUserLoginPasswordChange
     {
         public required string Usuario { get; set; }
@@ -46,9 +49,10 @@ namespace VoxDocs.DTO
         public required string NovaSenha { get; set; }
     }
 
-    public class DTOResetPasswordWithToken
+    // DTO de resposta de erro
+    public class ErrorResponse
     {
-        public string? Token { get; set; }
-        public string? NovaSenha { get; set; }
+        public required string Mensagem { get; set; }
+        public required string Detalhes { get; set; }
     }
 }

@@ -1,0 +1,516 @@
+@model VoxDocs.DTO.FinalizarPagamentoDto
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Cadastro • VoxDocs</title>
+
+    <!-- Fonts and Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        :root {
+            --clr-primary: #5c3c8a;
+            --clr-primary-dark: #4a3070;
+            --clr-primary-light: #774C9E;
+            --clr-accent: #9c7fbc;
+            --clr-bg: #fafafa;
+            --clr-card: #ffffff;
+            --clr-text: #333333;
+            --clr-text-light: #666666;
+            --clr-border: #e0e0e0;
+        }
+
+        body {
+            background-color: var(--clr-bg);
+            font-family: 'Poppins', sans-serif;
+            color: var(--clr-text);
+        }
+
+        .doc-card {
+            background: var(--clr-card);
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+            padding: 2rem;
+            max-width: 480px;
+            width: 100%;
+        }
+
+        .btn-primary {
+            background-color: var(--clr-primary);
+            border-color: var(--clr-primary);
+        }
+
+        .btn-primary:hover, .btn-primary:focus {
+            background-color: var(--clr-primary-dark);
+            border-color: var(--clr-primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .btn-outline-primary {
+            color: var(--clr-primary);
+            border-color: var(--clr-primary);
+        }
+
+        .btn-outline-primary:hover, .btn-outline-primary:focus {
+            background-color: var(--clr-primary);
+            border-color: var(--clr-primary);
+            color: white;
+        }
+
+        .btn-outline-secondary {
+            color: var(--clr-primary);
+            border-color: var(--clr-border);
+        }
+
+        .btn-outline-secondary:hover, .btn-outline-secondary:focus {
+            background-color: var(--clr-primary);
+            border-color: var(--clr-primary);
+            color: white;
+        }
+
+        .text-primary {
+            color: var(--clr-primary) !important;
+        }
+
+        .alert-info {
+            background-color: rgba(92, 60, 138, 0.1);
+            border-color: rgba(92, 60, 138, 0.2);
+            color: var(--clr-primary-dark);
+        }
+
+        .material-symbols-outlined.text-purple {
+            color: var(--clr-primary);
+        }
+
+        .step.active {
+            background-color: var(--clr-primary);
+            color: white;
+        }
+
+        .step-content {
+            transition: opacity 0.3s ease;
+        }
+
+        .form-control:focus, .form-select:focus {
+            border-color: var(--clr-primary-light);
+            box-shadow: 0 0 0 0.25rem rgba(92, 60, 138, 0.25);
+        }
+
+        .card-header {
+            background-color: rgba(92, 60, 138, 0.05);
+            border-bottom: 1px solid rgba(92, 60, 138, 0.1);
+        }
+
+        .badge.bg-secondary {
+            background-color: var(--clr-primary-light) !important;
+        }
+
+        .toggle-password {
+            background-color: white;
+            border-left: none;
+        }
+
+        .toggle-password:hover {
+            background-color: var(--clr-bg);
+        }
+
+        /* Apenas animações mantidas */
+        @@keyframes pop {
+            to { transform: scale(1.1); }
+        }
+        
+        /* Adicionado para o stepper */
+        .stepper-line {
+            position: absolute;
+            top: 50%;
+            left: 1rem;
+            right: 1rem;
+            height: 2px;
+            background: var(--clr-primary-light);
+            transform: translateY(-50%);
+            z-index: 0;
+        }
+
+        .step {
+            width: 36px;
+            height: 36px;
+            border: 2px solid var(--clr-primary-light) !important;
+            background-color: white !important;
+            color: var(--clr-primary) !important;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .step.active {
+            background-color: var(--clr-primary) !important;
+            color: white !important;
+            border-color: var(--clr-primary) !important;
+        }
+
+        /* Estilização Específica do Step 5 */
+        #card .input-group {
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--clr-border);
+        }
+
+        #card .input-group:focus-within {
+            border-color: var(--clr-primary-light);
+            box-shadow: 0 0 0 0.25rem rgba(92, 60, 138, 0.15);
+        }
+
+        #card .form-control {
+            border: none;
+            box-shadow: none;
+            padding-left: 0.5rem;
+        }
+
+        #card .input-group-text {
+            border: none;
+            background: rgba(92, 60, 138, 0.05);
+        }
+
+        #resCartao {
+            transition: all 0.3s ease;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body class="d-flex align-items-center justify-content-center min-vh-100 p-2 p-md-5">
+<div class="doc-card shadow-lg p-3 p-md-4 w-100">
+    <!-- Header -->
+    <div class="d-flex align-items-center gap-2 mb-3 text-primary fw-semibold fs-5">
+        <span class="material-symbols-outlined fs-3 text-purple" style="animation: pop 0.6s ease-out infinite alternate;">how_to_reg</span>
+        <span>Cadastro de Empresa</span>
+    </div>
+
+    <!-- Plano Info -->
+    <div class="alert alert-info mb-3">
+        Plano: <strong>@Model.NomePlano</strong> |
+        Limite de usuários: <strong>@ViewBag.LimiteUsuarios</strong>
+    </div>
+
+    <!-- Stepper -->
+    <div class="position-relative mb-4">
+        <div class="stepper-line"></div>
+        <div class="d-flex justify-content-between position-relative">
+            <div class="step rounded-circle d-flex align-items-center justify-content-center active" 
+                style="width: 32px; height: 32px; z-index: 1;">1</div>
+            <div class="step rounded-circle d-flex align-items-center justify-content-center bg-light text-muted" 
+                style="width: 32px; height: 32px; z-index: 1;">2</div>
+            <div class="step rounded-circle d-flex align-items-center justify-content-center bg-light text-muted" 
+                style="width: 32px; height: 32px; z-index: 1;">3</div>
+            <div class="step rounded-circle d-flex align-items-center justify-content-center bg-light text-muted" 
+                style="width: 32px; height: 32px; z-index: 1;">4</div>
+            <div class="step rounded-circle d-flex align-items-center justify-content-center bg-light text-muted" 
+                style="width: 32px; height: 32px; z-index: 1;">5</div>
+        </div>
+    </div>
+
+    <!-- Form -->
+    <form id="formWizard" action="/api/Pagamentos/finalizar" method="POST">
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="NomePlano"/>
+        <input type="hidden" id="idPlano" value="@ViewBag.IdGerado" />
+        <input type="hidden" id="nomePlano" value="@ViewBag.NomePlano" />
+        <input type="hidden" id="periodicidadePlano" value="@ViewBag.Periodicidade" />
+
+        <div id="stepContentContainer">
+
+            <!-- STEP 1: Dados da Empresa -->
+            <div class="step-content d-block" data-step="1">
+                <div class="mb-3">
+                    <label for="EmpresaContratante_EmpresaContratante" class="form-label">Nome da Empresa</label>
+                    <input type="text" id="EmpresaContratante_EmpresaContratante" name="EmpresaContratante.EmpresaContratante" 
+                           class="form-control" placeholder="Nome Empresa" required/>
+                </div>
+                <div class="mb-3">
+                    <label for="EmpresaContratante_Email" class="form-label">E-mail da Empresa</label>
+                    <input type="email" autocomplete="email" id="EmpresaContratante_Email" name="EmpresaContratante.Email" 
+                           class="form-control" placeholder="email@empresa.com" required/>
+                    <div id="emailError" class="text-danger mt-2 d-none"></div>
+                    <div id="emailSuccess" class="text-success mt-2 d-none"></div>
+                </div>
+            </div>
+
+            <!-- STEP 2: Pastas -->
+            <div class="step-content d-none" data-step="2">
+                <div class="mb-4">
+                    <h5 class="fw-semibold">
+                    <i class="fas fa-folder-tree me-2"></i>
+                    Gerenciamento de Pastas
+                    </h5>
+                    <div id="pastasPrincipaisContainer" class="mb-4"></div>
+                    <button type="button" id="btnAdicionarPastaPrincipal" class="btn btn-outline-primary mb-4">
+                    <i class="fas fa-plus-circle me-2"></i>Adicionar Pasta Principal
+                    </button>
+                </div>
+                <div id="step2Error" class="text-danger mt-2 d-none"></div>
+                <div id="step2Success" class="text-success mt-2 d-none"></div>
+                <template id="templatePastaPrincipal">
+                    <div class="pasta-principal card mb-4">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <div class="d-flex align-items-center">
+                        <i class="fas fa-folder me-2"></i>
+                        <input 
+                            type="text" 
+                            class="pasta-nome form-control form-control-sm" 
+                            placeholder="Nome da Pasta Principal" 
+                            required>
+                        </div>
+                        <button type="button" class="btn btn-sm btn-outline-danger btn-remover-pasta">
+                        <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <h6 class="mb-2">Subpastas</h6>
+                        <div class="subpastas-container mb-3"></div>
+                        <button type="button" class="btn btn-sm btn-outline-secondary btn-adicionar-subpasta">
+                        <i class="fas fa-plus me-1"></i>Adicionar Subpasta
+                        </button>
+                    </div>
+                    </div>
+                </template>
+                <template id="templateSubpasta">
+                    <div class="subpasta-item input-group mb-2">
+                    <input 
+                        type="text" 
+                        class="subpasta-nome form-control form-control-sm" 
+                        placeholder="Nome da Subpasta" 
+                        required>
+                    <button type="button" class="btn btn-sm btn-outline-danger btn-remover-subpasta">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    </div>
+                </template>
+            </div>
+            
+            <!-- STEP 3: Administradores -->
+            <div class="step-content d-none" data-step="3">
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                    <h3 class="h5 mb-0">
+                        <i class="fas fa-user-shield me-2"></i>
+                        Administradores
+                    </h3>
+                    <span class="badge bg-secondary">
+                        <span id="adminCount">0</span> / <span id="adminLimit">@ViewBag.LimiteAdmin</span>
+                    </span>
+                    </div>
+                    <div id="adminsContainer" class="mb-3"></div>
+                    @if (ViewBag.LimiteAdmin > 1)
+                    {
+                    <button type="button" class="btn btn-primary mb-3" id="btnAdicionarAdmin">
+                        <i class="material-symbols-outlined align-middle">add</i>
+                        Adicionar Administrador
+                    </button>
+                    }
+                </div>
+                <div class="alert alert-info mb-3">
+                    <strong>Limites do Plano:</strong>
+                    <div>Administradores permitidos: <strong>@ViewBag.LimiteAdmin</strong></div>
+                </div>
+                <div id="step3Error" class="text-danger mt-2 d-none"></div>
+                <div id="step3Success" class="text-success mt-2 d-none"></div>
+            </div>
+            <template id="templateAdmin">
+            <div class="admin-card mb-3 p-3 border rounded">
+                <h6 class="mb-2">
+                Administrador <span class="admin-index"></span>
+                </h6>
+                <div class="mb-2">
+                <label class="form-label">Usuário (login)</label>
+                <input data-field="Usuario"
+                        type="text"
+                        class="form-control"
+                        placeholder="Login do Admin"
+                        required>
+                </div>
+                <div class="mb-2">
+                <label class="form-label">E-mail do Administrador</label>
+                <input data-field="Email"
+                        type="email"
+                        autocomplete="email"
+                        class="form-control"
+                        placeholder="email@empresa.com"
+                        required>
+                </div>
+                <div class="mb-2">
+                <label class="form-label">Senha</label>
+                <div class="input-group">
+                    <input data-field="Senha"
+                        type="password"
+                        autocomplete="new-password"
+                        class="form-control password-field"
+                        placeholder="Senha do Admin"
+                        required>
+                    <button class="toggle-password btn btn-outline-secondary" type="button">
+                    <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+                </div>
+                <input data-field="PermissionAccount" type="hidden" value="Admin">
+                <button type="button"
+                        class="btn btn-outline-danger btn-sm remover-admin">
+                <i class="material-symbols-outlined align-middle">delete</i>
+                Remover
+                </button>
+            </div>
+            </template>
+
+            <!-- STEP 4: Usuários Comuns -->
+            <div class="step-content d-none" data-step="4">
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                    <h4 class="h5 mb-0">
+                        <i class="fas fa-users me-2"></i>
+                        Usuários Comuns
+                    </h4>
+                    <span class="badge bg-secondary">
+                        <span id="userCount">0</span> / <span id="userLimit">@ViewBag.LimiteUsuarios</span>
+                    </span>
+                    </div>
+                    <div id="usersContainer" class="mb-4"></div>
+                    @if (ViewBag.LimiteUsuarios > 1)
+                    {
+                    <button type="button" class="btn btn-primary mb-4" id="btnAdicionarUser">
+                        <i class="material-symbols-outlined align-middle">add</i>
+                        Adicionar Usuário
+                    </button>
+                    }
+                </div>
+                <div class="alert alert-info mb-3">
+                    <strong>Limites do Plano:</strong>
+                    <div>Total de usuários permitidos: <strong>@ViewBag.LimiteUsuarios</strong></div>
+                    <div>Usuários comuns disponíveis: <strong>@ViewBag.Disponiveis</strong></div>
+                </div>
+                <div id="step4Error" class="text-danger mt-2 d-none"></div>
+                <div id="step4Success" class="text-success mt-2 d-none"></div>
+            </div>
+            <template id="templateUser">
+            <div class="user-card mb-3 p-3 border rounded">
+                <h6 class="mb-2">Usuário <span class="user-index"></span></h6>
+                <div class="mb-2">
+                <label class="form-label">Usuário (login)</label>
+                <input data-field="Usuario" type="text" class="form-control" placeholder="Login do Usuário" required>
+                </div>
+                <div class="mb-2">
+                <label class="form-label">E-mail do Usuário</label>
+                <input data-field="Email" type="email" autocomplete="email" class="form-control" placeholder="email@empresa.com" required>
+                </div>
+                <div class="mb-2">
+                <label class="form-label">Senha</label>
+                <div class="input-group">
+                    <input data-field="Senha"
+                        type="password"
+                        autocomplete="new-password"
+                        class="form-control password-field"
+                        placeholder="Senha do Usuário"
+                        required>
+                    <button type="button" class="toggle-password btn btn-outline-secondary">
+                    <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+                </div>
+                <input data-field="PermissionAccount" type="hidden" value="User">
+                <button type="button" class="btn btn-outline-danger btn-sm remover-user">
+                <i class="material-symbols-outlined align-middle">delete</i>
+                Remover
+                </button>
+            </div>
+            </template>
+
+            <!-- STEP 5: Pagamento -->
+            <div class="step-content d-none" data-step="5">
+                <div class="text-center mb-4">
+                    <h4 class="fw-bold text-primary mb-3">
+                        <i class="fas fa-credit-card me-2"></i>Pagamento
+                    </h4>
+                    <p class="text-muted">Finalize seu cadastro com segurança</p>
+                </div>
+
+                <div class="card border-0 shadow-sm mb-4">
+                    <div class="card-body p-4">
+                        <!-- Cartão de Crédito -->
+                        <div id="card">
+                            <div class="inputs">
+                                <!-- Número do cartão -->
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text bg-transparent border-end-0">
+                                        <i class="fas fa-credit-card text-primary"></i>
+                                    </span>
+                                    <input type="text" id="cartaoNumber" maxlength="19" required placeholder="Número do cartão"
+                                        autocomplete="cc-number" class="form-control border-start-0 ps-0" />
+                                </div>
+
+                                <div class="row g-3">
+                                    <!-- Validade -->
+                                    <div class="col-md-6">
+                                        <div class="input-group">
+                                            <span class="input-group-text bg-transparent border-end-0">
+                                                <i class="far fa-calendar-alt text-primary"></i>
+                                            </span>
+                                            <input type="text" id="validadeCartao" maxlength="5" required placeholder="MM/AA"
+                                                autocomplete="cc-exp" class="form-control border-start-0 ps-0" />
+                                        </div>
+                                    </div>
+
+                                    <!-- CVV -->
+                                    <div class="col-md-6">
+                                        <div class="input-group">
+                                            <span class="input-group-text bg-transparent border-end-0">
+                                                <i class="fas fa-lock text-primary"></i>
+                                            </span>
+                                            <input type="text" id="cvvCartao" maxlength="4" required placeholder="CVV"
+                                                autocomplete="cc-csc" class="form-control border-start-0 ps-0" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-4">
+                    <button type="button" class="btn btn-primary btn-lg px-5 py-3 fw-bold" id="pagarCartao">
+                        <i class="fas fa-lock me-2"></i>Finalizar Pagamento
+                    </button>
+                    <div id="resCartao" class="alert d-none mt-4 p-3 rounded"></div>
+                </div>
+            </div>
+        <!-- Navegação -->
+            <div class="d-flex justify-content-between mt-4">
+            <button type="button" class="btn btn-outline-secondary" id="prevBtn" disabled>« Anterior</button>
+            <button type="button" class="btn btn-primary" id="nextBtn">Próximo »</button>
+            </div>
+    </form>
+</div>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="module" src="~/js/PagamentoScript/main.js"></script>
+
+<script>
+    window.onload = function () {
+        const token = new URLSearchParams(window.location.search).get('token');
+        if (token) {
+            const form = document.getElementById('formWizard');
+            form.querySelector('input[name="token"]').value = token;
+            form.submit();
+        }
+    };
+</script>
+</body>
+</html>

@@ -1,17 +1,10 @@
-using System.Threading.Tasks;
-using System.Collections.Generic;
-using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using VoxDocs.Data;
 using VoxDocs.Models;
 using VoxDocs.DTO;
 using Azure.Storage.Blobs;
-using Azure.Storage.Blobs.Models;
-using Microsoft.Extensions.Configuration;
 using System.Security.Cryptography;
 using System.Text;
-using System;
-using System.IO;
 
 namespace VoxDocs.Services
 {
@@ -131,6 +124,7 @@ namespace VoxDocs.Services
                 // Criação do documento no banco de dados
                 var doc = new DocumentoModel
                 {
+                    Id = Guid.NewGuid(), // Adicione isso
                     NomeArquivo = dto.Arquivo.FileName,
                     UrlArquivo = url,
                     UsuarioCriador = dto.Usuario,
@@ -323,7 +317,7 @@ namespace VoxDocs.Services
                 UsuarioCriador = doc.UsuarioCriador,
                 DataCriacao = doc.DataCriacao,
                 UsuarioUltimaAlteracao = doc.UsuarioUltimaAlteracao,
-                DataUltimaAlteracao = doc.DataUltimaAlteracao,
+                DataUltimaAlteracao = doc.DataUltimaAlteracao ?? DateTime.MinValue,
                 EmpresaContratante = doc.Empresa,
                 NomePastaPrincipal = doc.NomePastaPrincipal,
                 NomeSubPasta = doc.NomeSubPasta,

@@ -9,7 +9,7 @@ namespace VoxDocs.Models.ViewModels
     public class UploadDocumentoViewModel
     {
         [Required(ErrorMessage = "O arquivo é obrigatório")]
-        public IFormFile Arquivo { get; set; }
+        public required IFormFile Arquivo { get; set; }
 
         [Required(ErrorMessage = "Selecione uma categoria principal")]
         public int SelectedPastaPrincipalId { get; set; }
@@ -18,15 +18,12 @@ namespace VoxDocs.Models.ViewModels
         public int SelectedSubPastaId { get; set; }
 
         [Required(ErrorMessage = "Escolha um nível de segurança")]
-        public string NivelSeguranca { get; set; }
+        public string? NivelSeguranca { get; set; }
 
-        // Não marcar como Required aqui
         public string? TokenSeguranca { get; set; }
 
         [Required(ErrorMessage = "Descrição é obrigatória")]
-        public string Descricao { get; set; }
-
-        // These should not be marked as required
+        public required string Descricao { get; set; }
         public IEnumerable<DTOPastaPrincipal>? PastaPrincipais { get; set; }
         public IEnumerable<DTOSubPasta>? SubPastas { get; set; }
     }

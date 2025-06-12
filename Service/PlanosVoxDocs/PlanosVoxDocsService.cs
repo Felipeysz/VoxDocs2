@@ -1,8 +1,4 @@
 // Services/PlanosVoxDocsService.cs
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using VoxDocs.Data;
 using VoxDocs.DTO;
@@ -14,9 +10,16 @@ namespace VoxDocs.Services
     {
         private readonly VoxDocsContext _context;
 
+
+        public async Task<PlanosVoxDocsModel> GetPlanByNameAndPeriodicidadeAsync(string nome, string periodicidade)
+        {
+            return await _context.PlanosVoxDocs
+                .FirstOrDefaultAsync(p => 
+                    p.Nome.Trim().ToLower() == nome.Trim().ToLower() &&
+                    p.Periodicidade.Trim().ToLower() == periodicidade.Trim().ToLower());
+        }
         public PlanosVoxDocsService(VoxDocsContext context)
             => _context = context;
-
         public async Task<List<PlanosVoxDocsModel>> GetAllPlansAsync()
             => await _context.PlanosVoxDocs.ToListAsync();
 
@@ -28,7 +31,7 @@ namespace VoxDocs.Services
             // Utiliza EF.Functions.Like para melhor tradução pelo EF Core
             var pattern = $"%{categoria.Trim()}%";
             return await _context.PlanosVoxDocs
-                .Where(p => EF.Functions.Like(p.Name, pattern))
+                .Where(p => EF.Functions.Like(p.Nome, pattern))
                 .ToListAsync();
         }
 
@@ -38,32 +41,32 @@ namespace VoxDocs.Services
 
         public async Task<PlanosVoxDocsModel> CreatePlanAsync(DTOPlanosVoxDocs dto)
         {
-            if (dto.Name.ToLower() != "gratuito" && dto.Name.ToLower() != "premium")
+            if (dto.Nome.ToLower() != "gratuito" && dto.Nome.ToLower() != "premium")
                 throw new InvalidOperationException("Somente os planos 'Gratuito' e 'Premium' são permitidos.");
 
             // Lógica de desconto se for Premium
-            decimal finalPrice = dto.Price;
-            if (dto.Name.ToLower() == "premium")
+            decimal finalPrice = dto.Preco;
+            if (dto.Nome.ToLower() == "premium")
             {
-                if (dto.Duration == 6)
-                    finalPrice = Math.Round(dto.Price * 6 * 0.9m, 2);
-                else if (dto.Duration == 12)
-                    finalPrice = Math.Round(dto.Price * 12 * 0.8m, 2);
-                else if (dto.Duration == 1)
-                    finalPrice = dto.Price;
+                if (dto.Duracao == 6)
+                    finalPrice = Math.Round(dto.Preco * 6 * 0.9m, 2);
+                else if (dto.Duracao == 12)
+                    finalPrice = Math.Round(dto.Preco * 12 * 0.8m, 2);
+                else if (dto.Duracao == 1)
+                    finalPrice = dto.Preco;
             }
 
             var plan = new PlanosVoxDocsModel
             {
-                Name = dto.Name,
-                Description = dto.Description,
-                Price = finalPrice,
-                Duration = dto.Duration,
+                Id = Guid.NewGuid(),
+                Nome = dto.Nome,
+                Descriçao = dto.Descricao,
+                Preco = finalPrice,
+                Duracao = dto.Duracao,
                 Periodicidade = dto.Periodicidade,
                 ArmazenamentoDisponivel = dto.ArmazenamentoDisponivel,
-                TokensDisponiveis = dto.TokensDisponiveis ?? "Infinito",
-                LimiteAdmin = dto.LimiteAdmin,
-                LimiteUsuario = dto.LimiteUsuario
+                LimiteAdmin = dto.LimiteAdmin ?? 0,
+                LimiteUsuario = dto.LimiteUsuario ?? 0
             };
 
             _context.PlanosVoxDocs.Add(plan);
@@ -76,14 +79,14 @@ namespace VoxDocs.Services
             var plan = await _context.PlanosVoxDocs.FindAsync(id)
                 ?? throw new KeyNotFoundException("Plano não encontrado.");
 
-            plan.Name = dto.Name;
-            plan.Description = dto.Description;
-            plan.Price = dto.Price;
-            plan.Duration = dto.Duration;
+            plan.Nome = dto.Nome;
+            plan.Descriçao = dto.Descricao;
+            plan.Preco = dto.Preco;
+            plan.Duracao = dto.Duracao;
             plan.Periodicidade = dto.Periodicidade;
             plan.ArmazenamentoDisponivel = dto.ArmazenamentoDisponivel;
-            plan.LimiteAdmin = dto.LimiteAdmin;
-            plan.LimiteUsuario = dto.LimiteUsuario;
+            plan.LimiteAdmin = dto.LimiteAdmin ?? 0;
+            plan.LimiteUsuario = dto.LimiteUsuario ?? 0;
 
             await _context.SaveChangesAsync();
             return plan;
@@ -104,7 +107,7 @@ namespace VoxDocs.Services
                 return null;
 
             return await _context.PlanosVoxDocs
-                .FirstOrDefaultAsync(p => p.Name == name);
+                .FirstOrDefaultAsync(p => p.Nome == name);
         }
     }
 }

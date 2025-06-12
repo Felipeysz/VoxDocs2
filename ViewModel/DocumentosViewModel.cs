@@ -18,8 +18,8 @@ namespace VoxDocs.Models.ViewModels
     public class EditDocumentoViewModel
     {
         public int Id { get; set; }
-        public IFormFile Arquivo { get; set; }
-        public string Descricao { get; set; }
-        public string Token { get; set; } // Token para documentos não públicos
+        public required IFormFile Arquivo { get; set; }
+        public string? Descricao { get; set; }
+        public string? Token { get; set; } // Token para documentos não públicos
     }
 }

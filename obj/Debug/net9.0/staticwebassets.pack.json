@@ -17,10 +17,6 @@
       "PackagePath": "staticwebassets\\css\\ChatVoxStyles\\voice-modalstyle.css"
     },
     {
-      "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\DashboardAdminStyles\\styleSidebarDashboard.css",
-      "PackagePath": "staticwebassets\\css\\DashboardAdminStyles\\styleSidebarDashboard.css"
-    },
-    {
       "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\DocumentosStyles\\EtapasDoc.css",
       "PackagePath": "staticwebassets\\css\\DocumentosStyles\\EtapasDoc.css"
     },
@@ -31,10 +27,6 @@
     {
       "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\OculteCssNativoWeb.css",
       "PackagePath": "staticwebassets\\css\\OculteCssNativoWeb.css"
-    },
-    {
-      "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\PagamentosStyles\\main.css",
-      "PackagePath": "staticwebassets\\css\\PagamentosStyles\\main.css"
     },
     {
       "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\css\\UploadStyles\\UploadPageStyle.css",
@@ -65,6 +57,10 @@
       "PackagePath": "staticwebassets\\js\\PagamentoScript\\main.js"
     },
     {
+      "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\PagamentoScript\\paymentUltils.js",
+      "PackagePath": "staticwebassets\\js\\PagamentoScript\\paymentUltils.js"
+    },
+    {
       "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\PagamentoScript\\step1.js",
       "PackagePath": "staticwebassets\\js\\PagamentoScript\\step1.js"
     },
@@ -83,6 +79,10 @@
     {
       "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\PagamentoScript\\step5.js",
       "PackagePath": "staticwebassets\\js\\PagamentoScript\\step5.js"
+    },
+    {
+      "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\PagamentoScript\\ultilities.js",
+      "PackagePath": "staticwebassets\\js\\PagamentoScript\\ultilities.js"
     },
     {
       "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs\\wwwroot\\js\\VoxDocsScripts\\voice-modalScript.js",

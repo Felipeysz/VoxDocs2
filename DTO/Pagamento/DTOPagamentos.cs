@@ -1,40 +1,50 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using VoxDocs.DTO;
+
 namespace VoxDocs.DTO
 {
-    public class PagamentoCartaoRequestDto
+    public class CriarPlanoNomeDto
     {
-        public string TipoPlano { get; set; } = string.Empty;
-        public string CartaoNumber { get; set; } = string.Empty;
-        public string ValidadeCartao { get; set; } = string.Empty;
-        public string CvvCartao { get; set; } = string.Empty;
-        public string TipoCartao { get; set; } = string.Empty;
-        public string EmpresaContratante { get; set; } = string.Empty;
-        public string PlanoPago { get; set; }
+        public required string NomePlano { get; set; }
+        public required string Periodicidade { get; set; }
     }
 
-    public class PagamentoPixRequestDto
+    public class FinalizarPagamentoDto
     {
-        public string TipoPlano { get; set; } = string.Empty;
-        public string EmpresaContratante { get; set; } = string.Empty;
-    
+        // --- PAGAMENTO ---
+        public required string Id { get; set; } = null!;
+        public required string MetodoPagamento { get; set; } = null!;
+        public string? EmpresaContratantePlano { get; set; }
+        public required DateTime DataPagamento { get; set; }
+        public required string NomePlano { get; set; }
+        public required string Periodicidade { get; set; }
+
+        public required DTOEmpresasContratante EmpresaContratante { get; set; } = new DTOEmpresasContratante
+        {
+            EmpresaContratante = string.Empty,
+            Email = string.Empty
+        };
+
+        public required List<DTOPastaPrincipalCreate> PastasPrincipais { get; set; } = new();
+        public required List<DTOSubPastaCreate> SubPastas { get; set; } = new();
+        public required List<DTORegisterUser> Usuarios { get; set; } = new();
     }
 
-    // Nova DTO para PagamentoConcluido
-    public class PagamentoConcluidoDto
+    public class TokenRequestDto
     {
-        public int Id { get; set; }
-        public string EmpresaContratante { get; set; }
-        public string MetodoPagamento { get; set; }
-        public DateTime DataPagamento { get; set; }
-        public DateTime DataExpiracao { get; set; }
-        public string StatusEmpresa { get; set; }
+        public required string Token { get; set; }
     }
 
-    // DTO para criação de PagamentoConcluido
-    public class PagamentoConcluidoCreateDto
+    public class TokenResponseDto
     {
-        public string EmpresaContratante { get; set; }
-        public string MetodoPagamento { get; set; }
-        public DateTime DataPagamento { get; set; }
-        public DateTime DataExpiracao { get; set; }
+        public bool Sucesso { get; set; }
+        public string Mensagem { get; set; } = string.Empty;
+    }
+        public class PlanoInfoDto
+    {
+        public string NomePlano { get; set; } = string.Empty;
+        public string Periodicidade { get; set; } = string.Empty;
     }
 }

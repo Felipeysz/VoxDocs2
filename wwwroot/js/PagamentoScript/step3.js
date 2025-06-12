@@ -1,215 +1,186 @@
-function clearStep3Messages() {
-  const error = document.getElementById('error3');
-  const success = document.getElementById('success3');
-  if (error) error.classList.add('d-none');
-  if (success) success.classList.add('d-none');
-}
+// wwwroot/js/PagamentoScript/step3.js
+import { isValidEmail, initPasswordToggle, removeStep3EventListeners } from './ultilities.js';
 
-function showStep3Error(message) {
-  const error = document.getElementById('error3');
-  if (error) {
-    error.textContent = message;
-    error.classList.remove('d-none');
+// Exportar funções de evento para remoção
+export function addAdminHandler() {
+  const limit = parseInt(document.getElementById('adminLimit').textContent, 10);
+  const container = document.getElementById('adminsContainer');
+  if (container.children.length >= limit) {
+    displayMessage('Limite de administradores atingido.', 'error');
+  } else {
+    _addAdminRow({}, container.children.length);
+    _updateCount();
   }
 }
 
-function showStep3Success(message) {
-  const success = document.getElementById('success3');
-  if (success) {
-    success.textContent = message;
-    success.classList.remove('d-none');
+export function removeAdminHandler() {
+  const card = this.closest('.admin-card');
+  if (card) {
+    card.remove();
+    _reindexAdmins();
+    _updateCount();
   }
 }
 
-window.initStep3 = function () {
-  const container = document.getElementById('adminsContainer');
-  if (!container) return;
-
-  // Remover listeners antigos
-  removeOldEventListeners();
-
-  // Preencher dados salvos
-  populateAdminsFromSession();
-
-  // Configurar eventos
-  setupAdminEventListeners();
-
-  // Atualizar visibilidade do botão
-  atualizarVisibilidadeBotaoAdmin();
-
-  // Salvar ao sair da página
-  window.addEventListener('beforeunload', () => {
-    currentStep = 3;
-    saveStepData();
-  });
-};
-
-function criarAdminCardVazio(index, dados = {}) {
-  const card = document.createElement('div');
-  card.className = 'admin-card mb-3 p-3 border rounded';
-  card.innerHTML = `
-    <h5>Administrador ${index + 1}</h5>
-    <div class="mb-3">
-      <label class="form-label">Usuário (login)</label>
-      <input data-field="Usuario" type="text" class="form-control" placeholder="Login do Admin" value="${dados.Usuario || ''}" required>
-    </div>
-    <div class="mb-3">
-      <label class="form-label">E-mail do Administrador</label>
-      <input data-field="Email" type="email" class="form-control" placeholder="Email do Admin" value="${dados.Email || ''}" required>
-    </div>
-    <div class="mb-3">
-      <label class="form-label">Senha</label>
-      <input data-field="Senha" type="text" class="form-control" placeholder="Digite Sua Senha" value="${dados.Senha || ''}" required>
-    </div>
-    <input data-field="PermissionAccount" type="hidden" value="Admin" />
-    ${index > 0 ? `<button type="button" class="btn btn-outline-danger btn-sm remover-admin"><span class="material-symbols-outlined">delete</span> Remover</button>` : ''}
-  `;
-  return card;
+export function adminInputHandler() {
+  clearMessages();
 }
 
-function setupAdminEventListeners() {
-  const container = document.getElementById('adminsContainer');
-
-  // Adicionar administrador
-  document.getElementById('btnAdicionarAdmin')?.addEventListener('click', () => {
-    const limite = parseInt(document.getElementById('adminLimit')?.textContent) || 0;
-    const atuais = container.querySelectorAll('.admin-card').length;
-
-    if (atuais + 1 > limite) {
-      showStep3Error(`Você não pode adicionar mais de ${limite} administradores.`);
-      return;
-    }
-
-    const novoCard = criarAdminCardVazio(atuais);
-    container.appendChild(novoCard);
-    reindexAdmins();
-    currentStep = 3;
-    saveStepData();
-  });
-
-  // Remover administrador
-  container.addEventListener('click', (e) => {
-    if (e.target.closest('.remover-admin')) {
-      const cards = container.querySelectorAll('.admin-card');
-      if (cards.length <= 1) {
-        showStep3Error('Deve existir ao menos um administrador.');
-        return;
-      }
-      e.target.closest('.admin-card').remove();
-      reindexAdmins();
-      currentStep = 3;
-      saveStepData();
-    }
-  });
-
-  // Input em campos
-  container.addEventListener('input', () => {
-    currentStep = 3;
-    saveStepData();
+export function clearMessages() {
+  ['step3Error', 'step3Success'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.classList.add('d-none');
   });
 }
 
-function reindexAdmins() {
+export function initStep3(data) {
+  // Limpar listeners antigos antes de reinicializar
+  removeStep3EventListeners();
+
   const container = document.getElementById('adminsContainer');
-  const cards = container.querySelectorAll('.admin-card');
+  const btnAdd = document.getElementById('btnAdicionarAdmin');
+  const tplAdmin = document.getElementById('templateAdmin');
+  const countSpan = document.getElementById('adminCount');
+  const limitSpan = document.getElementById('adminLimit');
 
-  cards.forEach((card, idx) => {
-    // Atualizar título
-    card.querySelector('h5')?.textContent = `Administrador ${idx + 1}`;
-
-    // Atualizar nomes dos inputs
-    const inputs = card.querySelectorAll('input');
-    inputs.forEach(input => {
-      const field = input.getAttribute('data-field');
-      input.name = `Admins[${idx}].${field}`;
-    });
-
-    // Botão "Remover"
-    const btnRemover = card.querySelector('.remover-admin');
-    if (idx === 0) {
-      if (btnRemover) btnRemover.remove();
-    } else {
-      if (!btnRemover) {
-        const btn = document.createElement('button');
-        btn.className = 'btn btn-outline-danger btn-sm remover-admin';
-        btn.innerHTML = `<span class="material-symbols-outlined">delete</span> Remover`;
-        card.appendChild(btn);
-      }
-    }
-  });
-
-  // Atualizar contadores
-  document.getElementById('adminCount')?.textContent(cards.length);
-  atualizarVisibilidadeBotaoAdmin();
-}
-
-function populateAdminsFromSession() {
-  const container = document.getElementById('adminsContainer');
-  container.innerHTML = '';
-
-  const admins = (formData.Admins || []).filter(u => u.PermissionAccount === "Admin");
-
-  if (admins.length === 0) {
-    container.appendChild(criarAdminCardVazio(0));
-    reindexAdmins();
+  if (!container || !tplAdmin || !countSpan || !limitSpan) {
+    console.warn('Step 3: elementos não encontrados');
     return;
   }
 
-  admins.forEach((adm, idx) => {
-    const card = criarAdminCardVazio(idx, {
-      Usuario: adm.Usuario,
-      Email: adm.Email,
-      Senha: adm.Senha
-    });
-    container.appendChild(card);
-  });
+  clearMessages();
+  container.innerHTML = '';
 
-  reindexAdmins();
+  // Se já houver administradores em formData, usa-os; senão, cria um vazio
+  const existing = data.Administradores || [];
+  if (existing.length) {
+    existing.forEach((u, idx) => _addAdminRow(u, idx));
+  } else {
+    _addAdminRow({}, 0);
+  }
+
+  _updateCount();
+
+  // Inicializa o toggle de mostrar/ocultar senha para cards já existentes
+  initPasswordToggle();
+
+  // Configura botão “Adicionar Administrador”
+  if (btnAdd) {
+    const newBtn = btnAdd.cloneNode(true);
+    btnAdd.parentNode.replaceChild(newBtn, btnAdd);
+    newBtn.addEventListener('click', addAdminHandler);
+  }
 }
 
-function validateStep3() {
-  clearStep3Messages();
-  const cards = document.querySelectorAll('#adminsContainer .admin-card');
-
+export function validateStep3() {
+  clearMessages();
+  const cards = Array.from(document.querySelectorAll('#adminsContainer .admin-card'));
   if (cards.length === 0) {
-    showStep3Error('É obrigatório criar ao menos um administrador.');
+    displayMessage('É obrigatório ter ao menos um administrador.', 'error');
     return false;
   }
 
-  for (let card of cards) {
-    const usuario = card.querySelector('[data-field="Usuario"]')?.value.trim();
-    const email = card.querySelector('[data-field="Email"]')?.value.trim();
-    const senha = card.querySelector('[data-field="Senha"]')?.value.trim();
+  const seen = new Set();
+  for (const card of cards) {
+    const { Usuario, Email, Senha } = _getAdminData(card);
 
-    if (!usuario || !email || !senha) {
-      showStep3Error('Todos os campos devem ser preenchidos.');
+    if (!Usuario || !Email || !Senha) {
+      displayMessage('Todos os campos dos administradores são obrigatórios.', 'error');
       return false;
     }
 
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      showStep3Error('E-mail inválido.');
+    if (!isValidEmail(Email)) {
+      displayMessage(`E-mail inválido: ${Email}`, 'error');
       return false;
     }
 
-    if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9]).{8,}$/.test(senha)) {
-      showStep3Error('Senha deve ter 8+ caracteres, incluindo maiúscula, minúscula e caractere especial.');
+    if (seen.has(Email.toLowerCase())) {
+      displayMessage(`E-mail duplicado: ${Email}`, 'error');
       return false;
     }
+
+    seen.add(Email.toLowerCase());
   }
 
-  showStep3Success('Administradores validados com sucesso.');
+  displayMessage('Administradores validados com sucesso!', 'success');
   return true;
 }
 
-function atualizarVisibilidadeBotaoAdmin() {
-  const limite = parseInt(document.getElementById('adminLimit')?.textContent) || 0;
-  const atuais = document.querySelectorAll('#adminsContainer .admin-card').length;
-  const btn = document.getElementById('btnAdicionarAdmin');
-  if (btn) btn.style.display = (atuais < limite) ? 'inline-block' : 'none';
+export function getStep3Data() {
+  return {
+    Administradores: Array.from(
+      document.querySelectorAll('#adminsContainer .admin-card')
+    ).map(card => _getAdminData(card))
+  };
 }
 
-function removeOldEventListeners() {
-  $(document).off('click', '#btnAdicionarAdmin');
-  $(document).off('click', '.remover-admin');
-  $(document).off('input', '#adminsContainer input');
+// —————— Funções privadas ——————
+
+function _addAdminRow(dados, index) {
+  const tpl = document.getElementById('templateAdmin').content.cloneNode(true);
+  const card = tpl.querySelector('.admin-card');
+  if (!card) return;
+
+  card.querySelector('.admin-index').textContent = index + 1;
+  card.querySelector('input[data-field="Usuario"]').value = dados.Usuario || '';
+  card.querySelector('input[data-field="Email"]').value = dados.Email || '';
+  card.querySelector('input[data-field="Senha"]').value = dados.Senha || '';
+
+  _setupRemoveButton(card);
+  _setupInputListeners(card);
+
+  document.getElementById('adminsContainer').appendChild(card);
+}
+
+function _setupRemoveButton(card) {
+  const btnRemover = card.querySelector('.remover-admin');
+  if (btnRemover) {
+    btnRemover.addEventListener('click', removeAdminHandler);
+  }
+}
+
+function _setupInputListeners(card) {
+  ['Usuario', 'Email', 'Senha'].forEach(field => {
+    const input = card.querySelector(`input[data-field="${field}"]`);
+    if (input) input.addEventListener('input', adminInputHandler);
+  });
+}
+
+function _reindexAdmins() {
+  document.querySelectorAll('#adminsContainer .admin-card').forEach((card, i) => {
+    card.querySelector('.admin-index').textContent = i + 1;
+  });
+}
+
+function _updateCount() {
+  document.getElementById('adminCount').textContent =
+    document.querySelectorAll('#adminsContainer .admin-card').length;
+}
+
+function _getAdminData(card) {
+  return {
+    Usuario: card.querySelector('input[data-field="Usuario"]').value.trim(),
+    Email: card.querySelector('input[data-field="Email"]').value.trim(),
+    Senha: card.querySelector('input[data-field="Senha"]').value.trim(),
+    PermissionAccount: 'Admin'
+  };
+}
+
+// —————— Mensagens ——————
+
+function displayMessage(message, type) {
+  const errorEl = document.getElementById('step3Error');
+  const successEl = document.getElementById('step3Success');
+
+  if (errorEl && successEl) {
+    if (type === 'error') {
+      errorEl.textContent = message;
+      errorEl.classList.remove('d-none');
+      successEl.classList.add('d-none');
+    } else {
+      successEl.textContent = message;
+      successEl.classList.remove('d-none');
+      errorEl.classList.add('d-none');
+    }
+  }
 }

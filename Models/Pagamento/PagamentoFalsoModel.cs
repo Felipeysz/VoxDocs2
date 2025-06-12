@@ -1,35 +1,18 @@
-using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace VoxDocs.Models
 {
-    public class PagamentoCartaoFalsoModel
-    {
-        public int Id { get; set; }
-        public string CartaoNumber { get; set; }
-        public string ValidadeCartao { get; set; }
-        public string CvvCartao { get; set; }
-        public string TipoCartao { get; set; }
-        public string TipoPlano { get; set; }
-        public string EmpresaContratante { get; internal set; }
-    }
-
-    public class PagamentoPixModel
-    {
-        public int Id { get; set; }
-        public string QRCodePix { get; set; }
-        public string TipoPlano { get; set; }
-        public DateTime DataCriacao { get; set; } // Nova propriedade para gerenciar tempo
-        public string EmpresaContratante { get; internal set; }
-        public DateTime DataExpiracao { get; internal set; }
-    }
-    
     public class PagamentoConcluido
     {
-        public int Id { get; set; }
-        public string EmpresaContratante { get; set; }
-        public string MetodoPagamento { get; set; }
-        public DateTime DataPagamento { get; set; }
-        public DateTime DataExpiracao { get; set; }
-        public string StatusEmpresa { get; set; } = "Plano Ativo";
+        [Key]
+        public required string Id { get; set; }                // Será o hash do GUID
+        public string? EmpresaContratantePlano { get; set; }        // opcional, pode ficar null
+        public string? MetodoPagamento { get; set; }           // Cartão, Pix; só preenchido no Concluído
+        public DateTime? DataPagamento { get; set; }   // já setado no UTC now
+        public DateTime? DataExpiracao { get; set; }           // só no Concluído
+        public string? StatusEmpresa { get; set; } = "Em Andamento";
+        public required string NomePlano { get; set; }
+        public required string Periodicidade { get; set; }
+        public bool IsPagamentoConcluido { get; set; } = false;
     }
 }

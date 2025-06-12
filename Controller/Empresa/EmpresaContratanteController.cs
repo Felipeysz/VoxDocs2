@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using VoxDocs.DTO;
 using VoxDocs.Models;
 using VoxDocs.Services;
-using VoxDocs.BusinessRules;
 
 namespace VoxDocs.Controllers
 {
@@ -13,12 +12,10 @@ namespace VoxDocs.Controllers
     public class EmpresasContratanteController : ControllerBase
     {
         private readonly IEmpresasContratanteService _service;
-        private readonly EmpresasContratanteRules _rules;
 
-        public EmpresasContratanteController(IEmpresasContratanteService service, EmpresasContratanteRules rules)
+        public EmpresasContratanteController(IEmpresasContratanteService service)
         {
             _service = service;
-            _rules = rules;
         }
 
         [HttpGet]
@@ -38,7 +35,6 @@ namespace VoxDocs.Controllers
         [HttpPost]
         public async Task<ActionResult<EmpresasContratanteModel>> Create([FromBody] DTOEmpresasContratante dto)
         {
-            _rules.Validate(dto);
             var empresa = await _service.CreateAsync(dto);
             return CreatedAtAction(nameof(GetById), new { id = empresa.Id }, empresa);
         }
@@ -46,7 +42,6 @@ namespace VoxDocs.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult<EmpresasContratanteModel>> Update(int id, [FromBody] DTOEmpresasContratante dto)
         {
-            _rules.Validate(dto);
             var empresa = await _service.UpdateAsync(id, dto);
             return Ok(empresa);
         }
@@ -58,21 +53,5 @@ namespace VoxDocs.Controllers
             return NoContent();
         }
 
-        [HttpGet("Plano/{nomeEmpresa}")]
-        public async Task<ActionResult<DTOEmpresasContratantePlano>> GetPlanoByEmpresa(string nomeEmpresa)
-        {
-            if (string.IsNullOrWhiteSpace(nomeEmpresa))
-                return BadRequest(new { mensagem = "Empresa não informada." });
-
-            try
-            {
-                var dto = await _service.GetPlanoByEmpresaAsync(nomeEmpresa);
-                return Ok(dto);
-            }
-            catch (KeyNotFoundException ex)
-            {
-                return NotFound(new { mensagem = ex.Message });
-            }
-        }
     }
 }

@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using VoxDocs.Data;
 using VoxDocs.DTO;
@@ -10,11 +8,9 @@ namespace VoxDocs.Services
     public class EmpresasContratanteService : IEmpresasContratanteService
     {
         private readonly VoxDocsContext _context;
-        private readonly IUserService _userService;
 
-        public EmpresasContratanteService(VoxDocsContext context, IUserService userService)
+        public EmpresasContratanteService(VoxDocsContext context)
         {
-            _userService = userService;
             _context = context;
         }
 
@@ -27,6 +23,12 @@ namespace VoxDocs.Services
         {
             return await _context.EmpresasContratantes.FindAsync(id)
                 ?? throw new KeyNotFoundException("Empresa não encontrada.");
+        }
+
+        public async Task<EmpresasContratanteModel> GetEmpresaByNome(string nome)
+        {
+            return await _context.EmpresasContratantes
+                .FirstOrDefaultAsync(e => e.EmpresaContratante == nome);
         }
 
         public async Task<EmpresasContratanteModel> CreateAsync(DTOEmpresasContratante dto)
@@ -42,6 +44,7 @@ namespace VoxDocs.Services
 
             var empresa = new EmpresasContratanteModel
             {
+                Id = Guid.NewGuid(),
                 EmpresaContratante = dto.EmpresaContratante,
                 Email = dto.Email
             };
@@ -71,23 +74,5 @@ namespace VoxDocs.Services
             _context.EmpresasContratantes.Remove(empresa);
             await _context.SaveChangesAsync();
         }
-        
-        public async Task<DTOEmpresasContratantePlano> GetPlanoByEmpresaAsync(string nomeEmpresa)
-        {
-            // Pega todos os usuários daquela empresa
-            var users = await _userService.GetUsersAsync();
-            var any = users.FirstOrDefault(u => u.EmpresaContratante == nomeEmpresa);
-
-            if (any == null)
-                throw new KeyNotFoundException($"Nenhum usuário encontrado para a empresa '{nomeEmpresa}'.");
-
-            // Retorna o DTO com o plano encontrado
-            return new DTOEmpresasContratantePlano
-            {
-                EmpresaContratante = nomeEmpresa,
-                TipoPlano = any.PlanoPago ?? "Não atribuído"
-            };
-        }
-
     }
 }

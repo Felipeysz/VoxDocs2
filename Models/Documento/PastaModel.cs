@@ -6,18 +6,18 @@ namespace VoxDocs.Models
 {
     public class PastaPrincipalModel
     {
-        public int Id { get; set; }
-        public string NomePastaPrincipal { get; set; } = null!;
-        public string EmpresaContratante { get; set; } = null!;
+        public Guid Id { get; set; } = Guid.NewGuid();
+        public required string NomePastaPrincipal { get; set; }
+        public required string EmpresaContratante { get; set; }
         public ICollection<SubPastaModel> SubPastas { get; set; } = new List<SubPastaModel>();
     }
 
     public class SubPastaModel
     {
-        public int Id { get; set; }
-        public string NomeSubPasta { get; set; } = null!;
-        public string NomePastaPrincipal { get; set; } = null!;
-        public string EmpresaContratante { get; set; } = null!;
+         public Guid Id { get; set; } = Guid.NewGuid();
+        public required string NomeSubPasta { get; set; }
+        public required string NomePastaPrincipal { get; set; }
+        public required string EmpresaContratante { get; set; }
         public ICollection<DocumentoModel> Documentos { get; set; } = new List<DocumentoModel>();
     }
 }

@@ -2,7 +2,7 @@ namespace VoxDocs.DTO
 {
     public class DTOPastaPrincipal
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string NomePastaPrincipal { get; set; } = null!;
         public string EmpresaContratante { get; set; } = null!;
         public int Quantidade { get; set; }
@@ -10,7 +10,7 @@ namespace VoxDocs.DTO
 
     public class DTOSubPasta
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string NomeSubPasta { get; set; } = null!;
         public string NomePastaPrincipal { get; set; } = null!;
         public string EmpresaContratante { get; set; } = null!;

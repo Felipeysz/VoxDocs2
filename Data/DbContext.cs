@@ -16,13 +16,7 @@ namespace VoxDocs.Data
         public DbSet<DocumentoModel> Documentos { get; set; }
         public DbSet<PlanosVoxDocsModel> PlanosVoxDocs { get; set; }
         public DbSet<EmpresasContratanteModel> EmpresasContratantes { get; set; }
-        public DbSet<PagamentoCartaoFalsoModel> PagamentosCartao { get; set; }
-        public DbSet<PagamentoPixModel> PagamentosPix { get; set; }
         public DbSet<PagamentoConcluido> PagamentosConcluidos { get; set; }
-
-        // Novos DbSets para a funcionalidade de SuporteVoxDocs
-        public DbSet<ChamadoModel> Chamados { get; set; }
-        public DbSet<MensagemModel> Mensagens { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -33,70 +27,59 @@ namespace VoxDocs.Data
             // Plano Gratuito
             new PlanosVoxDocsModel
             {
-                Id = 1,
-                Name = "Gratuito",
-                Description = "Plano com funcionalidades básicas",
-                Price = 0m,
-                Duration = 0, // 0 = infinito
+                Id = Guid.Parse("f9b2f7e0-d938-4b4d-b256-38bbd6a9d4ef"),
+                Nome = "Gratuito",
+                Descriçao = "Plano com funcionalidades básicas",
+                Preco = 0m,
+                Duracao = 0,
                 Periodicidade = "Ilimitada",
                 ArmazenamentoDisponivel = 10,
-                TokensDisponiveis = "Limitado",
                 LimiteAdmin = 2,
                 LimiteUsuario = 5
             },
 
-            // Plano Premium base para 1 mês (sem desconto)
+            // Plano Premium base (mensal)
             new PlanosVoxDocsModel
             {
-                Id = 2,
-                Name = "Premium",
-                Description = "Plano completo com funcionalidades avançadas",
-                Price = 29.99m,
-                Duration = 1,
+                Id = Guid.Parse("b40c1b56-6cc2-4988-b979-3b00c1dd8e1e"),
+                Nome = "Premium",
+                Descriçao = "Plano completo com funcionalidades avançadas",
+                Preco = 29.99m,
+                Duracao = 1,
                 Periodicidade = "Mensal",
                 ArmazenamentoDisponivel = 200,
-                TokensDisponiveis = "Infinito",
-                LimiteAdmin = -1, // -1 = Ilimitado
-                LimiteUsuario = -1
-            },
-
-            // Plano Premium 6 meses com 10% de desconto
-            new PlanosVoxDocsModel
-            {
-                Id = 3,
-                Name = "Premium",
-                Description = "Plano completo com desconto de 10% para 6 meses",
-                Price = Math.Round(29.99m * 6 * 0.9m, 2), // ~161.95
-                Duration = 6,
-                Periodicidade = "Semestral",
-                ArmazenamentoDisponivel = 200,
-                TokensDisponiveis = "Infinito",
                 LimiteAdmin = -1,
                 LimiteUsuario = -1
             },
 
-            // Plano Premium 12 meses com 20% de desconto
+            // Plano Premium Semestral
             new PlanosVoxDocsModel
             {
-                Id = 4,
-                Name = "Premium",
-                Description = "Plano completo com desconto de 20% para 12 meses",
-                Price = Math.Round(29.99m * 12 * 0.8m, 2), // ~287.90
-                Duration = 12,
+                Id = Guid.Parse("7d7f02e7-44b5-4692-88a4-8c2b149b5059"),
+                Nome = "Premium",
+                Descriçao = "Plano completo com desconto de 10% para 6 meses",
+                Preco = Math.Round(29.99m * 6 * 0.9m, 2), // ~161.95
+                Duracao = 6,
+                Periodicidade = "Semestral",
+                ArmazenamentoDisponivel = 200,
+                LimiteAdmin = -1,
+                LimiteUsuario = -1
+            },
+
+            // Plano Premium Anual
+            new PlanosVoxDocsModel
+            {
+                Id = Guid.Parse("0e8c6b83-49c1-403e-b70c-6fc8e0f09c7f"),
+                Nome = "Premium",
+                Descriçao = "Plano completo com desconto de 20% para 12 meses",
+                Preco = Math.Round(29.99m * 12 * 0.8m, 2), // ~287.90
+                Duracao = 12,
                 Periodicidade = "Anual",
                 ArmazenamentoDisponivel = 200,
-                TokensDisponiveis = "Infinito",
                 LimiteAdmin = -1,
                 LimiteUsuario = -1
             }
         );
-
-            // Configuração do relacionamento 1:N entre Chamado e Mensagem
-            modelBuilder.Entity<MensagemModel>()
-                .HasOne(m => m.Chamado)
-                .WithMany(c => c.Mensagens)
-                .HasForeignKey(m => m.ChamadoId)
-                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
