@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using VoxDocs.Models;
 using VoxDocs.Services;
 using VoxDocs.DTO;
+using System;
 
 namespace VoxDocs.Controllers
 {
@@ -21,7 +22,7 @@ namespace VoxDocs.Controllers
         }
 
         [HttpPost("upload")]
-        public async Task<IActionResult> Upload([FromForm] DocumentoDto dto)
+        public async Task<IActionResult> Upload([FromForm] DocumentoCriacaoDto dto)
         {
             try
             {
@@ -46,7 +47,7 @@ namespace VoxDocs.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(int id, [FromQuery] string token = null)
+        public async Task<IActionResult> GetById(Guid id, [FromQuery] string token = null)
         {
             try
             {
@@ -69,7 +70,7 @@ namespace VoxDocs.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id, [FromQuery] string token = null)
+        public async Task<IActionResult> Delete(Guid id, [FromQuery] string token = null)
         {
             try
             {
@@ -104,23 +105,8 @@ namespace VoxDocs.Controllers
             }
         }
 
-        [HttpGet("acessos/{id}/{dias}")]
-        public async Task<IActionResult> GetAcessosDocumento(int id, int dias)
-        {
-            try
-            {
-                var acessos = await _service.GetAcessosDocumentoAsync(id, dias);
-                if (acessos == null) return NotFound();
-                return Ok(acessos);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { message = "Erro interno no servidor", detalhes = ex.Message });
-            }
-        }
-
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateDocumento(int id, [FromForm] DocumentoUpdateDto updateDto,[FromForm] string? tokenSeguranca)
+        public async Task<IActionResult> UpdateDocumento(Guid id, [FromForm] DocumentoAtualizacaoDto updateDto)
         {
             try
             {

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Net;
 using VoxDocs.DTO;
 
 namespace VoxDocs.DTO
@@ -41,6 +42,15 @@ namespace VoxDocs.DTO
     {
         public bool Sucesso { get; set; }
         public string Mensagem { get; set; } = string.Empty;
+        public int CodigoStatus { get; set; } = (int)HttpStatusCode.OK; // Valor padrão
+    }
+
+    public class PagamentoResponseDto
+    {
+        public bool Sucesso { get; set; }
+        public string Mensagem { get; set; } = string.Empty;
+        public string DetalhesErro { get; set; } = string.Empty;
+        // Adicione outras propriedades conforme necessário
     }
         public class PlanoInfoDto
     {

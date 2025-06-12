@@ -1,37 +1,34 @@
-using Microsoft.EntityFrameworkCore;
-using VoxDocs.Data;
 using VoxDocs.DTO;
 using VoxDocs.Models;
 
 namespace VoxDocs.Services
 {
+
     public class PastaPrincipalService : IPastaPrincipalService
     {
-        private readonly VoxDocsContext _context;
+        private readonly IPastaPrincipalRepository _repository;
 
-        public PastaPrincipalService(VoxDocsContext context)
+        public PastaPrincipalService(IPastaPrincipalRepository repository)
         {
-            _context = context;
+            _repository = repository;
         }
 
         public async Task<IEnumerable<DTOPastaPrincipal>> GetAllAsync()
         {
-            var pastas = await _context.PastaPrincipal
-                .Include(p => p.SubPastas) // Include SubPastas to count documents
-                .ToListAsync();
+            var pastas = await _repository.GetAllAsync();
 
             return pastas.Select(p => new DTOPastaPrincipal
             {
                 Id = p.Id,
                 NomePastaPrincipal = p.NomePastaPrincipal,
                 EmpresaContratante = p.EmpresaContratante,
-                Quantidade = p.SubPastas?.Count ?? 0 // Set Quantidade
+                Quantidade = p.SubPastas?.Count ?? 0
             });
         }
+
         public async Task<DTOPastaPrincipal> GetByNamePrincipalAsync(string nomePasta)
         {
-            var model = await _context.PastaPrincipal
-                .FirstOrDefaultAsync(p => p.NomePastaPrincipal == nomePasta);
+            var model = await _repository.GetByNamePrincipalAsync(nomePasta);
             return model is null 
                 ? null 
                 : new DTOPastaPrincipal {
@@ -39,24 +36,23 @@ namespace VoxDocs.Services
                     NomePastaPrincipal = model.NomePastaPrincipal,
                 };
         }
+
         public async Task<IEnumerable<DTOPastaPrincipal>> GetByEmpresaAsync(string empresaContratante)
         {
-            var pastas = await _context.PastaPrincipal
-                .Include(p => p.SubPastas) // Inclui SubPastas para contar documentos
-                .Where(p => p.EmpresaContratante == empresaContratante) // Filtra pela empresa
-                .ToListAsync();
+            var pastas = await _repository.GetByEmpresaAsync(empresaContratante);
 
             return pastas.Select(p => new DTOPastaPrincipal
             {
                 Id = p.Id,
                 NomePastaPrincipal = p.NomePastaPrincipal,
                 EmpresaContratante = p.EmpresaContratante,
-                Quantidade = p.SubPastas?.Count ?? 0 // Define a quantidade de subpastas
+                Quantidade = p.SubPastas?.Count ?? 0
             });
         }
+
         public async Task<DTOPastaPrincipal?> GetByIdAsync(int id)
         {
-            var pasta = await _context.PastaPrincipal.FindAsync(id);
+            var pasta = await _repository.GetByIdAsync(id);
             if (pasta == null) return null;
 
             return new DTOPastaPrincipal
@@ -66,6 +62,7 @@ namespace VoxDocs.Services
                 EmpresaContratante = pasta.EmpresaContratante
             };
         }
+
         public async Task<DTOPastaPrincipal> CreateAsync(DTOPastaPrincipalCreate dto)
         {
             var pasta = new PastaPrincipalModel
@@ -74,24 +71,19 @@ namespace VoxDocs.Services
                 EmpresaContratante = dto.EmpresaContratante
             };
 
-            _context.PastaPrincipal.Add(pasta);
-            await _context.SaveChangesAsync();
+            var createdPasta = await _repository.CreateAsync(pasta);
 
             return new DTOPastaPrincipal
             {
-                Id = pasta.Id,
-                NomePastaPrincipal = pasta.NomePastaPrincipal,
-                EmpresaContratante = pasta.EmpresaContratante
+                Id = createdPasta.Id,
+                NomePastaPrincipal = createdPasta.NomePastaPrincipal,
+                EmpresaContratante = createdPasta.EmpresaContratante
             };
         }
+
         public async Task<bool> DeleteAsync(int id)
         {
-            var pasta = await _context.PastaPrincipal.FindAsync(id);
-            if (pasta == null) return false;
-
-            _context.PastaPrincipal.Remove(pasta);
-            await _context.SaveChangesAsync();
-            return true;
+            return await _repository.DeleteAsync(id);
         }
     }
 }

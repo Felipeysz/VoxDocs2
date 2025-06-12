@@ -1,84 +1,71 @@
-// Importações de funções específicas por etapa
-import { addPastaHandler, addSubpastaHandler, removePastaHandler, removeSubpastaHandler } from './step2.js';
-import { addAdminHandler, removeAdminHandler, adminInputHandler } from './step3.js';
-import { addUserHandler, removeUserHandler, userInputHandler } from './step4.js';
-import { handlePagarCartaoClick } from './step5.js';
-import { finalizePayment } from './paymentUltils.js';
+// utilities.js - Utilitários gerais
+export class FormUtils {
+  static initPasswordToggle() {
+    document.addEventListener('click', e => {
+      if (e.target.closest('.toggle-password')) {
+        const btn = e.target.closest('.toggle-password');
+        const input = btn.parentElement.querySelector('.password-field');
+        const icon = btn.querySelector('i');
+        
+        if (input.type === 'password') {
+          input.type = 'text';
+          icon.classList.replace('fa-eye', 'fa-eye-slash');
+        } else {
+          input.type = 'password';
+          icon.classList.replace('fa-eye-slash', 'fa-eye');
+        }
+      }
+    });
+  }
 
-// Função para remover listeners do Step 2
-export function removeStep2EventListeners() {
-  document.getElementById('btnAdicionarPastaPrincipal')?.removeEventListener('click', addPastaHandler);
-  document.querySelectorAll('.btn-adicionar-subpasta').forEach(btn => {
-    btn.removeEventListener('click', addSubpastaHandler);
-  });
-  document.querySelectorAll('.btn-remover-pasta').forEach(btn => {
-    btn.removeEventListener('click', removePastaHandler);
-  });
-  document.querySelectorAll('.btn-remover-subpasta').forEach(btn => {
-    btn.removeEventListener('click', removeSubpastaHandler);
-  });
-  document.querySelectorAll('#pastasPrincipaisContainer input').forEach(input => {
-    input.removeEventListener('input', () => {});
-  });
-}
+  static isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
 
-// Função para remover listeners do Step 3
-export function removeStep3EventListeners() {
-  document.getElementById('btnAdicionarAdmin')?.removeEventListener('click', addAdminHandler);
-  document.querySelectorAll('.remover-admin').forEach(btn => {
-    btn.removeEventListener('click', removeAdminHandler);
-  });
-  document.querySelectorAll('#adminsContainer input').forEach(input => {
-    input.removeEventListener('input', adminInputHandler);
-  });
-}
+  static isValidPassword(password) {
+    return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,}$/.test(password);
+  }
 
-// Função para remover listeners do Step 4
-export function removeStep4EventListeners() {
-  document.getElementById('btnAdicionarUser')?.removeEventListener('click', addUserHandler);
-  document.querySelectorAll('.remover-user').forEach(btn => {
-    btn.removeEventListener('click', removeUserHandler);
-  });
-  document.querySelectorAll('#usersContainer input').forEach(input => {
-    input.removeEventListener('input', userInputHandler);
-  });
-}
-
-// Função para remover listeners do Step 5
-export function removeStep5EventListeners() {
-  document.getElementById('nextBtn')?.removeEventListener('click', finalizePayment);
-  document.getElementById('pagarCartao')?.removeEventListener('click', handlePagarCartaoClick);
-}
-
-// Função principal para remover listeners de todas as etapas
-export function removeOldEventListeners() {
-  removeStep2EventListeners();
-  removeStep3EventListeners();
-  removeStep4EventListeners();
-  removeStep5EventListeners();
-}
-
-// Funções gerais (não específicas a etapas)
-export function initPasswordToggle() {
-  $(document).on('click', '.toggle-password', function() {
-    const $btn = $(this);
-    const $input = $btn.siblings('.password-field');
-    const $icon = $btn.find('i');
-
-    if ($input.attr('type') === 'password') {
-      $input.attr('type', 'text');
-      $icon.removeClass('fa-eye').addClass('fa-eye-slash');
-    } else {
-      $input.attr('type', 'password');
-      $icon.removeClass('fa-eye-slash').addClass('fa-eye');
+  static showAlert(elementId, message, type = 'danger') {
+    const el = document.getElementById(elementId);
+    if (el) {
+      el.textContent = message;
+      el.className = `alert alert-${type}`;
+      el.classList.remove('d-none');
+      setTimeout(() => el.classList.add('d-none'), 5000);
     }
-  });
+  }
+
+  static clearAlerts(...elementIds) {
+    elementIds.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.textContent = '';
+        el.classList.add('d-none');
+      }
+    });
+  }
 }
 
-export function isValidEmail(email) {
-  return /^[\w.-]+@[\w.-]+\.\w{2,}$/.test(email);
+// Gerenciamento de Event Listeners
+export class EventManager {
+  static removeEventListeners(element, eventType, handler) {
+    if (element && handler) {
+      element.removeEventListener(eventType, handler);
+    }
+  }
+
+  static removeAllListeners(element) {
+    if (element) {
+      const newElement = element.cloneNode(true);
+      element.parentNode.replaceChild(newElement, element);
+      return newElement;
+    }
+    return null;
+  }
 }
 
-export function isValidPassword(pw) {
-  return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}$/.test(pw);
-}
+// Inicializa os utilitários básicos
+document.addEventListener('DOMContentLoaded', () => {
+  FormUtils.initPasswordToggle();
+});

@@ -4,9 +4,9 @@ namespace VoxDocs.Models
 {
     public class DocumentoModel
     {
-         public required Guid Id { get; set; } = Guid.NewGuid();
+         public Guid Id { get; set; } = Guid.NewGuid();
         public required string NomeArquivo { get; set; }
-        public required string UrlArquivo { get; set; }
+        public string? UrlArquivo { get; set; }
         public required string UsuarioCriador { get; set; }
         public required DateTime DataCriacao { get; set; }
         public string? UsuarioUltimaAlteracao { get; set; }

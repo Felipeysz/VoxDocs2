@@ -12,19 +12,17 @@ namespace VoxDocs.Controllers
     public class LoginMvcController : Controller
     {
         private readonly ILogger<LoginMvcController> _logger;
-        private readonly IHttpClientFactory _httpClientFactory;
-        private readonly IConfiguration _configuration;
         private readonly IUserService _userService;
+        private readonly IConfiguration _configuration;
 
         public LoginMvcController(
             ILogger<LoginMvcController> logger,
-            IHttpClientFactory httpClientFactory,
-            IConfiguration configuration, IUserService userService)
+            IUserService userService,
+            IConfiguration configuration)
         {
             _logger = logger;
-            _httpClientFactory = httpClientFactory;
-            _configuration = configuration;
             _userService = userService;
+            _configuration = configuration;
         }
 
         [HttpGet, AllowAnonymous]
@@ -33,11 +31,13 @@ namespace VoxDocs.Controllers
             return View();
         }
 
+        [HttpGet, AllowAnonymous]
         public IActionResult RecuperarSenha()
         {
             return View();
         }
 
+        [HttpGet, AllowAnonymous]
         public IActionResult ConfirmarEmail()
         {
             return View();
@@ -54,8 +54,7 @@ namespace VoxDocs.Controllers
 
             try
             {
-                // 🔐 Usa o UserService com validações e regras de negócio
-                var principal = await _userService.AuthenticateAsync(model);
+                var principal = await _userService.AuthenticateUserAsync(model);
 
                 await HttpContext.SignInAsync(
                     CookieAuthenticationDefaults.AuthenticationScheme,
@@ -73,11 +72,6 @@ namespace VoxDocs.Controllers
             {
                 TempData["LoginError"] = "Usuário ou senha incorretos.";
             }
-            catch (ArgumentException ex)
-            {
-                // erros de validação (ex: usuário em branco, senha muito curta etc.)
-                TempData["LoginError"] = ex.Message;
-            }
             catch (Exception)
             {
                 TempData["LoginError"] = "Erro inesperado ao fazer login. Tente novamente mais tarde.";
@@ -87,141 +81,85 @@ namespace VoxDocs.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        [Authorize] // Protege o logout para usuários autenticados
         public async Task<IActionResult> Logout()
         {
-            var client = _httpClientFactory.CreateClient("VoxDocsApi");
-
             try
             {
-                var response = await client.PostAsync("/api/User/Logout", null);
-                if (!response.IsSuccessStatusCode)
-                {
-                    TempData["LogoutError"] = "Erro ao sair. Tente novamente.";
-                }
+                await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+                HttpContext.Session.Clear();
+                return RedirectToAction("Login");
             }
             catch (Exception)
             {
                 TempData["LogoutError"] = "Erro ao sair. Tente novamente.";
+                return RedirectToAction("Documentos", "DocumentosMvc");
             }
-
-            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-
-            foreach (var cookie in Request.Cookies.Keys)
-            {
-                Response.Cookies.Delete(cookie);
-            }
-
-            HttpContext.Session.Clear();
-
-            return RedirectToAction("Login", "LoginMvc");
         }
 
-
         [HttpPost, AllowAnonymous]
-        public async Task<IActionResult> RecuperarSenha(string Usuario, string SenhaAntiga, string NovaSenha)
+        public async Task<IActionResult> RecuperarSenha([FromForm] DTOUserLoginPasswordChange model)
         {
-            var client = _httpClientFactory.CreateClient("VoxDocsApi");
-            var dto = new
+            if (!ModelState.IsValid)
             {
-                Usuario = Usuario,
-                SenhaAntiga = SenhaAntiga,
-                NovaSenha = NovaSenha
-            };
+                TempData["RecuperarSenhaError"] = "Preencha todos os campos corretamente.";
+                return View(model);
+            }
 
             try
             {
-                var response = await client.PostAsJsonAsync("/api/User/UpdatePassword", dto);
-
-                if (response.IsSuccessStatusCode)
-                {
-                    TempData["RecuperarSenhaSuccess"] = "Senha alterada com sucesso!";
-                }
-                else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
-                {
-                    TempData["RecuperarSenhaError"] = "Usuário não encontrado.";
-                }
-                else if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
-                {
-                    TempData["RecuperarSenhaError"] = "Senha atual incorreta.";
-                }
-                else
-                {
-                    var msg = await response.Content.ReadAsStringAsync();
-                    _logger.LogError("Erro ao alterar senha: {msg}", msg);
-                    TempData["RecuperarSenhaError"] = "Não foi possível alterar a senha. Tente novamente mais tarde.";
-                }
+                await _userService.ChangePasswordAsync(model);
+                TempData["RecuperarSenhaSuccess"] = "Senha alterada com sucesso!";
+                return RedirectToAction("Login");
             }
-            catch (Exception ex)
+            catch (KeyNotFoundException)
             {
-                _logger.LogError(ex, "Erro inesperado ao tentar alterar senha.");
+                TempData["RecuperarSenhaError"] = "Usuário não encontrado.";
+            }
+            catch (UnauthorizedAccessException)
+            {
+                TempData["RecuperarSenhaError"] = "Senha atual incorreta.";
+            }
+            catch (Exception)
+            {
                 TempData["RecuperarSenhaError"] = "Ocorreu um erro inesperado. Tente novamente mais tarde.";
             }
 
-            return RedirectToAction("RecuperarSenha");
+            return View(model);
         }
 
-        [HttpGet, AllowAnonymous]
-        public async Task<IActionResult> RecuperarEmail(string email)
+        [HttpPost, AllowAnonymous]
+        public async Task<IActionResult> RecuperarEmail([FromForm] DTOResetPassword model)
         {
-            _logger.LogInformation("[RecuperarEmail] Iniciando envio para: {email}", email);
-
             try
             {
-                var client = _httpClientFactory.CreateClient("VoxDocsApi");
-                var response = await client.PostAsJsonAsync("/api/User/GeneratePasswordResetLink", email);
-
-                if (response.IsSuccessStatusCode)
+                await _userService.RequestPasswordResetAsync(model);
+                
+                // Envio do e-mail (simplificado para exemplo)
+                var smtpSection = _configuration.GetSection("Smtp");
+                var mailMessage = new MailMessage
                 {
-                    var result = await response.Content.ReadFromJsonAsync<System.Text.Json.JsonElement>();
-                    string resetLink = result.GetProperty("link").GetString();
+                    From = new MailAddress(smtpSection["User"]),
+                    Subject = "Recuperação de Senha - VoxDocs",
+                    Body = "Instruções para redefinir sua senha foram enviadas para seu e-mail.",
+                    IsBodyHtml = false,
+                };
+                mailMessage.To.Add(model.Email);
 
-                    // Envio do e-mail com o link real
-                    var smtpSection = _configuration.GetSection("Smtp");
-                    var host = smtpSection.GetValue<string>("Host");
-                    var port = smtpSection.GetValue<int>("Port");
-                    var user = smtpSection.GetValue<string>("User");
-                    var pass = smtpSection.GetValue<string>("Pass");
-
-                    var smtpClient = new SmtpClient(host)
-                    {
-                        Port = port,
-                        Credentials = new NetworkCredential(user, pass),
-                        EnableSsl = true,
-                    };
-
-                    var mailMessage = new MailMessage
-                    {
-                        From = new MailAddress(user),
-                        Subject = "Recuperação de Senha - VoxDocs",
-                        Body = $@"Olá,
-
-        Recebemos uma solicitação para redefinir a senha da sua conta VoxDocs.
-
-        Para criar uma nova senha, clique no link abaixo:
-        {resetLink}
-
-        Se você não solicitou a redefinição, ignore este e-mail.
-
-        Atenciosamente,
-        Equipe VoxDocs",
-                        IsBodyHtml = false,
-                    };
-                    mailMessage.To.Add(email);
-
-                    smtpClient.Send(mailMessage);
-
-                    TempData["LoginSuccess"] = $"Instrução enviada ao e-mail <b>{email}</b>. Por favor, verifique sua caixa de entrada.";
-                }
-                else
+                new SmtpClient(smtpSection["Host"])
                 {
-                    TempData["LoginError"] = "Conta inexistente ou e-mail incorreto.";
-                }
+                    Port = int.Parse(smtpSection["Port"]),
+                    Credentials = new NetworkCredential(smtpSection["User"], smtpSection["Pass"]),
+                    EnableSsl = true,
+                }.Send(mailMessage);
+
+                TempData["LoginSuccess"] = $"Instruções enviadas para {model.Email}. Verifique sua caixa de entrada.";
             }
-            catch (Exception ex)
+            catch (KeyNotFoundException)
             {
-                _logger.LogError(ex, "[RecuperarEmail] Erro ao enviar e-mail para: {email}", email);
+                TempData["LoginError"] = "E-mail não cadastrado.";
+            }
+            catch (Exception)
+            {
                 TempData["LoginError"] = "Não foi possível enviar o e-mail. Tente novamente mais tarde.";
             }
 
@@ -229,57 +167,48 @@ namespace VoxDocs.Controllers
         }
 
         [HttpGet, AllowAnonymous]
-        public async Task<IActionResult> LinkRedefinirSenha(string token)
+        public IActionResult LinkRedefinirSenha(string token)
         {
             if (string.IsNullOrEmpty(token))
             {
                 return RedirectToAction("ErrorTokenInvalido", "ErrorMvc");
             }
 
-            var client = _httpClientFactory.CreateClient("VoxDocsApi");
-            var response = await client.GetAsync($"/api/User/GetTokenExpiration?token={token}");
-
-            if (!response.IsSuccessStatusCode)
-            {
-                return RedirectToAction("ErrorTokenInvalido", "ErrorMvc");
-            }
-
-            DateTime? expiration = null;
-            var result = await response.Content.ReadFromJsonAsync<System.Text.Json.JsonElement>();
-            var expirationStr = result.GetProperty("expiration").GetString();
-            expiration = DateTime.Parse(expirationStr).ToLocalTime();
-
             ViewBag.Token = token;
-            ViewBag.Expiration = expiration;
             return View();
         }
         
         [HttpPost, AllowAnonymous]
-        public async Task<IActionResult> LinkRedefinirSenha(string token, string NovaSenha, string ConfirmarSenha)
+        public async Task<IActionResult> LinkRedefinirSenha([FromForm] DTOResetPasswordWithToken model)
         {
-            if (string.IsNullOrEmpty(NovaSenha) || NovaSenha != ConfirmarSenha)
+            if (!ModelState.IsValid)
             {
-                TempData["ResetError"] = "As senhas não coincidem.";
-                ViewBag.Token = token;
+                TempData["ResetError"] = "Preencha todos os campos corretamente.";
+                ViewBag.Token = model.Token;
                 return View();
             }
 
-            var client = _httpClientFactory.CreateClient("VoxDocsApi");
-            var dto = new { Token = token, NovaSenha = NovaSenha };
-            var response = await client.PostAsJsonAsync("/api/User/ResetPasswordWithToken", dto);
-
-            if (response.IsSuccessStatusCode)
+            try
             {
+                await _userService.ResetPasswordWithTokenAsync(model);
                 TempData["LoginSuccess"] = "Senha redefinida com sucesso! Faça login com sua nova senha.";
                 return RedirectToAction("Login");
             }
-            else
+            catch (KeyNotFoundException)
             {
-                var msg = await response.Content.ReadAsStringAsync();
-                TempData["ResetError"] = "Não foi possível redefinir a senha. " + msg;
-                ViewBag.Token = token;
-                return View();
+                TempData["ResetError"] = "Token inválido ou expirado.";
             }
+            catch (UnauthorizedAccessException)
+            {
+                TempData["ResetError"] = "Token expirado.";
+            }
+            catch (Exception)
+            {
+                TempData["ResetError"] = "Não foi possível redefinir a senha. Tente novamente mais tarde.";
+            }
+
+            ViewBag.Token = model.Token;
+            return View();
         }
     }
 }

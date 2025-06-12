@@ -10,7 +10,7 @@ namespace VoxDocs.Models.ViewModels
 
         public IEnumerable<DTOSubPasta> SubPastas { get; set; } = new List<DTOSubPasta>();
 
-        public IEnumerable<DTODocumentoCreate> Documentos { get; set; } = new List<DTODocumentoCreate>();
+        public IEnumerable<DocumentoDto> Documentos { get; set; } = new List<DocumentoDto>();
         public string? SelectedPastaPrincipalNome { get; set; }
         public string? SelectedSubPastaNome { get; set; }
     }

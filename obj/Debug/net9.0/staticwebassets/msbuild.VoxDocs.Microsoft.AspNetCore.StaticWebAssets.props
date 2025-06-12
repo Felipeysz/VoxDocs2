@@ -66,8 +66,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>jl2lt5655t</Fingerprint>
-      <Integrity>ZxHGSWPOxD4HzsS6dOR5+KqXytM6KX9HeJontxbFhIk=</Integrity>
+      <Fingerprint>bw6ocgzrzg</Fingerprint>
+      <Integrity>FQt+rJJeRpyOd5KlBs4gQxAVZKChzZbrhvJMVjZqeCY=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\ChatVoxStyles\voice-modalstyle.css'))</OriginalItemSpec>
@@ -246,8 +246,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>4mrgzrr8ao</Fingerprint>
-      <Integrity>NBExpQiWf1bJILpNwhtmUJVCOp2MxjATdhrrHPhaK5k=</Integrity>
+      <Fingerprint>r2vxcxr6sr</Fingerprint>
+      <Integrity>bQRRz2W9C+GC2ZQAszRTPzhmOM6mAtaSxLgQY2J3RX8=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\PagamentoScript\main.js'))</OriginalItemSpec>
@@ -264,8 +264,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>nu65b96042</Fingerprint>
-      <Integrity>ET+MsmRz34jvP1hHWyVKWrezV8VTymuHJgvGQtaywf0=</Integrity>
+      <Fingerprint>1a582rbdno</Fingerprint>
+      <Integrity>R7UherBITUHiTM4b/JmycsOyPDxid8hWBC1n50OJLOw=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\PagamentoScript\paymentUltils.js'))</OriginalItemSpec>
@@ -282,8 +282,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>87ls746w0l</Fingerprint>
-      <Integrity>VLH4sqYHGpVNdMakwMXfuXRW5B8fhs2nX98EAX02h4E=</Integrity>
+      <Fingerprint>gwsts4bcp3</Fingerprint>
+      <Integrity>cOyMtcHoUKL4yKUHqHcPMf/lIZWCETb0GpaH6xCSr9U=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\PagamentoScript\step1.js'))</OriginalItemSpec>
@@ -300,8 +300,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>e10erwkjt3</Fingerprint>
-      <Integrity>To14f+1yUC/G76+2N4apaVA2bS47VFBzTVGGE5YErQo=</Integrity>
+      <Fingerprint>epzl8zi5gw</Fingerprint>
+      <Integrity>/oPYvkMDrmmVRr6o5N6++LjskRQsCh3HdpXw58GyUNc=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\PagamentoScript\step2.js'))</OriginalItemSpec>
@@ -318,8 +318,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>lw4ovqomju</Fingerprint>
-      <Integrity>1VVef5hPGS5q9oNpNpO2CVYvPwpQTsCKeZ/JUvGjgwQ=</Integrity>
+      <Fingerprint>c9cj7dcql7</Fingerprint>
+      <Integrity>MEAcXXJch63HNSMxRt61KcY1EDRJfrWodUMd8y3cQg0=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\PagamentoScript\step3.js'))</OriginalItemSpec>
@@ -336,8 +336,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>6syvu3p9bi</Fingerprint>
-      <Integrity>KqTMyO0PthSVbJGQfQZVLWbEi+QT7Np0txCWvKMV6V0=</Integrity>
+      <Fingerprint>jjwb4v1bfp</Fingerprint>
+      <Integrity>f6m33xGSgZRuBVFFgFksiqikPZnWubh53dA0vyJSWXY=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\PagamentoScript\step4.js'))</OriginalItemSpec>
@@ -354,8 +354,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>dh7q2cznak</Fingerprint>
-      <Integrity>YYr2aFdA4F0TPMFPRqUoik5wJYjE53TVgUBE1KNTYVk=</Integrity>
+      <Fingerprint>e304hv6r5k</Fingerprint>
+      <Integrity>eoYAk/YihHF8N5v88ld1aHrOhDVodYie+qsavRf6MZY=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\PagamentoScript\step5.js'))</OriginalItemSpec>
@@ -372,8 +372,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>8g61in69d5</Fingerprint>
-      <Integrity>6IROGICBrQhVbYj8GJB1E3A5hebKvtLqHfiQ+08ga4c=</Integrity>
+      <Fingerprint>ocgkt4zwfe</Fingerprint>
+      <Integrity>yIyOfm3DCxVMobEdnMTCAXh/n81UVB0J7Nsxd6ubypE=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\PagamentoScript\ultilities.js'))</OriginalItemSpec>
