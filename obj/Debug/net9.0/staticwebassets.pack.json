@@ -57,28 +57,12 @@
       "PackagePath": "staticwebassets\\js\\PagamentoScript\\main.js"
     },
     {
-      "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\js\\PagamentoScript\\paymentUltils.js",
-      "PackagePath": "staticwebassets\\js\\PagamentoScript\\paymentUltils.js"
-    },
-    {
       "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\js\\PagamentoScript\\step1.js",
       "PackagePath": "staticwebassets\\js\\PagamentoScript\\step1.js"
     },
     {
       "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\js\\PagamentoScript\\step2.js",
       "PackagePath": "staticwebassets\\js\\PagamentoScript\\step2.js"
-    },
-    {
-      "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\js\\PagamentoScript\\step3.js",
-      "PackagePath": "staticwebassets\\js\\PagamentoScript\\step3.js"
-    },
-    {
-      "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\js\\PagamentoScript\\step4.js",
-      "PackagePath": "staticwebassets\\js\\PagamentoScript\\step4.js"
-    },
-    {
-      "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\js\\PagamentoScript\\step5.js",
-      "PackagePath": "staticwebassets\\js\\PagamentoScript\\step5.js"
     },
     {
       "Id": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\js\\PagamentoScript\\ultilities.js",

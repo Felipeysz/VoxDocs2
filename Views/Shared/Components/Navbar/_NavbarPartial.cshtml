@@ -44,6 +44,13 @@
           </li>
         }
 
+        <!-- Novo item de Suporte -->
+        <li class="nav-item">
+          <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#voiceAssistantModal">
+            Suporte
+          </a>
+        </li>
+
         <li class="nav-item dropdown ps-3">
           <a class="nav-link dropdown-toggle" href="#"
              id="userDropdown" role="button"
@@ -56,8 +63,8 @@
             @if (isAuthenticated)
             {
               <li>
-                <a class="dropdown-item @(currentController == "UserInfoMvc" ? "active" : "")"
-                   asp-controller="UserInfoMvc" asp-action="MeuPerfil">
+                <a class="dropdown-item @(currentController == "PerfilMvc" && currentAction == "MeuPerfil" ? "active" : "")"
+                   asp-controller="PerfilMvc" asp-action="MeuPerfil">
                   Meu Perfil
                 </a>
               </li>
@@ -65,7 +72,7 @@
             @if (isAuthenticated && isAdmin)
             {
               <li>
-                <a class="dropdown-item @(currentController == "AdminMvc" ? "active" : "")"
+                <a class="dropdown-item @(currentController == "AdminMvc" && currentAction == "Dashboard" ? "active" : "")"
                    asp-controller="AdminMvc" asp-action="Dashboard">
                   Dashboard
                 </a>
@@ -78,7 +85,8 @@
             @if (!isAuthenticated)
             {
               <li>
-                <a class="dropdown-item text-danger" asp-controller="LoginMvc" asp-action="Login">
+                <a class="dropdown-item text-danger @(currentController == "AuthMvc" && currentAction == "Login" ? "active" : "")" 
+                   asp-controller="AuthMvc" asp-action="Login">
                   Login
                 </a>
               </li>
@@ -86,7 +94,7 @@
             else
             {
               <li>
-                <form asp-controller="NavbarMvc" asp-action="Logout" method="post">
+                <form asp-controller="AuthMvc" asp-action="Logout" method="post">
                   @Html.AntiForgeryToken()
                   <button type="submit" class="dropdown-item text-danger">
                     Sair
@@ -134,29 +142,36 @@
              asp-controller="UploadMvc" asp-action="Upload">Upload</a>
         </li>
       }
+      <!-- Suporte no menu mobile -->
+      <li class="nav-item">
+        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#voiceAssistantModal">
+          Suporte
+        </a>
+      </li>
       <li><hr class="dropdown-divider" /></li>
       @if (isAuthenticated)
       {
         <li class="nav-item">
-          <a class="nav-link @(currentController == "UserInfoMvc" ? "active" : "")"
-             asp-controller="UserInfoMvc" asp-action="MeuPerfil">Meu Perfil</a>
+          <a class="nav-link @(currentController == "PerfilMvc" && currentAction == "MeuPerfil" ? "active" : "")"
+             asp-controller="PerfilMvc" asp-action="MeuPerfil">Meu Perfil</a>
         </li>
       }
       @if (isAuthenticated && isAdmin)
       {
         <li class="nav-item">
-          <a class="nav-link @(currentController == "AdminMvc" ? "active" : "")"
+          <a class="nav-link @(currentController == "AdminMvc" && currentAction == "Dashboard" ? "active" : "")"
              asp-controller="AdminMvc" asp-action="Dashboard">Dashboard</a>
         </li>
       }
       <li class="nav-item">
         @if (!isAuthenticated)
         {
-          <a class="nav-link text-danger" asp-controller="LoginMvc" asp-action="Login">Login</a>
+          <a class="nav-link text-danger @(currentController == "AuthMvc" && currentAction == "Login" ? "active" : "")" 
+             asp-controller="AuthMvc" asp-action="Login">Login</a>
         }
         else
         {
-          <form asp-controller="NavbarMvc" asp-action="Logout" method="post">
+          <form asp-controller="AuthMvc" asp-action="Logout" method="post">
             @Html.AntiForgeryToken()
             <button type="submit" class="nav-link text-danger btn btn-link">Sair</button>
           </form>

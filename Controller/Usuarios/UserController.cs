@@ -5,6 +5,9 @@ using Microsoft.Extensions.Logging;
 using VoxDocs.DTO;
 using VoxDocs.Services;
 using Microsoft.AspNetCore.Authentication;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace VoxDocs.Controllers.Api
 {
@@ -24,18 +27,18 @@ namespace VoxDocs.Controllers.Api
         }
 
         [HttpPost, AllowAnonymous]
-        public async Task<IActionResult> Register([FromBody] DTORegisterUser dto)
+        public async Task<IActionResult> Register([FromBody] DTORegistrarUsuario registerDto)
         {
             try
             {
-                var (user, adminLimit, userLimit) = await _userService.RegisterUserAsync(dto);
+                var (user, adminLimit, userLimit) = await _userService.RegisterUserAsync(registerDto);
 
                 return Ok(new
                 {
                     user.Id,
                     user.Usuario,
                     user.Email,
-                    user.PermissionAccount,
+                    user.PermissaoConta,
                     LimiteAdmin = adminLimit,
                     LimiteUsuario = userLimit,
                     mensagem = "Usuário criado com sucesso!"
@@ -53,11 +56,11 @@ namespace VoxDocs.Controllers.Api
         }
 
         [HttpPost, AllowAnonymous]
-        public async Task<IActionResult> Login([FromBody] DTOLoginUser dto)
+        public async Task<IActionResult> Login([FromBody] DTOLoginUsuario loginDto)
         {
             try
             {
-                var principal = await _userService.AuthenticateUserAsync(dto);
+                var principal = await _userService.AuthenticateUserAsync(loginDto);
 
                 await HttpContext.SignInAsync(
                     CookieAuthenticationDefaults.AuthenticationScheme,
@@ -71,13 +74,9 @@ namespace VoxDocs.Controllers.Api
 
                 return Ok(new
                 {
-                    usuario = dto.Usuario,
+                    usuario = loginDto.Usuario,
                     mensagem = "Login realizado com sucesso!"
                 });
-            }
-            catch (KeyNotFoundException ex)
-            {
-                return NotFound(new { mensagem = ex.Message });
             }
             catch (UnauthorizedAccessException ex)
             {
@@ -103,7 +102,7 @@ namespace VoxDocs.Controllers.Api
             try
             {
                 var users = await _userService.GetAllUsersAsync();
-                return Ok(users.Select(u => new { u.Id, u.Usuario, u.PermissionAccount }));
+                return Ok(users);
             }
             catch (Exception ex)
             {
@@ -112,12 +111,31 @@ namespace VoxDocs.Controllers.Api
             }
         }
 
-        [HttpPut, Authorize]
-        public async Task<IActionResult> UpdateUser([FromBody] DTOUpdateUser dto)
+        [HttpGet("{userId}"), Authorize]
+        public async Task<IActionResult> GetUserById(Guid userId)
         {
             try
             {
-                await _userService.UpdateUserAsync(dto);
+                var user = await _userService.GetUserByIdAsync(userId);
+                return Ok(user);
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(new { mensagem = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Erro ao obter usuário");
+                return StatusCode(500, new { mensagem = "Erro interno ao obter usuário." });
+            }
+        }
+
+        [HttpPut, Authorize]
+        public async Task<IActionResult> UpdateUser([FromBody] DTOAtualizarUsuario updateDto)
+        {
+            try
+            {
+                await _userService.UpdateUserAsync(updateDto);
                 return Ok(new { mensagem = "Usuário atualizado com sucesso!" });
             }
             catch (KeyNotFoundException ex)
@@ -154,17 +172,13 @@ namespace VoxDocs.Controllers.Api
             }
         }
 
-        [HttpPost, AllowAnonymous]
-        public async Task<IActionResult> RequestPasswordReset([FromBody] DTOResetPassword resetRequestDto)
+        [HttpPost("request-reset"), AllowAnonymous]
+        public async Task<IActionResult> RequestPasswordReset([FromBody] string email)
         {
             try
             {
-                await _userService.RequestPasswordResetAsync(resetRequestDto);
+                await _userService.RequestPasswordResetAsync(email);
                 return Ok(new { mensagem = "Se o email existir em nosso sistema, um link de redefinição será enviado." });
-            }
-            catch (KeyNotFoundException ex)
-            {
-                return NotFound(new { mensagem = ex.Message });
             }
             catch (Exception ex)
             {
@@ -173,17 +187,13 @@ namespace VoxDocs.Controllers.Api
             }
         }
 
-        [HttpPost, AllowAnonymous]
-        public async Task<IActionResult> ResetPasswordWithToken([FromBody] DTOResetPasswordWithToken resetDto)
+        [HttpPost("reset-with-token"), AllowAnonymous]
+        public async Task<IActionResult> ResetPasswordWithToken([FromBody] (string token, string novaSenha) resetDto)
         {
             try
             {
-                await _userService.ResetPasswordWithTokenAsync(resetDto);
+                await _userService.ResetPasswordWithTokenAsync(resetDto.token, resetDto.novaSenha);
                 return Ok(new { mensagem = "Senha redefinida com sucesso!" });
-            }
-            catch (KeyNotFoundException ex)
-            {
-                return NotFound(new { mensagem = ex.Message });
             }
             catch (UnauthorizedAccessException ex)
             {
@@ -196,12 +206,12 @@ namespace VoxDocs.Controllers.Api
             }
         }
 
-        [HttpPost, Authorize]
-        public async Task<IActionResult> ChangePassword([FromBody] DTOUserLoginPasswordChange changeDto)
+        [HttpPost("change-password"), Authorize]
+        public async Task<IActionResult> ChangePassword([FromBody] (string username, string senhaAntiga, string novaSenha) changeDto)
         {
             try
             {
-                await _userService.ChangePasswordAsync(changeDto);
+                await _userService.ChangePasswordAsync(changeDto.username, changeDto.senhaAntiga, changeDto.novaSenha);
                 return Ok(new { mensagem = "Senha alterada com sucesso!" });
             }
             catch (KeyNotFoundException ex)
@@ -219,12 +229,12 @@ namespace VoxDocs.Controllers.Api
             }
         }
 
-        [HttpGet, AllowAnonymous]
-        public async Task<IActionResult> IsEmailAvailable(string email)
+        [HttpGet("check-email"), AllowAnonymous]
+        public async Task<IActionResult> IsEmailAvailable(string email, Guid? excludeUserId = null)
         {
             try
             {
-                var isAvailable = await _userService.IsEmailAvailableAsync(email);
+                var isAvailable = await _userService.IsEmailAvailableAsync(email, excludeUserId);
                 return Ok(new { disponivel = isAvailable });
             }
             catch (Exception ex)
@@ -234,18 +244,67 @@ namespace VoxDocs.Controllers.Api
             }
         }
 
-        [HttpGet, AllowAnonymous]
-        public async Task<IActionResult> IsUsernameAvailable(string username)
+        [HttpGet("check-username"), AllowAnonymous]
+        public async Task<IActionResult> IsUsernameAvailable(string username, Guid? excludeUserId = null)
         {
             try
             {
-                var isAvailable = await _userService.IsUsernameAvailableAsync(username);
+                var isAvailable = await _userService.IsUsernameAvailableAsync(username, excludeUserId);
                 return Ok(new { disponivel = isAvailable });
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Erro ao verificar disponibilidade de usuário");
                 return StatusCode(500, new { mensagem = "Erro interno ao verificar usuário." });
+            }
+        }
+
+        [HttpGet("storage/{userId}"), Authorize]
+        public async Task<IActionResult> GetUserStorageInfo(Guid userId)
+        {
+            try
+            {
+                var storageInfo = await _userService.GetUserStorageInfoAsync(userId);
+                return Ok(storageInfo);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Erro ao obter informações de armazenamento");
+                return StatusCode(500, new { mensagem = "Erro interno ao obter informações de armazenamento." });
+            }
+        }
+
+        [HttpGet("admin-stats"), Authorize(Policy = "AdminOnly")]
+        public async Task<IActionResult> GetAdminStatistics()
+        {
+            try
+            {
+                var stats = await _userService.GetAdminStatisticsAsync();
+                return Ok(stats);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Erro ao obter estatísticas administrativas");
+                return StatusCode(500, new { mensagem = "Erro interno ao obter estatísticas administrativas." });
+            }
+        }
+
+        [HttpPost("toggle-status/{userId}"), Authorize(Policy = "AdminOnly")]
+        public async Task<IActionResult> ToggleUserStatus(Guid userId, [FromBody] bool ativo)
+        {
+            try
+            {
+                await _userService.ToggleUserStatusAsync(userId, ativo);
+                return Ok(new { mensagem = $"Status do usuário alterado para {(ativo ? "ativo" : "inativo")}" });
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(new { mensagem = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Erro ao alterar status do usuário");
+                return StatusCode(500, new { mensagem = "Erro interno ao alterar status do usuário." });
             }
         }
     }

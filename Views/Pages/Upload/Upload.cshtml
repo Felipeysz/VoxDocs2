@@ -1,4 +1,4 @@
-@model VoxDocs.Models.ViewModels.UploadDocumentoViewModel
+@model VoxDocs.Models.ViewModels.DocumentoCreateViewModel
 @{
     Layout = null;
 }
@@ -13,9 +13,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
 
-    <!-- Seus estilos -->
+    <!-- Styles -->
     <link rel="stylesheet" href="~/css/UploadStyles/UploadPageStyle.css" />
     <link rel="stylesheet" href="~/css/ChatVoxStyles/voice-modalstyle.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
   @await Html.PartialAsync("_NavbarPartial")
@@ -23,29 +24,33 @@
   <div class="upload-card mt-5" data-aos="fade-up">
     <h2><span class="material-symbols-outlined">upload</span> Upload de Documentos</h2>
 
-    <form id="frmUpload" enctype="multipart/form-data">
+    <form id="frmUpload" asp-action="Upload" asp-controller="UploadMvc" method="post" enctype="multipart/form-data">
+      @Html.AntiForgeryToken()
+
       <!-- Arquivo -->
       <div class="mb-3">
-        <label asp-for="Arquivo"></label>
-        <input asp-for="Arquivo" type="file" class="form-control" id="arquivoInput"/>
+        <label asp-for="Arquivo" class="form-label"></label>
+        <input asp-for="Arquivo" type="file" class="form-control" id="arquivoInput" />
         <span asp-validation-for="Arquivo" class="text-danger"></span>
       </div>
 
       <!-- Pasta Principal -->
       <div class="mb-3">
-        <label asp-for="SelectedPastaPrincipalId"></label>
+        <label asp-for="SelectedPastaPrincipalId" class="form-label"></label>
         <select asp-for="SelectedPastaPrincipalId"
-                asp-items="@(new SelectList(Model.PastaPrincipais, "Id","NomePastaPrincipal"))"
+                asp-items="@(new SelectList(ViewBag.PastaPrincipais, "Id", "NomePastaPrincipal"))"
                 class="form-control" id="PastaPrincipalSelect">
             <option value="">Escolha a Categoria Principal</option>
         </select>
         <span asp-validation-for="SelectedPastaPrincipalId" class="text-danger"></span>
       </div>
 
-      <!-- Subpasta (inicialmente oculta) -->
+      <!-- Subpasta -->
       <div class="mb-3" id="subpasta-group" style="display:none;">
-        <label asp-for="SelectedSubPastaId"></label>
-        <select asp-for="SelectedSubPastaId" class="form-control" id="SubPastaSelect">
+        <label asp-for="SelectedSubPastaId" class="form-label"></label>
+        <select asp-for="SelectedSubPastaId" 
+                asp-items="@(new SelectList(ViewBag.SubPastas, "Id", "NomeSubPasta"))"
+                class="form-control" id="SubPastaSelect">
             <option value="">Escolha a Sub Categoria</option>
         </select>
         <span asp-validation-for="SelectedSubPastaId" class="text-danger"></span>
@@ -53,7 +58,7 @@
 
       <!-- Nível de Segurança -->
       <div class="mb-3">
-        <label asp-for="NivelSeguranca"></label>
+        <label asp-for="NivelSeguranca" class="form-label"></label>
         <select asp-for="NivelSeguranca" class="form-control" id="NivelSeguranca">
           <option value="Publico">Público</option>
           <option value="Restrito">Restrito</option>
@@ -67,15 +72,15 @@
 
       <!-- Token (só aparece quando não é Público) -->
       <div class="mb-3" id="token-group" style="display:none;">
-        <label asp-for="TokenSeguranca"></label>
-        <input asp-for="TokenSeguranca" class="form-control" id="tokenInput"/>
+        <label asp-for="TokenSeguranca" class="form-label"></label>
+        <input asp-for="TokenSeguranca" class="form-control" id="tokenInput" />
         <span asp-validation-for="TokenSeguranca" class="text-danger"></span>
       </div>
 
       <!-- Descrição -->
       <div class="mb-3">
-        <label asp-for="Descricao"></label>
-        <input asp-for="Descricao" class="form-control" id="descricaoInput"/>
+        <label asp-for="Descricao" class="form-label"></label>
+        <textarea asp-for="Descricao" class="form-control" id="descricaoInput" rows="3"></textarea>
         <span asp-validation-for="Descricao" class="text-danger"></span>
       </div>
 
@@ -87,11 +92,25 @@
       </div>
     </form>
 
-    <!-- Feedback AJAX -->
-    <div id="messageContainer" class="alert" role="alert" style="display:none;"></div>
+    <!-- Mensagens de feedback -->
+    @if (TempData["SuccessMessage"] != null)
+    {
+      <div class="alert alert-success mt-3">@TempData["SuccessMessage"]</div>
+    }
   </div>
 
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>
+
   <script>
+    // Inicializa AOS
+    AOS.init();
+
     // Referências globais aos elementos
     const nivelSeguranca = document.getElementById("NivelSeguranca");
     const tokenGroup = document.getElementById("token-group");
@@ -103,123 +122,91 @@
     const arquivoInput = document.getElementById("arquivoInput");
     const descricaoInput = document.getElementById("descricaoInput");
 
-    // Função para limpar campos
-    function limparCampos() {
-      // Limpa o token sempre que o nível de segurança é alterado
-      tokenInput.value = '';
-      
-      // Para o evento de mudança, apenas limpa o token
-      if (event && event.type === 'change') return;
-      
-      // Para o reset completo após envio
-      form.reset();
-      tokenInput.value = '';
-      subPastaGroup.style.display = 'none';
-      subPastaSelect.innerHTML = '<option value="">Escolha a Sub Categoria</option>';
-      nivelSeguranca.value = 'Publico';
-      tokenGroup.style.display = 'none';
+    // Mostra/esconde token baseado no nível de segurança
+    function toggleTokenVisibility() {
+      tokenGroup.style.display = nivelSeguranca.value !== "Publico" ? "block" : "none";
+      if (nivelSeguranca.value === "Publico") {
+        tokenInput.value = '';
+      }
     }
 
-    // mostra/esconde token e limpa campo
-    document.addEventListener("DOMContentLoaded", () => {
-      // Configura evento de mudança para limpar token
-      nivelSeguranca.addEventListener("change", function() {
-        // Mostra/oculta o grupo do token
-        tokenGroup.style.display = this.value !== "Publico" ? "block" : "none";
-        
-        // Limpa o campo de token sempre que o nível muda
-        limparCampos();
-      });
-      
-      // Inicializa a visibilidade do token
-      tokenGroup.style.display = nivelSeguranca.value !== "Publico" ? "block" : "none";
-    });
+    // Carrega subpastas quando uma pasta principal é selecionada
+    async function loadSubPastas(pastaPrincipalId) {
+      if (!pastaPrincipalId) {
+        subPastaGroup.style.display = "none";
+        return;
+      }
 
-    // Subpasta dinâmica
-    document.addEventListener("DOMContentLoaded", function () {
-      pastaPrincipalSelect.addEventListener("change", async function () {
-        const selectedOption = pastaPrincipalSelect.options[pastaPrincipalSelect.selectedIndex];
-        const nomePastaPrincipal = selectedOption.text;
+      try {
+        const response = await fetch(`/UploadMvc/GetSubPastasByPastaPrincipal?pastaPrincipalId=${pastaPrincipalId}`);
+        if (!response.ok) throw new Error("Erro ao buscar subpastas");
+        
+        const subPastas = await response.json();
         subPastaSelect.innerHTML = '<option value="">Escolha a Sub Categoria</option>';
         
-        if (!pastaPrincipalSelect.value) {
-          subPastaGroup.style.display = "none";
-          return;
-        }
-        
-        try {
-          const resp = await fetch('/api/SubPasta/subchildren/' + encodeURIComponent(nomePastaPrincipal));
-          if (!resp.ok) throw new Error("Erro ao buscar subpastas.");
-          
-          const contentType = resp.headers.get("content-type");
-          if (!contentType || !contentType.includes("application/json")) {
-            throw new Error("Resposta inesperada do servidor.");
-          }
-          
-          const subPastas = await resp.json();
-          if (subPastas.length > 0) {
-            subPastas.forEach(function (s) {
-              const opt = document.createElement("option");
-              opt.value = s.id;
-              opt.textContent = s.nomeSubPasta;
-              subPastaSelect.appendChild(opt);
-            });
-            subPastaGroup.style.display = "block";
-          } else {
-            subPastaGroup.style.display = "block";
-          }
-        } catch (err) {
-          alert("Erro ao carregar subpastas: " + err.message);
-          subPastaGroup.style.display = "none";
-        }
-      });
+        subPastas.forEach(subPasta => {
+          const option = document.createElement('option');
+          option.value = subPasta.id;
+          option.textContent = subPasta.nomeSubPasta;
+          subPastaSelect.appendChild(option);
+        });
 
-      // Inicialmente oculta se não houver pasta selecionada
-      if (!pastaPrincipalSelect.value) {
+        subPastaGroup.style.display = "block";
+      } catch (error) {
+        console.error("Erro ao carregar subpastas:", error);
         subPastaGroup.style.display = "none";
+      }
+    }
+
+    // Event listeners
+    document.addEventListener("DOMContentLoaded", () => {
+      toggleTokenVisibility();
+      
+      // Verifica se já tem uma pasta principal selecionada (em caso de retorno de validação)
+      if (pastaPrincipalSelect.value) {
+        loadSubPastas(pastaPrincipalSelect.value);
       }
     });
 
-    // AJAX submit
-    form.addEventListener('submit', async e => {
-      e.preventDefault();
-      const data = new FormData(form);
-      const resp = await fetch('@Url.Action("UploadDocumentos","DocumentosMvc")', {
-        method: 'POST', 
-        body: data
-      });
-      
-      const json = await resp.json();
-      const box = document.getElementById('messageContainer');
-      box.className = 'alert'; 
-      box.innerHTML = '';
+    nivelSeguranca.addEventListener("change", toggleTokenVisibility);
+    
+    pastaPrincipalSelect.addEventListener("change", function() {
+      loadSubPastas(this.value);
+    });
 
-      if (json.success) {
-        box.classList.add('alert-success');
-        box.textContent = json.message;
-        
-        // RESET COMPLETO DOS CAMPOS APÓS ENVIO BEM-SUCEDIDO
-        limparCampos();
-      } else {
-        box.classList.add('alert-danger');
-        box.innerHTML = `<div>${json.message}</div>`;
-        if (json.errors) {
-          const ul = document.createElement('ul');
-          json.errors.forEach(error => {
-            const li = document.createElement('li');
-            li.textContent = error;
-            ul.appendChild(li);
-          });
-          box.appendChild(ul);
+    // Validação do formulário
+    $(document).ready(function() {
+      $.validator.setDefaults({
+        highlight: function(element) {
+          $(element).addClass('is-invalid');
+        },
+        unhighlight: function(element) {
+          $(element).removeClass('is-invalid');
+        },
+        errorElement: 'div',
+        errorClass: 'invalid-feedback',
+        errorPlacement: function(error, element) {
+          if (element.prop('type') === 'file') {
+            error.insertAfter(element.parent());
+          } else {
+            error.insertAfter(element);
+          }
         }
-      }
-      
-      box.style.display = 'block';
-      setTimeout(() => box.style.display = 'none', 5000);
+      });
+
+      // Validação customizada para o token quando necessário
+      $.validator.addMethod("requiredIfNotPublic", function(value, element) {
+        return nivelSeguranca.value === "Publico" || value.trim() !== "";
+      }, "Token de segurança é obrigatório para este nível");
+
+      $("#frmUpload").validate({
+        rules: {
+          TokenSeguranca: {
+            requiredIfNotPublic: true
+          }
+        }
+      });
     });
   </script>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
 </html>

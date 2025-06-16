@@ -1,55 +1,34 @@
-// step1.js - Step 1: Informações da Empresa
 import { FormUtils } from './utilities.js';
 
-export function initStep1(data) {
-  if (!data) return;
-
-  const empresaEl = document.getElementById('EmpresaContratante_EmpresaContratante');
-  const emailEl = document.getElementById('EmpresaContratante_Email');
-
-  if (empresaEl && data.EmpresaContratante) {
-    empresaEl.value = data.EmpresaContratante;
-  }
-  if (emailEl && data.EmailEmpresa) {
-    emailEl.value = data.EmailEmpresa;
-  }
-
-  // Configura validação em tempo real
-  emailEl?.addEventListener('input', () => {
-    if (!FormUtils.isValidEmail(emailEl.value.trim())) {
-      document.getElementById('emailError').classList.remove('d-none');
-    } else {
-      document.getElementById('emailError').classList.add('d-none');
-    }
+export function initStep1() {
+  const emailInput = document.querySelector('[name="EmailContato"]');
+  emailInput?.addEventListener('input', () => {
+    const errorElement = document.getElementById('emailError');
+    FormUtils.showAlert(errorElement, 'E-mail inválido', !FormUtils.isValidEmail(emailInput.value));
   });
 }
 
 export function validateStep1() {
-  const empresa = document.getElementById('EmpresaContratante_EmpresaContratante')?.value.trim() || '';
-  const email = document.getElementById('EmpresaContratante_Email')?.value.trim() || '';
-  const emailError = document.getElementById('emailError');
-
-  FormUtils.clearAlerts('step1Error', 'step1Success');
+  const empresa = document.querySelector('[name="EmpresaContratante"]')?.value.trim();
+  const email = document.querySelector('[name="EmailContato"]')?.value.trim();
+  const errorElement = document.getElementById('step1Error');
 
   if (!empresa || !email) {
-    FormUtils.showAlert('step1Error', 'Preencha todos os campos obrigatórios.');
+    FormUtils.showAlert(errorElement, 'Preencha todos os campos');
     return false;
   }
 
   if (!FormUtils.isValidEmail(email)) {
-    emailError.classList.remove('d-none');
-    FormUtils.showAlert('step1Error', 'Formato de e-mail inválido.');
+    FormUtils.showAlert(errorElement, 'E-mail inválido');
     return false;
   }
 
-  emailError.classList.add('d-none');
-  FormUtils.showAlert('step1Success', 'Informações válidas!', 'success');
   return true;
 }
 
 export function getStep1Data() {
   return {
-    EmpresaContratante: document.getElementById('EmpresaContratante_EmpresaContratante').value.trim(),
-    EmailEmpresa: document.getElementById('EmpresaContratante_Email').value.trim()
+    EmpresaContratante: document.querySelector('[name="EmpresaContratante"]').value.trim(),
+    EmailContato: document.querySelector('[name="EmailContato"]').value.trim()
   };
 }

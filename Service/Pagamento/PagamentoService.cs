@@ -1,143 +1,268 @@
 using VoxDocs.Models;
 using VoxDocs.DTO;
+using VoxDocs.Data;
+using System.Net;
 
 namespace VoxDocs.Services
 {
     public class PagamentoService : IPagamentoService
     {
         private readonly IPagamentoRepository _repository;
-        private readonly IUserService _userService;
         private readonly IPagamentoBusinessRules _businessRules;
+        private readonly IUserService _userService;
+        private readonly IEmpresasContratanteService _empresasContratanteService;
+        private readonly IDocumentosPastasService _documentosPastasService;
+
 
         public PagamentoService(
             IPagamentoRepository repository,
+            IPagamentoBusinessRules businessRules,
             IUserService userService,
-            IPagamentoBusinessRules businessRules)
+            IEmpresasContratanteService empresasContratanteService,
+            IDocumentosPastasService documentosPastasService)
         {
             _repository = repository;
-            _userService = userService;
             _businessRules = businessRules;
+            _userService = userService;
+            _empresasContratanteService = empresasContratanteService;
+            _documentosPastasService = documentosPastasService;
         }
 
-        public async Task<string> CriarPlanoNome(string nomePlanoPlain, string periodicidade)
+        public async Task<string> CriarSolicitacaoPagamentoAsync(CriarPlanoDto dto)
+        {
+            var pagamento = new PagamentoConcluido
+            {
+                Id = dto.PagamentoId,
+                EmpresaContratante = dto.EmpresaContratante,
+                NomePlano = dto.nomePlano,
+                PeriodicidadePlano = dto.nomePlano.Contains("Gratuito", StringComparison.OrdinalIgnoreCase)
+                    ? "Ilimitado"
+                    : dto.periodicidade,
+                ValorPlano = dto.valorPlano,
+                MetodoPagamento = dto.MetodoPagamento,
+                DataPagamento = dto.DataPagamento,
+                DataExpiracao = dto.DataExpiracao ?? DateTime.MaxValue,
+                StatusEmpresa = dto.StatusEmpresa
+            };
+
+            // Validações pré-criação
+            await _businessRules.ValidarSolicitacaoPagamentoAsync(pagamento);
+            await _businessRules.ValidarMetodoPagamentoAsync(dto.MetodoPagamento);
+
+            // Cria o pagamento
+            await _repository.CreatePagamentoAsync(pagamento);
+
+            // Validação pós-criação
+            var pagamentoCriado = await _businessRules.ValidarPagamentoExisteAsync(pagamento.Id);
+            if (pagamentoCriado == null)
+            {
+                throw new InvalidOperationException("Falha ao verificar a criação do pagamento");
+            }
+
+            return pagamento.Id.ToString();
+        }
+
+       public async Task<PagamentoResponseDto> CriarCadastroPagamentoAsync(CriarCadastroPagamentoPlanoDto dto)
         {
             try
             {
-                // Valida se o plano existe com nome e periodicidade
-                await _businessRules.ValidarPlanoExisteAsync(nomePlanoPlain, periodicidade);
-
-                var rawId = Guid.NewGuid().ToString();
-                var brasiliaTimeZone = TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time");
-                var dataPagamentoBrasilia = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, brasiliaTimeZone);
-
-                var pagamento = new PagamentoConcluido
+                // Validação opcional do método de pagamento
+                var metodosPermitidos = new[] { "PIX", "Cartão de Crédito", "Boleto", "Transferência" };
+                if (!metodosPermitidos.Contains(dto.MetodoPagamento))
                 {
-                    Id = rawId,
-                    DataPagamento = dataPagamentoBrasilia,
-                    NomePlano = nomePlanoPlain,
-                    Periodicidade = periodicidade // Adiciona periodicidade ao modelo
-                };
+                    return PagamentoResponseDto.Falha(
+                        erro: "Método de pagamento inválido",
+                        status: HttpStatusCode.BadRequest,
+                        mensagem: $"Os métodos permitidos são: {string.Join(", ", metodosPermitidos)}"
+                    );
+                }
 
-                await _repository.CreatePagamento(pagamento);
-                return rawId;
+                // ETAPA 1 - Processar empresa
+                EmpresasContratanteModel empresaContratante = await ProcessarEmpresaContratante(dto);
+
+                // ETAPA 2 - Criar estrutura de pastas dinâmica
+                var estruturaPastas = await CriarEstruturaPastas(
+                    empresaContratante.EmpresaContratante, 
+                    dto.Pastas);
+
+                // ETAPA 3 - Cadastrar Admins
+                foreach (var adminDto in dto.AdminUsuarios)
+                {
+                    var registroAdmin = new DTORegistrarUsuario
+                    {
+                        Usuario = adminDto.Nome,
+                        Email = adminDto.Email,
+                        Senha = adminDto.Senha,
+                        EmpresaContratante = empresaContratante.EmpresaContratante,
+                        PermissaoConta = PermissaoConta.Admin.ToString(),
+                        PlanoPago = dto.nomePlano
+                    };
+
+                    var (admin, adminLimit, _) = await _userService.RegisterUserAsync(registroAdmin);
+                    
+                    if (admin == null || !string.IsNullOrEmpty(adminLimit))
+                    {
+                        return PagamentoResponseDto.Falha(
+                            erro: "Limite de admins atingido",
+                            status: HttpStatusCode.BadRequest,
+                            mensagem: adminLimit ?? "Não foi possível cadastrar o admin"
+                        );
+                    }
+                }
+
+                // ETAPA 4 - Cadastrar Usuários Comuns
+                var errosCadastro = new List<string>();
+                
+                foreach (var usuarioDto in dto.UsuariosComum)
+                {
+                    try
+                    {
+                        var registroUsuario = new DTORegistrarUsuario
+                        {
+                            Usuario = usuarioDto.Nome,
+                            Email = usuarioDto.Email,
+                            Senha = usuarioDto.Senha,
+                            EmpresaContratante = empresaContratante.EmpresaContratante,
+                            PermissaoConta = PermissaoConta.User.ToString(),
+                            PlanoPago = dto.nomePlano
+                        };
+
+                        var (user, _, userLimit) = await _userService.RegisterUserAsync(registroUsuario);
+                        
+                        if (user == null || !string.IsNullOrEmpty(userLimit))
+                        {
+                            var erroMsg = $"Falha ao cadastrar usuário {usuarioDto.Nome}: {userLimit}";
+                            errosCadastro.Add(erroMsg);
+                            Console.WriteLine($"[{DateTime.Now:HH:mm:ss}] WARNING - {erroMsg}");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        var erroMsg = $"Erro ao cadastrar usuário {usuarioDto.Nome}: {ex.Message}";
+                        errosCadastro.Add(erroMsg);
+                        Console.WriteLine($"[{DateTime.Now:HH:mm:ss}] ERROR - {erroMsg}");
+                    }
+                }
+
+                // ETAPA 5 - Montar resposta
+                return MontarRespostaSucesso(dto, empresaContratante, estruturaPastas);
             }
-            catch (InvalidOperationException)
+            catch (Exception ex)
             {
-                throw;
+                return PagamentoResponseDto.Falha(
+                    erro: ex.Message,
+                    status: HttpStatusCode.InternalServerError,
+                    mensagem: "Erro ao processar o pagamento",
+                    detalhes: ex.StackTrace
+                );
             }
-        }
-
-
-        public async Task<bool> FinalizarPagamentoAsync(FinalizarPagamentoDto dto)
-        {
-            try
-            {
-                await _businessRules.ValidarPagamentoExisteAsync(dto.Id);
-                await _businessRules.ValidarDadosPagamentoAsync(dto.Id, dto.NomePlano, dto.Periodicidade);
-                await _businessRules.ValidarMetodoPagamentoAsync(dto.MetodoPagamento);
-
-                var brasiliaTimeZone = TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time");
-                var dataBrasiliaAgora = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, brasiliaTimeZone);
-
-                var existente = await _repository.GetPagamentoById(dto.Id);
-
-                // Atualiza campos do pagamento
-                existente.MetodoPagamento = dto.MetodoPagamento;
-                existente.DataPagamento = dataBrasiliaAgora;
-                existente.DataExpiracao = dataBrasiliaAgora.AddMonths(1);
-                existente.StatusEmpresa = "Plano Ativo";
-                existente.IsPagamentoConcluido = true;
-                existente.EmpresaContratantePlano = dto.EmpresaContratantePlano ?? dto.EmpresaContratante.EmpresaContratante;
-
-                // Verifica e cria empresa
-                var empresaExistente = await _repository.GetEmpresaByNome(existente.EmpresaContratantePlano);
-                if (empresaExistente == null)
-                {
-                    empresaExistente = new EmpresasContratanteModel
-                    {
-                        EmpresaContratante = existente.EmpresaContratantePlano,
-                        Email = dto.EmpresaContratante.Email
-                    };
-                    await _repository.CreateEmpresa(empresaExistente);
-                }
-
-                // Cria pastas e subpastas
-                foreach (var pastaDto in dto.PastasPrincipais)
-                {
-                    var pasta = new PastaPrincipalModel
-                    {
-                        NomePastaPrincipal = pastaDto.NomePastaPrincipal,
-                        EmpresaContratante = pastaDto.EmpresaContratante
-                    };
-                    await _repository.CreatePastaPrincipal(pasta);
-                }
-
-                foreach (var subpastaDto in dto.SubPastas)
-                {
-                    var subpasta = new SubPastaModel
-                    {
-                        NomeSubPasta = subpastaDto.NomeSubPasta,
-                        NomePastaPrincipal = subpastaDto.NomePastaPrincipal,
-                        EmpresaContratante = subpastaDto.EmpresaContratante
-                    };
-                    await _repository.CreateSubPasta(subpasta);
-                }
-
-                // Cria usuários
-                foreach (var userDto in dto.Usuarios)
-                {
-                    var dtoUser = new DTORegisterUser
-                    {
-                        Usuario = userDto.Usuario,
-                        Email = userDto.Email,
-                        Senha = userDto.Senha,
-                        PermissionAccount = userDto.PermissionAccount,
-                        EmpresaContratante = empresaExistente.EmpresaContratante,
-                        PlanoPago = dto.NomePlano
-                    };
-
-                    await _userService.RegisterUserAsync(dtoUser);
-                }
-
-                await _repository.UpdatePagamento(existente);
-                return true;
-            }
-            catch (InvalidOperationException)
-            {
-                // Log ou tratamento personalizado
-                return false;
-            }
-        }
-
-        public async Task<TokenResponseDto> TokenPagoValidoAsync(TokenRequestDto dto)
-        {
-            return await _businessRules.ValidarTokenPagoAsync(dto);
         }
         
-        public async Task<ValidationResult<PlanoInfoDto>> ObterDadosPlanoAsync(string token)
+            private PagamentoResponseDto MontarRespostaSucesso(
+            CriarCadastroPagamentoPlanoDto dto,
+            EmpresasContratanteModel empresa,
+            dynamic estruturaPastas)
         {
-            return await _businessRules.ValidarObterDadosPlanoAsync(token);
+            var resposta = new
+            {
+                PagamentoId = dto.PagamentoId,
+                Empresa = new {
+                    Id = empresa.Id,
+                    Nome = empresa.EmpresaContratante,
+                    Status = dto.StatusEmpresa
+                },
+                Plano = new {
+                    Nome = dto.nomePlano,
+                    Valor = dto.valorPlano,
+                    Periodicidade = dto.periodicidade,
+                    DataExpiracao = dto.DataExpiracao
+                },
+                EstruturaPastas = estruturaPastas
+            };
+
+            return PagamentoResponseDto.Ok(resposta, "Pagamento e estrutura de pastas criados com sucesso");
         }
 
+        // Métodos auxiliares para cada etapa
+        private async Task<EmpresasContratanteModel> ProcessarEmpresaContratante(CriarCadastroPagamentoPlanoDto dto)
+        {
+            var empresaExistente = await _empresasContratanteService.GetEmpresaByNome(dto.EmpresaContratante);
+
+            if (empresaExistente != null) return empresaExistente;
+
+            var novaEmpresaDto = new DTOEmpresasContratante
+            {
+                EmpresaContratante = dto.EmpresaContratante,
+                Email = dto.EmailEmpresaContratante,
+                PlanoContratado = dto.nomePlano,
+                DataContratacao = dto.DataPagamento
+            };
+
+            return await _empresasContratanteService.CreateAsync(novaEmpresaDto);
+        }
+
+        private async Task<dynamic> CriarEstruturaPastas(string empresaContratante, List<PastaConfigurationDto> pastasConfiguracao)
+        {
+            if (pastasConfiguracao == null || !pastasConfiguracao.Any())
+            {
+                return new { Mensagem = "Nenhuma pasta configurada para criação" };
+            }
+
+            var resultado = new List<object>();
+
+            foreach (var pastaConfig in pastasConfiguracao)
+            {
+                // Validação básica
+                if (string.IsNullOrWhiteSpace(pastaConfig.NomePastaPrincipal))
+                {
+                    continue; // ou lançar exceção específica
+                }
+
+                // Cria pasta principal
+                var pastaPrincipalDto = new DTOPastaPrincipalCreate
+                {
+                    NomePastaPrincipal = pastaConfig.NomePastaPrincipal,
+                    EmpresaContratante = empresaContratante
+                };
+
+                var pastaPrincipal = await _documentosPastasService.CreatePastaPrincipalAsync(pastaPrincipalDto);
+
+                // Processa subpastas se existirem
+                var subpastasCriadas = new List<DTOSubPasta>();
+                
+                if (pastaConfig.Subpastas != null)
+                {
+                    foreach (var subpastaConfig in pastaConfig.Subpastas)
+                    {
+                        if (string.IsNullOrWhiteSpace(subpastaConfig.NomeSubPasta))
+                        {
+                            continue;
+                        }
+
+                        var subpastaDto = new DTOSubPastaCreate
+                        {
+                            NomeSubPasta = subpastaConfig.NomeSubPasta,
+                            NomePastaPrincipal = pastaPrincipal.NomePastaPrincipal,
+                            EmpresaContratante = empresaContratante
+                        };
+                        
+                        subpastasCriadas.Add(await _documentosPastasService.CreateSubPastaAsync(subpastaDto));
+                    }
+                }
+
+                resultado.Add(new 
+                {
+                    PastaPrincipal = pastaPrincipal,
+                    Subpastas = subpastasCriadas
+                });
+            }
+
+            return resultado;
+        }
+
+        Task<string> IPagamentoService.CriarCadastroPagamentoAsync(CriarCadastroPagamentoPlanoDto dto)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -1,22 +1,36 @@
+using VoxDocs.Models;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using VoxDocs.Models;
 
 namespace VoxDocs.Data.Repositories
 {
-    public interface IUserRepository
+    public interface IUsuarioRepository
     {
-        Task AddUserAsync(UserModel user);
-        Task<UserModel> GetUserByIdAsync(Guid id);
-        Task<UserModel> GetUserByUsernameAsync(string username);
-        Task<UserModel> GetUserByEmailAsync(string email); // New method
-        Task<UserModel> GetUserByEmailOrUsernameAsync(string email, string username);
-        Task<List<UserModel>> GetAllUsersAsync();
-        Task<List<UserModel>> GetUsersByPlanAsync(string planoPago);
-        Task UpdateUserAsync(UserModel user);
-        Task DeleteUserAsync(UserModel user);
-        Task SaveChangesAsync();
-        Task<UserModel> GetUserByResetTokenAsync(string token);
+        // User CRUD
+        Task<UserModel> CriarUsuarioAsync(UserModel usuario);
+        Task<UserModel> ObterUsuarioPorIdAsync(Guid id);
+        Task AtualizarUsuarioAsync(UserModel usuario);
+        Task ExcluirUsuarioAsync(Guid userId);
+        
+        // User queries
+        Task<UserModel> ObterUsuarioPorNomeAsync(string nome);
+        Task<UserModel> ObterUsuarioPorEmailAsync(string email);
+        Task<UserModel> ObterUsuarioPorEmailOuNomeAsync(string email, string nome);
+        Task<IEnumerable<UserModel>> ObterTodosUsuariosAsync();
+        Task<IEnumerable<UserModel>> ObterUsuariosPorPlanoAsync(string planoPago);
+        Task<IEnumerable<UserModel>> ObterUsuariosPorEmpresaAsync(string empresaNome);
+        
+        // Password operations
+        Task SalvarTokenRedefinicaoSenhaAsync(Guid userId, string token);
+        Task<UserModel> ObterUsuarioPorTokenRedefinicaoAsync(string token);
+        Task AtualizarSenhaAsync(Guid userId, string novaSenhaHash);
+        Task RemoverTokenRedefinicaoSenhaAsync(Guid userId);
+        
+        // Statistics
+        Task<ArmazenamentoUsuarioModel> ObterArmazenamentoUsuarioAsync(Guid userId);
+        Task<int> ContarUsuariosAtivosAsync();
+        Task<int> ContarAdministradoresAsync();
+        Task<IEnumerable<UserModel>> ObterUsuariosRecentesAsync(int quantidade = 5);
     }
 }

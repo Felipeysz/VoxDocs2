@@ -22,6 +22,57 @@ namespace VoxDocs.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("VoxDocs.Models.ArmazenamentoUsuarioModel", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("LimiteArmazenamento")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("UsoArmazenamento")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UserStorage");
+                });
+
+            modelBuilder.Entity("VoxDocs.Models.ConfiguracaoDocumentosModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("DiasArmazenamentoTemporario")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("PermitirExcel")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("PermitirImagens")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("PermitirPDF")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("PermitirWord")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("TamanhoMaximoMB")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ConfiguracaoDocumentos");
+                });
+
             modelBuilder.Entity("VoxDocs.Models.DocumentoModel", b =>
                 {
                     b.Property<Guid>("Id")
@@ -71,7 +122,6 @@ namespace VoxDocs.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UrlArquivo")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UsuarioCriador")
@@ -94,6 +144,9 @@ namespace VoxDocs.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime>("DataContratacao")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -102,41 +155,98 @@ namespace VoxDocs.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("PlanoContratado")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("EmpresasContratantes");
                 });
 
+            modelBuilder.Entity("VoxDocs.Models.LogAtividadeModel", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("DataHora")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Detalhes")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("DocumentoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("IpAddress")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("TipoAcao")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Usuario")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<Guid>("usuarioId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("LogsAtividades");
+                });
+
             modelBuilder.Entity("VoxDocs.Models.PagamentoConcluido", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime?>("DataExpiracao")
+                    b.Property<DateTime>("DataExpiracao")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("DataPagamento")
+                    b.Property<DateTime>("DataPagamento")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("EmpresaContratantePlano")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("EmailContato")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
-                    b.Property<bool>("IsPagamentoConcluido")
-                        .HasColumnType("bit");
+                    b.Property<string>("EmpresaContratante")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("MetodoPagamento")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("NomePlano")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
-                    b.Property<string>("Periodicidade")
+                    b.Property<string>("PeriodicidadePlano")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("StatusEmpresa")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<decimal>("ValorPlano")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 
@@ -168,20 +278,23 @@ namespace VoxDocs.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("ArmazenamentoDisponivel")
+                    b.Property<int?>("ArmazenamentoDisponivel")
                         .HasColumnType("int");
+
+                    b.Property<bool>("Ativo")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Descriçao")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Duracao")
+                    b.Property<int?>("Duracao")
                         .HasColumnType("int");
 
-                    b.Property<int>("LimiteAdmin")
+                    b.Property<int?>("LimiteAdmin")
                         .HasColumnType("int");
 
-                    b.Property<int>("LimiteUsuario")
+                    b.Property<int?>("LimiteUsuario")
                         .HasColumnType("int");
 
                     b.Property<string>("Nome")
@@ -204,18 +317,20 @@ namespace VoxDocs.Migrations
                         {
                             Id = new Guid("f9b2f7e0-d938-4b4d-b256-38bbd6a9d4ef"),
                             ArmazenamentoDisponivel = 10,
+                            Ativo = false,
                             Descriçao = "Plano com funcionalidades básicas",
                             Duracao = 0,
                             LimiteAdmin = 2,
                             LimiteUsuario = 5,
                             Nome = "Gratuito",
-                            Periodicidade = "Ilimitada",
+                            Periodicidade = "Ilimitado",
                             Preco = 0m
                         },
                         new
                         {
                             Id = new Guid("b40c1b56-6cc2-4988-b979-3b00c1dd8e1e"),
                             ArmazenamentoDisponivel = 200,
+                            Ativo = false,
                             Descriçao = "Plano completo com funcionalidades avançadas",
                             Duracao = 1,
                             LimiteAdmin = -1,
@@ -228,6 +343,7 @@ namespace VoxDocs.Migrations
                         {
                             Id = new Guid("7d7f02e7-44b5-4692-88a4-8c2b149b5059"),
                             ArmazenamentoDisponivel = 200,
+                            Ativo = false,
                             Descriçao = "Plano completo com desconto de 10% para 6 meses",
                             Duracao = 6,
                             LimiteAdmin = -1,
@@ -240,6 +356,7 @@ namespace VoxDocs.Migrations
                         {
                             Id = new Guid("0e8c6b83-49c1-403e-b70c-6fc8e0f09c7f"),
                             ArmazenamentoDisponivel = 200,
+                            Ativo = false,
                             Descriçao = "Plano completo com desconto de 20% para 12 meses",
                             Duracao = 12,
                             LimiteAdmin = -1,
@@ -284,6 +401,12 @@ namespace VoxDocs.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<bool>("Ativo")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("DataCriacao")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -314,6 +437,9 @@ namespace VoxDocs.Migrations
                     b.Property<string>("Senha")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UltimoLogin")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Usuario")
                         .IsRequired()

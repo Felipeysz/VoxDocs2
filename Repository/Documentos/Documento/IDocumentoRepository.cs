@@ -7,7 +7,7 @@ namespace VoxDocs.Repository
 {
     public interface IDocumentoRepository
     {
-        Task<DocumentoModel> GetByIdAsync(int id);
+        Task<DocumentoModel> GetByIdAsync(Guid id);
         Task<IEnumerable<DocumentoModel>> GetAllAsync();
         Task<IEnumerable<DocumentoModel>> GetBySubPastaAsync(string subPasta);
         Task<IEnumerable<DocumentoModel>> GetByPastaPrincipalAsync(string pastaPrincipal);
@@ -15,6 +15,6 @@ namespace VoxDocs.Repository
         Task UpdateAsync(DocumentoModel documento);
         Task DeleteAsync(DocumentoModel documento);
         Task<bool> ArquivoExisteAsync(string nomeArquivo);
-        Task IncrementarAcessoAsync(int id);
+        Task IncrementarAcessoAsync(Guid id);
     }
 }

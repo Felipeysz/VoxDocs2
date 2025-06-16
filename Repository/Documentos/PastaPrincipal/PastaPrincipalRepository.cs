@@ -1,13 +1,13 @@
-using Microsoft.EntityFrameworkCore;
-using VoxDocs.Data;
+// PastaPrincipalRepository.cs
 using VoxDocs.Models;
+using Microsoft.EntityFrameworkCore;
+using VoxDocs.Data; // If using Entity Framework
 
 namespace VoxDocs.Services
 {
-
     public class PastaPrincipalRepository : IPastaPrincipalRepository
     {
-        private readonly VoxDocsContext _context;
+        private readonly VoxDocsContext _context; // Replace with your actual DbContext
 
         public PastaPrincipalRepository(VoxDocsContext context)
         {
@@ -17,11 +17,11 @@ namespace VoxDocs.Services
         public async Task<IEnumerable<PastaPrincipalModel>> GetAllAsync()
         {
             return await _context.PastaPrincipal
-                .Include(p => p.SubPastas)
+                .Include(p => p.SubPastas) // If you need to include subfolders
                 .ToListAsync();
         }
 
-        public async Task<PastaPrincipalModel> GetByNamePrincipalAsync(string nomePasta)
+        public async Task<PastaPrincipalModel?> GetByNamePrincipalAsync(string nomePasta)
         {
             return await _context.PastaPrincipal
                 .FirstOrDefaultAsync(p => p.NomePastaPrincipal == nomePasta);
@@ -30,14 +30,15 @@ namespace VoxDocs.Services
         public async Task<IEnumerable<PastaPrincipalModel>> GetByEmpresaAsync(string empresaContratante)
         {
             return await _context.PastaPrincipal
-                .Include(p => p.SubPastas)
                 .Where(p => p.EmpresaContratante == empresaContratante)
+                .Include(p => p.SubPastas) // If you need to include subfolders
                 .ToListAsync();
         }
 
-        public async Task<PastaPrincipalModel?> GetByIdAsync(int id)
+        public async Task<PastaPrincipalModel?> GetByIdAsync(Guid id)
         {
-            return await _context.PastaPrincipal.FindAsync(id);
+            return await _context.PastaPrincipal
+                .FirstOrDefaultAsync(p => p.Id == id);
         }
 
         public async Task<PastaPrincipalModel> CreateAsync(PastaPrincipalModel pasta)
@@ -47,7 +48,7 @@ namespace VoxDocs.Services
             return pasta;
         }
 
-        public async Task<bool> DeleteAsync(int id)
+        public async Task<bool> DeleteAsync(Guid id)
         {
             var pasta = await _context.PastaPrincipal.FindAsync(id);
             if (pasta == null) return false;
@@ -55,6 +56,12 @@ namespace VoxDocs.Services
             _context.PastaPrincipal.Remove(pasta);
             await _context.SaveChangesAsync();
             return true;
+        }
+        public async Task<PastaPrincipalModel?> GetByNameAndEmpresaAsync(string nomePasta, string empresaContratante)
+        {
+            return await _context.PastaPrincipal
+                .FirstOrDefaultAsync(p => p.NomePastaPrincipal == nomePasta && 
+                                    p.EmpresaContratante == empresaContratante);
         }
     }
 }

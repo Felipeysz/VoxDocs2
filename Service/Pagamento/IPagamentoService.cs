@@ -5,9 +5,7 @@ namespace VoxDocs.Services
 {
     public interface IPagamentoService
     {
-        Task<string> CriarPlanoNome(string nomePlanoPlain, string periodicidade);
-        Task<bool> FinalizarPagamentoAsync(FinalizarPagamentoDto dto);
-        Task<TokenResponseDto> TokenPagoValidoAsync(TokenRequestDto dto);
-        Task<ValidationResult<PlanoInfoDto>> ObterDadosPlanoAsync(string token);
+        Task<string> CriarSolicitacaoPagamentoAsync(CriarPlanoDto dto);
+        Task<string> CriarCadastroPagamentoAsync(CriarCadastroPagamentoPlanoDto dto);
     }
 }

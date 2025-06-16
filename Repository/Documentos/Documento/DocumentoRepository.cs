@@ -17,7 +17,7 @@ namespace VoxDocs.Repository
             _context = context;
         }
 
-        public async Task<DocumentoModel> GetByIdAsync(int id)
+        public async Task<DocumentoModel> GetByIdAsync(Guid id)
         {
             return await _context.Documentos.FindAsync(id);
         }
@@ -65,7 +65,7 @@ namespace VoxDocs.Repository
                 .AnyAsync(d => d.NomeArquivo == nomeArquivo);
         }
 
-        public async Task IncrementarAcessoAsync(int id)
+        public async Task IncrementarAcessoAsync(Guid id)
         {
             var documento = await _context.Documentos.FindAsync(id);
             if (documento != null)

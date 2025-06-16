@@ -4,7 +4,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using VoxDocs.Data.Repositories;
+using VoxDocs.BusinessRules;
 using VoxDocs.DTO;
 using VoxDocs.Helpers;
 using VoxDocs.Models;
@@ -13,80 +13,78 @@ namespace VoxDocs.Services
 {
     public class UserService : IUserService
     {
-        private readonly IUserRepository _userRepository;
         private readonly IUserBusinessRules _businessRules;
-        private readonly IPlanosVoxDocsService _planosService;
+        private readonly IEmpresasContratanteBusinessRules _businessRulesEmpresa;
 
-        public UserService(
-            IUserRepository userRepository,
-            IUserBusinessRules businessRules,
-            IPlanosVoxDocsService planosService)
+        public UserService(IUserBusinessRules businessRules, IEmpresasContratanteBusinessRules businessRulesEmpresa)
         {
-            _userRepository = userRepository;
             _businessRules = businessRules;
-            _planosService = planosService;
+            _businessRulesEmpresa = businessRulesEmpresa;
         }
 
-        public async Task<(UserModel user, string? adminLimit, string? userLimit)> RegisterUserAsync(DTORegisterUser registerDto)
+        public async Task<(DTOUsuarioInfo user, string? adminLimit, string? userLimit)> RegisterUserAsync(DTORegistrarUsuario registerDto)
         {
-            await _businessRules.ValidateUniqueUserAsync(registerDto);
-            var (admins, users) = await _businessRules.ValidatePlanLimitAsync(registerDto);
-
-            var plano = (await _planosService.GetAllPlansAsync())
-                .FirstOrDefault(p => p.Nome.Equals(registerDto.PlanoPago, StringComparison.OrdinalIgnoreCase));
-
-            string? adminLimit = null;
-            string? userLimit = null;
-
-            if (plano != null)
+            // Primeiro verifica se a empresa existe
+            var empresa = await _businessRulesEmpresa.ValidarGetByNomeAsync(registerDto.EmpresaContratante);
+            if (empresa == null || !empresa.IsValid)
             {
-                if (registerDto.PermissionAccount == "admin") adminLimit = $"{admins + 1}/{plano.LimiteAdmin}";
-                if (registerDto.PermissionAccount == "user") userLimit = $"{users + 1}/{plano.LimiteUsuario}";
+                throw new InvalidOperationException("Empresa inexistente");
             }
 
-            var user = new UserModel
+            var userModel = new UserModel
             {
                 Id = Guid.NewGuid(),
                 Usuario = registerDto.Usuario,
                 Email = registerDto.Email,
-                Senha = PasswordHelper.HashPassword(registerDto.Senha),
-                PermissionAccount = registerDto.PermissionAccount,
-                EmpresaContratante = registerDto.EmpresaContratante,
+                PermissionAccount = registerDto.PermissaoConta,
                 PlanoPago = registerDto.PlanoPago,
-                LimiteAdmin = adminLimit,
-                LimiteUsuario = userLimit
+                Senha = PasswordHelper.HashPassword(registerDto.Senha),
+                EmpresaContratante = registerDto.EmpresaContratante,
+                DataCriacao = DateTime.UtcNow,
+                Ativo = true
             };
 
-            await _userRepository.AddUserAsync(user);
-            await _userRepository.SaveChangesAsync();
+            var (admins, users) = await _businessRules.ValidarLimitesPlanoAsync(userModel);
+            
+            userModel.LimiteAdmin = registerDto.PermissaoConta == "admin" ? $"{admins + 1}/{userModel.PlanoPago}" : null;
+            userModel.LimiteUsuario = registerDto.PermissaoConta == "user" ? $"{users + 1}/{userModel.PlanoPago}" : null;
 
-            return (user, adminLimit, userLimit);
+            var createdUser = await _businessRules.CriarUsuarioAsync(userModel);
+            
+            return (ToUsuarioInfoDto(createdUser), userModel.LimiteAdmin, userModel.LimiteUsuario);
         }
 
-        public async Task<UserModel> GetUserByEmailOrUsernameAsync(string email, string username)
+        public async Task<DTOUsuarioInfo> GetUserByEmailOrUsernameAsync(string email, string username)
         {
-            var user = await _userRepository.GetUserByEmailOrUsernameAsync(email, username);
-            return user ?? throw new KeyNotFoundException("Usuário não encontrado.");
+            var user = await _businessRules.ObterUsuarioPorEmailOuNomeAsync(email, username);
+            return ToUsuarioInfoDto(user);
         }
 
-        public async Task<UserModel> GetUserByUsernameAsync(string username)
+        public async Task<DTOUsuarioInfo> GetUserByUsernameAsync(string username)
         {
-            var user = await _userRepository.GetUserByUsernameAsync(username);
-            return user ?? throw new KeyNotFoundException("Usuário não encontrado.");
+            var user = await _businessRules.ObterUsuarioPorNomeAsync(username);
+            return ToUsuarioInfoDto(user);
         }
 
-        public async Task<ClaimsPrincipal> AuthenticateUserAsync(DTOLoginUser loginDto)
+        public async Task<ClaimsPrincipal> AuthenticateUserAsync(DTOLoginUsuario loginDto)
         {
-            var user = await _userRepository.GetUserByUsernameAsync(loginDto.Usuario)
-                ?? throw new KeyNotFoundException("Conta inexistente.");
+            var user = await _businessRules.ObterUsuarioPorNomeAsync(loginDto.Usuario);
+            
+            if (user == null || !user.Ativo || user.Senha != PasswordHelper.HashPassword(loginDto.Senha))
+            {
+                throw new UnauthorizedAccessException("Credenciais inválidas ou conta inativa.");
+            }
 
-            if (user.Senha != PasswordHelper.HashPassword(loginDto.Senha))
-                throw new UnauthorizedAccessException("Senha incorreta.");
+            // Update last login
+            user.UltimoLogin = DateTime.UtcNow;
+            await _businessRules.AtualizarUsuarioAsync(user);
 
-            var claims = new[]
+            var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.Name, user.Usuario),
-                new Claim("PermissionAccount", user.PermissionAccount)
+                new Claim(ClaimTypes.Email, user.Email),
+                new Claim("PermissionAccount", user.PermissionAccount),
+                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
             };
 
             var id = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
@@ -95,101 +93,145 @@ namespace VoxDocs.Services
 
         public async Task<string> GeneratePasswordResetTokenAsync(Guid userId)
         {
-            await _businessRules.ValidateUserExistsAsync(userId);
-            var user = await _userRepository.GetUserByIdAsync(userId);
-
-            var token = Guid.NewGuid().ToString("N");
-            user.PasswordResetToken = token;
-            user.PasswordResetTokenExpiration = DateTime.UtcNow.AddHours(1);
-
-            await _userRepository.UpdateUserAsync(user);
-            await _userRepository.SaveChangesAsync();
-
-            return token;
+            return await _businessRules.GerarTokenRedefinicaoSenhaAsync(userId);
         }
 
-        public async Task RequestPasswordResetAsync(DTOResetPassword resetRequestDto)
+        public async Task RequestPasswordResetAsync(string email)
         {
-            var user = await _userRepository.GetUserByEmailAsync(resetRequestDto.Email)
-                ?? throw new KeyNotFoundException("Email não cadastrado.");
-            
-            // This would typically send the reset email with the generated token
-            await GeneratePasswordResetTokenAsync(user.Id);
+            await _businessRules.SolicitarRedefinicaoSenhaAsync(email);
         }
 
-        public async Task ResetPasswordWithTokenAsync(DTOResetPasswordWithToken resetDto)
+        public async Task ResetPasswordWithTokenAsync(string token, string novaSenha)
         {
-            var user = await _userRepository.GetUserByResetTokenAsync(resetDto.Token)
-                ?? throw new KeyNotFoundException("Token inválido ou expirado.");
-
-            if (user.PasswordResetTokenExpiration < DateTime.UtcNow)
-                throw new UnauthorizedAccessException("Token expirado.");
-
-            user.Senha = PasswordHelper.HashPassword(resetDto.NovaSenha);
-            user.PasswordResetToken = null;
-            user.PasswordResetTokenExpiration = null;
-
-            await _userRepository.UpdateUserAsync(user);
-            await _userRepository.SaveChangesAsync();
+            await _businessRules.RedefinirSenhaComTokenAsync(
+                token, 
+                PasswordHelper.HashPassword(novaSenha));
         }
 
-        public async Task ChangePasswordAsync(DTOUserLoginPasswordChange changeDto)
+        public async Task ChangePasswordAsync(string username, string senhaAntiga, string novaSenha)
         {
-            var user = await _userRepository.GetUserByUsernameAsync(changeDto.Usuario)
-                ?? throw new KeyNotFoundException("Usuário não encontrado.");
-
-            if (user.Senha != PasswordHelper.HashPassword(changeDto.SenhaAntiga))
-                throw new UnauthorizedAccessException("Senha atual incorreta.");
-
-            user.Senha = PasswordHelper.HashPassword(changeDto.NovaSenha);
-            await _userRepository.UpdateUserAsync(user);
-            await _userRepository.SaveChangesAsync();
+            await _businessRules.AlterarSenhaAsync(
+                username,
+                PasswordHelper.HashPassword(senhaAntiga),
+                PasswordHelper.HashPassword(novaSenha));
         }
 
-        public async Task UpdateUserAsync(DTOUpdateUser updateDto)
+        public async Task UpdateUserAsync(DTOAtualizarUsuario updateDto)
         {
-            var user = await _userRepository.GetUserByUsernameAsync(updateDto.Usuario)
-                ?? throw new KeyNotFoundException("Usuário não encontrado.");
+            var existingUser = await _businessRules.ObterUsuarioPorNomeAsync(updateDto.Usuario) ?? 
+                throw new KeyNotFoundException("Usuário não encontrado.");
 
-            await _businessRules.ValidatePlanLimitForUpdateAsync(updateDto);
+            var userModel = new UserModel
+            {
+                Id = existingUser.Id,
+                Usuario = updateDto.Usuario,
+                Email = updateDto.Email,
+                PermissionAccount = updateDto.PermissaoConta,
+                EmpresaContratante = updateDto.EmpresaContratante,
+                PlanoPago = updateDto.PlanoPago,
+                LimiteAdmin = updateDto.LimiteAdmin,
+                LimiteUsuario = updateDto.LimiteUsuario,
+                Senha = existingUser.Senha, // Preserve existing password
+                DataCriacao = existingUser.DataCriacao,
+                UltimoLogin = existingUser.UltimoLogin,
+                Ativo = updateDto.Ativo
+            };
 
-            user.Email = updateDto.Email;
-            user.PermissionAccount = updateDto.PermissionAccount;
-            user.EmpresaContratante = updateDto.EmpresaContratante;
-            user.PlanoPago = updateDto.PlanoPago;
-
-            await _userRepository.UpdateUserAsync(user);
-            await _userRepository.SaveChangesAsync();
+            await _businessRules.AtualizarUsuarioAsync(userModel);
         }
 
-        public async Task<IEnumerable<UserModel>> GetAllUsersAsync() => 
-            await _userRepository.GetAllUsersAsync();
-
-        public async Task<UserModel> GetUserByIdAsync(Guid userId)
+        public async Task<IEnumerable<DTOUsuarioInfo>> GetAllUsersAsync()
         {
-            await _businessRules.ValidateUserExistsAsync(userId);
-            return await _userRepository.GetUserByIdAsync(userId);
+            var users = await _businessRules.ObterTodosUsuariosAsync();
+            return users.Select(ToUsuarioInfoDto);
+        }
+
+        public async Task<DTOUsuarioInfo> GetUserByIdAsync(Guid userId)
+        {
+            var user = await _businessRules.ObterUsuarioPorIdAsync(userId);
+            return ToUsuarioInfoDto(user);
         }
 
         public async Task DeleteUserAsync(Guid userId)
         {
-            await _businessRules.ValidateUserExistsAsync(userId);
-            var user = await _userRepository.GetUserByIdAsync(userId);
+            await _businessRules.ExcluirUsuarioAsync(userId);
+        }
+
+        public async Task<bool> IsEmailAvailableAsync(string email, Guid? excludeUserId = null)
+        {
+            try
+            {
+                var existingUser = await _businessRules.ObterUsuarioPorEmailOuNomeAsync(email, null);
+                return existingUser == null || (excludeUserId.HasValue && existingUser.Id == excludeUserId);
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public async Task<bool> IsUsernameAvailableAsync(string username, Guid? excludeUserId = null)
+        {
+            try
+            {
+                var existingUser = await _businessRules.ObterUsuarioPorNomeAsync(username);
+                return existingUser == null || (excludeUserId.HasValue && existingUser.Id == excludeUserId);
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public async Task<DTOArmazenamentoUsuario> GetUserStorageInfoAsync(Guid userId)
+        {
+            var storageInfo = await _businessRules.ObterArmazenamentoUsuarioAsync(userId);
+            return new DTOArmazenamentoUsuario
+            {
+                UsoArmazenamento = storageInfo?.UsoArmazenamento ?? 0,
+                LimiteArmazenamento = storageInfo?.LimiteArmazenamento ?? 0
+            };
+        }
+
+        public async Task<DTOEstatisticasAdmin> GetAdminStatisticsAsync()
+        {
+            var stats = await _businessRules.ObterEstatisticasAdminAsync();
+            return new DTOEstatisticasAdmin
+            {
+                TotalUsuarios = stats.TotalUsuarios,
+                UsuariosAtivos = stats.UsuariosAtivos,
+                TotalAdministradores = stats.TotalAdministradores,
+                UsuariosRecentes = stats.UsuariosRecentes?.Select(ToUsuarioInfoDto).ToList() ?? new List<DTOUsuarioInfo>()
+            };
+        }
+
+        public async Task ToggleUserStatusAsync(Guid userId, bool ativo)
+        {
+            var user = await _businessRules.ObterUsuarioPorIdAsync(userId) ?? 
+                throw new KeyNotFoundException("Usuário não encontrado.");
             
-            await _userRepository.DeleteUserAsync(user);
-            await _userRepository.SaveChangesAsync();
+            user.Ativo = ativo;
+            await _businessRules.AtualizarUsuarioAsync(user);
         }
 
-        public async Task<bool> IsEmailAvailableAsync(string email)
+        private static DTOUsuarioInfo ToUsuarioInfoDto(UserModel user)
         {
-            var user = await _userRepository.GetUserByEmailAsync(email);
-            return user == null;
-        }
+            if (user == null) return null;
 
-        public async Task<bool> IsUsernameAvailableAsync(string username)
-        {
-            var user = await _userRepository.GetUserByUsernameAsync(username);
-            return user == null;
+            return new DTOUsuarioInfo
+            {
+                Id = user.Id,
+                Usuario = user.Usuario,
+                Email = user.Email,
+                PermissaoConta = user.PermissionAccount,
+                EmpresaContratante = user.EmpresaContratante,
+                Plano = user.PlanoPago,
+                LimiteAdmin = user.LimiteAdmin,
+                LimiteUsuario = user.LimiteUsuario,
+                DataCriacao = user.DataCriacao,
+                UltimoLogin = user.UltimoLogin,
+                Ativo = user.Ativo
+            };
         }
     }
 }
