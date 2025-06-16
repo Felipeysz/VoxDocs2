@@ -223,12 +223,13 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <input type="text" asp-for="EmpresaContratante" class="form-control-custom" required />
-                                    <label for="EmpresaContratante" class="form-label-custom">Nome da Empresa</label>
+                                    <label for="EmpresaContratante" class="form-label-custom" placeholder="Nome da Empresa"></label>
+
                                     <span class="material-symbols-outlined icon-input">business</span>
                                 </div>
                                 <div class="form-group">
                                     <input type="email" asp-for="EmailContato" class="form-control-custom" required />
-                                    <label for="EmailContato" class="form-label-custom">E-mail da Empresa</label>
+                                    <label for="EmailContato" class="form-label-custom"></label>
                                     <span class="material-symbols-outlined icon-input">email</span>
                                 </div>
                                 <div id="step1Error" class="d-none text-danger mb-3"></div>
@@ -330,7 +331,7 @@
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="module" src="/js/PagamentoScript/utilities.js"></script>
+    <script type="module" src="/js/PagamentoScript/ultilities.js"></script>
     <script type="module" src="/js/PagamentoScript/main.js"></script>
 </body>
 </html>

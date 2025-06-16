@@ -172,13 +172,13 @@
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\PagamentoScript\step1.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-7vqdZTbM10dL28W3fWkDXNBAHJgZ9iYlbwXQuB77ScI="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1139"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00227vqdZTbM10dL28W3fWkDXNBAHJgZ9iYlbwXQuB77ScI=\u0022"},{"Name":"Last-Modified","Value":"Mon, 16 Jun 2025 22:12:34 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1139"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00227vqdZTbM10dL28W3fWkDXNBAHJgZ9iYlbwXQuB77ScI=\u0022"},{"Name":"Last-Modified","Value":"Mon, 16 Jun 2025 22:46:05 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/VoxDocs/js/PagamentoScript/step1.u4ci9xyka5.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\PagamentoScript\step1.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"u4ci9xyka5"},{"Name":"integrity","Value":"sha256-7vqdZTbM10dL28W3fWkDXNBAHJgZ9iYlbwXQuB77ScI="},{"Name":"label","Value":"_content/VoxDocs/js/PagamentoScript/step1.js"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1139"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00227vqdZTbM10dL28W3fWkDXNBAHJgZ9iYlbwXQuB77ScI=\u0022"},{"Name":"Last-Modified","Value":"Mon, 16 Jun 2025 22:12:34 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1139"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00227vqdZTbM10dL28W3fWkDXNBAHJgZ9iYlbwXQuB77ScI=\u0022"},{"Name":"Last-Modified","Value":"Mon, 16 Jun 2025 22:46:05 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/VoxDocs/js/PagamentoScript/step2.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\PagamentoScript\step2.js'))</AssetFile>
