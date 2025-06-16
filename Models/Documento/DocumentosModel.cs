@@ -4,7 +4,7 @@ namespace VoxDocs.Models
 {
     public class DocumentoModel
     {
-         public Guid Id { get; set; } = Guid.NewGuid();
+        public Guid Id { get; set; } = Guid.NewGuid();
         public required string NomeArquivo { get; set; }
         public string? UrlArquivo { get; set; }
         public required string UsuarioCriador { get; set; }
@@ -19,5 +19,18 @@ namespace VoxDocs.Models
         public int ContadorAcessos { get; set; } = 0;
         public string? TokenSeguranca { get; set; }
         public required string Descrição { get; set; }
+    }
+    
+    public class DocumentoEstatisticas
+    {
+        public string EmpresaContratante { get; set; }
+        public int QuantidadeDocumentos { get; set; }
+        public double TamanhoTotalGb { get; set; }
+        
+        // Pode adicionar métodos de negócio relacionados se necessário
+        public string GetResumo()
+        {
+            return $"{EmpresaContratante}: {QuantidadeDocumentos} docs, {TamanhoTotalGb:N2} GB";
+        }
     }
 }

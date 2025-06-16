@@ -3,36 +3,38 @@ using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using VoxDocs.DTO;
-using VoxDocs.Models;
 
 namespace VoxDocs.Services
 {
     public interface IUserService
     {
-        // User Registration
-        Task<(UserModel user, string? adminLimit, string? userLimit)> RegisterUserAsync(DTORegisterUser registerDto);
+        // User registration and authentication
+        Task<(DTOUsuarioInfo user, string? adminLimit, string? userLimit)> RegisterUserAsync(DTORegistrarUsuario registerDto);
+        Task<ClaimsPrincipal> AuthenticateUserAsync(DTOLoginUsuario loginDto);
         
-        // Authentication
-        Task<ClaimsPrincipal> AuthenticateUserAsync(DTOLoginUser loginDto);
+        // User retrieval
+        Task<DTOUsuarioInfo> GetUserByEmailOrUsernameAsync(string email, string username);
+        Task<DTOUsuarioInfo> GetUserByUsernameAsync(string username);
+        Task<DTOUsuarioInfo> GetUserByIdAsync(Guid userId);
+        Task<IEnumerable<DTOUsuarioInfo>> GetAllUsersAsync();
         
-        // User Retrieval
-        Task<UserModel> GetUserByIdAsync(Guid userId);
-        Task<UserModel> GetUserByEmailOrUsernameAsync(string email, string username);
-        Task<UserModel> GetUserByUsernameAsync(string username);
-        Task<IEnumerable<UserModel>> GetAllUsersAsync();
-        
-        // Password Management
+        // Password management
         Task<string> GeneratePasswordResetTokenAsync(Guid userId);
-        Task RequestPasswordResetAsync(DTOResetPassword resetRequestDto);
-        Task ResetPasswordWithTokenAsync(DTOResetPasswordWithToken resetDto);
-        Task ChangePasswordAsync(DTOUserLoginPasswordChange changeDto);
+        Task RequestPasswordResetAsync(string email);
+        Task ResetPasswordWithTokenAsync(string token, string novaSenha);
+        Task ChangePasswordAsync(string username, string senhaAntiga, string novaSenha);
         
-        // User Management
-        Task UpdateUserAsync(DTOUpdateUser updateDto);
+        // User management
+        Task UpdateUserAsync(DTOAtualizarUsuario updateDto);
         Task DeleteUserAsync(Guid userId);
+        Task ToggleUserStatusAsync(Guid userId, bool ativo);
         
-        // Validation
-        Task<bool> IsEmailAvailableAsync(string email);
-        Task<bool> IsUsernameAvailableAsync(string username);
+        // Validation and checks
+        Task<bool> IsEmailAvailableAsync(string email, Guid? excludeUserId = null);
+        Task<bool> IsUsernameAvailableAsync(string username, Guid? excludeUserId = null);
+        
+        // Storage and admin features
+        Task<DTOArmazenamentoUsuario> GetUserStorageInfoAsync(Guid userId);
+        Task<DTOEstatisticasAdmin> GetAdminStatisticsAsync();
     }
 }

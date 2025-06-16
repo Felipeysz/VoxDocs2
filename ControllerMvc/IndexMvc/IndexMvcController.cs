@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
-using System.Linq;
-using System.Threading.Tasks;
 using VoxDocs.Services;
 using VoxDocs.ViewModels;
+using System.Threading.Tasks;
+using System;
+using System.Collections.Generic;
 using VoxDocs.Models;
+using VoxDocs.Interfaces;
 
 namespace VoxDocs.Controllers
 {
@@ -12,50 +14,29 @@ namespace VoxDocs.Controllers
         private readonly IPlanosVoxDocsService _planosService;
 
         public IndexMvcController(IPlanosVoxDocsService planosService)
-            => _planosService = planosService;
-
-        // Método auxiliar para mapear Model para ViewModel
-        private PlanoViewModel MapToViewModel(PlanosVoxDocsModel plano)
         {
-            return new PlanoViewModel
-            {
-                Nome = plano.Nome,
-                Periodicidade = plano.Periodicidade,
-                Preco = plano.Preco,
-                ArmazenamentoDisponivel = plano.ArmazenamentoDisponivel,
-                LimiteAdmin = plano.LimiteAdmin,
-                LimiteUsuario = plano.LimiteUsuario
-            };
+            _planosService = planosService;
         }
 
-        // GET: /IndexMvc/Index
         public async Task<IActionResult> Index()
         {
-            if (TempData.ContainsKey("ErrorMessage"))
-                ViewBag.ErrorMessage = TempData["ErrorMessage"]?.ToString();
-
-            // Busca todos os planos do banco
-            var planosModel = await _planosService.GetAllPlansAsync();
-
-            var planosViewModel = planosModel
-                .Select(plano => new PlanoViewModel
-                {
-                    Nome = plano.Nome,
-                    Periodicidade = plano.Periodicidade,
-                    Preco = plano.Preco,
-                    ArmazenamentoDisponivel = plano.ArmazenamentoDisponivel,
-                    LimiteAdmin = plano.LimiteAdmin,
-                    LimiteUsuario = plano.LimiteUsuario
-                })
-                .ToList();
-
-            var vm = new PlanosIndexViewModel
+            try
             {
-                Planos = planosViewModel
-            };
+                var planos = await _planosService.GetAllPlansAsync();
+                
+                var viewModel = new PlanosViewModel
+                {
+                    Planos = planos
+                };
 
-            return View(vm);
+                return View(viewModel);
+            }
+            catch (Exception ex)
+            {
+                ViewBag.ErrorMessage = "Ocorreu um erro ao carregar os planos. Por favor, tente novamente mais tarde.";
+                // Em produção, você pode querer logar o erro ex
+                return View(new PlanosViewModel { Planos = new List<PlanosVoxDocsModel>() });
+            }
         }
-
     }
 }

@@ -1,85 +1,188 @@
 using VoxDocs.Data.Repositories;
-using VoxDocs.DTO;
+using VoxDocs.Models;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
+using VoxDocs.BusinessRules;
+using System.Collections.Generic;
 
 namespace VoxDocs.Services
 {
     public class UserBusinessRules : IUserBusinessRules
     {
-        private readonly IUserRepository _userRepository;
-        private readonly IPlanosVoxDocsService _planosService;
+        private readonly IUsuarioRepository _usuarioRepository;
+        private readonly IPlanosVoxDocsBusinessRules _planosBusinessRules;
 
-        public UserBusinessRules(IUserRepository userRepository, IPlanosVoxDocsService planosService)
+        public UserBusinessRules(
+            IUsuarioRepository usuarioRepository,
+            IPlanosVoxDocsBusinessRules planosBusinessRules)
         {
-            _userRepository = userRepository;
-            _planosService = planosService;
+            _usuarioRepository = usuarioRepository;
+            _planosBusinessRules = planosBusinessRules;
         }
 
-        public async Task ValidateUniqueUserAsync(DTORegisterUser registerDto)
+        public async Task<UserModel> CriarUsuarioAsync(UserModel usuario)
         {
-            var existingUser = await _userRepository.GetUserByEmailOrUsernameAsync(registerDto.Email, registerDto.Usuario);
-            if (existingUser != null)
+            await ValidarUsuarioUnicoAsync(usuario);
+            await ValidarLimitesPlanoAsync(usuario);
+            return await _usuarioRepository.CriarUsuarioAsync(usuario);
+        }
+
+        public async Task<UserModel> ObterUsuarioPorEmailOuNomeAsync(string email, string username)
+        {
+            return await _usuarioRepository.ObterUsuarioPorEmailOuNomeAsync(email, username);
+        }
+
+        public async Task<UserModel> ObterUsuarioPorNomeAsync(string username)
+        {
+            return await _usuarioRepository.ObterUsuarioPorNomeAsync(username);
+        }
+
+        public async Task<UserModel> ObterUsuarioPorIdAsync(Guid userId)
+        {
+            return await _usuarioRepository.ObterUsuarioPorIdAsync(userId);
+        }
+
+        public async Task<IEnumerable<UserModel>> ObterTodosUsuariosAsync()
+        {
+            return await _usuarioRepository.ObterTodosUsuariosAsync();
+        }
+
+        public async Task AtualizarUsuarioAsync(UserModel usuario)
+        {
+            await ValidarLimitesPlanoAtualizacaoAsync(usuario);
+            await _usuarioRepository.AtualizarUsuarioAsync(usuario);
+        }
+
+        public async Task ExcluirUsuarioAsync(Guid userId)
+        {
+            await _usuarioRepository.ExcluirUsuarioAsync(userId);
+        }
+
+        public async Task<string> GerarTokenRedefinicaoSenhaAsync(Guid userId)
+        {
+            var token = Guid.NewGuid().ToString();
+            await _usuarioRepository.SalvarTokenRedefinicaoSenhaAsync(userId, token);
+            return token;
+        }
+
+        public async Task SolicitarRedefinicaoSenhaAsync(string email)
+        {
+            var user = await _usuarioRepository.ObterUsuarioPorEmailAsync(email);
+            if (user == null)
             {
-                throw new InvalidOperationException("Usuário ou email já cadastrado.");
+                throw new KeyNotFoundException("Usuário não encontrado.");
+            }
+
+            var token = await GerarTokenRedefinicaoSenhaAsync(user.Id);
+            // Implementar envio de email aqui
+        }
+
+        public async Task RedefinirSenhaComTokenAsync(string token, string novaSenhaHash)
+        {
+            var usuario = await _usuarioRepository.ObterUsuarioPorTokenRedefinicaoAsync(token);
+            
+            if (usuario == null || usuario.PasswordResetTokenExpiration < DateTime.UtcNow)
+            {
+                throw new InvalidOperationException("Token inválido ou expirado.");
+            }
+
+            await _usuarioRepository.AtualizarSenhaAsync(usuario.Id, novaSenhaHash);
+        }
+
+        public async Task AlterarSenhaAsync(string username, string senhaAntigaHash, string novaSenhaHash)
+        {
+            var user = await ObterUsuarioPorNomeAsync(username);
+            if (user == null || user.Senha != senhaAntigaHash)
+            {
+                throw new UnauthorizedAccessException("Credenciais inválidas.");
+            }
+
+            await _usuarioRepository.AtualizarSenhaAsync(user.Id, novaSenhaHash);
+        }
+
+        public async Task<ArmazenamentoUsuarioModel> ObterArmazenamentoUsuarioAsync(Guid userId)
+        {
+            return await _usuarioRepository.ObterArmazenamentoUsuarioAsync(userId);
+        }
+
+        public async Task<EstatisticasAdminModel> ObterEstatisticasAdminAsync()
+        {
+            var todosUsuarios = await _usuarioRepository.ObterTodosUsuariosAsync();
+            var usuariosRecentes = await _usuarioRepository.ObterUsuariosRecentesAsync();
+
+            return new EstatisticasAdminModel
+            {
+                TotalUsuarios = todosUsuarios.Count(),
+                UsuariosAtivos = await _usuarioRepository.ContarUsuariosAtivosAsync(),
+                TotalAdministradores = await _usuarioRepository.ContarAdministradoresAsync(),
+                UsuariosRecentes = usuariosRecentes.ToList()
+            };
+        }
+
+        public async Task ValidarUsuarioUnicoAsync(UserModel usuario)
+        {
+            var usuarioExistente = await _usuarioRepository.ObterUsuarioPorEmailOuNomeAsync(usuario.Email, usuario.Usuario);
+            if (usuarioExistente != null)
+            {
+                throw new InvalidOperationException("Já existe um usuário com este email ou nome de usuário.");
             }
         }
 
-        public async Task ValidateUserExistsAsync(Guid userId)
+        public async Task ValidarUsuarioExisteAsync(Guid idUsuario)
         {
-            var user = await _userRepository.GetUserByIdAsync(userId);
-            if (user == null)
+            var usuario = await _usuarioRepository.ObterUsuarioPorIdAsync(idUsuario);
+            if (usuario == null)
             {
                 throw new KeyNotFoundException("Usuário não encontrado.");
             }
         }
 
-        public async Task<(int admins, int users)> ValidatePlanLimitAsync(DTORegisterUser registerDto)
+        public async Task<(int administradores, int usuarios)> ValidarLimitesPlanoAsync(UserModel usuario)
         {
-            if (string.IsNullOrEmpty(registerDto.PlanoPago))
-            return (0, 0);
+            if (string.IsNullOrEmpty(usuario.PlanoPago))
+                return (0, 0);
 
-            var plano = (await _planosService.GetAllPlansAsync())
-                .FirstOrDefault(p => p.Nome.Equals(registerDto.PlanoPago, StringComparison.OrdinalIgnoreCase));
+            var (plano, error) = await _planosBusinessRules.GetPlanByNameWithValidationAsync(usuario.PlanoPago);
+            if (error != null || plano == null)
+                return (0, 0);
 
-            if (plano == null) return (0, 0);
+            var usuariosExistentes = await _usuarioRepository.ObterUsuariosPorPlanoAsync(usuario.PlanoPago);
+            var administradores = usuariosExistentes.Count(u => u.PermissionAccount == "admin");
+            var usuarios = usuariosExistentes.Count(u => u.PermissionAccount == "user");
 
-            var existing = await _userRepository.GetUsersByPlanAsync(registerDto.PlanoPago);
-            var admins = existing.Count(u => u.PermissionAccount == "admin");
-            var users = existing.Count(u => u.PermissionAccount == "user");
-
-            if (registerDto.PermissionAccount == "admin" && admins >= plano.LimiteAdmin)
+            if (usuario.PermissionAccount == "admin" && administradores >= plano.LimiteAdmin)
             {
                 throw new InvalidOperationException("Limite de administradores excedido para este plano.");
             }
 
-            if (registerDto.PermissionAccount == "user" && users >= plano.LimiteUsuario)
+            if (usuario.PermissionAccount == "user" && usuarios >= plano.LimiteUsuario)
             {
                 throw new InvalidOperationException("Limite de usuários excedido para este plano.");
             }
 
-            return (admins, users);
+            return (administradores, usuarios);
         }
 
-        // Additional method for update validation
-        public async Task ValidatePlanLimitForUpdateAsync(DTOUpdateUser updateDto)
+        public async Task ValidarLimitesPlanoAtualizacaoAsync(UserModel usuario)
         {
-            if (string.IsNullOrEmpty(updateDto.PlanoPago))
+            if (string.IsNullOrEmpty(usuario.PlanoPago))
                 return;
 
-            var plano = (await _planosService.GetAllPlansAsync())
-                .FirstOrDefault(p => p.Nome.Equals(updateDto.PlanoPago, StringComparison.OrdinalIgnoreCase));
+            var (plano, error) = await _planosBusinessRules.GetPlanByNameWithValidationAsync(usuario.PlanoPago);
+            if (error != null || plano == null)
+                return;
 
-            if (plano == null) return;
+            var usuariosExistentes = await _usuarioRepository.ObterUsuariosPorPlanoAsync(usuario.PlanoPago);
+            var administradores = usuariosExistentes.Count(u => u.PermissionAccount == "admin");
+            var usuarios = usuariosExistentes.Count(u => u.PermissionAccount == "user");
 
-            var existing = await _userRepository.GetUsersByPlanAsync(updateDto.PlanoPago);
-            var admins = existing.Count(u => u.PermissionAccount == "admin");
-            var users = existing.Count(u => u.PermissionAccount == "user");
-
-            if (updateDto.PermissionAccount == "admin" && admins >= plano.LimiteAdmin)
+            if (usuario.PermissionAccount == "admin" && administradores >= plano.LimiteAdmin)
             {
                 throw new InvalidOperationException("Limite de administradores excedido para este plano.");
             }
 
-            if (updateDto.PermissionAccount == "user" && users >= plano.LimiteUsuario)
+            if (usuario.PermissionAccount == "user" && usuarios >= plano.LimiteUsuario)
             {
                 throw new InvalidOperationException("Limite de usuários excedido para este plano.");
             }

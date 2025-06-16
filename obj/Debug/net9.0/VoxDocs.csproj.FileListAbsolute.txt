@@ -1133,12 +1133,8 @@ C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs - Copia (2)\obj\Debug\net9.0\s
 C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs - Copia (2)\obj\Debug\net9.0\VoxDocs.csproj.Up2Date
 C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs - Copia (2)\obj\Debug\net9.0\VoxDocs.genruntimeconfig.cache
 C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs - Copia (2)\obj\Debug\net9.0\ref\VoxDocs.dll
-C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs - Copia (2)\obj\Debug\net9.0\compressed\q6cijnb6sf-r2vxcxr6sr.gz
-C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs - Copia (2)\obj\Debug\net9.0\compressed\0vwj5ox5et-1a582rbdno.gz
-C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs - Copia (2)\obj\Debug\net9.0\compressed\l9usgkr0zd-gwsts4bcp3.gz
-C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs - Copia (2)\obj\Debug\net9.0\compressed\wg2ez6kse2-epzl8zi5gw.gz
-C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs - Copia (2)\obj\Debug\net9.0\compressed\b5cqpxvrnl-c9cj7dcql7.gz
-C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs - Copia (2)\obj\Debug\net9.0\compressed\nfy6qok2la-jjwb4v1bfp.gz
-C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs - Copia (2)\obj\Debug\net9.0\compressed\pw0ryfvxem-e304hv6r5k.gz
-C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs - Copia (2)\obj\Debug\net9.0\compressed\qearznk3ul-ocgkt4zwfe.gz
 C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs - Copia (2)\obj\Debug\net9.0\compressed\5gqr30xw4r-bw6ocgzrzg.gz
+C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs - Copia (2)\obj\Debug\net9.0\compressed\wg2ez6kse2-u6fzl6q3z8.gz
+C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs - Copia (2)\obj\Debug\net9.0\compressed\q6cijnb6sf-eb4nd7lgaq.gz
+C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs - Copia (2)\obj\Debug\net9.0\compressed\l9usgkr0zd-lpmdl9q4hx.gz
+C:\Users\Felip\OneDrive\Área de Trabalho\VoxDocs - Copia (2)\obj\Debug\net9.0\compressed\qearznk3ul-xfn93yn21j.gz
