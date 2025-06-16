@@ -246,8 +246,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>zyvzrdun85</Fingerprint>
-      <Integrity>m3vf0s8mST1Yy0L6X8FJ0CC49ZyK56Oyd+YqxFCmvDM=</Integrity>
+      <Fingerprint>jme46i2ma3</Fingerprint>
+      <Integrity>CxGq76c24fwn1xnpMBxDbvRVjlJ7s5TkozMUsHcAuW8=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\PagamentoScript\main.js'))</OriginalItemSpec>
@@ -264,8 +264,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>leabybi44i</Fingerprint>
-      <Integrity>bZfoKvDZIORyv7xH6CLoIfFxvDhH6tFwVJB9ENVPsjA=</Integrity>
+      <Fingerprint>zvzpqq02zu</Fingerprint>
+      <Integrity>7wOpus5kREUwZbUQFA+MGF8kHEuqL0uOc6oUEoQPIUQ=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\PagamentoScript\step1.js'))</OriginalItemSpec>
@@ -282,8 +282,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>oe4upg7kn5</Fingerprint>
-      <Integrity>MCU+9anruYHN3C2TB96kh2DJ98zUeghsqX1bvgROYFw=</Integrity>
+      <Fingerprint>rimk52819q</Fingerprint>
+      <Integrity>/SNkWujx3JDDUSotDZAT8GP5Pj6gkm9T9xSspsMF2rA=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\PagamentoScript\step2.js'))</OriginalItemSpec>
@@ -300,8 +300,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>n62ecnlzgk</Fingerprint>
-      <Integrity>caX+dzQfR9HmB9EAJ6HIKtDQXY+dxgVpkhGgOFGP9VY=</Integrity>
+      <Fingerprint>pzcmgircsj</Fingerprint>
+      <Integrity>u8wse8wSji2J3a+CQRaPF+eyA+pZaTwf4M1ICUAeFcs=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\PagamentoScript\step3.js'))</OriginalItemSpec>
@@ -318,8 +318,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>4x8dho11qj</Fingerprint>
-      <Integrity>mDBQLZTgCWC/WvwKBhKnoNgA+sOxHaPBbtGRUsquHW8=</Integrity>
+      <Fingerprint>i4tjj2j4w3</Fingerprint>
+      <Integrity>MoX9aq9LyOE0kHL2iDP3G4pAdWvUH3pknSzgPzbYPKk=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\PagamentoScript\step4.js'))</OriginalItemSpec>
@@ -336,8 +336,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>yw9aqarlbx</Fingerprint>
-      <Integrity>sgK97oo0HHgHIfzByh43cvqD1QVb0zxEVZQjxcon5ao=</Integrity>
+      <Fingerprint>3z3xlmnrbh</Fingerprint>
+      <Integrity>Xw82Iti5e0UNTRBL4Uaxhy3UzWa9qtwe1R+9nWXnVYw=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\PagamentoScript\step5.js'))</OriginalItemSpec>
@@ -354,8 +354,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>0b8h4ef3ov</Fingerprint>
-      <Integrity>tI8XDid24giKqcv81XMrs1a2roFIY3EauJTFkjc7PYU=</Integrity>
+      <Fingerprint>4gn858a4c5</Fingerprint>
+      <Integrity>tA3rZq42gKhdsDtJL5p7h8flZzSXWN3Q/IVAwaKjUw0=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\PagamentoScript\ultilities.js'))</OriginalItemSpec>
