@@ -8,6 +8,7 @@ namespace VoxDocs.Services
     public interface IUserBusinessRules
     {
         // User CRUD operations
+        Task AtualizarUltimoLoginAsync(Guid userId);
         Task<UserModel> CriarUsuarioAsync(UserModel usuario);
         Task<UserModel> ObterUsuarioPorEmailOuNomeAsync(string email, string username);
         Task<UserModel> ObterUsuarioPorNomeAsync(string username);

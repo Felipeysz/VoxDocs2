@@ -69,15 +69,15 @@ namespace VoxDocs.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    EmpresaContratante = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    MetodoPagamento = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
-                    DataPagamento = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DataExpiracao = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    StatusEmpresa = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    NomePlano = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    PeriodicidadePlano = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    NomePlano = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PeriodicidadePlano = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ValorPlano = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    EmailContato = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
+                    MetodoPagamento = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DataPagamento = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    StatusEmpresa = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    EmpresaContratante = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    EmailContato = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DataExpiracao = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -211,9 +211,9 @@ namespace VoxDocs.Migrations
                 columns: new[] { "Id", "ArmazenamentoDisponivel", "Ativo", "Descriçao", "Duracao", "LimiteAdmin", "LimiteUsuario", "Nome", "Periodicidade", "Preco" },
                 values: new object[,]
                 {
-                    { new Guid("0e8c6b83-49c1-403e-b70c-6fc8e0f09c7f"), 200, false, "Plano completo com desconto de 20% para 12 meses", 12, -1, -1, "Premium", "Anual", 287.90m },
-                    { new Guid("7d7f02e7-44b5-4692-88a4-8c2b149b5059"), 200, false, "Plano completo com desconto de 10% para 6 meses", 6, -1, -1, "Premium", "Semestral", 161.95m },
-                    { new Guid("b40c1b56-6cc2-4988-b979-3b00c1dd8e1e"), 200, false, "Plano completo com funcionalidades avançadas", 1, -1, -1, "Premium", "Mensal", 29.99m },
+                    { new Guid("0e8c6b83-49c1-403e-b70c-6fc8e0f09c7f"), 200, false, "Plano completo com 10% de desconto (12 meses)", 12, -1, -1, "Premium Anual", "Anual", 1618.92m },
+                    { new Guid("7d7f02e7-44b5-4692-88a4-8c2b149b5059"), 200, false, "Plano completo com 10% de desconto (6 meses)", 6, -1, -1, "Premium Semestral", "Semestral", 809.46m },
+                    { new Guid("b40c1b56-6cc2-4988-b979-3b00c1dd8e1e"), 200, false, "Plano completo com funcionalidades avançadas", 1, -1, -1, "Premium", "Mensal", 149.90m },
                     { new Guid("f9b2f7e0-d938-4b4d-b256-38bbd6a9d4ef"), 10, false, "Plano com funcionalidades básicas", 0, 2, 5, "Gratuito", "Ilimitado", 0m }
                 });
 

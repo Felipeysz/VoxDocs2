@@ -164,6 +164,16 @@ namespace VoxDocs.Services
             return (administradores, usuarios);
         }
 
+        public async Task AtualizarUltimoLoginAsync(Guid userId)
+        {
+            var usuario = await _usuarioRepository.ObterUsuarioPorIdAsync(userId);
+            if (usuario != null)
+            {
+                usuario.UltimoLogin = DateTime.UtcNow;
+                await _usuarioRepository.AtualizarUsuarioAsync(usuario);
+            }
+        }
+
         public async Task ValidarLimitesPlanoAtualizacaoAsync(UserModel usuario)
         {
             if (string.IsNullOrEmpty(usuario.PlanoPago))

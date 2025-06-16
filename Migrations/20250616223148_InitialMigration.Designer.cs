@@ -12,7 +12,7 @@ using VoxDocs.Data;
 namespace VoxDocs.Migrations
 {
     [DbContext(typeof(VoxDocsContext))]
-    [Migration("20250616011759_InitialMigration")]
+    [Migration("20250616223148_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -219,34 +219,26 @@ namespace VoxDocs.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("EmailContato")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("EmpresaContratante")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MetodoPagamento")
                         .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NomePlano")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PeriodicidadePlano")
                         .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("StatusEmpresa")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("ValorPlano")
                         .HasColumnType("decimal(18,2)");
@@ -340,33 +332,33 @@ namespace VoxDocs.Migrations
                             LimiteUsuario = -1,
                             Nome = "Premium",
                             Periodicidade = "Mensal",
-                            Preco = 29.99m
+                            Preco = 149.90m
                         },
                         new
                         {
                             Id = new Guid("7d7f02e7-44b5-4692-88a4-8c2b149b5059"),
                             ArmazenamentoDisponivel = 200,
                             Ativo = false,
-                            Descriçao = "Plano completo com desconto de 10% para 6 meses",
+                            Descriçao = "Plano completo com 10% de desconto (6 meses)",
                             Duracao = 6,
                             LimiteAdmin = -1,
                             LimiteUsuario = -1,
-                            Nome = "Premium",
+                            Nome = "Premium Semestral",
                             Periodicidade = "Semestral",
-                            Preco = 161.95m
+                            Preco = 809.46m
                         },
                         new
                         {
                             Id = new Guid("0e8c6b83-49c1-403e-b70c-6fc8e0f09c7f"),
                             ArmazenamentoDisponivel = 200,
                             Ativo = false,
-                            Descriçao = "Plano completo com desconto de 20% para 12 meses",
+                            Descriçao = "Plano completo com 10% de desconto (12 meses)",
                             Duracao = 12,
                             LimiteAdmin = -1,
                             LimiteUsuario = -1,
-                            Nome = "Premium",
+                            Nome = "Premium Anual",
                             Periodicidade = "Anual",
-                            Preco = 287.90m
+                            Preco = 1618.92m
                         });
                 });
 
