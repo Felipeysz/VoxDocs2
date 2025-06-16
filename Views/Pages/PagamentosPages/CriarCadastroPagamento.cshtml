@@ -19,52 +19,95 @@
     
     <!-- CSS otimizado -->
     <style>
-        :root {
-            --clr-primary: #5c3c8a;
-            --clr-primary-dark: #4a3070;
-            --clr-bg: #fafafa;
-            --clr-card: #ffffff;
-        }
+    :root {
+        --clr-primary: #5c3c8a;
+        --clr-primary-dark: #4a3070;
+        --clr-bg: #fafafa;
+        --clr-card: #ffffff;
+    }
 
-        body {
-            background-color: var(--clr-bg);
-            font-family: 'Poppins', sans-serif;
-        }
+    body {
+        background-color: var(--clr-bg);
+        font-family: 'Poppins', sans-serif;
+    }
 
-        .doc-card {
-            background: var(--clr-card);
-            border-radius: 12px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.05);
-            max-width: 480px;
-        }
+    .doc-card {
+        background: var(--clr-card);
+        border-radius: 12px;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+        max-width: 480px;
+    }
 
-        .btn-primary {
-            background-color: var(--clr-primary);
-            border-color: var(--clr-primary);
-        }
+    .btn-primary {
+        background-color: var(--clr-primary);
+        border-color: var(--clr-primary);
+    }
 
-        .btn-primary:hover {
-            background-color: var(--clr-primary-dark);
-            border-color: var(--clr-primary-dark);
-        }
+    .btn-primary:hover {
+        background-color: var(--clr-primary-dark);
+        border-color: var(--clr-primary-dark);
+    }
 
-        /* Stepper simplificado */
-        .stepper-line {
-            height: 2px;
-            background: var(--clr-primary);
-        }
-
-        .step {
-            width: 32px;
-            height: 32px;
-            border: 2px solid var(--clr-primary);
-        }
-
-        .step.active {
-            background-color: var(--clr-primary);
-            color: white;
-        }
-    </style>
+    /* Stepper ajustado */
+    .stepper-container {
+        position: relative;
+        margin: 2rem 0;
+    }
+    
+    .stepper-line {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background-color: #e0e0e0;
+        z-index: 1;
+        transform: translateY(-50%);
+    }
+    
+    .stepper-line-progress {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        height: 2px;
+        background-color: var(--clr-primary);
+        z-index: 2;
+        transform: translateY(-50%);
+        transition: width 0.3s ease;
+    }
+    
+    .steps {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        z-index: 3;
+    }
+    
+    .step {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background-color: white;
+        border: 2px solid #e0e0e0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        color: #999;
+        transition: all 0.3s ease;
+    }
+    
+    .step.active {
+        border-color: var(--clr-primary);
+        background-color: var(--clr-primary);
+        color: white;
+    }
+    
+    .step.completed {
+        border-color: var(--clr-primary);
+        color: var(--clr-primary);
+    }
+</style>
 </head>
 <body class="d-flex align-items-center justify-content-center min-vh-100 p-3">
 <div class="doc-card shadow-lg p-4 w-100">
@@ -79,14 +122,15 @@
     </div>
 
     <!-- Stepper -->
-    <div class="position-relative mb-4">
-        <div class="stepper-line position-absolute w-100"></div>
-        <div class="d-flex justify-content-between">
+    <div class="stepper-container">
+        <div class="stepper-line"></div>
+        <div class="stepper-line-progress" style="width: 0%;"></div>
+        <div class="steps">
             @for (int i = 1; i <= 5; i++) {
-                <div class="step rounded-circle @(i == 1 ? "active" : "bg-light")">@i</div>
+                <div class="step @(i == 1 ? "active" : "")">@i</div>
             }
         </div>
-    </div>
+    </di
 
     <!-- Form -->
     <form id="formWizard" asp-action="ConfirmarPagamento" method="POST">
@@ -186,41 +230,5 @@
 <!-- Scripts -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const steps = document.querySelectorAll('.step-content');
-    let currentStep = 1;
-    
-    function showStep(step) {
-        steps.forEach((el, i) => {
-            el.classList.toggle('d-none', i+1 !== step);
-        });
-        
-        document.querySelectorAll('.step').forEach((el, i) => {
-            el.classList.toggle('active', i+1 === step);
-        });
-        
-        document.getElementById('prevBtn').disabled = step === 1;
-        document.getElementById('nextBtn').style.display = step === 5 ? 'none' : '';
-    }
-    
-    document.getElementById('nextBtn').addEventListener('click', function() {
-        if (currentStep < 5) {
-            currentStep++;
-            showStep(currentStep);
-        }
-    });
-    
-    document.getElementById('prevBtn').addEventListener('click', function() {
-        if (currentStep > 1) {
-            currentStep--;
-            showStep(currentStep);
-        }
-    });
-    
-    // Inicialização
-    showStep(1);
-});
-</script>
 </body>
 </html>

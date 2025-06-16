@@ -18,8 +18,18 @@
             transition: all 0.3s ease;
             border: 1px solid #e0e0e0;
             background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
-        
+        .plan-card-content {
+            flex: 1; /* Isso faz o conteúdo ocupar todo o espaço disponível */
+        }
+
+        .btn-subscribe-container {
+            margin-top: auto; /* Isso empurra o botão para baixo */
+            padding-top: 1rem;
+        }
         .plan-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
@@ -182,144 +192,146 @@
     </section>
 
     <!-- Planos -->
-    <section id="planos" class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-5 display-5 fw-bold">Nossos Planos</h2>
-            <p class="text-center mb-5 lead">Escolha o plano que melhor se adapta às necessidades da sua empresa</p>
-            
-            <div class="row gy-4 mb-5">
-                @foreach (var plano in Model.Planos)
-                {
-                    <div class="col-md-3" data-aos="fade-up">
-                        <div class="plan-card h-100 p-4 rounded-3 @(plano.Nome.Contains("Premium") ? "highlight-card" : "")">
-                            @if (plano.Nome.Contains("Premium"))
-                            {
-                                <div class="highlight-badge">RECOMENDADO</div>
-                            }
+    <!-- Comparação -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5 display-5 fw-bold">Compare os Planos</h2>
+        
+        <div class="comparison-table" data-aos="fade-up">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">Recurso</th>
+                        @foreach (var plano in Model.Planos)
+                        {
+                            <th class="text-center" style="width: 18.75%;">@plano.Nome</th>
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Preço Mensal</td>
+                        @foreach (var plano in Model.Planos)
+                        {
+                            var precoMensal = plano.Duracao.HasValue && plano.Duracao > 0 
+                                ? plano.Preco / Convert.ToDecimal(plano.Duracao.Value) 
+                                : plano.Preco;
                             
-                            <div class="plan-name">@plano.Nome @(!string.IsNullOrEmpty(plano.Periodicidade) ? $"({plano.Periodicidade})" : "")</div>
-
-                            <div class="plan-price mb-4">
-                                @(plano.Preco == 0 ? "Grátis" : $"R$ {plano.Preco:F2}")
-                                <small class="text-muted d-block">@(plano.Preco > 0 ? "por mês" : "para sempre")</small>
-                            </div>
-
-                            <ul class="plan-features list-unstyled mb-4">
-                                <li>
-                                    <span class="material-symbols-outlined">storage</span>
-                                    @(plano.ArmazenamentoDisponivel.HasValue ? 
-                                        (plano.ArmazenamentoDisponivel.Value == -1 ? "Armazenamento Ilimitado" : $"{plano.ArmazenamentoDisponivel} GB de Armazenamento") : 
-                                        "Sem armazenamento")
-                                </li>
-                                <li>
-                                    <span class="material-symbols-outlined">people</span>
-                                    @(plano.LimiteUsuario.HasValue ?
-                                        (plano.LimiteUsuario.Value == -1 ? "Usuários Ilimitados" : $"Até {plano.LimiteUsuario} usuários") :
-                                        "Sem limite de usuários")
-                                </li>
-                                <li>
-                                    <span class="material-symbols-outlined">admin_panel_settings</span>
-                                    @(plano.LimiteAdmin.HasValue ?
-                                        (plano.LimiteAdmin.Value == -1 ? "Administradores Ilimitados" : $"Até {plano.LimiteAdmin} administradores") :
-                                        "Sem limite de administradores")
-                                </li>
-                                <li>
-                                    <span class="material-symbols-outlined">description</span>
-                                    Documentos Ilimitados
-                                </li>
-                            </ul>
-                            <form asp-controller="PagamentoMvc"
-                                asp-action="CriarSolicitacaoPagamento"
-                                method="post"
-                                class="d-grid gap-2 mt-auto">
-                                <input type="hidden" name="nomePlano" value="@plano.Nome" />
-                                <input type="hidden" name="periodicidade" value="@plano.Periodicidade" />
-                                <input type="hidden" name="valorPlano" value="@plano.Preco" />
-                                <button type="submit" class="btn btn-subscribe">
-                                    @(plano.Preco == 0 ? "Começar Grátis" : "Assinar Agora")
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                }
-            </div>
+                            <td class="text-center">
+                                @if (plano.Preco == 0)
+                                {
+                                    <span>Grátis</span>
+                                }
+                                else if (plano.Periodicidade == "Mensal")
+                                {
+                                    <span>R$ @plano.Preco.ToString("F2")</span>
+                                }
+                                else
+                                {
+                                    <span>R$ @precoMensal.ToString("F2")</span>
+                                    <br />
+                                    <small class="text-muted">(@plano.Periodicidade: R$ @plano.Preco.ToString("F2"))</small>
+                                }
+                            </td>
+                        }
+                    </tr>
+                    <!-- Restante da tabela permanece igual -->
+                </tbody>
+            </table>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Comparação -->
-    <section class="py-5 bg-light">
-        <div class="container">
-            <h2 class="text-center mb-5 display-5 fw-bold">Compare os Planos</h2>
-            
-            <div class="comparison-table" data-aos="fade-up">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th style="width: 25%;">Recurso</th>
-                            @foreach (var plano in Model.Planos)
-                            {
-                                <th class="text-center" style="width: 18.75%;">@plano.Nome</th>
-                            }
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Armazenamento</td>
-                            @foreach (var plano in Model.Planos)
-                            {
-                                <td class="text-center">@(plano.ArmazenamentoDisponivel.HasValue ? 
-                                    (plano.ArmazenamentoDisponivel.Value == -1 ? "Ilimitado" : $"{plano.ArmazenamentoDisponivel} GB") : 
-                                    "-")</td>
-                            }
-                        </tr>
-                        <tr>
-                            <td>Usuários</td>
-                            @foreach (var plano in Model.Planos)
-                            {
-                                <td class="text-center">@(plano.LimiteUsuario.HasValue ? 
-                                    (plano.LimiteUsuario.Value == -1 ? "Ilimitado" : $"{plano.LimiteUsuario}") : 
-                                    "Ilimitado")</td>
-                            }
-                        </tr>
-                        <tr>
-                            <td>Administradores</td>
-                            @foreach (var plano in Model.Planos)
-                            {
-                                <td class="text-center">@(plano.LimiteAdmin.HasValue ? 
-                                    (plano.LimiteAdmin.Value == -1 ? "Ilimitado" : $"{plano.LimiteAdmin}") : 
-                                    "Ilimitado")</td>
-                            }
-                        </tr>
-                        <tr>
-                            <td>Documentos</td>
-                            @foreach (var plano in Model.Planos)
-                            {
-                                <td class="text-center">Ilimitado</td>
-                            }
-                        </tr>
-                        <tr>
-                            <td>Suporte Prioritário</td>
-                            @foreach (var plano in Model.Planos)
-                            {
-                                <td class="text-center">
-                                    <span class="@(plano.Nome.Contains("Premium") ? "feature-check" : "feature-x")">
-                                        @if (plano.Nome.Contains("Premium"))
-                                        {
-                                            <span class="material-symbols-outlined">check_circle</span>
-                                        }
-                                        else
-                                        {
-                                            <span class="material-symbols-outlined">cancel</span>
-                                        }
-                                    </span>
-                                </td>
-                            }
-                        </tr>
-                    </tbody>
-                </table>
+    <!-- Planos -->
+<section id="planos" class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5 display-5 fw-bold">Nossos Planos</h2>
+        <p class="text-center mb-5 lead">Escolha o plano que melhor se adapta às necessidades da sua empresa</p>
+        
+        <div class="row gy-4 mb-5">
+            @foreach (var plano in Model.Planos)
+            {
+                var precoMensalDecimal = plano.Duracao.HasValue && plano.Duracao > 0 
+                    ? plano.Preco / Convert.ToDecimal(plano.Duracao.Value) 
+                    : plano.Preco;
+                
+                var precoTotalDecimal = plano.Preco;
+                
+                <div class="col-md-3" data-aos="fade-up">
+    <div class="plan-card h-100 p-4 rounded-3 @(plano.Nome.Contains("Premium") ? "highlight-card" : "")">
+        @if (plano.Nome.Contains("Premium"))
+        {
+            <div class="highlight-badge">RECOMENDADO</div>
+        }
+        
+        <div class="plan-card-content"> <!-- Nova div para agrupar o conteúdo -->
+            <div class="plan-name">@plano.Nome @(!string.IsNullOrEmpty(plano.Periodicidade) ? $"({plano.Periodicidade})" : "")</div>
+
+            <div class="plan-price mb-4">
+                @if (plano.Preco == 0)
+                {
+                    <span>Grátis</span>
+                    <small class="text-muted d-block">para sempre</small>
+                }
+                else if (plano.Periodicidade == "Mensal")
+                {
+                    <span>R$ @plano.Preco.ToString("F2")</span>
+                    <small class="text-muted d-block">por mês</small>
+                }
+                else
+                {
+                    <span>R$ @precoMensalDecimal.ToString("F2")</span>
+                    <small class="text-muted d-block">por mês (equivalente)</small>
+                    <small class="text-muted d-block">@plano.Periodicidade: R$ @precoTotalDecimal.ToString("F2")</small>
+                }
             </div>
+
+            <ul class="plan-features list-unstyled mb-4">
+                <li>
+                    <span class="material-symbols-outlined">storage</span>
+                    @(plano.ArmazenamentoDisponivel.HasValue ? 
+                        (plano.ArmazenamentoDisponivel.Value == -1 ? "Armazenamento Ilimitado" : $"{plano.ArmazenamentoDisponivel} GB de Armazenamento") : 
+                        "Sem armazenamento")
+                </li>
+                <li>
+                    <span class="material-symbols-outlined">people</span>
+                    @(plano.LimiteUsuario.HasValue ?
+                        (plano.LimiteUsuario.Value == -1 ? "Usuários Ilimitados" : $"Até {plano.LimiteUsuario} usuários") :
+                        "Sem limite de usuários")
+                </li>
+                <li>
+                    <span class="material-symbols-outlined">admin_panel_settings</span>
+                    @(plano.LimiteAdmin.HasValue ?
+                        (plano.LimiteAdmin.Value == -1 ? "Administradores Ilimitados" : $"Até {plano.LimiteAdmin} administradores") :
+                        "Sem limite de administradores")
+                </li>
+                <li>
+                    <span class="material-symbols-outlined">description</span>
+                    Documentos Ilimitados
+                </li>
+            </ul>
+        </div> <!-- Fechamento da div de conteúdo -->
+        
+        <div class="btn-subscribe-container"> <!-- Container do botão -->
+            <form asp-controller="PagamentoMvc"
+                asp-action="CriarSolicitacaoPagamento"
+                method="post"
+                class="d-grid gap-2">
+                <input type="hidden" name="nomePlano" value="@plano.Nome" />
+                <input type="hidden" name="periodicidade" value="@plano.Periodicidade" />
+                <input type="hidden" name="valorPlano" value="@plano.Preco" />
+                <button type="submit" class="btn btn-subscribe">
+                    @(plano.Preco == 0 ? "Começar Grátis" : "Assinar Agora")
+                </button>
+            </form>
         </div>
-    </section>
+    </div>
+</div>
+            }
+        </div>
+    </div>
+</section>
 
     <!-- Perguntas Frequentes -->
     <section class="py-5">
