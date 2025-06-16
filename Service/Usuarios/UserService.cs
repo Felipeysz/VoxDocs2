@@ -75,9 +75,10 @@ namespace VoxDocs.Services
                 throw new UnauthorizedAccessException("Credenciais inválidas ou conta inativa.");
             }
 
-            // Update last login
+            // Update last login - sem verificação de limites
             user.UltimoLogin = DateTime.UtcNow;
-            await _businessRules.AtualizarUsuarioAsync(user);
+
+            await _businessRules.AtualizarUltimoLoginAsync(user.Id); // Chamada direta ao repositório para evitar validações
 
             var claims = new List<Claim>
             {
@@ -90,7 +91,6 @@ namespace VoxDocs.Services
             var id = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
             return new ClaimsPrincipal(id);
         }
-
         public async Task<string> GeneratePasswordResetTokenAsync(Guid userId)
         {
             return await _businessRules.GerarTokenRedefinicaoSenhaAsync(userId);

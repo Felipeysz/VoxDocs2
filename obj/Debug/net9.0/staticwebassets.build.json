@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "96gcjgDZ6NaHDvMjE2okufnLE0RN/gerYcnEHkfNNs0=",
+  "Hash": "/57oO+wjsOTmY2gzfOtkv0mkzYlXPOPZj2EDz2UQZV8=",
   "Source": "VoxDocs",
   "BasePath": "_content/VoxDocs",
   "Mode": "Default",
@@ -899,12 +899,12 @@
       "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\l9usgkr0zd-zvzpqq02zu.gz",
+      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\l9usgkr0zd-u4ci9xyka5.gz",
       "SourceId": "VoxDocs",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/VoxDocs",
-      "RelativePath": "js/PagamentoScript/step1#[.{fingerprint=zvzpqq02zu}]?.js.gz",
+      "RelativePath": "js/PagamentoScript/step1#[.{fingerprint=u4ci9xyka5}]?.js.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -913,8 +913,8 @@
       "RelatedAsset": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\js\\PagamentoScript\\step1.js",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "fojek2ddnb",
-      "Integrity": "4bj/zTcIqvTjj0kNJSgTW4FBe4/iDzrRWnKnV9bQWw8=",
+      "Fingerprint": "adial9l5kc",
+      "Integrity": "gvs28VGofzmvcEoHON+g075hscGKY9nnc2YjhelCkbQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\js\\PagamentoScript\\step1.js"
@@ -1984,8 +1984,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "zvzpqq02zu",
-      "Integrity": "7wOpus5kREUwZbUQFA+MGF8kHEuqL0uOc6oUEoQPIUQ=",
+      "Fingerprint": "u4ci9xyka5",
+      "Integrity": "7vqdZTbM10dL28W3fWkDXNBAHJgZ9iYlbwXQuB77ScI=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\PagamentoScript\\step1.js"
@@ -7061,7 +7061,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 16 Jun 2025 22:08:59 GMT"
+          "Value": "Mon, 16 Jun 2025 22:16:56 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7122,7 +7122,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 16 Jun 2025 22:08:59 GMT"
+          "Value": "Mon, 16 Jun 2025 22:16:56 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7167,7 +7167,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 16 Jun 2025 22:08:59 GMT"
+          "Value": "Mon, 16 Jun 2025 22:16:56 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7222,7 +7222,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 16 Jun 2025 22:08:59 GMT"
+          "Value": "Mon, 16 Jun 2025 22:16:56 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7275,7 +7275,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 16 Jun 2025 22:08:59 GMT"
+          "Value": "Mon, 16 Jun 2025 22:16:56 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7312,7 +7312,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 16 Jun 2025 22:08:59 GMT"
+          "Value": "Mon, 16 Jun 2025 22:16:56 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7336,7 +7336,7 @@
     },
     {
       "Route": "js/PagamentoScript/step1.js",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\l9usgkr0zd-zvzpqq02zu.gz",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\l9usgkr0zd-u4ci9xyka5.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -7355,11 +7355,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"4bj/zTcIqvTjj0kNJSgTW4FBe4/iDzrRWnKnV9bQWw8=\""
+          "Value": "\"gvs28VGofzmvcEoHON+g075hscGKY9nnc2YjhelCkbQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 16 Jun 2025 22:12:13 GMT"
+          "Value": "Mon, 16 Jun 2025 22:12:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7379,13 +7379,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"7wOpus5kREUwZbUQFA+MGF8kHEuqL0uOc6oUEoQPIUQ=\""
+          "Value": "W/\"7vqdZTbM10dL28W3fWkDXNBAHJgZ9iYlbwXQuB77ScI=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-7wOpus5kREUwZbUQFA+MGF8kHEuqL0uOc6oUEoQPIUQ="
+          "Value": "sha256-7vqdZTbM10dL28W3fWkDXNBAHJgZ9iYlbwXQuB77ScI="
         }
       ]
     },
@@ -7400,7 +7400,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1138"
+          "Value": "1139"
         },
         {
           "Name": "Content-Type",
@@ -7408,11 +7408,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"7wOpus5kREUwZbUQFA+MGF8kHEuqL0uOc6oUEoQPIUQ=\""
+          "Value": "\"7vqdZTbM10dL28W3fWkDXNBAHJgZ9iYlbwXQuB77ScI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 16 Jun 2025 22:12:13 GMT"
+          "Value": "Mon, 16 Jun 2025 22:12:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7422,13 +7422,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-7wOpus5kREUwZbUQFA+MGF8kHEuqL0uOc6oUEoQPIUQ="
+          "Value": "sha256-7vqdZTbM10dL28W3fWkDXNBAHJgZ9iYlbwXQuB77ScI="
         }
       ]
     },
     {
       "Route": "js/PagamentoScript/step1.js.gz",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\l9usgkr0zd-zvzpqq02zu.gz",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\l9usgkr0zd-u4ci9xyka5.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7445,11 +7445,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"4bj/zTcIqvTjj0kNJSgTW4FBe4/iDzrRWnKnV9bQWw8=\""
+          "Value": "\"gvs28VGofzmvcEoHON+g075hscGKY9nnc2YjhelCkbQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 16 Jun 2025 22:12:13 GMT"
+          "Value": "Mon, 16 Jun 2025 22:12:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7467,13 +7467,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-4bj/zTcIqvTjj0kNJSgTW4FBe4/iDzrRWnKnV9bQWw8="
+          "Value": "sha256-gvs28VGofzmvcEoHON+g075hscGKY9nnc2YjhelCkbQ="
         }
       ]
     },
     {
-      "Route": "js/PagamentoScript/step1.zvzpqq02zu.js",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\l9usgkr0zd-zvzpqq02zu.gz",
+      "Route": "js/PagamentoScript/step1.u4ci9xyka5.js",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\l9usgkr0zd-u4ci9xyka5.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -7492,11 +7492,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"4bj/zTcIqvTjj0kNJSgTW4FBe4/iDzrRWnKnV9bQWw8=\""
+          "Value": "\"gvs28VGofzmvcEoHON+g075hscGKY9nnc2YjhelCkbQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 16 Jun 2025 22:12:13 GMT"
+          "Value": "Mon, 16 Jun 2025 22:12:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7516,13 +7516,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"7wOpus5kREUwZbUQFA+MGF8kHEuqL0uOc6oUEoQPIUQ=\""
+          "Value": "W/\"7vqdZTbM10dL28W3fWkDXNBAHJgZ9iYlbwXQuB77ScI=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "zvzpqq02zu"
+          "Value": "u4ci9xyka5"
         },
         {
           "Name": "label",
@@ -7530,12 +7530,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-7wOpus5kREUwZbUQFA+MGF8kHEuqL0uOc6oUEoQPIUQ="
+          "Value": "sha256-7vqdZTbM10dL28W3fWkDXNBAHJgZ9iYlbwXQuB77ScI="
         }
       ]
     },
     {
-      "Route": "js/PagamentoScript/step1.zvzpqq02zu.js",
+      "Route": "js/PagamentoScript/step1.u4ci9xyka5.js",
       "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\js\\PagamentoScript\\step1.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -7545,7 +7545,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1138"
+          "Value": "1139"
         },
         {
           "Name": "Content-Type",
@@ -7553,11 +7553,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"7wOpus5kREUwZbUQFA+MGF8kHEuqL0uOc6oUEoQPIUQ=\""
+          "Value": "\"7vqdZTbM10dL28W3fWkDXNBAHJgZ9iYlbwXQuB77ScI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 16 Jun 2025 22:12:13 GMT"
+          "Value": "Mon, 16 Jun 2025 22:12:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7567,7 +7567,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "zvzpqq02zu"
+          "Value": "u4ci9xyka5"
         },
         {
           "Name": "label",
@@ -7575,13 +7575,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-7wOpus5kREUwZbUQFA+MGF8kHEuqL0uOc6oUEoQPIUQ="
+          "Value": "sha256-7vqdZTbM10dL28W3fWkDXNBAHJgZ9iYlbwXQuB77ScI="
         }
       ]
     },
     {
-      "Route": "js/PagamentoScript/step1.zvzpqq02zu.js.gz",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\l9usgkr0zd-zvzpqq02zu.gz",
+      "Route": "js/PagamentoScript/step1.u4ci9xyka5.js.gz",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\l9usgkr0zd-u4ci9xyka5.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7598,11 +7598,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"4bj/zTcIqvTjj0kNJSgTW4FBe4/iDzrRWnKnV9bQWw8=\""
+          "Value": "\"gvs28VGofzmvcEoHON+g075hscGKY9nnc2YjhelCkbQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 16 Jun 2025 22:12:13 GMT"
+          "Value": "Mon, 16 Jun 2025 22:12:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7620,7 +7620,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "zvzpqq02zu"
+          "Value": "u4ci9xyka5"
         },
         {
           "Name": "label",
@@ -7628,7 +7628,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-4bj/zTcIqvTjj0kNJSgTW4FBe4/iDzrRWnKnV9bQWw8="
+          "Value": "sha256-gvs28VGofzmvcEoHON+g075hscGKY9nnc2YjhelCkbQ="
         }
       ]
     },
@@ -7657,7 +7657,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 16 Jun 2025 22:09:09 GMT"
+          "Value": "Mon, 16 Jun 2025 22:17:45 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7710,7 +7710,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 16 Jun 2025 22:09:09 GMT"
+          "Value": "Mon, 16 Jun 2025 22:17:45 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7747,7 +7747,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 16 Jun 2025 22:09:09 GMT"
+          "Value": "Mon, 16 Jun 2025 22:17:45 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7794,7 +7794,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 16 Jun 2025 22:09:09 GMT"
+          "Value": "Mon, 16 Jun 2025 22:17:45 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7855,7 +7855,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 16 Jun 2025 22:09:09 GMT"
+          "Value": "Mon, 16 Jun 2025 22:17:45 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7900,7 +7900,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 16 Jun 2025 22:09:09 GMT"
+          "Value": "Mon, 16 Jun 2025 22:17:45 GMT"
         },
         {
           "Name": "Cache-Control",

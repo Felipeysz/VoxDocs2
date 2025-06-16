@@ -264,8 +264,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>zvzpqq02zu</Fingerprint>
-      <Integrity>7wOpus5kREUwZbUQFA+MGF8kHEuqL0uOc6oUEoQPIUQ=</Integrity>
+      <Fingerprint>u4ci9xyka5</Fingerprint>
+      <Integrity>7vqdZTbM10dL28W3fWkDXNBAHJgZ9iYlbwXQuB77ScI=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\PagamentoScript\step1.js'))</OriginalItemSpec>
