@@ -22,315 +22,364 @@
     <style>
         :root {
             --clr-primary: #5c3c8a;
-            --clr-primary-dark: #4a3070;
+            --clr-accent: #774C9E;
             --clr-bg: #fafafa;
             --clr-card: #ffffff;
-            --clr-success: #28a745;
-            --clr-danger: #dc3545;
+            --shadow-light: rgba(0,0,0,0.05);
         }
-
+        
         body {
-            background-color: var(--clr-bg);
+            background: var(--clr-bg);
             font-family: 'Poppins', sans-serif;
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
         }
-
-        .hero {
-            background-color: var(--clr-primary);
-            color: white;
-            padding: 4rem 0;
+        
+        .doc-card {
+            background: var(--clr-card);
+            border-radius: 12px;
+            box-shadow: 0 4px 16px var(--shadow-light);
+            padding: 2rem;
+            width: 100%;
+            max-width: 800px;
+            position: relative;
+            overflow: hidden;
         }
-
-        .hero h1 {
+        
+        .doc-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
             font-weight: 600;
+            font-size: 1.25rem;
+            color: var(--clr-primary);
         }
-
-        .highlight {
-            color: #fff;
-            font-weight: 600;
+        
+        .doc-header .material-symbols-outlined {
+            font-size: 2rem;
+            color: var(--clr-accent);
         }
-
-        .custom-card {
+        
+        .alert {
+            font-size: 0.9rem;
             border: none;
-            border-radius: 10px;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+            background: var(--clr-bg);
+            color: #555;
+            margin-bottom: 1.5rem;
+            padding: 0.75rem 1rem;
         }
-
-        .card-header-primary {
-            background-color: var(--clr-primary);
-            color: white;
-            font-weight: 600;
-            border-radius: 10px 10px 0 0;
+        
+        /* Stepper minimalista */
+        .stepper {
+            display: flex;
+            justify-content: space-between;
+            counter-reset: step;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .stepper::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 1rem;
+            right: 1rem;
+            height: 2px;
+            background: #eee;
+            z-index: 0;
+        }
+        
+        .step {
+            position: relative;
+            z-index: 1;
+            counter-increment: step;
+            width: 2rem;
+            height: 2rem;
+            background: #eee;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: #888;
+            transition: background 0.3s, color 0.3s;
+        }
+        
+        .step.active {
+            background: var(--clr-primary);
+            color: #fff;
+        }
+        
+        /* Conteúdo das etapas */
+        .step-content {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: opacity 0.5s, max-height 0.5s;
+        }
+        
+        .step-content.active {
+            opacity: 1;
+            max-height: 100vh;
+        }
+        
+        .form-control, .form-select {
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        
+        .form-control:focus, .form-select:focus {
+            border-color: var(--clr-accent);
+            box-shadow: 0 0 0 3px rgba(119,76,158,0.2);
+        }
+        
+        .wizard-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.5rem;
+        }
+        
+        .wizard-nav .btn {
+            min-width: 100px;
+            transition: transform 0.2s;
+        }
+        
+        .wizard-nav .btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        /* Ajustes para os cards internos */
+        .inner-card {
+            background: var(--clr-bg);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .inner-card h5 {
+            color: var(--clr-primary);
+            font-size: 1rem;
+            margin-bottom: 1rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
 
-        .card-header-primary .material-symbols-outlined {
-            font-size: 24px;
+        /* Estilos para pastas e subpastas */
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 0.5rem;
+            margin-bottom: 0.5rem;
         }
 
-        .form-control-custom {
-            border: 1px solid #ced4da;
-            border-radius: 8px;
-            padding: 1rem 1.25rem;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
+        .btn-adicionar-subpasta {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
         }
 
-        .form-control-custom:focus {
-            border-color: var(--clr-primary);
-            box-shadow: 0 0 0 0.2rem rgba(92, 60, 138, 0.25);
+        .subpastas-container {
+            margin-top: 0.5rem;
         }
 
-        .form-label-custom {
-            position: absolute;
-            top: 1rem;
-            left: 1.25rem;
-            color: #6c757d;
-            font-size: 1rem;
-            pointer-events: none;
-            transition: all 0.2s ease;
-        }
-
-        .form-group {
-            position: relative;
-            margin-bottom: 1.5rem;
-        }
-
-        .icon-input {
-            position: absolute;
-            right: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #6c757d;
-        }
-
-        .btn-primary {
-            background-color: var(--clr-primary);
-            border-color: var(--clr-primary);
-            font-weight: 600;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-        }
-
-        .btn-primary:hover {
-            background-color: var(--clr-primary-dark);
-            border-color: var(--clr-primary-dark);
-        }
-
-        .stepper-container {
-            position: relative;
-            margin: 2rem 0;
-        }
-
-        .stepper-line {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background-color: #e0e0e0;
-            z-index: 1;
-            transform: translateY(-50%);
-        }
-
-        .stepper-line-progress {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            height: 2px;
-            background-color: var(--clr-primary);
-            z-index: 2;
-            transform: translateY(-50%);
-            transition: width 0.3s ease;
-        }
-
-        .steps {
+        .input-group {
             display: flex;
-            justify-content: space-between;
-            position: relative;
-            z-index: 3;
+            gap: 0.5rem;
         }
 
-        .step {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background-color: white;
-            border: 2px solid #e0e0e0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: #999;
-            transition: all 0.3s ease;
-        }
-
-        .step.active {
-            border-color: var(--clr-primary);
-            background-color: var(--clr-primary);
-            color: white;
-        }
-
-        .step.completed {
-            border-color: var(--clr-primary);
-            color: var(--clr-primary);
+        .input-group button {
+            padding: 0.25rem 0.5rem;
         }
     </style>
 </head>
 <body>
-
-    <!-- Hero Section -->
-    <section class="hero text-center text-white mb-5">
-        <div class="container">
-            <h1>Cadastro • <span class="highlight">VoxDocs</span></h1>
-            <p class="lead">Finalize seu cadastro e pagamento para acessar a plataforma</p>
+    <div class="doc-card">
+        <div class="doc-header">
+            <span class="material-symbols-outlined">how_to_reg</span>
+            <span>Cadastro de Empresa</span>
         </div>
-    </section>
 
-    <!-- Formulário -->
-    <div class="container">
-        <div class="row gx-5">
+        <div class="alert">
+            Plano: <strong>@Model.NomePlano</strong> | Periodicidade: <strong>@Model.Periodicidade</strong>
+        </div>
 
-            <!-- Stepper -->
-            <div class="col-12">
-                <div class="stepper-container">
-                    <div class="stepper-line"></div>
-                    <div class="stepper-line-progress" style="width: 0%;"></div>
-                    <div class="steps">
-                        @for (int i = 1; i <= 5; i++) {
-                            <div class="step @(i == 1 ? "active" : "")">@i</div>
-                        }
+        <!-- Stepper -->
+        <div class="stepper mb-4">
+            @for (int i = 1; i <= 5; i++) {
+                <div class="step @(i == 1 ? "active" : "")">@i</div>
+            }
+        </div>
+
+        <form id="formWizard" asp-action="ConfirmarPagamento" method="POST">
+            @Html.AntiForgeryToken()
+            <input type="hidden" asp-for="Token" />
+            <input type="hidden" asp-for="NomePlano"/>
+            <input type="hidden" asp-for="Periodicidade" />
+
+            <!-- STEP 1: Dados da Empresa -->
+            <div class="step-content active" data-step="1">
+                <div class="inner-card">
+                    <h5>
+                        <span class="material-symbols-outlined">business</span>
+                        Dados da Empresa
+                    </h5>
+                    <div class="mb-3">
+                        <label asp-for="EmpresaContratante" class="form-label">Nome da Empresa</label>
+                        <input type="text" asp-for="EmpresaContratante" class="form-control" placeholder="ACME S/A" required>
                     </div>
+                    <div class="mb-3">
+                        <label asp-for="EmailContato" class="form-label">E-mail de Contato</label>
+                        <input type="email" asp-for="EmailContato" class="form-control" placeholder="contato@empresa.com" required>
+                    </div>
+                </div>
+                <div id="step1Error" class="d-none text-danger mb-3"></div>
+            </div>
+
+            <!-- STEP 2: Pastas -->
+            <div class="step-content" data-step="2">
+                <div class="inner-card">
+                    <h5>
+                        <span class="material-symbols-outlined">folder</span>
+                        Pastas e Subpastas
+                    </h5>
+                    <div id="pastasPrincipaisContainer"></div>
+                    <button type="button" id="btnAdicionarPastaPrincipal" class="btn btn-outline-primary">+ Pasta Principal</button>
                 </div>
             </div>
 
-            <!-- Form -->
-            <div class="col-12">
-                <form id="formWizard" asp-action="ConfirmarPagamento" method="POST">
-                    @Html.AntiForgeryToken()
-                    <input type="hidden" asp-for="Token" />
-                    <input type="hidden" asp-for="NomePlano"/>
-                    <input type="hidden" asp-for="Periodicidade" />
+            <!-- STEP 3: Administradores -->
+            <div class="step-content" data-step="3">
+                <div class="inner-card">
+                    <h5>
+                        <span class="material-symbols-outlined">admin_panel_settings</span>
+                        Administradores
+                    </h5>
+                    <div id="adminsContainer"></div>
+                    <button type="button" id="btnAdicionarAdmin" class="btn btn-primary">+ Administrador</button>
+                </div>
+            </div>
 
-                    <!-- STEP 1: Dados da Empresa -->
-                    <div class="step-content d-block" data-step="1">
-                        <div class="card custom-card mb-4">
-                            <div class="card-header card-header-primary">
-                                <span class="material-symbols-outlined">business</span>
-                                Dados da Empresa
-                            </div>
-                            <div class="card-body">
-                                <div class="form-group">
-                                    <input type="text" asp-for="EmpresaContratante" class="form-control-custom" required />
-                                    <label for="EmpresaContratante" class="form-label-custom" placeholder="Nome da Empresa"></label>
+            <!-- STEP 4: Usuários Comuns -->
+            <div class="step-content" data-step="4">
+                <div class="inner-card">
+                    <h5>
+                        <span class="material-symbols-outlined">person</span>
+                        Usuários Comuns
+                    </h5>
+                    <div id="usersContainer"></div>
+                    <button type="button" id="btnAdicionarUser" class="btn btn-primary">+ Usuário</button>
+                </div>
+            </div>
 
-                                    <span class="material-symbols-outlined icon-input">business</span>
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" asp-for="EmailContato" class="form-control-custom" required />
-                                    <label for="EmailContato" class="form-label-custom"></label>
-                                    <span class="material-symbols-outlined icon-input">email</span>
-                                </div>
-                                <div id="step1Error" class="d-none text-danger mb-3"></div>
-                            </div>
+            <!-- STEP 5: Pagamento -->
+            <div class="step-content" data-step="5">
+                <div class="inner-card">
+                    <h5>
+                        <span class="material-symbols-outlined">credit_card</span>
+                        Pagamento
+                    </h5>
+                    <div class="mb-3">
+                        <label asp-for="MetodoPagamentoSelecionado" class="form-label">Método de Pagamento</label>
+                        <select asp-for="MetodoPagamentoSelecionado" class="form-select" required>
+                            <option value="">Selecione...</option>
+                            <option value="PIX">PIX</option>
+                            <option value="CARTAO">Cartão de Crédito</option>
+                            <option value="BOLETO">Boleto Bancário</option>
+                        </select>
+                    </div>
+                    <div id="cartaoCreditoFields" class="d-none">
+                        <div class="mb-3">
+                            <label class="form-label">Número do Cartão</label>
+                            <input type="text" class="form-control" placeholder="0000 0000 0000 0000" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Validade (MM/AA)</label>
+                            <input type="text" class="form-control" placeholder="MM/AA" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Código de Segurança</label>
+                            <input type="text" class="form-control" placeholder="CVV" required>
                         </div>
                     </div>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Finalizar Pagamento</button>
+            </div>
 
-                    <!-- STEP 2: Pastas -->
-                    <div class="step-content d-none" data-step="2">
-                        <div class="card custom-card mb-4">
-                            <div class="card-header card-header-primary">
-                                <span class="material-symbols-outlined">folder</span>
-                                Pastas e Subpastas
-                            </div>
-                            <div class="card-body">
-                                <div id="pastasPrincipaisContainer"></div>
-                                <button type="button" id="btnAdicionarPastaPrincipal" class="btn btn-outline-primary mb-3">+ Pasta Principal</button>
-                            </div>
-                        </div>
-                    </div>
+            <!-- Navegação -->
+            <div class="wizard-nav">
+                <button type="button" class="btn btn-outline-secondary" id="prevBtn" disabled>« Anterior</button>
+                <button type="button" class="btn btn-primary" id="nextBtn">Próximo »</button>
+            </div>
+        </form>
+    </div>
 
-                    <!-- STEP 3: Administradores -->
-                    <div class="step-content d-none" data-step="3">
-                        <div class="card custom-card mb-4">
-                            <div class="card-header card-header-primary">
-                                <span class="material-symbols-outlined">admin_panel_settings</span>
-                                Administradores
-                            </div>
-                            <div class="card-body">
-                                <div id="adminsContainer"></div>
-                                <button type="button" id="btnAdicionarAdmin" class="btn btn-primary">+ Administrador</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- STEP 4: Usuários Comuns -->
-                    <div class="step-content d-none" data-step="4">
-                        <div class="card custom-card mb-4">
-                            <div class="card-header card-header-primary">
-                                <span class="material-symbols-outlined">person</span>
-                                Usuários Comuns
-                            </div>
-                            <div class="card-body">
-                                <div id="usersContainer"></div>
-                                <button type="button" id="btnAdicionarUser" class="btn btn-primary">+ Usuário</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- STEP 5: Pagamento -->
-                    <div class="step-content d-none" data-step="5">
-                        <div class="card custom-card mb-4">
-                            <div class="card-header card-header-primary">
-                                <span class="material-symbols-outlined">credit_card</span>
-                                Pagamento
-                            </div>
-                            <div class="card-body">
-                                <div class="mb-3">
-                                    <label asp-for="MetodoPagamentoSelecionado" class="form-label">Método de Pagamento</label>
-                                    <select asp-for="MetodoPagamentoSelecionado" class="form-select" required>
-                                        <option value="">Selecione...</option>
-                                        <option value="PIX">PIX</option>
-                                        <option value="CARTAO">Cartão de Crédito</option>
-                                        <option value="BOLETO">Boleto Bancário</option>
-                                    </select>
-                                </div>
-                                <div id="cartaoCreditoFields" class="d-none">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control-custom" placeholder="Número do Cartão" required />
-                                        <label class="form-label-custom">Número do Cartão</label>
-                                        <span class="material-symbols-outlined icon-input">credit_card</span>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control-custom" placeholder="Validade (MM/AA)" required />
-                                        <label class="form-label-custom">Validade</label>
-                                        <span class="material-symbols-outlined icon-input">event</span>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control-custom" placeholder="Código de Segurança" required />
-                                        <label class="form-label-custom">Código de Segurança</label>
-                                        <span class="material-symbols-outlined icon-input">lock</span>
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn btn-primary btn-lg w-100">Finalizar Pagamento</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Navegação -->
-                    <div class="d-flex justify-content-between mt-4">
-                        <button type="button" class="btn btn-outline-secondary" id="prevBtn" disabled>« Anterior</button>
-                        <button type="button" class="btn btn-primary" id="nextBtn">Próximo »</button>
-                    </div>
-                </form>
+    <!-- Templates para Pastas e Subpastas -->
+    <template id="templatePastaPrincipal">
+        <div class="card mb-2 p-2 border rounded">
+            <div class="d-flex justify-content-between align-items-center">
+                <input type="text" class="form-control pasta-nome" placeholder="Nome da Pasta Principal" required />
+                <button type="button" class="btn btn-sm btn-outline-secondary btn-adicionar-subpasta">
+                    <i class="fas fa-plus"></i> Subpasta
+                </button>
+            </div>
+            <div class="subpastas-container mt-2">
+                <!-- Subpastas serão adicionadas aqui -->
             </div>
         </div>
-    </div>
+    </template>
+
+    <template id="templateSubpasta">
+        <div class="input-group mb-1">
+            <input type="text" class="form-control subpasta-nome" placeholder="Nome da Subpasta" required />
+            <button type="button" class="btn btn-outline-danger btn-sm" onclick="this.closest('.input-group').remove()">
+                <i class="fas fa-trash"></i>
+            </button>
+        </div>
+    </template>
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Controle do stepper
+        const steps = document.querySelectorAll('.step');
+        const contents = document.querySelectorAll('.step-content');
+        let current = 0;
+
+        const updateStepper = () => {
+            steps.forEach((s, i) => s.classList.toggle('active', i === current));
+            contents.forEach((c, i) => c.classList.toggle('active', i === current));
+            document.getElementById('prevBtn').disabled = current === 0;
+            document.getElementById('nextBtn').innerText = current === steps.length - 1 ? 'Concluir' : 'Próximo »';
+        };
+
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            if (current < steps.length - 1) current++;
+            updateStepper();
+        });
+
+        document.getElementById('prevBtn').addEventListener('click', () => {
+            if (current > 0) current--;
+            updateStepper();
+        });
+
+        // Controle dos campos de cartão de crédito
+        document.getElementById('MetodoPagamentoSelecionado').addEventListener('change', function() {
+            const cartaoFields = document.getElementById('cartaoCreditoFields');
+            if (this.value === 'CARTAO') {
+                cartaoFields.classList.remove('d-none');
+            } else {
+                cartaoFields.classList.add('d-none');
+            }
+        });
+    </script>
     <script type="module" src="/js/PagamentoScript/ultilities.js"></script>
     <script type="module" src="/js/PagamentoScript/main.js"></script>
 </body>
