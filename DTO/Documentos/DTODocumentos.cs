@@ -71,7 +71,6 @@ namespace VoxDocs.DTO
         public int Restritos { get; set; }
         public int Confidenciais { get; set; }
     }
-
     public class ResultadoOperacaoDto
     {
         public bool Sucesso { get; set; }

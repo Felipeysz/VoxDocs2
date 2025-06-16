@@ -1,9 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
+using System;
 using System.Threading.Tasks;
 using VoxDocs.DTO;
 using VoxDocs.Models;
 using VoxDocs.Services;
+using System.Net;
 
 namespace VoxDocs.Controllers
 {
@@ -19,39 +20,188 @@ namespace VoxDocs.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<EmpresasContratanteModel>>> GetAll()
+        public async Task<IActionResult> GetAll()
         {
-            var empresas = await _service.GetAllAsync();
-            return Ok(empresas);
+            try
+            {
+                var empresas = await _service.GetAllAsync();
+                return Ok(new
+                {
+                    Success = true,
+                    Data = empresas,
+                    Message = "Empresas recuperadas com sucesso"
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, new
+                {
+                    Success = false,
+                    Message = ex.Message
+                });
+            }
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<EmpresasContratanteModel>> GetById(int id)
+        public async Task<IActionResult> GetById(Guid id)
         {
-            var empresa = await _service.GetByIdAsync(id);
-            return Ok(empresa);
+            try
+            {
+                var empresa = await _service.GetByIdAsync(id);
+                return Ok(new
+                {
+                    Success = true,
+                    Data = empresa,
+                    Message = "Empresa recuperada com sucesso"
+                });
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(new
+                {
+                    Success = false,
+                    Message = ex.Message
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, new
+                {
+                    Success = false,
+                    Message = ex.Message
+                });
+            }
+        }
+
+        [HttpGet("nome/{nome}")]
+        public async Task<IActionResult> GetByNome(string nome)
+        {
+            try
+            {
+                var empresa = await _service.GetEmpresaByNome(nome);
+                return Ok(new
+                {
+                    Success = true,
+                    Data = empresa,
+                    Message = "Empresa recuperada com sucesso"
+                });
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(new
+                {
+                    Success = false,
+                    Message = ex.Message
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, new
+                {
+                    Success = false,
+                    Message = ex.Message
+                });
+            }
         }
 
         [HttpPost]
-        public async Task<ActionResult<EmpresasContratanteModel>> Create([FromBody] DTOEmpresasContratante dto)
+        public async Task<IActionResult> Create([FromBody] DTOEmpresasContratante dto)
         {
-            var empresa = await _service.CreateAsync(dto);
-            return CreatedAtAction(nameof(GetById), new { id = empresa.Id }, empresa);
+            try
+            {
+                var empresa = await _service.CreateAsync(dto);
+                return CreatedAtAction(nameof(GetById), new { id = empresa.Id }, new
+                {
+                    Success = true,
+                    Data = empresa,
+                    Message = "Empresa criada com sucesso"
+                });
+            }
+            catch (InvalidOperationException ex)
+            {
+                return Conflict(new
+                {
+                    Success = false,
+                    Message = ex.Message
+                });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new
+                {
+                    Success = false,
+                    Message = ex.Message
+                });
+            }
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult<EmpresasContratanteModel>> Update(int id, [FromBody] DTOEmpresasContratante dto)
+        public async Task<IActionResult> Update(Guid id, [FromBody] DTOEmpresasContratante dto)
         {
-            var empresa = await _service.UpdateAsync(id, dto);
-            return Ok(empresa);
+            try
+            {
+                var empresa = await _service.UpdateAsync(id, dto);
+                return Ok(new
+                {
+                    Success = true,
+                    Data = empresa,
+                    Message = "Empresa atualizada com sucesso"
+                });
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(new
+                {
+                    Success = false,
+                    Message = ex.Message
+                });
+            }
+            catch (InvalidOperationException ex)
+            {
+                return Conflict(new
+                {
+                    Success = false,
+                    Message = ex.Message
+                });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new
+                {
+                    Success = false,
+                    Message = ex.Message
+                });
+            }
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(Guid id)
         {
-            await _service.DeleteAsync(id);
-            return NoContent();
+            try
+            {
+                await _service.DeleteAsync(id);
+                return Ok(new
+                {
+                    Success = true,
+                    Message = "Empresa deletada com sucesso"
+                });
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(new
+                {
+                    Success = false,
+                    Message = ex.Message
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, new
+                {
+                    Success = false,
+                    Message = ex.Message
+                });
+            }
         }
-
     }
 }

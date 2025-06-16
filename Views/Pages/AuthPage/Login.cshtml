@@ -1,4 +1,4 @@
-@model VoxDocs.DTO.DTOLoginUser
+@model VoxDocs.ViewModels.LoginViewModel
 
 @{
     Layout = null;
@@ -46,29 +46,32 @@
             <div class="subtitle">Acesse sua conta para continuar</div>
         </div>
 
-        <form asp-controller="LoginMvc" asp-action="Login" method="post" novalidate>
+        <form asp-controller="AuthMvc" asp-action="Login" method="post" novalidate>
             <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
             <div class="form-group" data-aos="fade-up" data-aos-delay="200">
-                <input asp-for="Usuario" class="form-control" placeholder="Usuário" required />
+                <input asp-for="Username" class="form-control" placeholder="Usuário" required />
                 <span class="material-symbols-outlined">person</span>
-                <span asp-validation-for="Usuario" class="text-danger"></span>
+                <span asp-validation-for="Username" class="text-danger"></span>
             </div>
             <div class="form-group" data-aos="fade-up" data-aos-delay="400" style="position:relative;">
-                <input asp-for="Senha" type="password" class="form-control" placeholder="Senha" required style="padding-right:40px;" />
+                <input asp-for="Password" type="password" class="form-control" placeholder="Senha" required style="padding-right:40px;" />
                 <span class="material-symbols-outlined"
                     style="cursor:pointer;position:absolute;top:50%;transform:translateY(-50%);font-size:22px;z-index:2;"
-                    onclick="togglePassword('Senha', this)">visibility</span>
-                <span asp-validation-for="Senha" class="text-danger"></span>
+                    onclick="togglePassword('Password', this)">visibility</span>
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-check mb-3" data-aos="fade-up" data-aos-delay="500">
+                <input asp-for="RememberMe" class="form-check-input" />
+                <label asp-for="RememberMe" class="form-check-label">Lembrar-me</label>
             </div>
             <div class="d-grid" data-aos="zoom-in" data-aos-delay="600">
                 <button type="submit" class="btn btn-accent btn-lg rounded-pill">Entrar</button>
             </div>
             <div class="options" data-aos="fade-up" data-aos-delay="700">
                 <a href="#">Suporte VoxDocs</a>
-                <a asp-controller="LoginMvc" asp-action="RecuperarSenha" title="Recuperar senha">Esqueceu a senha?</a>
+                <a asp-controller="AuthMvc" asp-action="ForgotPassword" title="Recuperar senha">Esqueceu a senha?</a>
             </div>
         </form>
-
 
         @if (TempData["LoginError"] != null)
         {

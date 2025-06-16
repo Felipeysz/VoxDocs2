@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "4+wMOSmrvYHyporLDzYVVl3MdaFbUF6LVLgVKZnwaFw=",
+  "Hash": "IUXXA9nQxRXO4rBkyjqX5rIZM7uedYaXOKGU1CH2B7k=",
   "Source": "VoxDocs",
   "BasePath": "_content/VoxDocs",
   "Mode": "Default",
@@ -57,27 +57,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\lib\\jquery-validation\\LICENSE.md"
-    },
-    {
-      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\0vwj5ox5et-1a582rbdno.gz",
-      "SourceId": "VoxDocs",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\",
-      "BasePath": "_content/VoxDocs",
-      "RelativePath": "js/PagamentoScript/paymentUltils#[.{fingerprint=1a582rbdno}]?.js.gz",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\js\\PagamentoScript\\paymentUltils.js",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "Fingerprint": "yqxg328hl4",
-      "Integrity": "JgaSYOQwcKX0y/PNLSI01y3eh+Dyyg7w2EKu3fo6tFY=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\js\\PagamentoScript\\paymentUltils.js"
     },
     {
       "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\18xnithwry-qthslv1y0e.gz",
@@ -542,27 +521,6 @@
       "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\b5cqpxvrnl-c9cj7dcql7.gz",
-      "SourceId": "VoxDocs",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\",
-      "BasePath": "_content/VoxDocs",
-      "RelativePath": "js/PagamentoScript/step3#[.{fingerprint=c9cj7dcql7}]?.js.gz",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\js\\PagamentoScript\\step3.js",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "Fingerprint": "tfi1a0e1rv",
-      "Integrity": "Z4LmJXwB2PCvHAraVxocgR8VY2RYtkbfaAtS7xGrV2E=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\js\\PagamentoScript\\step3.js"
-    },
-    {
       "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\btbwrwplod-03hjc8e09r.gz",
       "SourceId": "VoxDocs",
       "SourceType": "Discovered",
@@ -920,12 +878,12 @@
       "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\l9usgkr0zd-gwsts4bcp3.gz",
+      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\l9usgkr0zd-lpmdl9q4hx.gz",
       "SourceId": "VoxDocs",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/VoxDocs",
-      "RelativePath": "js/PagamentoScript/step1#[.{fingerprint=gwsts4bcp3}]?.js.gz",
+      "RelativePath": "js/PagamentoScript/step1#[.{fingerprint=lpmdl9q4hx}]?.js.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -934,8 +892,8 @@
       "RelatedAsset": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\js\\PagamentoScript\\step1.js",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "krpfr3lfrb",
-      "Integrity": "0NgnC6rDZNjmoi357wUAQMra5dai7FHxoWfGaedPBP8=",
+      "Fingerprint": "w8put8r5x3",
+      "Integrity": "UChNj5gvYk07+7ximpJguyMqKoFs/luPXqozs/7HaRw=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\js\\PagamentoScript\\step1.js"
@@ -1044,27 +1002,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
-    },
-    {
-      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\nfy6qok2la-jjwb4v1bfp.gz",
-      "SourceId": "VoxDocs",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\",
-      "BasePath": "_content/VoxDocs",
-      "RelativePath": "js/PagamentoScript/step4#[.{fingerprint=jjwb4v1bfp}]?.js.gz",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\js\\PagamentoScript\\step4.js",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "Fingerprint": "jkbnhvk2k7",
-      "Integrity": "rRgIPYJA6rLWTdFeH/+5EceErrMKfF1PGxFk6Z3B9qI=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\js\\PagamentoScript\\step4.js"
     },
     {
       "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\nhflg09i2y-mlv21k5csn.gz",
@@ -1193,27 +1130,6 @@
       "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\pw0ryfvxem-e304hv6r5k.gz",
-      "SourceId": "VoxDocs",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\",
-      "BasePath": "_content/VoxDocs",
-      "RelativePath": "js/PagamentoScript/step5#[.{fingerprint=e304hv6r5k}]?.js.gz",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\js\\PagamentoScript\\step5.js",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "Fingerprint": "5r7r8kl5m4",
-      "Integrity": "AcjeDoGkRQkBzTLQbONpafcJFWoNa4M5EoEMUVGftos=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\js\\PagamentoScript\\step5.js"
-    },
-    {
       "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\pyxbhdgq7s-356vix0kms.gz",
       "SourceId": "VoxDocs",
       "SourceType": "Discovered",
@@ -1235,12 +1151,12 @@
       "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\q6cijnb6sf-r2vxcxr6sr.gz",
+      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\q6cijnb6sf-eb4nd7lgaq.gz",
       "SourceId": "VoxDocs",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/VoxDocs",
-      "RelativePath": "js/PagamentoScript/main#[.{fingerprint=r2vxcxr6sr}]?.js.gz",
+      "RelativePath": "js/PagamentoScript/main#[.{fingerprint=eb4nd7lgaq}]?.js.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -1249,19 +1165,19 @@
       "RelatedAsset": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\js\\PagamentoScript\\main.js",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "plawajryuq",
-      "Integrity": "raMyasffEph1IZeZQhNLQgC69Djazp2SQp5X5b6fNeQ=",
+      "Fingerprint": "f12wa0yttc",
+      "Integrity": "U3xx4T7+tToiBN71aQJogl1gHd7v28AXMsuvxc2vxq0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\js\\PagamentoScript\\main.js"
     },
     {
-      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\qearznk3ul-ocgkt4zwfe.gz",
+      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\qearznk3ul-xfn93yn21j.gz",
       "SourceId": "VoxDocs",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/VoxDocs",
-      "RelativePath": "js/PagamentoScript/ultilities#[.{fingerprint=ocgkt4zwfe}]?.js.gz",
+      "RelativePath": "js/PagamentoScript/ultilities#[.{fingerprint=xfn93yn21j}]?.js.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -1270,8 +1186,8 @@
       "RelatedAsset": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\js\\PagamentoScript\\ultilities.js",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "yjo2cfwx2r",
-      "Integrity": "zlCbam0YV5xW8YRIw0XzXLygwB5ufs7EcrW09LuEmc4=",
+      "Fingerprint": "8ic4w6hreg",
+      "Integrity": "UOAVcHZkQDECnpdHUWxGziUJ0q2e/u6rHGxnorZntt0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\js\\PagamentoScript\\ultilities.js"
@@ -1529,12 +1445,12 @@
       "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\wg2ez6kse2-epzl8zi5gw.gz",
+      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\wg2ez6kse2-u6fzl6q3z8.gz",
       "SourceId": "VoxDocs",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/VoxDocs",
-      "RelativePath": "js/PagamentoScript/step2#[.{fingerprint=epzl8zi5gw}]?.js.gz",
+      "RelativePath": "js/PagamentoScript/step2#[.{fingerprint=u6fzl6q3z8}]?.js.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -1543,8 +1459,8 @@
       "RelatedAsset": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\js\\PagamentoScript\\step2.js",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "7lqzf3k39q",
-      "Integrity": "pTPtXCz7MzvTXUVUPa3ZQll7TTsY5WolZ+8Ju1UgWkE=",
+      "Fingerprint": "kqzwexw9s0",
+      "Integrity": "FFGEUsp05mCxcLfZFMFCZFry+Th5kjyhwvJ9CRNIY9E=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\js\\PagamentoScript\\step2.js"
@@ -1984,32 +1900,11 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "r2vxcxr6sr",
-      "Integrity": "bQRRz2W9C+GC2ZQAszRTPzhmOM6mAtaSxLgQY2J3RX8=",
+      "Fingerprint": "eb4nd7lgaq",
+      "Integrity": "mm7aRE24r+YQvhxj51veLKqHKTB71JUCF1Vo2Ol5kgo=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\PagamentoScript\\main.js"
-    },
-    {
-      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\js\\PagamentoScript\\paymentUltils.js",
-      "SourceId": "VoxDocs",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\",
-      "BasePath": "_content/VoxDocs",
-      "RelativePath": "js/PagamentoScript/paymentUltils#[.{fingerprint}]?.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "1a582rbdno",
-      "Integrity": "R7UherBITUHiTM4b/JmycsOyPDxid8hWBC1n50OJLOw=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\PagamentoScript\\paymentUltils.js"
     },
     {
       "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\js\\PagamentoScript\\step1.js",
@@ -2026,8 +1921,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "gwsts4bcp3",
-      "Integrity": "cOyMtcHoUKL4yKUHqHcPMf/lIZWCETb0GpaH6xCSr9U=",
+      "Fingerprint": "lpmdl9q4hx",
+      "Integrity": "x7L2bC7fF92bPGmy8i1p016e5ctn/YPyQO5SroF2DyI=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\PagamentoScript\\step1.js"
@@ -2047,74 +1942,11 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "epzl8zi5gw",
-      "Integrity": "/oPYvkMDrmmVRr6o5N6++LjskRQsCh3HdpXw58GyUNc=",
+      "Fingerprint": "u6fzl6q3z8",
+      "Integrity": "pqQ4QoTPYsVIgWBzXGd/2mWjdkkrIKuExT151jAhFH8=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\PagamentoScript\\step2.js"
-    },
-    {
-      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\js\\PagamentoScript\\step3.js",
-      "SourceId": "VoxDocs",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\",
-      "BasePath": "_content/VoxDocs",
-      "RelativePath": "js/PagamentoScript/step3#[.{fingerprint}]?.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "c9cj7dcql7",
-      "Integrity": "MEAcXXJch63HNSMxRt61KcY1EDRJfrWodUMd8y3cQg0=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\PagamentoScript\\step3.js"
-    },
-    {
-      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\js\\PagamentoScript\\step4.js",
-      "SourceId": "VoxDocs",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\",
-      "BasePath": "_content/VoxDocs",
-      "RelativePath": "js/PagamentoScript/step4#[.{fingerprint}]?.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "jjwb4v1bfp",
-      "Integrity": "f6m33xGSgZRuBVFFgFksiqikPZnWubh53dA0vyJSWXY=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\PagamentoScript\\step4.js"
-    },
-    {
-      "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\js\\PagamentoScript\\step5.js",
-      "SourceId": "VoxDocs",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\",
-      "BasePath": "_content/VoxDocs",
-      "RelativePath": "js/PagamentoScript/step5#[.{fingerprint}]?.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "e304hv6r5k",
-      "Integrity": "eoYAk/YihHF8N5v88ld1aHrOhDVodYie+qsavRf6MZY=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\PagamentoScript\\step5.js"
     },
     {
       "Identity": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\js\\PagamentoScript\\ultilities.js",
@@ -2131,8 +1963,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "ocgkt4zwfe",
-      "Integrity": "yIyOfm3DCxVMobEdnMTCAXh/n81UVB0J7Nsxd6ubypE=",
+      "Fingerprint": "xfn93yn21j",
+      "Integrity": "7XkRo0wS9yczdmKZCpibMEpK1m0svdPtkZaCqOuDUmY=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\PagamentoScript\\ultilities.js"
@@ -7079,13 +6911,13 @@
       ]
     },
     {
-      "Route": "js/PagamentoScript/main.js",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\q6cijnb6sf-r2vxcxr6sr.gz",
+      "Route": "js/PagamentoScript/main.eb4nd7lgaq.js",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\q6cijnb6sf-eb4nd7lgaq.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000763941940"
+          "Quality": "0.000822368421"
         }
       ],
       "ResponseHeaders": [
@@ -7095,19 +6927,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1308"
+          "Value": "1215"
         },
         {
           "Name": "ETag",
-          "Value": "\"raMyasffEph1IZeZQhNLQgC69Djazp2SQp5X5b6fNeQ=\""
+          "Value": "\"U3xx4T7+tToiBN71aQJogl1gHd7v28AXMsuvxc2vxq0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 10:29:19 GMT"
+          "Value": "Mon, 16 Jun 2025 16:00:13 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "no-cache"
+          "Value": "max-age=31536000, immutable"
         },
         {
           "Name": "Content-Encoding",
@@ -7123,18 +6955,26 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"bQRRz2W9C+GC2ZQAszRTPzhmOM6mAtaSxLgQY2J3RX8=\""
+          "Value": "W/\"mm7aRE24r+YQvhxj51veLKqHKTB71JUCF1Vo2Ol5kgo=\""
         }
       ],
       "EndpointProperties": [
         {
+          "Name": "fingerprint",
+          "Value": "eb4nd7lgaq"
+        },
+        {
+          "Name": "label",
+          "Value": "js/PagamentoScript/main.js"
+        },
+        {
           "Name": "integrity",
-          "Value": "sha256-bQRRz2W9C+GC2ZQAszRTPzhmOM6mAtaSxLgQY2J3RX8="
+          "Value": "sha256-mm7aRE24r+YQvhxj51veLKqHKTB71JUCF1Vo2Ol5kgo="
         }
       ]
     },
     {
-      "Route": "js/PagamentoScript/main.js",
+      "Route": "js/PagamentoScript/main.eb4nd7lgaq.js",
       "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\js\\PagamentoScript\\main.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -7144,7 +6984,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "4363"
+          "Value": "4169"
         },
         {
           "Name": "Content-Type",
@@ -7152,121 +6992,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"bQRRz2W9C+GC2ZQAszRTPzhmOM6mAtaSxLgQY2J3RX8=\""
+          "Value": "\"mm7aRE24r+YQvhxj51veLKqHKTB71JUCF1Vo2Ol5kgo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 10:29:19 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-bQRRz2W9C+GC2ZQAszRTPzhmOM6mAtaSxLgQY2J3RX8="
-        }
-      ]
-    },
-    {
-      "Route": "js/PagamentoScript/main.js.gz",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\q6cijnb6sf-r2vxcxr6sr.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1308"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"raMyasffEph1IZeZQhNLQgC69Djazp2SQp5X5b6fNeQ=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 10:29:19 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-raMyasffEph1IZeZQhNLQgC69Djazp2SQp5X5b6fNeQ="
-        }
-      ]
-    },
-    {
-      "Route": "js/PagamentoScript/main.r2vxcxr6sr.js",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\q6cijnb6sf-r2vxcxr6sr.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000763941940"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1308"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"raMyasffEph1IZeZQhNLQgC69Djazp2SQp5X5b6fNeQ=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 10:29:19 GMT"
+          "Value": "Mon, 16 Jun 2025 16:00:13 GMT"
         },
         {
           "Name": "Cache-Control",
           "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"bQRRz2W9C+GC2ZQAszRTPzhmOM6mAtaSxLgQY2J3RX8=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "r2vxcxr6sr"
+          "Value": "eb4nd7lgaq"
         },
         {
           "Name": "label",
@@ -7274,13 +7014,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-bQRRz2W9C+GC2ZQAszRTPzhmOM6mAtaSxLgQY2J3RX8="
+          "Value": "sha256-mm7aRE24r+YQvhxj51veLKqHKTB71JUCF1Vo2Ol5kgo="
         }
       ]
     },
     {
-      "Route": "js/PagamentoScript/main.r2vxcxr6sr.js",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\js\\PagamentoScript\\main.js",
+      "Route": "js/PagamentoScript/main.eb4nd7lgaq.js.gz",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\q6cijnb6sf-eb4nd7lgaq.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7289,7 +7029,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "4363"
+          "Value": "1215"
         },
         {
           "Name": "Content-Type",
@@ -7297,56 +7037,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"bQRRz2W9C+GC2ZQAszRTPzhmOM6mAtaSxLgQY2J3RX8=\""
+          "Value": "\"U3xx4T7+tToiBN71aQJogl1gHd7v28AXMsuvxc2vxq0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 10:29:19 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "r2vxcxr6sr"
-        },
-        {
-          "Name": "label",
-          "Value": "js/PagamentoScript/main.js"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-bQRRz2W9C+GC2ZQAszRTPzhmOM6mAtaSxLgQY2J3RX8="
-        }
-      ]
-    },
-    {
-      "Route": "js/PagamentoScript/main.r2vxcxr6sr.js.gz",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\q6cijnb6sf-r2vxcxr6sr.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1308"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"raMyasffEph1IZeZQhNLQgC69Djazp2SQp5X5b6fNeQ=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 10:29:19 GMT"
+          "Value": "Mon, 16 Jun 2025 16:00:13 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7364,7 +7059,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "r2vxcxr6sr"
+          "Value": "eb4nd7lgaq"
         },
         {
           "Name": "label",
@@ -7372,18 +7067,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-raMyasffEph1IZeZQhNLQgC69Djazp2SQp5X5b6fNeQ="
+          "Value": "sha256-U3xx4T7+tToiBN71aQJogl1gHd7v28AXMsuvxc2vxq0="
         }
       ]
     },
     {
-      "Route": "js/PagamentoScript/paymentUltils.1a582rbdno.js",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\0vwj5ox5et-1a582rbdno.gz",
+      "Route": "js/PagamentoScript/main.js",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\q6cijnb6sf-eb4nd7lgaq.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000660938533"
+          "Quality": "0.000822368421"
         }
       ],
       "ResponseHeaders": [
@@ -7393,176 +7088,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1512"
+          "Value": "1215"
         },
         {
           "Name": "ETag",
-          "Value": "\"JgaSYOQwcKX0y/PNLSI01y3eh+Dyyg7w2EKu3fo6tFY=\""
+          "Value": "\"U3xx4T7+tToiBN71aQJogl1gHd7v28AXMsuvxc2vxq0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 10:29:26 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"R7UherBITUHiTM4b/JmycsOyPDxid8hWBC1n50OJLOw=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "1a582rbdno"
-        },
-        {
-          "Name": "label",
-          "Value": "js/PagamentoScript/paymentUltils.js"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-R7UherBITUHiTM4b/JmycsOyPDxid8hWBC1n50OJLOw="
-        }
-      ]
-    },
-    {
-      "Route": "js/PagamentoScript/paymentUltils.1a582rbdno.js",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\js\\PagamentoScript\\paymentUltils.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "4988"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"R7UherBITUHiTM4b/JmycsOyPDxid8hWBC1n50OJLOw=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 10:29:26 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "1a582rbdno"
-        },
-        {
-          "Name": "label",
-          "Value": "js/PagamentoScript/paymentUltils.js"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-R7UherBITUHiTM4b/JmycsOyPDxid8hWBC1n50OJLOw="
-        }
-      ]
-    },
-    {
-      "Route": "js/PagamentoScript/paymentUltils.1a582rbdno.js.gz",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\0vwj5ox5et-1a582rbdno.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1512"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"JgaSYOQwcKX0y/PNLSI01y3eh+Dyyg7w2EKu3fo6tFY=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 10:29:26 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "1a582rbdno"
-        },
-        {
-          "Name": "label",
-          "Value": "js/PagamentoScript/paymentUltils.js.gz"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-JgaSYOQwcKX0y/PNLSI01y3eh+Dyyg7w2EKu3fo6tFY="
-        }
-      ]
-    },
-    {
-      "Route": "js/PagamentoScript/paymentUltils.js",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\0vwj5ox5et-1a582rbdno.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000660938533"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1512"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"JgaSYOQwcKX0y/PNLSI01y3eh+Dyyg7w2EKu3fo6tFY=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 10:29:26 GMT"
+          "Value": "Mon, 16 Jun 2025 16:00:13 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7582,19 +7116,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"R7UherBITUHiTM4b/JmycsOyPDxid8hWBC1n50OJLOw=\""
+          "Value": "W/\"mm7aRE24r+YQvhxj51veLKqHKTB71JUCF1Vo2Ol5kgo=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-R7UherBITUHiTM4b/JmycsOyPDxid8hWBC1n50OJLOw="
+          "Value": "sha256-mm7aRE24r+YQvhxj51veLKqHKTB71JUCF1Vo2Ol5kgo="
         }
       ]
     },
     {
-      "Route": "js/PagamentoScript/paymentUltils.js",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\js\\PagamentoScript\\paymentUltils.js",
+      "Route": "js/PagamentoScript/main.js",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\js\\PagamentoScript\\main.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7603,7 +7137,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "4988"
+          "Value": "4169"
         },
         {
           "Name": "Content-Type",
@@ -7611,11 +7145,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"R7UherBITUHiTM4b/JmycsOyPDxid8hWBC1n50OJLOw=\""
+          "Value": "\"mm7aRE24r+YQvhxj51veLKqHKTB71JUCF1Vo2Ol5kgo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 10:29:26 GMT"
+          "Value": "Mon, 16 Jun 2025 16:00:13 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7625,13 +7159,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-R7UherBITUHiTM4b/JmycsOyPDxid8hWBC1n50OJLOw="
+          "Value": "sha256-mm7aRE24r+YQvhxj51veLKqHKTB71JUCF1Vo2Ol5kgo="
         }
       ]
     },
     {
-      "Route": "js/PagamentoScript/paymentUltils.js.gz",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\0vwj5ox5et-1a582rbdno.gz",
+      "Route": "js/PagamentoScript/main.js.gz",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\q6cijnb6sf-eb4nd7lgaq.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7640,7 +7174,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1512"
+          "Value": "1215"
         },
         {
           "Name": "Content-Type",
@@ -7648,11 +7182,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"JgaSYOQwcKX0y/PNLSI01y3eh+Dyyg7w2EKu3fo6tFY=\""
+          "Value": "\"U3xx4T7+tToiBN71aQJogl1gHd7v28AXMsuvxc2vxq0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 10:29:26 GMT"
+          "Value": "Mon, 16 Jun 2025 16:00:13 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7670,18 +7204,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-JgaSYOQwcKX0y/PNLSI01y3eh+Dyyg7w2EKu3fo6tFY="
+          "Value": "sha256-U3xx4T7+tToiBN71aQJogl1gHd7v28AXMsuvxc2vxq0="
         }
       ]
     },
     {
-      "Route": "js/PagamentoScript/step1.gwsts4bcp3.js",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\l9usgkr0zd-gwsts4bcp3.gz",
+      "Route": "js/PagamentoScript/step1.js",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\l9usgkr0zd-lpmdl9q4hx.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001626016260"
+          "Quality": "0.001751313485"
         }
       ],
       "ResponseHeaders": [
@@ -7691,19 +7225,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "614"
+          "Value": "570"
         },
         {
           "Name": "ETag",
-          "Value": "\"0NgnC6rDZNjmoi357wUAQMra5dai7FHxoWfGaedPBP8=\""
+          "Value": "\"UChNj5gvYk07+7ximpJguyMqKoFs/luPXqozs/7HaRw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 10:29:52 GMT"
+          "Value": "Mon, 16 Jun 2025 20:57:55 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
+          "Value": "no-cache"
         },
         {
           "Name": "Content-Encoding",
@@ -7719,26 +7253,18 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"cOyMtcHoUKL4yKUHqHcPMf/lIZWCETb0GpaH6xCSr9U=\""
+          "Value": "W/\"x7L2bC7fF92bPGmy8i1p016e5ctn/YPyQO5SroF2DyI=\""
         }
       ],
       "EndpointProperties": [
         {
-          "Name": "fingerprint",
-          "Value": "gwsts4bcp3"
-        },
-        {
-          "Name": "label",
-          "Value": "js/PagamentoScript/step1.js"
-        },
-        {
           "Name": "integrity",
-          "Value": "sha256-cOyMtcHoUKL4yKUHqHcPMf/lIZWCETb0GpaH6xCSr9U="
+          "Value": "sha256-x7L2bC7fF92bPGmy8i1p016e5ctn/YPyQO5SroF2DyI="
         }
       ]
     },
     {
-      "Route": "js/PagamentoScript/step1.gwsts4bcp3.js",
+      "Route": "js/PagamentoScript/step1.js",
       "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\js\\PagamentoScript\\step1.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -7748,7 +7274,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1874"
+          "Value": "1827"
         },
         {
           "Name": "Content-Type",
@@ -7756,11 +7282,156 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"cOyMtcHoUKL4yKUHqHcPMf/lIZWCETb0GpaH6xCSr9U=\""
+          "Value": "\"x7L2bC7fF92bPGmy8i1p016e5ctn/YPyQO5SroF2DyI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 10:29:52 GMT"
+          "Value": "Mon, 16 Jun 2025 20:57:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-x7L2bC7fF92bPGmy8i1p016e5ctn/YPyQO5SroF2DyI="
+        }
+      ]
+    },
+    {
+      "Route": "js/PagamentoScript/step1.js.gz",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\l9usgkr0zd-lpmdl9q4hx.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "570"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"UChNj5gvYk07+7ximpJguyMqKoFs/luPXqozs/7HaRw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 16 Jun 2025 20:57:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-UChNj5gvYk07+7ximpJguyMqKoFs/luPXqozs/7HaRw="
+        }
+      ]
+    },
+    {
+      "Route": "js/PagamentoScript/step1.lpmdl9q4hx.js",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\l9usgkr0zd-lpmdl9q4hx.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001751313485"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "570"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"UChNj5gvYk07+7ximpJguyMqKoFs/luPXqozs/7HaRw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 16 Jun 2025 20:57:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"x7L2bC7fF92bPGmy8i1p016e5ctn/YPyQO5SroF2DyI=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "lpmdl9q4hx"
+        },
+        {
+          "Name": "label",
+          "Value": "js/PagamentoScript/step1.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-x7L2bC7fF92bPGmy8i1p016e5ctn/YPyQO5SroF2DyI="
+        }
+      ]
+    },
+    {
+      "Route": "js/PagamentoScript/step1.lpmdl9q4hx.js",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\js\\PagamentoScript\\step1.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1827"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"x7L2bC7fF92bPGmy8i1p016e5ctn/YPyQO5SroF2DyI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 16 Jun 2025 20:57:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7770,7 +7441,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "gwsts4bcp3"
+          "Value": "lpmdl9q4hx"
         },
         {
           "Name": "label",
@@ -7778,13 +7449,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-cOyMtcHoUKL4yKUHqHcPMf/lIZWCETb0GpaH6xCSr9U="
+          "Value": "sha256-x7L2bC7fF92bPGmy8i1p016e5ctn/YPyQO5SroF2DyI="
         }
       ]
     },
     {
-      "Route": "js/PagamentoScript/step1.gwsts4bcp3.js.gz",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\l9usgkr0zd-gwsts4bcp3.gz",
+      "Route": "js/PagamentoScript/step1.lpmdl9q4hx.js.gz",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\l9usgkr0zd-lpmdl9q4hx.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7793,7 +7464,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "614"
+          "Value": "570"
         },
         {
           "Name": "Content-Type",
@@ -7801,11 +7472,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"0NgnC6rDZNjmoi357wUAQMra5dai7FHxoWfGaedPBP8=\""
+          "Value": "\"UChNj5gvYk07+7ximpJguyMqKoFs/luPXqozs/7HaRw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 10:29:52 GMT"
+          "Value": "Mon, 16 Jun 2025 20:57:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7823,7 +7494,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "gwsts4bcp3"
+          "Value": "lpmdl9q4hx"
         },
         {
           "Name": "label",
@@ -7831,18 +7502,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-0NgnC6rDZNjmoi357wUAQMra5dai7FHxoWfGaedPBP8="
+          "Value": "sha256-UChNj5gvYk07+7ximpJguyMqKoFs/luPXqozs/7HaRw="
         }
       ]
     },
     {
-      "Route": "js/PagamentoScript/step1.js",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\l9usgkr0zd-gwsts4bcp3.gz",
+      "Route": "js/PagamentoScript/step2.js",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\wg2ez6kse2-u6fzl6q3z8.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001626016260"
+          "Quality": "0.001083423619"
         }
       ],
       "ResponseHeaders": [
@@ -7852,15 +7523,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "614"
+          "Value": "922"
         },
         {
           "Name": "ETag",
-          "Value": "\"0NgnC6rDZNjmoi357wUAQMra5dai7FHxoWfGaedPBP8=\""
+          "Value": "\"FFGEUsp05mCxcLfZFMFCZFry+Th5kjyhwvJ9CRNIY9E=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 10:29:52 GMT"
+          "Value": "Sat, 14 Jun 2025 00:34:39 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7880,163 +7551,18 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"cOyMtcHoUKL4yKUHqHcPMf/lIZWCETb0GpaH6xCSr9U=\""
+          "Value": "W/\"pqQ4QoTPYsVIgWBzXGd/2mWjdkkrIKuExT151jAhFH8=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-cOyMtcHoUKL4yKUHqHcPMf/lIZWCETb0GpaH6xCSr9U="
+          "Value": "sha256-pqQ4QoTPYsVIgWBzXGd/2mWjdkkrIKuExT151jAhFH8="
         }
       ]
     },
     {
-      "Route": "js/PagamentoScript/step1.js",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\js\\PagamentoScript\\step1.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1874"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"cOyMtcHoUKL4yKUHqHcPMf/lIZWCETb0GpaH6xCSr9U=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 10:29:52 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-cOyMtcHoUKL4yKUHqHcPMf/lIZWCETb0GpaH6xCSr9U="
-        }
-      ]
-    },
-    {
-      "Route": "js/PagamentoScript/step1.js.gz",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\l9usgkr0zd-gwsts4bcp3.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "614"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"0NgnC6rDZNjmoi357wUAQMra5dai7FHxoWfGaedPBP8=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 10:29:52 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-0NgnC6rDZNjmoi357wUAQMra5dai7FHxoWfGaedPBP8="
-        }
-      ]
-    },
-    {
-      "Route": "js/PagamentoScript/step2.epzl8zi5gw.js",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\wg2ez6kse2-epzl8zi5gw.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000758150114"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1318"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"pTPtXCz7MzvTXUVUPa3ZQll7TTsY5WolZ+8Ju1UgWkE=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 10:29:50 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"/oPYvkMDrmmVRr6o5N6++LjskRQsCh3HdpXw58GyUNc=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "epzl8zi5gw"
-        },
-        {
-          "Name": "label",
-          "Value": "js/PagamentoScript/step2.js"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-/oPYvkMDrmmVRr6o5N6++LjskRQsCh3HdpXw58GyUNc="
-        }
-      ]
-    },
-    {
-      "Route": "js/PagamentoScript/step2.epzl8zi5gw.js",
+      "Route": "js/PagamentoScript/step2.js",
       "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\js\\PagamentoScript\\step2.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -8046,7 +7572,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "4673"
+          "Value": "2887"
         },
         {
           "Name": "Content-Type",
@@ -8054,11 +7580,156 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"/oPYvkMDrmmVRr6o5N6++LjskRQsCh3HdpXw58GyUNc=\""
+          "Value": "\"pqQ4QoTPYsVIgWBzXGd/2mWjdkkrIKuExT151jAhFH8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 10:29:50 GMT"
+          "Value": "Sat, 14 Jun 2025 00:34:39 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-pqQ4QoTPYsVIgWBzXGd/2mWjdkkrIKuExT151jAhFH8="
+        }
+      ]
+    },
+    {
+      "Route": "js/PagamentoScript/step2.js.gz",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\wg2ez6kse2-u6fzl6q3z8.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "922"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"FFGEUsp05mCxcLfZFMFCZFry+Th5kjyhwvJ9CRNIY9E=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 14 Jun 2025 00:34:39 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-FFGEUsp05mCxcLfZFMFCZFry+Th5kjyhwvJ9CRNIY9E="
+        }
+      ]
+    },
+    {
+      "Route": "js/PagamentoScript/step2.u6fzl6q3z8.js",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\wg2ez6kse2-u6fzl6q3z8.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001083423619"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "922"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"FFGEUsp05mCxcLfZFMFCZFry+Th5kjyhwvJ9CRNIY9E=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 14 Jun 2025 00:34:39 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"pqQ4QoTPYsVIgWBzXGd/2mWjdkkrIKuExT151jAhFH8=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "u6fzl6q3z8"
+        },
+        {
+          "Name": "label",
+          "Value": "js/PagamentoScript/step2.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-pqQ4QoTPYsVIgWBzXGd/2mWjdkkrIKuExT151jAhFH8="
+        }
+      ]
+    },
+    {
+      "Route": "js/PagamentoScript/step2.u6fzl6q3z8.js",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\js\\PagamentoScript\\step2.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2887"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"pqQ4QoTPYsVIgWBzXGd/2mWjdkkrIKuExT151jAhFH8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 14 Jun 2025 00:34:39 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8068,7 +7739,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "epzl8zi5gw"
+          "Value": "u6fzl6q3z8"
         },
         {
           "Name": "label",
@@ -8076,13 +7747,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-/oPYvkMDrmmVRr6o5N6++LjskRQsCh3HdpXw58GyUNc="
+          "Value": "sha256-pqQ4QoTPYsVIgWBzXGd/2mWjdkkrIKuExT151jAhFH8="
         }
       ]
     },
     {
-      "Route": "js/PagamentoScript/step2.epzl8zi5gw.js.gz",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\wg2ez6kse2-epzl8zi5gw.gz",
+      "Route": "js/PagamentoScript/step2.u6fzl6q3z8.js.gz",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\wg2ez6kse2-u6fzl6q3z8.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -8091,7 +7762,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1318"
+          "Value": "922"
         },
         {
           "Name": "Content-Type",
@@ -8099,11 +7770,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"pTPtXCz7MzvTXUVUPa3ZQll7TTsY5WolZ+8Ju1UgWkE=\""
+          "Value": "\"FFGEUsp05mCxcLfZFMFCZFry+Th5kjyhwvJ9CRNIY9E=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 10:29:50 GMT"
+          "Value": "Sat, 14 Jun 2025 00:34:39 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8121,7 +7792,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "epzl8zi5gw"
+          "Value": "u6fzl6q3z8"
         },
         {
           "Name": "label",
@@ -8129,1049 +7800,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-pTPtXCz7MzvTXUVUPa3ZQll7TTsY5WolZ+8Ju1UgWkE="
-        }
-      ]
-    },
-    {
-      "Route": "js/PagamentoScript/step2.js",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\wg2ez6kse2-epzl8zi5gw.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000758150114"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1318"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"pTPtXCz7MzvTXUVUPa3ZQll7TTsY5WolZ+8Ju1UgWkE=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 10:29:50 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"/oPYvkMDrmmVRr6o5N6++LjskRQsCh3HdpXw58GyUNc=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-/oPYvkMDrmmVRr6o5N6++LjskRQsCh3HdpXw58GyUNc="
-        }
-      ]
-    },
-    {
-      "Route": "js/PagamentoScript/step2.js",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\js\\PagamentoScript\\step2.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "4673"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"/oPYvkMDrmmVRr6o5N6++LjskRQsCh3HdpXw58GyUNc=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 10:29:50 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-/oPYvkMDrmmVRr6o5N6++LjskRQsCh3HdpXw58GyUNc="
-        }
-      ]
-    },
-    {
-      "Route": "js/PagamentoScript/step2.js.gz",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\wg2ez6kse2-epzl8zi5gw.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1318"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"pTPtXCz7MzvTXUVUPa3ZQll7TTsY5WolZ+8Ju1UgWkE=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 10:29:50 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-pTPtXCz7MzvTXUVUPa3ZQll7TTsY5WolZ+8Ju1UgWkE="
-        }
-      ]
-    },
-    {
-      "Route": "js/PagamentoScript/step3.c9cj7dcql7.js",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\b5cqpxvrnl-c9cj7dcql7.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000627746390"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1592"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"Z4LmJXwB2PCvHAraVxocgR8VY2RYtkbfaAtS7xGrV2E=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 10:37:37 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"MEAcXXJch63HNSMxRt61KcY1EDRJfrWodUMd8y3cQg0=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "c9cj7dcql7"
-        },
-        {
-          "Name": "label",
-          "Value": "js/PagamentoScript/step3.js"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-MEAcXXJch63HNSMxRt61KcY1EDRJfrWodUMd8y3cQg0="
-        }
-      ]
-    },
-    {
-      "Route": "js/PagamentoScript/step3.c9cj7dcql7.js",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\js\\PagamentoScript\\step3.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "5664"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"MEAcXXJch63HNSMxRt61KcY1EDRJfrWodUMd8y3cQg0=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 10:37:37 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "c9cj7dcql7"
-        },
-        {
-          "Name": "label",
-          "Value": "js/PagamentoScript/step3.js"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-MEAcXXJch63HNSMxRt61KcY1EDRJfrWodUMd8y3cQg0="
-        }
-      ]
-    },
-    {
-      "Route": "js/PagamentoScript/step3.c9cj7dcql7.js.gz",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\b5cqpxvrnl-c9cj7dcql7.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1592"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"Z4LmJXwB2PCvHAraVxocgR8VY2RYtkbfaAtS7xGrV2E=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 10:37:37 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "c9cj7dcql7"
-        },
-        {
-          "Name": "label",
-          "Value": "js/PagamentoScript/step3.js.gz"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-Z4LmJXwB2PCvHAraVxocgR8VY2RYtkbfaAtS7xGrV2E="
-        }
-      ]
-    },
-    {
-      "Route": "js/PagamentoScript/step3.js",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\b5cqpxvrnl-c9cj7dcql7.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000627746390"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1592"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"Z4LmJXwB2PCvHAraVxocgR8VY2RYtkbfaAtS7xGrV2E=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 10:37:37 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"MEAcXXJch63HNSMxRt61KcY1EDRJfrWodUMd8y3cQg0=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-MEAcXXJch63HNSMxRt61KcY1EDRJfrWodUMd8y3cQg0="
-        }
-      ]
-    },
-    {
-      "Route": "js/PagamentoScript/step3.js",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\js\\PagamentoScript\\step3.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "5664"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"MEAcXXJch63HNSMxRt61KcY1EDRJfrWodUMd8y3cQg0=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 10:37:37 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-MEAcXXJch63HNSMxRt61KcY1EDRJfrWodUMd8y3cQg0="
-        }
-      ]
-    },
-    {
-      "Route": "js/PagamentoScript/step3.js.gz",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\b5cqpxvrnl-c9cj7dcql7.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1592"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"Z4LmJXwB2PCvHAraVxocgR8VY2RYtkbfaAtS7xGrV2E=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 10:37:37 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-Z4LmJXwB2PCvHAraVxocgR8VY2RYtkbfaAtS7xGrV2E="
-        }
-      ]
-    },
-    {
-      "Route": "js/PagamentoScript/step4.jjwb4v1bfp.js",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\nfy6qok2la-jjwb4v1bfp.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000531067446"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1882"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"rRgIPYJA6rLWTdFeH/+5EceErrMKfF1PGxFk6Z3B9qI=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 10:37:43 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"f6m33xGSgZRuBVFFgFksiqikPZnWubh53dA0vyJSWXY=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "jjwb4v1bfp"
-        },
-        {
-          "Name": "label",
-          "Value": "js/PagamentoScript/step4.js"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-f6m33xGSgZRuBVFFgFksiqikPZnWubh53dA0vyJSWXY="
-        }
-      ]
-    },
-    {
-      "Route": "js/PagamentoScript/step4.jjwb4v1bfp.js",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\js\\PagamentoScript\\step4.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "7032"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"f6m33xGSgZRuBVFFgFksiqikPZnWubh53dA0vyJSWXY=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 10:37:43 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "jjwb4v1bfp"
-        },
-        {
-          "Name": "label",
-          "Value": "js/PagamentoScript/step4.js"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-f6m33xGSgZRuBVFFgFksiqikPZnWubh53dA0vyJSWXY="
-        }
-      ]
-    },
-    {
-      "Route": "js/PagamentoScript/step4.jjwb4v1bfp.js.gz",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\nfy6qok2la-jjwb4v1bfp.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1882"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"rRgIPYJA6rLWTdFeH/+5EceErrMKfF1PGxFk6Z3B9qI=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 10:37:43 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "jjwb4v1bfp"
-        },
-        {
-          "Name": "label",
-          "Value": "js/PagamentoScript/step4.js.gz"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-rRgIPYJA6rLWTdFeH/+5EceErrMKfF1PGxFk6Z3B9qI="
-        }
-      ]
-    },
-    {
-      "Route": "js/PagamentoScript/step4.js",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\nfy6qok2la-jjwb4v1bfp.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000531067446"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1882"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"rRgIPYJA6rLWTdFeH/+5EceErrMKfF1PGxFk6Z3B9qI=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 10:37:43 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"f6m33xGSgZRuBVFFgFksiqikPZnWubh53dA0vyJSWXY=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-f6m33xGSgZRuBVFFgFksiqikPZnWubh53dA0vyJSWXY="
-        }
-      ]
-    },
-    {
-      "Route": "js/PagamentoScript/step4.js",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\js\\PagamentoScript\\step4.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "7032"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"f6m33xGSgZRuBVFFgFksiqikPZnWubh53dA0vyJSWXY=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 10:37:43 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-f6m33xGSgZRuBVFFgFksiqikPZnWubh53dA0vyJSWXY="
-        }
-      ]
-    },
-    {
-      "Route": "js/PagamentoScript/step4.js.gz",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\nfy6qok2la-jjwb4v1bfp.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1882"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"rRgIPYJA6rLWTdFeH/+5EceErrMKfF1PGxFk6Z3B9qI=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 10:37:43 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-rRgIPYJA6rLWTdFeH/+5EceErrMKfF1PGxFk6Z3B9qI="
-        }
-      ]
-    },
-    {
-      "Route": "js/PagamentoScript/step5.e304hv6r5k.js",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\pw0ryfvxem-e304hv6r5k.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000603500302"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1656"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"AcjeDoGkRQkBzTLQbONpafcJFWoNa4M5EoEMUVGftos=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 10:37:53 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"eoYAk/YihHF8N5v88ld1aHrOhDVodYie+qsavRf6MZY=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "e304hv6r5k"
-        },
-        {
-          "Name": "label",
-          "Value": "js/PagamentoScript/step5.js"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-eoYAk/YihHF8N5v88ld1aHrOhDVodYie+qsavRf6MZY="
-        }
-      ]
-    },
-    {
-      "Route": "js/PagamentoScript/step5.e304hv6r5k.js",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\js\\PagamentoScript\\step5.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "5532"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"eoYAk/YihHF8N5v88ld1aHrOhDVodYie+qsavRf6MZY=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 10:37:53 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "e304hv6r5k"
-        },
-        {
-          "Name": "label",
-          "Value": "js/PagamentoScript/step5.js"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-eoYAk/YihHF8N5v88ld1aHrOhDVodYie+qsavRf6MZY="
-        }
-      ]
-    },
-    {
-      "Route": "js/PagamentoScript/step5.e304hv6r5k.js.gz",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\pw0ryfvxem-e304hv6r5k.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1656"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"AcjeDoGkRQkBzTLQbONpafcJFWoNa4M5EoEMUVGftos=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 10:37:53 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "e304hv6r5k"
-        },
-        {
-          "Name": "label",
-          "Value": "js/PagamentoScript/step5.js.gz"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-AcjeDoGkRQkBzTLQbONpafcJFWoNa4M5EoEMUVGftos="
-        }
-      ]
-    },
-    {
-      "Route": "js/PagamentoScript/step5.js",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\pw0ryfvxem-e304hv6r5k.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000603500302"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1656"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"AcjeDoGkRQkBzTLQbONpafcJFWoNa4M5EoEMUVGftos=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 10:37:53 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"eoYAk/YihHF8N5v88ld1aHrOhDVodYie+qsavRf6MZY=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-eoYAk/YihHF8N5v88ld1aHrOhDVodYie+qsavRf6MZY="
-        }
-      ]
-    },
-    {
-      "Route": "js/PagamentoScript/step5.js",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\js\\PagamentoScript\\step5.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "5532"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"eoYAk/YihHF8N5v88ld1aHrOhDVodYie+qsavRf6MZY=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 10:37:53 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-eoYAk/YihHF8N5v88ld1aHrOhDVodYie+qsavRf6MZY="
-        }
-      ]
-    },
-    {
-      "Route": "js/PagamentoScript/step5.js.gz",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\pw0ryfvxem-e304hv6r5k.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1656"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"AcjeDoGkRQkBzTLQbONpafcJFWoNa4M5EoEMUVGftos=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 10:37:53 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-AcjeDoGkRQkBzTLQbONpafcJFWoNa4M5EoEMUVGftos="
+          "Value": "sha256-FFGEUsp05mCxcLfZFMFCZFry+Th5kjyhwvJ9CRNIY9E="
         }
       ]
     },
     {
       "Route": "js/PagamentoScript/ultilities.js",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\qearznk3ul-ocgkt4zwfe.gz",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\qearznk3ul-xfn93yn21j.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001283697047"
+          "Quality": "0.001321003963"
         }
       ],
       "ResponseHeaders": [
@@ -9181,15 +7821,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "778"
+          "Value": "756"
         },
         {
           "Name": "ETag",
-          "Value": "\"zlCbam0YV5xW8YRIw0XzXLygwB5ufs7EcrW09LuEmc4=\""
+          "Value": "\"UOAVcHZkQDECnpdHUWxGziUJ0q2e/u6rHGxnorZntt0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 10:29:32 GMT"
+          "Value": "Mon, 16 Jun 2025 20:57:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9209,13 +7849,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"yIyOfm3DCxVMobEdnMTCAXh/n81UVB0J7Nsxd6ubypE=\""
+          "Value": "W/\"7XkRo0wS9yczdmKZCpibMEpK1m0svdPtkZaCqOuDUmY=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-yIyOfm3DCxVMobEdnMTCAXh/n81UVB0J7Nsxd6ubypE="
+          "Value": "sha256-7XkRo0wS9yczdmKZCpibMEpK1m0svdPtkZaCqOuDUmY="
         }
       ]
     },
@@ -9230,7 +7870,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2035"
+          "Value": "2003"
         },
         {
           "Name": "Content-Type",
@@ -9238,11 +7878,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"yIyOfm3DCxVMobEdnMTCAXh/n81UVB0J7Nsxd6ubypE=\""
+          "Value": "\"7XkRo0wS9yczdmKZCpibMEpK1m0svdPtkZaCqOuDUmY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 10:29:32 GMT"
+          "Value": "Mon, 16 Jun 2025 20:57:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9252,13 +7892,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-yIyOfm3DCxVMobEdnMTCAXh/n81UVB0J7Nsxd6ubypE="
+          "Value": "sha256-7XkRo0wS9yczdmKZCpibMEpK1m0svdPtkZaCqOuDUmY="
         }
       ]
     },
     {
       "Route": "js/PagamentoScript/ultilities.js.gz",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\qearznk3ul-ocgkt4zwfe.gz",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\qearznk3ul-xfn93yn21j.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -9267,7 +7907,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "778"
+          "Value": "756"
         },
         {
           "Name": "Content-Type",
@@ -9275,11 +7915,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"zlCbam0YV5xW8YRIw0XzXLygwB5ufs7EcrW09LuEmc4=\""
+          "Value": "\"UOAVcHZkQDECnpdHUWxGziUJ0q2e/u6rHGxnorZntt0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 10:29:32 GMT"
+          "Value": "Mon, 16 Jun 2025 20:57:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9297,18 +7937,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-zlCbam0YV5xW8YRIw0XzXLygwB5ufs7EcrW09LuEmc4="
+          "Value": "sha256-UOAVcHZkQDECnpdHUWxGziUJ0q2e/u6rHGxnorZntt0="
         }
       ]
     },
     {
-      "Route": "js/PagamentoScript/ultilities.ocgkt4zwfe.js",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\qearznk3ul-ocgkt4zwfe.gz",
+      "Route": "js/PagamentoScript/ultilities.xfn93yn21j.js",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\qearznk3ul-xfn93yn21j.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001283697047"
+          "Quality": "0.001321003963"
         }
       ],
       "ResponseHeaders": [
@@ -9318,15 +7958,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "778"
+          "Value": "756"
         },
         {
           "Name": "ETag",
-          "Value": "\"zlCbam0YV5xW8YRIw0XzXLygwB5ufs7EcrW09LuEmc4=\""
+          "Value": "\"UOAVcHZkQDECnpdHUWxGziUJ0q2e/u6rHGxnorZntt0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 10:29:32 GMT"
+          "Value": "Mon, 16 Jun 2025 20:57:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9346,13 +7986,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"yIyOfm3DCxVMobEdnMTCAXh/n81UVB0J7Nsxd6ubypE=\""
+          "Value": "W/\"7XkRo0wS9yczdmKZCpibMEpK1m0svdPtkZaCqOuDUmY=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "ocgkt4zwfe"
+          "Value": "xfn93yn21j"
         },
         {
           "Name": "label",
@@ -9360,12 +8000,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-yIyOfm3DCxVMobEdnMTCAXh/n81UVB0J7Nsxd6ubypE="
+          "Value": "sha256-7XkRo0wS9yczdmKZCpibMEpK1m0svdPtkZaCqOuDUmY="
         }
       ]
     },
     {
-      "Route": "js/PagamentoScript/ultilities.ocgkt4zwfe.js",
+      "Route": "js/PagamentoScript/ultilities.xfn93yn21j.js",
       "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\wwwroot\\js\\PagamentoScript\\ultilities.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -9375,7 +8015,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2035"
+          "Value": "2003"
         },
         {
           "Name": "Content-Type",
@@ -9383,11 +8023,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"yIyOfm3DCxVMobEdnMTCAXh/n81UVB0J7Nsxd6ubypE=\""
+          "Value": "\"7XkRo0wS9yczdmKZCpibMEpK1m0svdPtkZaCqOuDUmY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 10:29:32 GMT"
+          "Value": "Mon, 16 Jun 2025 20:57:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9397,7 +8037,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "ocgkt4zwfe"
+          "Value": "xfn93yn21j"
         },
         {
           "Name": "label",
@@ -9405,13 +8045,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-yIyOfm3DCxVMobEdnMTCAXh/n81UVB0J7Nsxd6ubypE="
+          "Value": "sha256-7XkRo0wS9yczdmKZCpibMEpK1m0svdPtkZaCqOuDUmY="
         }
       ]
     },
     {
-      "Route": "js/PagamentoScript/ultilities.ocgkt4zwfe.js.gz",
-      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\qearznk3ul-ocgkt4zwfe.gz",
+      "Route": "js/PagamentoScript/ultilities.xfn93yn21j.js.gz",
+      "AssetFile": "C:\\Users\\Felip\\OneDrive\\Área de Trabalho\\VoxDocs - Copia (2)\\obj\\Debug\\net9.0\\compressed\\qearznk3ul-xfn93yn21j.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -9420,7 +8060,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "778"
+          "Value": "756"
         },
         {
           "Name": "Content-Type",
@@ -9428,11 +8068,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"zlCbam0YV5xW8YRIw0XzXLygwB5ufs7EcrW09LuEmc4=\""
+          "Value": "\"UOAVcHZkQDECnpdHUWxGziUJ0q2e/u6rHGxnorZntt0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 10:29:32 GMT"
+          "Value": "Mon, 16 Jun 2025 20:57:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9450,7 +8090,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "ocgkt4zwfe"
+          "Value": "xfn93yn21j"
         },
         {
           "Name": "label",
@@ -9458,7 +8098,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-zlCbam0YV5xW8YRIw0XzXLygwB5ufs7EcrW09LuEmc4="
+          "Value": "sha256-UOAVcHZkQDECnpdHUWxGziUJ0q2e/u6rHGxnorZntt0="
         }
       ]
     },

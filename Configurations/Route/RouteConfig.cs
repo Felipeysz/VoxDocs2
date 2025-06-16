@@ -10,25 +10,20 @@ namespace VoxDocs.Configurations
                     options.ViewLocationFormats.Clear();
                     //Pages
                     options.ViewLocationFormats.Add("/Views/Pages/{0}.cshtml");
+                    options.ViewLocationFormats.Add("/Views/Pages/Perfil/{0}.cshtml");
+                    options.ViewLocationFormats.Add("/Views/Pages/Documentos/{0}.cshtml");
+                    options.ViewLocationFormats.Add("/Views/Pages/Upload/{0}.cshtml");
                     options.ViewLocationFormats.Add("/Views/Pages/AuthPage/{0}.cshtml");
                     options.ViewLocationFormats.Add("/Views/Pages/AuthPage/RecuperarContas/{0}.cshtml");
-                    options.ViewLocationFormats.Add("/Views/Pages/Documentos/{0}.cshtml");
+
                     options.ViewLocationFormats.Add("/Views/Pages/PagamentosPages/{0}.cshtml");
-                    options.ViewLocationFormats.Add("/Views/Pages/Upload/{0}.cshtml");
 
 
-                    //Shared
-                    options.ViewLocationFormats.Add("/Views/Shared/{0}.cshtml");
+                    //PartialViews/Components/ErrosPages
                     options.ViewLocationFormats.Add("/Views/Shared/ErrosPage/{0}.cshtml");
                     options.ViewLocationFormats.Add("/Views/Shared/Components/{0}.cshtml");
-                    options.ViewLocationFormats.Add("/Views/Shared/Components/Documentos/{0}.cshtml");
-                    options.ViewLocationFormats.Add("/Views/Shared/Components/Documentos/actionsPage/{0}.cshtml");
-                    options.ViewLocationFormats.Add("/Views/Shared/Components/Documentos/modalPage/{0}.cshtml");
-                    options.ViewLocationFormats.Add("/Views/Shared/Components/Navbar/{0}.cshtml");
-                    options.ViewLocationFormats.Add("/Views/Shared/Components/Pagamentos/{0}.cshtml");
                     options.ViewLocationFormats.Add("/Views/Shared/Components/SuporteIA/{0}.cshtml");
-                    options.ViewLocationFormats.Add("/Views/Shared/ErrosPage/{0}.cshtml");
-                    
+                    options.ViewLocationFormats.Add("/Views/Shared/Components/Navbar/{0}.cshtml");
 
                 });
         }
@@ -51,54 +46,49 @@ namespace VoxDocs.Configurations
 
 
 
-            // --- Login ---
+            // --- Auth Pages ---
             app.MapControllerRoute(
                 name: "Login",
                 pattern: "Login",
-                defaults: new { controller = "LoginMvc", action = "Login" });
+                defaults: new { controller = "AuthMvc", action = "Login" });
 
             app.MapControllerRoute(
-                name: "RecuperarSenha",
-                pattern: "RecuperarSenha",
-                defaults: new { controller = "LoginMvc", action = "RecuperarSenha" });
+                name: "ForgotPassword",
+                pattern: "ForgotPassword",
+                defaults: new { controller = "AuthMvc", action = "ForgotPassword" });
 
             app.MapControllerRoute(
-                name: "RecuperarEmail",
-                pattern: "RecuperarEmail",
-                defaults: new { controller = "LoginMvc", action = "RecuperarEmail" });
+                name: "ForgotPasswordConfirmation",
+                pattern: "ForgotPasswordConfirmation",
+                defaults: new { controller = "AuthMvc", action = "ForgotPasswordConfirmation" });
 
             app.MapControllerRoute(
-                name: "LinkRedefinirSenha",
-                pattern: "LinkRedefinirSenha",
-                defaults: new { controller = "LoginMvc", action = "LinkRedefinirSenha" });
+                name: "ResetPassword",
+                pattern: "ResetPassword",
+                defaults: new { controller = "AuthMvc", action = "ResetPassword" });
 
             app.MapControllerRoute(
-            name: "Logout",
-            pattern: "Logout",
-            defaults: new { controller = "LoginMvc", action = "Logout" });                
+                name: "Logout",
+                pattern: "Logout",
+                defaults: new { controller = "AuthMvc", action = "Logout" });
 
 
 
             // --- Pagamento ---
-            app.MapControllerRoute(
-                name: "ConfirmarPagamentoCartao",
-                pattern: "ConfirmarPagamentoCartao",
-                defaults: new { controller = "PagamentosMvc", action = "ConfirmarPagamentoCartao" });
-
-            app.MapControllerRoute(
-                name: "ConfirmarPagamentoPix",
-                pattern: "ConfirmarPagamentoPix",
-                defaults: new { controller = "PagamentosMvc", action = "ConfirmarPagamentoPix" });
-
             app.MapControllerRoute(
                 name: "PlanoPagamento",
                 pattern: "PlanoPagamento",
                 defaults: new { controller = "PagamentosMvc", action = "PlanoPagamento" });
 
             app.MapControllerRoute(
-                name: "ConfirmarPagamento",
-                pattern: "ConfirmarPagamento",
-                defaults: new { controller = "PagamentosMvc", action = "ConfirmarPagamento" });
+                name: "CriarCadastroPagamento",
+                pattern: "CriarCadastroPagamento",
+                defaults: new { controller = "PagamentosMvc", action = "CriarCadastroPagamento" });
+
+            app.MapControllerRoute(
+                name: "ErrorTokenPlano",
+                pattern: "ErrorTokenPlano",
+                defaults: new { controller = "PagamentosMvc", action = "ErrorTokenPlano" });
 
 
 
@@ -107,7 +97,7 @@ namespace VoxDocs.Configurations
             app.MapControllerRoute(
                 name: "MeuPerfil",
                 pattern: "MeuPerfil",
-                defaults: new { controller = "UserInfoMvc", action = "MeuPerfil" });
+                defaults: new { controller = "PerfilMvc", action = "MeuPerfil" });
 
 
 

@@ -1,0 +1,137 @@
+@model VoxDocs.Models.ViewModels.ConfiguracaoDocumentosViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Configuração de Documentos • VoxDocs</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/styleSidebarDashboard.css" />
+    <style>
+        :root {
+            --color-primary: #774C9E;
+            --bg-light: #f4f6f9;
+            --shadow: rgba(0,0,0,0.1);
+            --sidebar-width: 240px;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-light);
+            display: flex;
+        }
+
+        #sidebar-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+        }
+
+        #main {
+            margin-left: var(--sidebar-width);
+            flex: 1;
+            padding: 2rem;
+        }
+
+        .content-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            color: var(--color-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .card-config {
+            background: #fff;
+            border-radius: .75rem;
+            box-shadow: 0 8px 24px var(--shadow);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-check-label {
+            cursor: pointer;
+        }
+
+        .btn-save {
+            background: var(--color-primary);
+            color: #fff;
+        }
+
+        .btn-save:hover {
+            background: #5c3c8a;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="sidebar-container">
+        @Html.Partial("_SidebarAdmin")
+    </div>
+    <div id="main">
+        <div class="content-wrapper">
+            <h2>Configuração de Documentos</h2>
+
+            <form asp-action="SalvarConfiguracoesDocumentos" method="post">
+                <div class="card-config">
+                    <h5 class="mb-4">Tipos de Documentos</h5>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Tipos permitidos</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" asp-for="PermitirPDF" />
+                            <label class="form-check-label">PDF</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" asp-for="PermitirWord" />
+                            <label class="form-check-label">Word (.docx)</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" asp-for="PermitirExcel" />
+                            <label class="form-check-label">Excel (.xlsx)</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" asp-for="PermitirImagens" />
+                            <label class="form-check-label">Imagens (JPEG, PNG)</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-config">
+                    <h5 class="mb-4">Tamanho Máximo</h5>
+                    <div class="mb-3">
+                        <label class="form-label">Tamanho máximo por arquivo (MB)</label>
+                        <input type="number" asp-for="TamanhoMaximoMB" class="form-control" min="1" max="100" />
+                    </div>
+                </div>
+
+                <div class="card-config">
+                    <h5 class="mb-4">Armazenamento</h5>
+                    <div class="mb-3">
+                        <label class="form-label">Dias para armazenamento temporário</label>
+                        <input type="number" asp-for="DiasArmazenamentoTemporario" class="form-control" min="1" max="365" />
+                    </div>
+                </div>
+
+                <div class="text-end">
+                    <button type="submit" class="btn btn-save px-4 py-2">Salvar Configurações</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/scriptSideBar.js"></script>
+</body>
+</html>
