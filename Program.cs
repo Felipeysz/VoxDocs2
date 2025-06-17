@@ -2,14 +2,12 @@ using Azure.Storage.Blobs;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.EntityFrameworkCore;
-using VoxDocs.Business.Rules;
 using VoxDocs.BusinessRules;
 using VoxDocs.Configurations;
 using VoxDocs.Data;
 using VoxDocs.Data.Repositories;
 using VoxDocs.Interfaces;
 using VoxDocs.Repositories;
-using VoxDocs.Repository;
 using VoxDocs.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -59,8 +57,7 @@ builder.Services.AddAuthorization(options =>
               .RequireAuthenticatedUser());
 });
 
-// --- Swagger & HttpClient ---
-builder.Services.AddSwaggerConfiguration();
+// --- HttpClient ---
 builder.Services.AddHttpClient("VoxDocsApi", c =>
     c.BaseAddress = new Uri(builder.Configuration["ApiSettings:BaseUrl"] ?? string.Empty)
 );
@@ -69,42 +66,17 @@ builder.Services.AddHttpClient("VoxDocsApi", c =>
 builder.Services.AddScoped<AzureBlobService>();
 
 // --- Repositorios ---
-
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IPlanosVoxDocsRepository, PlanosVoxDocsRepository>();
-builder.Services.AddScoped<IPagamentoRepository, PagamentoRepository>();
-builder.Services.AddScoped<ILogRepository, LogRepository>();
-builder.Services.AddScoped<IEmpresasContratanteRepository, EmpresasContratanteRepository>();
-builder.Services.AddScoped<IDocumentoRepository, DocumentoRepository>();
-builder.Services.AddScoped<IPastaPrincipalRepository,PastaPrincipalRepository>();
-builder.Services.AddScoped<ISubPastaRepository, SubPastaRepository>();
-builder.Services.AddScoped<IConfiguracaoDocumentoRepository,ConfiguracaoDocumentoRepository>();
 
 // --- BusinessRules ---
-
 builder.Services.AddScoped<IUserBusinessRules, UserBusinessRules>();
 builder.Services.AddScoped<IPlanosVoxDocsBusinessRules, PlanosVoxDocsBusinessRules>();
-builder.Services.AddScoped<IPagamentoBusinessRules, PagamentoBusinessRules>();
-builder.Services.AddScoped<ILogBusinessRules, LogBusinessRules>();
-builder.Services.AddScoped<IEmpresasContratanteBusinessRules, EmpresasContratanteBusinessRules>();
-builder.Services.AddScoped<IDocumentoBusinessRules, DocumentoBusinessRules>();
-builder.Services.AddScoped<IDocumentoOfflineBusinessRules, DocumentoOfflineBusinessRules>();
-builder.Services.AddScoped<IPastaPrincipalBusinessRules, PastaPrincipalBusinessRules>();
-builder.Services.AddScoped<ISubPastaBusinessRules, SubPastaBusinessRules>();
-builder.Services.AddScoped<IAdminStatisticsBusinessRules, AdminStatisticsBusinessRules>();
-builder.Services.AddScoped<IConfiguracaoDocumentoBusinessRules, ConfiguracaoDocumentoBusinessRules>();
+
 
 // --- Serviços ---
-
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IPlanosVoxDocsService, PlanosVoxDocsService>();
-builder.Services.AddScoped<IPagamentoService, PagamentoService>();
-builder.Services.AddScoped<ILogService, LogService>();
-builder.Services.AddScoped<IEmpresasContratanteService , EmpresasContratanteService>();
-builder.Services.AddScoped<IDocumentosPastasService, DocumentosPastasService>();
-builder.Services.AddScoped<IDocumentosOfflineService, DocumentosOfflineService>();
-builder.Services.AddScoped<IConfiguracaoDocumentoService,ConfiguracaoDocumentoService>();
-builder.Services.AddScoped<IAdminStatisticsService,AdminStatisticsService>();
 
 
 // --- MVC, Views e Session customizados ---
@@ -124,13 +96,6 @@ app.UseRouting();
 app.UseSession();
 app.UseAuthentication();
 app.UseAuthorization();
-
-app.UseSwagger();
-app.UseSwaggerUI(c =>
-{
-    c.SwaggerEndpoint("/swagger/v1/swagger.json", "API de Usuários V1");
-    c.RoutePrefix = "swagger";
-});
 
 app.UseCustomRouting();
 
